@@ -50,3 +50,13 @@ The following packages were added:
   com.unity.timeline@1.2.6
   com.unity.ugui@1.0.0
   com.unity.xr.legacyinputhelpers@2.1.4
+
+=== Sat Sep 19 09:40:32 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ads from version 3.4.7 to 3.4.9
+  com.unity.purchasing from version 2.0.6 to 2.1.0
+  com.unity.test-framework from version 1.1.14 to 1.1.16

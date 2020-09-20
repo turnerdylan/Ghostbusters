@@ -21,7 +21,6 @@ public class CheckIfGrounded : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isGrounded = true;
-        print("ready");
     }
 
     private void OnTriggerExit(Collider other)

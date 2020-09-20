@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Terrain test.unity
+- path: Assets/Scenes/Player controller.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
