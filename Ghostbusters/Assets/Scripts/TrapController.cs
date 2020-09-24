@@ -50,6 +50,9 @@ public class TrapController : Interactable
         {
             pc.capturedGhost.transform.parent = transform;
             pc.capturedGhost.transform.position = storedGhost.position;
+            pc.capturedGhost.isInNet = false;
+            pc.capturedGhost.isInTrap = true;
+            pc.capturedGhost.SetStateText("trapped!");
             pc.capturedGhost = null;
         }
     }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CheckIfGrounded : MonoBehaviour
 {
-    CapsuleCollider grounded;
+    Collider grounded;
     bool isGrounded;
 
     private void Awake()
     {
-        grounded = GetComponent <CapsuleCollider>();
+        grounded = GetComponent <Collider>();
     }
 
     public bool GetIsGrounded()

@@ -13,13 +13,12 @@ public class playerController : MonoBehaviour
 
     Interactable currentInteraction;
 
-    public GameObject capturedGhost;
+    public Ghost capturedGhost;
 
+    public NetController net;
 
     //references
     private Rigidbody rb;
-    [SerializeField]
-    private Animator testAnim;
 
     //private vars
     //world direction the guy moves
@@ -36,8 +35,8 @@ public class playerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        isGrounded = FindObjectOfType<CheckIfGrounded>();
-
+        isGrounded = GetComponentInChildren<CheckIfGrounded>();
+        net = GetComponentInChildren<NetController>();
     }
 
     void Update()
@@ -60,7 +59,7 @@ public class playerController : MonoBehaviour
         }
     }
 
-    public void OnCapturedGhost(GameObject ghost)
+    public void OnCapturedGhost(Ghost ghost)
     {
         capturedGhost = ghost;
     }
@@ -83,18 +82,17 @@ public class playerController : MonoBehaviour
         {
             print("jumping");
             rb.velocity = new Vector3(inputMoveVector.x, jumpForce, inputMoveVector.y);
-            //rb.AddForce(Vector3.up * jumpForce);
         }
-    }
-
-    public void UseItem()
-    {
-        testAnim.SetTrigger("Net");
     }
 
     public void Interact()
     {
         currentInteraction.Interact();
+    }
+
+    public void UseItem()
+    {
+        net.UseNet();
     }
 
 

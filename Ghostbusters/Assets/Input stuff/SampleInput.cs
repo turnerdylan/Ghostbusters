@@ -48,7 +48,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""id"": ""2e5e3ffd-a8d5-4e26-9689-90500a9be4d8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Tap""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Interact"",
@@ -284,7 +284,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""7b1f8f15-2413-4503-a181-f77260af3fb4"",
                     ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Tap(duration=0.1)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""UseItem"",
