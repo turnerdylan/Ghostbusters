@@ -54,6 +54,12 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.UseItem();
     }
 
+    public void OnSwitchWeapon(CallbackContext context)
+    {
+        if (pc != null)
+            pc.SwitchWeapon();
+    }
+
     public void OnInteract(CallbackContext context)
     {
         if (pc != null)

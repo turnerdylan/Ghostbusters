@@ -12,10 +12,9 @@ public class playerController : MonoBehaviour
     private float jumpForce = 10f;
 
     Interactable currentInteraction;
+    WeaponsController weapons;
 
     public Ghost capturedGhost;
-
-    public NetController net;
 
     //references
     private Rigidbody rb;
@@ -36,7 +35,7 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isGrounded = GetComponentInChildren<CheckIfGrounded>();
-        net = GetComponentInChildren<NetController>();
+        weapons = GetComponentInChildren<WeaponsController>();
     }
 
     void Update()
@@ -90,9 +89,14 @@ public class playerController : MonoBehaviour
         currentInteraction.Interact();
     }
 
+    public void SwitchWeapon()
+    {
+        weapons.ChangeWeapon();
+    }
+
     public void UseItem()
     {
-        net.UseNet();
+        weapons.UseWeapon();
     }
 
 

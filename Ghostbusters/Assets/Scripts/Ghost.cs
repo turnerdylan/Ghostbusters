@@ -13,6 +13,7 @@ public class Ghost : MonoBehaviour
     private float _speed = 5f;
     public bool isInNet = false;
     public bool isInTrap = false;
+    public bool isInLasso = false;
     private TextMeshPro _stateText;
 
 
@@ -38,6 +39,9 @@ public class Ghost : MonoBehaviour
         else if(isInTrap)
         {
             ResetTimer();
+        } else if(isInLasso)
+        {
+
         }
     }
 

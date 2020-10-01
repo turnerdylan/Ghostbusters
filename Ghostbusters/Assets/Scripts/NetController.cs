@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NetController : MonoBehaviour
+public class NetController : Weapon
 {
     playerController pc;
     public Transform storedGhostTransform;
@@ -32,8 +32,9 @@ public class NetController : MonoBehaviour
         }
     }
 
-    public void UseNet()
+    public override void Use()
     {
+        base.Use();
         animator.SetBool("Attack", true);
     }
 
