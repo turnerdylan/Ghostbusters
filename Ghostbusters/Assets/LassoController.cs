@@ -9,15 +9,20 @@ public class LassoController : Weapon
 
     private LineRenderer lr;
     private SpringJoint joint;
-    private SpringJoint joint2;
     playerController player;
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        lr = GetComponent<LineRenderer>();
         anim = GetComponent<Animator>();
         player = GetComponentInParent<playerController>();
+    }
+
+    private void LateUpdate()
+    {
+        DrawRope();
     }
 
     public override void Use()
@@ -30,13 +35,9 @@ public class LassoController : Weapon
     {
         if (other.gameObject.GetComponent<Ghost>())
         {
-            Ghost capturedGhost = other.gameObject.GetComponent<Ghost>();
+            capturedGhost = other.gameObject.GetComponent<Ghost>();
             anim.SetBool("Caught", true);
             CatchGhostInLasso(capturedGhost);
-            /*if (other.attachedRigidbody != null)
-            {
-                other.attachedRigidbody.isKinematic = true;
-            }*/
         }
         else
         {
@@ -48,31 +49,28 @@ public class LassoController : Weapon
     public void CatchGhostInLasso(Ghost ghost)
     {
         joint = player.gameObject.AddComponent<SpringJoint>();
-        joint2 = ghost.gameObject.AddComponent<SpringJoint>();
-
-        joint.autoConfigureConnectedAnchor = false;
-        joint2.autoConfigureConnectedAnchor = false;
-
-        joint.connectedAnchor = player.transform.position;
-        joint2.connectedAnchor = ghost.transform.position;
-
         joint.connectedBody = ghost.GetComponent<Rigidbody>();
-        joint2.connectedBody = player.GetComponent<Rigidbody>();
+        joint.autoConfigureConnectedAnchor = false;
 
-        float distanceFromPoint = Vector3.Distance(player.transform.position, ghost.transform.position);
-
-        //joint.maxDistance = distanceFromPoint * 0.8f;
-
-        
-        joint.spring = 4.5f;
-        joint.damper = 7f;
-        joint.massScale = 4.5f;
+        joint.maxDistance = 2f;
+        joint.minDistance = 1f;
+        joint.spring = 10f;
+        joint.damper = 2f;
 
     }
 
     public void ReleaseGhost()
     { 
 
+    }
+
+    void DrawRope()
+    {
+        if(capturedGhost != null)
+        {
+            lr.SetPosition(0, transform.position);
+            lr.SetPosition(1, capturedGhost.transform.position);
+        }
     }
 
 }
