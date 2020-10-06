@@ -33,7 +33,6 @@ public class WeaponsController : MonoBehaviour
 
     public void ChangeWeapon()
     {
-        print("bababooie");
         //disable current weapon
         weapons[CurrentWeaponIndex].gameObject.SetActive(false);
         //change to and assign new weapon

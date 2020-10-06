@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //serializables
     [SerializeField]
@@ -82,7 +82,6 @@ public class playerController : MonoBehaviour
     {
         if (isGrounded.GetIsGrounded())
         {
-            print("jumping");
             rb.velocity = new Vector3(inputMoveVector.x, jumpForce, inputMoveVector.y);
         }
     }

@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum AI_GHOST_STATE
+{
+    IDLE,
+    PATROL,
+    CHASE,
+    ATTACK,
+    RUNNING,
+    CAUGHT
+};
 
 [RequireComponent(typeof(Rigidbody))]
 public class Ghost : MonoBehaviour
 {
+    AI_GHOST_STATE currentState = AI_GHOST_STATE.IDLE;
     public NetController currentNet;
     private float _timeToBreakFree = 5f;
     private float _timer;
     private float _speed = 5f;
-    public bool isInNet = false;
-    public bool isInTrap = false;
-    public bool isInLasso = false;
     private TextMeshPro _stateText;
 
 
@@ -54,4 +61,51 @@ public class Ghost : MonoBehaviour
     {
         _stateText.text = input;
     }
+
+    public IEnumerator State_Idle()
+    {
+        currentState = AI_GHOST_STATE.IDLE;
+
+        //anim.settrigger(idle)
+
+        //stop movement
+
+        while(currentState == AI_GHOST_STATE.IDLE)
+        {
+            //if(condition to change state)
+            //startcoroutine(state_newstate)
+            //yield break
+
+            yield return null;
+        }
+    }
+
+    public IEnumerator State_Patrol()
+    {
+        currentState = AI_GHOST_STATE.PATROL;
+
+        //anim.settrigger(patrol)
+
+        //pick a random waypoint to patrol to
+        //set ai navmesh to move to it
+
+
+
+        while (currentState == AI_GHOST_STATE.PATROL)
+        {
+            //if(condition to change state)
+            //startcoroutine(state_newstate)
+            //yield break
+
+            //if we reach the new destination {
+            //change state to idle
+            //yield break }
+
+            yield return null;
+        }
+    }
+
+
+
+
 }

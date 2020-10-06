@@ -9,7 +9,7 @@ public class LassoController : Weapon
 
     private LineRenderer lr;
     private SpringJoint joint;
-    playerController player;
+    PlayerController player;
     public bool isLassoing = false;
 
 
@@ -18,7 +18,7 @@ public class LassoController : Weapon
     {
         lr = GetComponent<LineRenderer>();
         anim = GetComponent<Animator>();
-        player = GetComponentInParent<playerController>();
+        player = GetComponentInParent<PlayerController>();
     }
 
     private void LateUpdate()

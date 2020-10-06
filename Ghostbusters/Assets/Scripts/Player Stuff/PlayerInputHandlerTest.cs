@@ -7,11 +7,11 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandlerTest : MonoBehaviour
 {
-    private playerController pc;
+    private PlayerController pc;
 
     private void Awake()
     {
-        pc = GetComponent<playerController>();
+        pc = GetComponent<PlayerController>();
         //controls = new PlayerControls();
     }
 

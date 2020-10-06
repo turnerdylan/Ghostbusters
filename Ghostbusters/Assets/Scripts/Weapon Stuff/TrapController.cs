@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class TrapController : Interactable
 {
-    playerController pc;
+    PlayerController pc;
     public GameObject buttonSprite;
     public Transform storedGhost;
     // Start is called before the first frame update
     void Start()
     {
-        pc = FindObjectOfType<playerController>();
+        pc = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -50,8 +50,7 @@ public class TrapController : Interactable
         {
             pc.capturedGhost.transform.parent = transform;
             pc.capturedGhost.transform.position = storedGhost.position;
-            pc.capturedGhost.isInNet = false;
-            pc.capturedGhost.isInTrap = true;
+            //set state to caught
             pc.capturedGhost.SetStateText("trapped!");
             pc.capturedGhost = null;
         }

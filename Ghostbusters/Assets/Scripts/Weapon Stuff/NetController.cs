@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class NetController : Weapon
 {
-    playerController pc;
+    PlayerController pc;
     public Transform storedGhostTransform;
     Ghost capturedGhost;
     Animator animator;
 
     private void Start()
     {
-        pc = GetComponentInParent<playerController>();
+        pc = GetComponentInParent<PlayerController>();
         animator = GetComponent<Animator>();
     }
 
@@ -45,7 +45,7 @@ public class NetController : Weapon
 
     public void CatchGhostInNet(Ghost ghost)
     {
-        ghost.isInNet = true;
+        //TODO set ghost state
         ghost.currentNet = this;
         pc.OnCapturedGhost(ghost);
         ghost.transform.parent = storedGhostTransform.parent;
@@ -55,7 +55,7 @@ public class NetController : Weapon
 
     public void ReleaseGhost(Ghost ghost)
     {
-        ghost.isInNet = false;
+        //TODO set ghost state
         ghost.transform.parent = null;
         ghost.GetComponent<Rigidbody>().isKinematic = false;
         ghost.ResetTimer(); 
