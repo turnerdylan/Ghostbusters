@@ -36,11 +36,11 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.SetMoveVector(context.ReadValue<Vector2>());
     }
 
-    public void OnLook(CallbackContext context)
+    /*public void OnLook(CallbackContext context)
     {
         if (pc != null)
             pc.SetLookVector(context.ReadValue<Vector2>());
-    }
+    }*/
 
     public void OnJump(CallbackContext context)
     {

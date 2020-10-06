@@ -25,7 +25,7 @@ public class Ghost : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(isInNet)
         {
@@ -43,7 +43,7 @@ public class Ghost : MonoBehaviour
         {
 
         }
-    }
+    }*/
 
     public void ResetTimer()
     {
