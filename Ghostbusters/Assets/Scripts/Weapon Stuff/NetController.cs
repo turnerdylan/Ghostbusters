@@ -46,11 +46,12 @@ public class NetController : Weapon
     public void CatchGhostInNet(Ghost ghost)
     {
         //TODO set ghost state
-        ghost.currentNet = this;
         pc.OnCapturedGhost(ghost);
         ghost.transform.parent = storedGhostTransform.parent;
         ghost.transform.position = storedGhostTransform.position;
         ghost.GetComponent<Rigidbody>().isKinematic = true;
+        ghost.agent.enabled = false;
+        ghost.SetState(AI_GHOST_STATE.CAUGHT);
     }
 
     public void ReleaseGhost(Ghost ghost)
