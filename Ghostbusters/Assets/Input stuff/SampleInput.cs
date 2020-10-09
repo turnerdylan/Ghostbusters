@@ -64,7 +64,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""id"": ""e3149101-afcd-44b7-9373-9131a4392473"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 }
             ],
             ""bindings"": [

@@ -57,6 +57,7 @@ public class PlayerInputHandlerTest : MonoBehaviour
     public void OnSwitchWeapon(CallbackContext context)
     {
         if (pc != null)
+            //Debug.Log("X button pressed");
             pc.SwitchWeapon();
     }
 

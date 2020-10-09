@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a98f2abbb19f4d428b1c4480e2cc755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 8
+  moveSpeed: 10
+  jumpForce: 20
   capturedGhost: {fileID: 0}
 --- !u!1 &855962600
 GameObject:
