@@ -45,26 +45,46 @@ public class PlayerInputHandlerTest : MonoBehaviour
     public void OnJump(CallbackContext context)
     {
         if (pc != null)
-            pc.Jump();
+        {
+            if (context.performed)
+            {
+                pc.Jump();
+            }          
+        }
     }
 
     public void OnUseItem(CallbackContext context)
     {
         if (pc != null)
-            pc.UseItem();
+        {
+            if(context.performed)
+            {
+                pc.UseItem();
+            }
+        }  
     }
 
     public void OnSwitchWeapon(CallbackContext context)
     {
         if (pc != null)
-            //Debug.Log("X button pressed");
-            pc.SwitchWeapon();
+        {
+            if (context.performed)
+            {
+                //Debug.Log("Action was performed");
+                pc.SwitchWeapon();
+            }
+        }
     }
 
     public void OnInteract(CallbackContext context)
     {
         if (pc != null)
-            pc.Interact();
+        {
+            if(context.performed)
+            {
+                pc.Interact();
+            }
+        }
     }
 
 }
