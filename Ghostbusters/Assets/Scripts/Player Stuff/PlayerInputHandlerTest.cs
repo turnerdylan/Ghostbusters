@@ -7,11 +7,11 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandlerTest : MonoBehaviour
 {
-    private playerController pc;
+    private PlayerController pc;
 
     private void Awake()
     {
-        pc = GetComponent<playerController>();
+        pc = GetComponent<PlayerController>();
         //controls = new PlayerControls();
     }
 
@@ -36,34 +36,55 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.SetMoveVector(context.ReadValue<Vector2>());
     }
 
-    public void OnLook(CallbackContext context)
+    /*public void OnLook(CallbackContext context)
     {
         if (pc != null)
             pc.SetLookVector(context.ReadValue<Vector2>());
-    }
+    }*/
 
     public void OnJump(CallbackContext context)
     {
         if (pc != null)
-            pc.Jump();
+        {
+            if (context.performed)
+            {
+                pc.Jump();
+            }          
+        }
     }
 
     public void OnUseItem(CallbackContext context)
     {
         if (pc != null)
-            pc.UseItem();
+        {
+            if(context.performed)
+            {
+                pc.UseItem();
+            }
+        }  
     }
 
     public void OnSwitchWeapon(CallbackContext context)
     {
         if (pc != null)
-            pc.SwitchWeapon();
+        {
+            if (context.performed)
+            {
+                //Debug.Log("Action was performed");
+                pc.SwitchWeapon();
+            }
+        }
     }
 
     public void OnInteract(CallbackContext context)
     {
         if (pc != null)
-            pc.Interact();
+        {
+            if(context.performed)
+            {
+                pc.Interact();
+            }
+        }
     }
 
 }

@@ -14,7 +14,6 @@ public class CheckIfGrounded : MonoBehaviour
 
     public bool GetIsGrounded()
     {
-        print(isGrounded);
         return isGrounded;
     }
 
