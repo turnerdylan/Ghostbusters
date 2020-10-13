@@ -9,7 +9,8 @@ public class LassoController : Weapon
 
     private LineRenderer lr;
     private SpringJoint joint;
-    playerController player;
+    PlayerController player;
+    public bool isLassoing = false;
 
 
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class LassoController : Weapon
     {
         lr = GetComponent<LineRenderer>();
         anim = GetComponent<Animator>();
-        player = GetComponentInParent<playerController>();
+        player = GetComponentInParent<PlayerController>();
     }
 
     private void LateUpdate()
@@ -28,7 +29,12 @@ public class LassoController : Weapon
     public override void Use()
     {
         base.Use();
-        anim.SetTrigger("Lasso");
+
+        if(!isLassoing) anim.SetTrigger("Lasso");
+        else
+        {
+            ReleaseGhost();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +54,8 @@ public class LassoController : Weapon
     //start the grapple
     public void CatchGhostInLasso(Ghost ghost)
     {
+        isLassoing = true;
+
         joint = player.gameObject.AddComponent<SpringJoint>();
         joint.connectedBody = ghost.GetComponent<Rigidbody>();
         joint.autoConfigureConnectedAnchor = false;
@@ -57,11 +65,16 @@ public class LassoController : Weapon
         joint.spring = 10f;
         joint.damper = 2f;
 
+        lr.positionCount = 2;
     }
 
     public void ReleaseGhost()
-    { 
-
+    {
+        isLassoing = false;
+        capturedGhost = null;
+        anim.SetBool("Caught", false);
+        lr.positionCount = 0;
+        Destroy(joint);
     }
 
     void DrawRope()

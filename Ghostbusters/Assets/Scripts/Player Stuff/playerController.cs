@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //serializables
     [SerializeField]
@@ -18,6 +18,7 @@ public class playerController : MonoBehaviour
 
     //references
     private Rigidbody rb;
+    private Animator anim;
 
     //private vars
     //world direction the guy moves
@@ -36,6 +37,7 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isGrounded = GetComponentInChildren<CheckIfGrounded>();
         weapons = GetComponentInChildren<WeaponsController>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -70,16 +72,16 @@ public class playerController : MonoBehaviour
         inputMoveVector = direction;
     }
 
-    public void SetLookVector(Vector2 direction)
+    //this was for old control scheme
+    /*public void SetLookVector(Vector2 direction)
     {
         inputLookVector = direction;
-    }
+    }*/
 
     public void Jump()
     {
         if (isGrounded.GetIsGrounded())
         {
-            print("jumping");
             rb.velocity = new Vector3(inputMoveVector.x, jumpForce, inputMoveVector.y);
         }
     }
@@ -102,21 +104,25 @@ public class playerController : MonoBehaviour
 
     private void SetMoveDirection()
     {
-        //makes it so that it moves relative to the camera
-        //moveDirection = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.forward) * inputMoveVector;
+        if (inputMoveVector.magnitude > 0.5f)
+        {
+            moveDirection = inputMoveVector * moveSpeed * Time.deltaTime;
 
-
-        //add speed and deltatime
-        moveDirection = inputMoveVector * moveSpeed * Time.deltaTime;
-
-        rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
+            rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
+            anim.SetBool("Run", true);
+            
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
     }
 
     private void SetLookDirection()
     {
-        if (inputLookVector.magnitude > 0.5f)
+        if (inputMoveVector.magnitude > 0.7f)
         {
-            storedLookValue = Mathf.Atan2(inputLookVector.x, inputLookVector.y);
+            storedLookValue = Mathf.Atan2(inputMoveVector.x, inputMoveVector.y);
             transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
             //transform.rotation = Quaternion.Lerp(transform.rotation, storedLookValue * Mathf.Rad2Deg, 0);
 

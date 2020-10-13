@@ -291,7 +291,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7b1f8f15-2413-4503-a181-f77260af3fb4"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
