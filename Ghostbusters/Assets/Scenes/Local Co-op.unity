@@ -324,10 +324,8 @@ GameObject:
   m_Component:
   - component: {fileID: 338085288}
   - component: {fileID: 338085287}
-  - component: {fileID: 338085291}
   - component: {fileID: 338085292}
   - component: {fileID: 338085293}
-  - component: {fileID: 338085289}
   m_Layer: 10
   m_Name: Normal Ghost
   m_TagString: Untagged
@@ -367,63 +365,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!59 &338085289
-HingeJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338085286}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -5.8, y: 1.11, z: 0}
-  m_UseSpring: 0
-  m_Spring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
---- !u!195 &338085291
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338085286}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!136 &338085292
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -450,10 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5fff1cb19bf74d99b07dca69273ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNet: {fileID: 0}
-  isInNet: 0
-  isInTrap: 0
-  isInLasso: 0
+  agent: {fileID: 0}
+  _distanceToNoticePlayer: 5
 --- !u!1 &537750160
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,10 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5fff1cb19bf74d99b07dca69273ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNet: {fileID: 0}
-  isInNet: 0
-  isInTrap: 0
-  isInLasso: 0
+  agent: {fileID: 0}
+  _distanceToNoticePlayer: 5
 --- !u!1 &900379014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,10 +1197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5fff1cb19bf74d99b07dca69273ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNet: {fileID: 0}
-  isInNet: 0
-  isInTrap: 0
-  isInLasso: 0
+  agent: {fileID: 0}
+  _distanceToNoticePlayer: 5
 --- !u!1 &1181326027
 GameObject:
   m_ObjectHideFlags: 0
