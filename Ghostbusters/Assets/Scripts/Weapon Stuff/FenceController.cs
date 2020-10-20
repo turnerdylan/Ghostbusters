@@ -51,6 +51,8 @@ public class FenceController : Weapon
             ConnectFence();
         }
         //trigger animation here
+
+        //instantiate fence
     }
 
 

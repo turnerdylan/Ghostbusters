@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
-using System;
 
 public enum AI_GHOST_STATE
 {
@@ -22,6 +21,7 @@ public class Ghost : MonoBehaviour
 
     public NavMeshAgent agent;
     private TextMeshPro _stateText;
+    private PortalController portal;
 
     private float _timeToBreakFree = 5f;
     private float _timer;
@@ -40,6 +40,7 @@ public class Ghost : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(State_Idle());
+        portal = FindObjectOfType<PortalController>();
     }
 
     private void Update()
@@ -92,6 +93,7 @@ public class Ghost : MonoBehaviour
             if (Vector3.Distance(transform.position, player.transform.position) < _distanceToNoticePlayer)
             {
                 StartCoroutine(State_Chase());
+                //StartCoroutine(State_Running());
                 yield break;
             }
 
@@ -135,7 +137,6 @@ public class Ghost : MonoBehaviour
         }
 
 
-        
         yield return null;
     }
 
@@ -169,6 +170,39 @@ public class Ghost : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public IEnumerator State_Running()
+    {
+        currentState = AI_GHOST_STATE.RUNNING;
+        _stateText.text = "running";
+        //anim.settrigger(running)
+
+        int randomPortalIndex = Random.Range(0, portal.portals.Count);
+
+        agent.isStopped = false;
+
+        while (currentState == AI_GHOST_STATE.RUNNING)
+        {
+            agent.destination = portal.portals[randomPortalIndex].transform.position;
+            if(agent.remainingDistance <= 2f)
+            {
+                print("made it");
+                gameObject.transform.position = portal.portals[Random.Range(0, portal.portals.Count)].transform.position;
+                StartCoroutine(State_Idle());
+            }
+            //if(condition to change state)
+            //startcoroutine(state_newstate)
+            //yield break
+
+            //if we reach the new destination {
+            //change state to idle
+            //yield break }
+
+            yield return null;
+        }
+
+        yield return null;
     }
 
     public IEnumerator State_Patrol()

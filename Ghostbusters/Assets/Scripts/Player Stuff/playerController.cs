@@ -43,21 +43,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         SetLookDirection();
-        AdjustJumpSettings();
     }
 
     private void FixedUpdate()
     {
         SetMoveDirection();
-    }
-
-
-    private void AdjustJumpSettings()
-    {
-        if (rb.velocity.y < 0)
-        {
-            rb.AddForce(Vector3.down * 20);
-        }
     }
 
     public void OnCapturedGhost(Ghost ghost)
