@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 
     public bool canInteract = false;
     Transform player;
-
+    public PlayerController pc;
 
     public virtual void Interact()
     {
@@ -19,12 +19,13 @@ public class Interactable : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
             canInteract = true;
         }
+        pc = other.GetComponent<PlayerController>();
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,5 +34,6 @@ public class Interactable : MonoBehaviour
         {
             canInteract = false;
         }
+        pc = null;
     }
 }

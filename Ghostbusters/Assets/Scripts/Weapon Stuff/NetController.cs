@@ -17,7 +17,7 @@ public class NetController : Weapon
 
     private void OnTriggerEnter(Collider other)
     {
-        if(pc.capturedGhost == null && other.gameObject.GetComponent<Ghost>())
+        if(capturedGhost == null && other.gameObject.GetComponent<Ghost>())
         {
             Ghost capturedGhost = other.gameObject.GetComponent<Ghost>();
             CatchGhostInNet(capturedGhost);
@@ -46,7 +46,6 @@ public class NetController : Weapon
     public void CatchGhostInNet(Ghost ghost)
     {
         //TODO set ghost state
-        pc.OnCapturedGhost(ghost);
         ghost.transform.parent = storedGhostTransform.parent;
         ghost.transform.position = storedGhostTransform.position;
         ghost.GetComponent<Rigidbody>().isKinematic = true;
@@ -60,7 +59,6 @@ public class NetController : Weapon
         ghost.transform.parent = null;
         ghost.GetComponent<Rigidbody>().isKinematic = false;
         ghost.ResetTimer(); 
-        pc.capturedGhost = null;
 
     }
 }

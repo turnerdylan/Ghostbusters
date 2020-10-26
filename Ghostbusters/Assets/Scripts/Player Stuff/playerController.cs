@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     Interactable currentInteraction;
     WeaponsController weapons;
 
-    public Ghost capturedGhost;
-
     //references
     private Rigidbody rb;
     private Animator anim;
@@ -49,12 +47,6 @@ public class PlayerController : MonoBehaviour
     {
         SetMoveDirection();
     }
-
-    public void OnCapturedGhost(Ghost ghost)
-    {
-        capturedGhost = ghost;
-    }
-
 
 
     public void SetMoveVector(Vector2 direction)
@@ -96,11 +88,10 @@ public class PlayerController : MonoBehaviour
     {
         if (inputMoveVector.magnitude > 0.5f)
         {
-            moveDirection = inputMoveVector * moveSpeed * Time.deltaTime;
-
-            rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
+            moveDirection = inputMoveVector * moveSpeed;
+            //rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
+            rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.y);
             anim.SetBool("Run", true);
-            
         }
         else
         {
