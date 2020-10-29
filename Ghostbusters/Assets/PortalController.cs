@@ -5,14 +5,23 @@ using UnityEngine;
 public class PortalController : MonoBehaviour
 {
     [SerializeField]
-    public List<GameObject> portals = new List<GameObject>();
+    Transform teleportLocation;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        foreach (Transform child in transform)
+        foreach(Transform child in transform)
         {
-            portals.Add(child.gameObject);
+            teleportLocation = child.transform;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Ghost newGhost = other.GetComponent<Ghost>();
+        if (newGhost){
+            other.gameObject.transform.position = teleportLocation.position;
+            newGhost.SetState(AI_GHOST_STATE.IDLE);
         }
     }
 }

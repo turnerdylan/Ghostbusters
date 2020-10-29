@@ -8,6 +8,11 @@ public class Interactable : MonoBehaviour
     Transform player;
     public PlayerController pc;
 
+    private void Start()
+    {
+        pc = FindObjectOfType<PlayerController>();
+    }
+
     public virtual void Interact()
     {
         print("interacting with " + transform.name);

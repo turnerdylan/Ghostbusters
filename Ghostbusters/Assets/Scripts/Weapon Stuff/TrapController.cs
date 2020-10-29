@@ -40,12 +40,13 @@ public class TrapController : Interactable
 
     private void TrapGhost()
     {
-        if (pc.GetComponentInChildren<Ghost>())
+        if (true)
         {
-            Ghost ghost = pc.GetComponentInChildren<Ghost>();
-            ghost.transform.parent = transform;
-            ghost.transform.position = storedGhost.position;
-            ghost.SetStateText("trapped!");
+            NetController net = FindObjectOfType<NetController>();
+            net.capturedGhost.transform.parent = transform;
+            net.capturedGhost.transform.position = storedGhost.position;
+            net.capturedGhost.SetStateText("trapped!");
+            net.capturedGhost = null;
         }
     }
 }

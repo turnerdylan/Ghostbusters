@@ -21,7 +21,7 @@ public class Ghost : MonoBehaviour
 
     public NavMeshAgent agent;
     private TextMeshPro _stateText;
-    private PortalController portal;
+    private PortalParent portal;
 
     private float _timeToBreakFree = 5f;
     private float _timer;
@@ -40,35 +40,13 @@ public class Ghost : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(State_Idle());
-        portal = FindObjectOfType<PortalController>();
+        portal = FindObjectOfType<PortalParent>();
     }
 
     private void Update()
     {
         print(currentState);
-        //agent.destination = player.transform.position;
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        if(isInNet)
-        {
-            _timer -= Time.deltaTime;
-            SetStateText("In net! " +_timer.ToString("F0"));
-            if(_timer < 0)
-            {
-                currentNet.ReleaseGhost(this);
-            }
-        }
-        else if(isInTrap)
-        {
-            ResetTimer();
-        } else if(isInLasso)
-        {
-
-        }
-    }*/
 
     public void ResetTimer()
     {
@@ -86,14 +64,13 @@ public class Ghost : MonoBehaviour
         _stateText.text = "idle";
         //anim.settrigger(idle)
 
-        agent.isStopped = true;
-
         while(currentState == AI_GHOST_STATE.IDLE)
         {
             if (Vector3.Distance(transform.position, player.transform.position) < _distanceToNoticePlayer)
             {
-                StartCoroutine(State_Chase());
+                //StartCoroutine(State_Chase());
                 //StartCoroutine(State_Running());
+                StartCoroutine(State_Patrol());
                 yield break;
             }
 
@@ -106,6 +83,7 @@ public class Ghost : MonoBehaviour
         currentState = AI_GHOST_STATE.CHASE;
         _stateText.text = "chase";
         agent.isStopped = false;
+        agent.stoppingDistance = 3;
         //TODO anim.settrigger(chase)
 
         while(currentState == AI_GHOST_STATE.CHASE)
@@ -135,9 +113,6 @@ public class Ghost : MonoBehaviour
 
                 yield return null;
         }
-
-
-        yield return null;
     }
 
     private IEnumerator State_Attack()
@@ -178,31 +153,22 @@ public class Ghost : MonoBehaviour
         _stateText.text = "running";
         //anim.settrigger(running)
 
-        int randomPortalIndex = Random.Range(0, portal.portals.Count);
+        Transform randomWaypoint = portal.portals[Random.Range(0, portal.portals.Count)].transform;
 
-        agent.isStopped = false;
+        agent.destination = (randomWaypoint.position);
+        agent.stoppingDistance = 0;
 
         while (currentState == AI_GHOST_STATE.RUNNING)
         {
-            agent.destination = portal.portals[randomPortalIndex].transform.position;
+            
             if(agent.remainingDistance <= 2f)
             {
-                print("made it");
-                gameObject.transform.position = portal.portals[Random.Range(0, portal.portals.Count)].transform.position;
                 StartCoroutine(State_Idle());
+                yield break;
             }
-            //if(condition to change state)
-            //startcoroutine(state_newstate)
-            //yield break
-
-            //if we reach the new destination {
-            //change state to idle
-            //yield break }
 
             yield return null;
         }
-
-        yield return null;
     }
 
     public IEnumerator State_Patrol()
@@ -211,23 +177,36 @@ public class Ghost : MonoBehaviour
         _stateText.text = "patrol";
         //anim.settrigger(patrol)
 
-        //pick a random waypoint to patrol to
-        //set ai navmesh to move to it
+        int currentIndex = GetNewWaypointIndex();
+        Transform randomWaypoint = portal.portals[currentIndex].transform;
 
-
+        agent.destination = (randomWaypoint.position);
+        agent.stoppingDistance = 0;
+        agent.isStopped = false;
 
         while (currentState == AI_GHOST_STATE.PATROL)
         {
-            //if(condition to change state)
-            //startcoroutine(state_newstate)
-            //yield break
-
-            //if we reach the new destination {
-            //change state to idle
-            //yield break }
+            if(Vector3.Distance(transform.position, agent.destination) <= 1)
+            {
+                //StartCoroutine(State_Idle());
+                int newIndex = GetNewWaypointIndex();
+                while (newIndex == currentIndex)
+                {
+                    newIndex = GetNewWaypointIndex();
+                }
+                currentIndex = newIndex;
+                agent.destination = portal.portals[currentIndex].transform.position;
+            }
 
             yield return null;
         }
+
+        yield return null;
+    }
+
+    private int GetNewWaypointIndex()
+    {
+        return Random.Range(0, portal.portals.Count);
     }
 
 
