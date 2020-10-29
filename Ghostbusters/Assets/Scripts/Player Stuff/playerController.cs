@@ -88,7 +88,10 @@ public class PlayerController : MonoBehaviour
 
     public void Interact()
     {
-        currentInteraction.Interact();
+        if (currentInteraction.transform.name == "Ghost_Trap")
+            currentInteraction.Interact(this);
+        else
+            currentInteraction.Interact();
     }
 
     public void SwitchWeapon()
