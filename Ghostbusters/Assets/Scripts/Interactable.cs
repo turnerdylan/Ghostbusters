@@ -13,6 +13,12 @@ public class Interactable : MonoBehaviour
         print("interacting with " + transform.name);
     }
 
+    public virtual void Interact(PlayerController pc)
+    {
+        print("interacting with " + transform.name);
+    }
+
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

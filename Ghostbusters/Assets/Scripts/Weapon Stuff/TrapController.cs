@@ -8,10 +8,11 @@ public class TrapController : Interactable
     PlayerController pc;
     public GameObject buttonSprite;
     public Transform storedGhost;
+    //public List<PlayerController> players = new List<PlayerController>();
     // Start is called before the first frame update
     void Start()
     {
-        pc = FindObjectOfType<PlayerController>();
+        //pc = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -29,12 +30,12 @@ public class TrapController : Interactable
     }
 
     //interact with the trap
-    public override void Interact()
+    public override void Interact(PlayerController pc)
     {
         base.Interact();
         if(canInteract && pc.capturedGhost)
         {
-            TrapGhost();
+            TrapGhost(pc);
         }
         else
         {
@@ -43,7 +44,7 @@ public class TrapController : Interactable
         
     }
 
-    private void TrapGhost()
+    private void TrapGhost(PlayerController pc)
     {
         print("trapping the ghost!");
         if (pc.capturedGhost != null)

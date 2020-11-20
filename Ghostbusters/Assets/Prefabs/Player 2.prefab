@@ -629,7 +629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8401658521611477546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -792,13 +792,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8401658521611477544}
-    characterCount: 11
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8401658521722262733
 Transform:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 9216301780044814982}
   m_Layer: 9
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1026,11 +1026,11 @@ GameObject:
   - component: {fileID: 9216301780522222793}
   - component: {fileID: 9216301780522222792}
   - component: {fileID: 9216301780522222803}
-  - component: {fileID: 9216301780522222802}
   - component: {fileID: 7986677071302014036}
+  - component: {fileID: 7036525767982523540}
   m_Layer: 9
-  m_Name: New Player
-  m_TagString: Untagged
+  m_Name: Player 2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1243,20 +1243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce7ec2d728cfb24d9cb71d6f3e82ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &9216301780522222802
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9216301780522222796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &7986677071302014036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,6 +1258,20 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 10
   capturedGhost: {fileID: 0}
+--- !u!136 &7036525767982523540
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216301780522222796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9216301781484059371
 GameObject:
   m_ObjectHideFlags: 0

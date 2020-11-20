@@ -44,7 +44,7 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
-        print(currentState);
+        //print(currentState);
         //agent.destination = player.transform.position;
     }
 
