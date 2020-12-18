@@ -6,7 +6,7 @@ public class NetController : Weapon
 {
     PlayerController pc;
     public Transform storedGhostTransform;
-    Ghost capturedGhost;
+    public Ghost capturedGhost;
     Animator animator;
 
     private void Start()
@@ -17,7 +17,7 @@ public class NetController : Weapon
 
     private void OnTriggerEnter(Collider other)
     {
-        if(pc.capturedGhost == null && other.gameObject.GetComponent<Ghost>())
+        if(capturedGhost == null && other.gameObject.GetComponent<Ghost>())
         {
             Ghost capturedGhost = other.gameObject.GetComponent<Ghost>();
             CatchGhostInNet(capturedGhost);
@@ -36,6 +36,10 @@ public class NetController : Weapon
     {
         base.Use();
         animator.SetBool("Attack", true);
+        if(capturedGhost != null)
+        {
+            ReleaseGhost();
+        }
     }
 
     public void ResetNet()
@@ -46,7 +50,7 @@ public class NetController : Weapon
     public void CatchGhostInNet(Ghost ghost)
     {
         //TODO set ghost state
-        pc.OnCapturedGhost(ghost);
+        capturedGhost = ghost;
         ghost.transform.parent = storedGhostTransform.parent;
         ghost.transform.position = storedGhostTransform.position;
         ghost.GetComponent<Rigidbody>().isKinematic = true;
@@ -54,13 +58,13 @@ public class NetController : Weapon
         ghost.SetState(AI_GHOST_STATE.CAUGHT);
     }
 
-    public void ReleaseGhost(Ghost ghost)
+    public void ReleaseGhost()
     {
         //TODO set ghost state
-        ghost.transform.parent = null;
-        ghost.GetComponent<Rigidbody>().isKinematic = false;
-        ghost.ResetTimer(); 
-        pc.capturedGhost = null;
+        capturedGhost.transform.parent = null;
+        capturedGhost.GetComponent<Rigidbody>().isKinematic = false;
+        capturedGhost.ResetTimer();
+        capturedGhost = null;
 
     }
 }
