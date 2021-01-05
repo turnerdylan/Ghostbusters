@@ -9,16 +9,15 @@ public class BigGhost : MonoBehaviour
 
     public float ghostSpawnOffset = 0.5f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        GhostManager.Instance.bigGhosts.Add(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Keyboard.current.wKey.wasPressedThisFrame)
+        if(Keyboard.current.sKey.wasPressedThisFrame)
         {
             SplitApart();
         }
@@ -28,6 +27,7 @@ public class BigGhost : MonoBehaviour
     {
         Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
         Instantiate(mediumGhost, this.transform.position + new Vector3(-ghostSpawnOffset,0,-ghostSpawnOffset), Quaternion.identity);
+        GhostManager.Instance.bigGhosts.Remove(this.gameObject);
         Destroy(this.gameObject);
     }
 }

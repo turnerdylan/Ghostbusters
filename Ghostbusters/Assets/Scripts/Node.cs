@@ -26,6 +26,6 @@ public class Node : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        GetComponent<MeshRenderer>().material.color = Color.blue;
+        //GetComponent<MeshRenderer>().material.color = Color.blue;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TrapController : Interactable
 {
-    PlayerController pc;
+    //PlayerController pc;
     public GameObject buttonSprite;
     public Transform storedGhost;
     //public List<PlayerController> players = new List<PlayerController>();

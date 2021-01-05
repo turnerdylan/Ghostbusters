@@ -25,7 +25,6 @@ public class Ghost : MonoBehaviour
 
     private float _timeToBreakFree = 5f;
     private float _timer;
-    private float _speed = 5f;
     [SerializeField]
     private float _distanceToNoticePlayer = 5f;
     private float _attackDelay;
