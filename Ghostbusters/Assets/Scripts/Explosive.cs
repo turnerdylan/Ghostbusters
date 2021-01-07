@@ -16,7 +16,7 @@ public class Explosive : MonoBehaviour
     {
         Debug.Log("boom");
         Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius, 1 << 9);
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();

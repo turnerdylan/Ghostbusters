@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Ghostbusters/Assets/Prefabs/GhostManager.prefab.meta
 guid: fc907829a641741428874fa303f21e5f
 PrefabImporter:
+=======
+guid: a81fe12990e7ad54bacd99702decfdca
+folderAsset: yes
+DefaultImporter:
+>>>>>>> origin/colin2:Ghostbusters/Assets/Scenes/Scare Prototype.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
