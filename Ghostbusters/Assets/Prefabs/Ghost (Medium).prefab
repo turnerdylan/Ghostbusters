@@ -126,4 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallGhost: {fileID: 298483656171211603, guid: b40701b9c960a514ebc9185ec96d405c,
     type: 3}
+  listIndex: -1
+  ghostsToSpawn: 2
   ghostSpawnOffset: 0.5
+  transformDelay: 1
+  transformTimer: 0

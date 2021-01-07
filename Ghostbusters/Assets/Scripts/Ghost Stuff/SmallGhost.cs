@@ -4,8 +4,28 @@ using UnityEngine;
 
 public class SmallGhost : MonoBehaviour
 {
+    public int listIndex = -1;
+
+    bool canTransform = false;
+    public float transformDelay = 1f;
+    public float transformTimer;
+
     private void Start()
     {
-        GhostManager.Instance.smallGhosts.Add(gameObject);
+        transformTimer = transformDelay;
+    }
+
+    private void Update()
+    {
+        if(canTransform)
+        {
+            transformTimer -= Time.deltaTime;
+        }
+    }
+
+    private void OnEnable()
+    {
+        canTransform = true;
+        transformTimer = transformDelay;
     }
 }

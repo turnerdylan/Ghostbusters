@@ -7,27 +7,57 @@ public class BigGhost : MonoBehaviour
 {
     public GameObject mediumGhost;
 
+    public int _listIndex;
+
+    public int ghostsToSpawn = 2;
     public float ghostSpawnOffset = 0.5f;
 
-    private void Start()
-    {
-        GhostManager.Instance.bigGhosts.Add(gameObject);
-    }
+    bool canTransform = false;
+    public float transformDelay = 3f;
+    public float transformTimer;
 
     // Update is called once per frame
     void Update()
     {
-        if(Keyboard.current.sKey.wasPressedThisFrame)
+        if (canTransform)
         {
-            SplitApart();
+            transformTimer -= Time.deltaTime;
+            if (transformTimer <= 0)
+            {
+                if (Keyboard.current.sKey.wasPressedThisFrame && canTransform)
+                {
+                    SplitApart();
+                }
+            }
         }
+    }
+
+    private void OnEnable()
+    {
+        canTransform = true;
+        transformTimer = transformDelay;
     }
 
     public void SplitApart()
     {
-        Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
+        /*Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
         Instantiate(mediumGhost, this.transform.position + new Vector3(-ghostSpawnOffset,0,-ghostSpawnOffset), Quaternion.identity);
         GhostManager.Instance.bigGhosts.Remove(this.gameObject);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject);*/
+
+        //set 2 medium ghosts active and set their positions to this position + offset
+        int spawnedGhosts = 0;
+        for (int i = 0; i < GhostManager.Instance.mediumGhosts.Count; i++)
+        {
+            if (spawnedGhosts >= ghostsToSpawn) break;
+            if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                GhostManager.Instance.mediumGhosts[i].SetActive(true);
+                GhostManager.Instance.mediumGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                spawnedGhosts++;
+            }
+        }
+        gameObject.SetActive(false);
+
     }
 }

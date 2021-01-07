@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 834756269114162544}
   - component: {fileID: 834756269114162509}
   m_Layer: 0
-  m_Name: Big Ghost
+  m_Name: Ghost (Big)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mediumGhost: {fileID: 3996581311573420528, guid: 46c77fdd4cd4c414bb2cfb97d1c826a0,
     type: 3}
+  _listIndex: 0
+  ghostsToSpawn: 2
   ghostSpawnOffset: 0.5
+  transformDelay: 1
+  transformTimer: 0
 --- !u!54 &834756269114162509
 Rigidbody:
   m_ObjectHideFlags: 0
