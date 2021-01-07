@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class BigGhost : MonoBehaviour
 {
     public GameObject mediumGhost;
-
+    public GameObject explosive;
     public float ghostSpawnOffset = 0.5f;
 
     private void Start()
@@ -21,6 +21,11 @@ public class BigGhost : MonoBehaviour
         {
             SplitApart();
         }
+
+        if(Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            Explode();
+        }
     }
 
     public void SplitApart()
@@ -29,5 +34,10 @@ public class BigGhost : MonoBehaviour
         Instantiate(mediumGhost, this.transform.position + new Vector3(-ghostSpawnOffset,0,-ghostSpawnOffset), Quaternion.identity);
         GhostManager.Instance.bigGhosts.Remove(this.gameObject);
         Destroy(this.gameObject);
+    }
+
+    public void Explode()
+    {
+        Destroy(Instantiate(explosive, transform.position, Quaternion.identity), 0.5f);
     }
 }
