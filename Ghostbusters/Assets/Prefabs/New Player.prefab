@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storedGhostTransform: {fileID: 8401658520376307959}
+  capturedGhost: {fileID: 0}
 --- !u!114 &8401658520763442758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1028,7 @@ GameObject:
   - component: {fileID: 9216301780522222792}
   - component: {fileID: 9216301780522222803}
   - component: {fileID: 9216301780522222802}
-  - component: {fileID: 7986677071302014036}
+  - component: {fileID: 384429772417413952}
   m_Layer: 9
   m_Name: New Player
   m_TagString: Untagged
@@ -1257,7 +1258,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &7986677071302014036
+--- !u!114 &384429772417413952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1271,7 +1272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 10
-  capturedGhost: {fileID: 0}
 --- !u!1 &9216301781484059371
 GameObject:
   m_ObjectHideFlags: 0

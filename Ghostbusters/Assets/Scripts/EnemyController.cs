@@ -35,12 +35,15 @@ public class EnemyController : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")
+        {
             playerCount--;
             other.gameObject.GetComponent<CheckDistance>().ghostNear = false;
+        }
     }
 
     void Die()
     {
+        StopCoroutine(GetComponent<FadeOpacity>().coroutine);
         GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         Destroy(gameObject, delay);
     }

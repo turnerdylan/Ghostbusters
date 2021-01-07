@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fenceConnected: 0
-  waitTime: 10
+  waitTime: 5
   lr:
   - {fileID: 5698030632015189921}
   - {fileID: 6919644821477583256}
