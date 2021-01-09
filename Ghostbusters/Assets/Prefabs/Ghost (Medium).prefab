@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3996581311573420535}
   - component: {fileID: -5603056143601027300}
   - component: {fileID: 149982185}
+  - component: {fileID: 7065307136784474831}
   m_Layer: 0
   m_Name: Ghost (Medium)
   m_TagString: Untagged
@@ -131,3 +132,17 @@ MonoBehaviour:
   ghostSpawnOffset: 0.5
   transformDelay: 1
   transformTimer: 0
+--- !u!114 &7065307136784474831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996581311573420528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b956b7aa87078954eb1d997331942aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderRadius: 25
+  wanderTimer: 5

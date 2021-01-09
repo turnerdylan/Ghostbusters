@@ -20,7 +20,8 @@ public class FollowAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(GetClosestPlayer(players).position);
+        if(players.Length > 0)
+            agent.SetDestination(GetClosestPlayer(players).position);
     }
 
     Transform GetClosestPlayer(GameObject[] players)
