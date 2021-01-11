@@ -53,7 +53,7 @@ public class PlayerInputHandlerTest : MonoBehaviour
         }
     }
 
-    public void OnUseItem(CallbackContext context)
+    /*public void OnUseItem(CallbackContext context)
     {
         if (pc != null)
         {
@@ -74,15 +74,26 @@ public class PlayerInputHandlerTest : MonoBehaviour
                 pc.SwitchWeapon();
             }
         }
-    }
+    }*/
 
-    public void OnInteract(CallbackContext context)
+    /*public void OnInteract(CallbackContext context)
     {
         if (pc != null)
         {
             if(context.performed)
             {
                 pc.Interact();
+            }
+        }
+    }*/
+
+    public void Scare(CallbackContext context)
+    {
+        if (pc != null)
+        {
+            if (context.started)
+            {
+                //pc.Scare();
             }
         }
     }

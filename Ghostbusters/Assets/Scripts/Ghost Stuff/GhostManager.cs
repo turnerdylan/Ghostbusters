@@ -59,7 +59,7 @@ public class GhostManager : MonoBehaviour
         {
             GameObject current = Instantiate(bigGhostPrefab, transform.position + new Vector3(4*i, 0, 0), Quaternion.identity);
             bigGhosts.Add(current);
-            current.gameObject.SetActive(false);
+            //current.gameObject.SetActive(false);
             current.GetComponent<BigGhost>()._listIndex = i;
         }
 

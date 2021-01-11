@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     //references
     private Rigidbody rb;
-    private Animator anim;
 
     //private vars
     //world direction the guy moves
@@ -35,12 +35,28 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isGrounded = GetComponentInChildren<CheckIfGrounded>();
         weapons = GetComponentInChildren<WeaponsController>();
-        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         SetLookDirection();
+        int numberOfGhosts = 0;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
+        {
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
+                && GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                numberOfGhosts++;
+                //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+            }
+        }
+        print("number of ghosts is " + numberOfGhosts);
+
+        //remove
+        if (Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            Scare();
+        }
     }
 
     private void FixedUpdate()
@@ -48,17 +64,10 @@ public class PlayerController : MonoBehaviour
         SetMoveDirection();
     }
 
-
     public void SetMoveVector(Vector2 direction)
     {
         inputMoveVector = direction;
     }
-
-    //this was for old control scheme
-    /*public void SetLookVector(Vector2 direction)
-    {
-        inputLookVector = direction;
-    }*/
 
     public void Jump()
     {
@@ -68,22 +77,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Interact()
+    /*public void Interact()
     {
         if (currentInteraction.transform.name == "Ghost_Trap")
             currentInteraction.Interact(this);
         else
             currentInteraction.Interact();
-    }
+    }*/
 
-    public void SwitchWeapon()
+    public void Scare()
     {
-        weapons.ChangeWeapon();
-    }
-
-    public void UseItem()
-    {
-        weapons.UseWeapon();
+        print("scared");
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
+        {
+            if(Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
+                && GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                print("test");
+                GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+            }
+        }
     }
 
 
@@ -94,11 +107,6 @@ public class PlayerController : MonoBehaviour
             moveDirection = inputMoveVector * moveSpeed;
             //rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.y);
-            anim.SetBool("Run", true);
-        }
-        else
-        {
-            anim.SetBool("Run", false);
         }
     }
 
@@ -117,7 +125,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         Interactable interactable;
         if (other.gameObject.GetComponent<Interactable>())
@@ -125,5 +133,5 @@ public class PlayerController : MonoBehaviour
             interactable = other.gameObject.GetComponent<Interactable>();
             currentInteraction = interactable;
         }
-    }
+    }*/
 }

@@ -65,6 +65,14 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Scare"",
+                    ""type"": ""Button"",
+                    ""id"": ""127e8b06-258c-407b-a62a-6c693911d03d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -318,6 +326,17 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b98e4f4-fcb1-4c63-991c-08719a389432"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scare"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -901,6 +920,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_Player_Scare = m_Player.FindAction("Scare", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -968,6 +988,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_SwitchWeapon;
+    private readonly InputAction m_Player_Scare;
     public struct PlayerActions
     {
         private @SampleInput m_Wrapper;
@@ -978,6 +999,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @SwitchWeapon => m_Wrapper.m_Player_SwitchWeapon;
+        public InputAction @Scare => m_Wrapper.m_Player_Scare;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1005,6 +1027,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @SwitchWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
+                @Scare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
+                @Scare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
+                @Scare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1027,6 +1052,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @SwitchWeapon.started += instance.OnSwitchWeapon;
                 @SwitchWeapon.performed += instance.OnSwitchWeapon;
                 @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+                @Scare.started += instance.OnScare;
+                @Scare.performed += instance.OnScare;
+                @Scare.canceled += instance.OnScare;
             }
         }
     }
@@ -1189,6 +1217,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         void OnUseItem(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnScare(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
