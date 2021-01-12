@@ -220,37 +220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5969583840541192805, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Scare
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216301780522222793, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 9216301780522222795, guid: 148abfe0325ab1649ad301b9221c7ade,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -310,11 +279,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Jan4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216301780522222796, guid: 148abfe0325ab1649ad301b9221c7ade,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148abfe0325ab1649ad301b9221c7ade, type: 3}

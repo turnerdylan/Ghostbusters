@@ -9,6 +9,8 @@ public class PlayerInputHandlerTest : MonoBehaviour
 {
     private Player pc;
 
+    private float scareInput;
+
     private void Awake()
     {
         pc = GetComponent<Player>();
@@ -44,13 +46,17 @@ public class PlayerInputHandlerTest : MonoBehaviour
 
     public void Scare(CallbackContext context)
     {
-        if (pc != null)
+        /*if (pc != null)
         {
             if (context.canceled)
             {
                 pc.Scare();
             }
-        }
+        }*/
+
+        scareInput = context.ReadValue<float>();
+        pc.Scare();
+        print("scare input is" + scareInput);
     }
 
 }

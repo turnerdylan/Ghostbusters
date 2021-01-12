@@ -226,7 +226,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Scare"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

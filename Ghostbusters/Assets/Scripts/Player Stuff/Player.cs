@@ -50,13 +50,6 @@ public class Player : MonoBehaviour
                 //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
             }
         }
-        print("number of ghosts is " + numberOfGhosts);
-
-        //remove
-        if (Keyboard.current.kKey.wasPressedThisFrame)
-        {
-            Scare();
-        }
     }
 
     private void FixedUpdate()
