@@ -6,11 +6,11 @@ public class Interactable : MonoBehaviour
 
     public bool canInteract = false;
     Transform player;
-    public PlayerController pc;
+    public Player pc;
 
     private void Start()
     {
-        pc = FindObjectOfType<PlayerController>();
+        pc = FindObjectOfType<Player>();
     }
 
     public virtual void Interact()
@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
         print("interacting with " + transform.name);
     }
 
-    public virtual void Interact(PlayerController pc)
+    public virtual void Interact(Player pc)
     {
         print("interacting with " + transform.name);
     }
@@ -36,7 +36,7 @@ public class Interactable : MonoBehaviour
         {
             canInteract = true;
         }
-        pc = other.GetComponent<PlayerController>();
+        pc = other.GetComponent<Player>();
     }
 
     private void OnTriggerExit(Collider other)

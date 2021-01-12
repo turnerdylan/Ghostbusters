@@ -85,51 +85,42 @@ public class GhostManager : MonoBehaviour
     {
         if(Keyboard.current.wKey.wasPressedThisFrame)
         {
-            //make sure there are at least 2 ghosts in the scene
-            if (mediumGhosts.Count >= 2) //can delete this because the lists are always a fixed size
+            //double for loop to compare all ghosts agaisnt one another
+            for (int i = 0; i < mediumGhosts.Count; i++)
             {
-                //double for loop to compare all ghosts agaisnt one another
-                for (int i = 0; i < mediumGhosts.Count; i++)
+                for (int j = i+1; j < mediumGhosts.Count; j++)
                 {
-                    for (int j = i+1; j < mediumGhosts.Count; j++)
+                    if (i != j)//can delete this
                     {
-                        if (i != j)//can delete this
+                        if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < 2
+                            && mediumGhosts[i].GetComponent<MediumGhost>().transformTimer <=0
+                            && mediumGhosts[j].GetComponent<MediumGhost>().transformTimer <= 0
+                            && mediumGhosts[i].gameObject.activeSelf
+                            && mediumGhosts[j].gameObject.activeSelf)
                         {
-                            if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < 2
-                                && mediumGhosts[i].GetComponent<MediumGhost>().transformTimer <=0
-                                && mediumGhosts[j].GetComponent<MediumGhost>().transformTimer <= 0
-                                && mediumGhosts[i].gameObject.activeSelf
-                                && mediumGhosts[j].gameObject.activeSelf)
-                            {
-                                print("first " + i + " then " + j);
-                                JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
-                            }
+                            JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
                         }
-
                     }
+
                 }
             }
-            if (smallGhosts.Count >= 2)
+            //double for loop to compare all ghosts agaisnt one another
+            for (int i = 0; i < smallGhosts.Count; i++)
             {
-                //double for loop to compare all ghosts agaisnt one another
-                for (int i = 0; i < smallGhosts.Count; i++)
+                for (int j = i+1; j < smallGhosts.Count; j++)
                 {
-                    for (int j = i+1; j < smallGhosts.Count; j++)
+                    if (i != j)
                     {
-                        if (i != j)
+                        if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < 2
+                            && smallGhosts[i].GetComponent<SmallGhost>().transformTimer <= 0
+                            && smallGhosts[j].GetComponent<SmallGhost>().transformTimer <= 0
+                            && smallGhosts[i].gameObject.activeSelf
+                            && smallGhosts[j].gameObject.activeSelf)
                         {
-                            if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < 2
-                                && smallGhosts[i].GetComponent<SmallGhost>().transformTimer <= 0
-                                && smallGhosts[j].GetComponent<SmallGhost>().transformTimer <= 0
-                                && smallGhosts[i].gameObject.activeSelf
-                                && smallGhosts[j].gameObject.activeSelf)
-                            {
-                                print("test");
-                                JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
-                            }
+                            JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
                         }
-
                     }
+
                 }
             }
         }

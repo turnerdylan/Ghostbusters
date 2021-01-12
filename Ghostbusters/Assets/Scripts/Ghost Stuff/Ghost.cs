@@ -29,14 +29,14 @@ public class Ghost : MonoBehaviour
     private float _distanceToNoticePlayer = 5f;
     private float _attackDelay;
 
-    PlayerController player;
+    Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         ResetTimer();
         _stateText = GetComponentInChildren<TextMeshPro>();
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<Player>();
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(State_Idle());
     }

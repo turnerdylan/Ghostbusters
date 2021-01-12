@@ -7,11 +7,11 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandlerTest : MonoBehaviour
 {
-    private PlayerController pc;
+    private Player pc;
 
     private void Awake()
     {
-        pc = GetComponent<PlayerController>();
+        pc = GetComponent<Player>();
         //controls = new PlayerControls();
     }
 
@@ -42,58 +42,13 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.SetLookVector(context.ReadValue<Vector2>());
     }*/
 
-    public void OnJump(CallbackContext context)
-    {
-        if (pc != null)
-        {
-            if (context.performed)
-            {
-                pc.Jump();
-            }          
-        }
-    }
-
-    /*public void OnUseItem(CallbackContext context)
-    {
-        if (pc != null)
-        {
-            if(context.performed)
-            {
-                pc.UseItem();
-            }
-        }  
-    }
-
-    public void OnSwitchWeapon(CallbackContext context)
-    {
-        if (pc != null)
-        {
-            if (context.performed)
-            {
-                //Debug.Log("Action was performed");
-                pc.SwitchWeapon();
-            }
-        }
-    }*/
-
-    /*public void OnInteract(CallbackContext context)
-    {
-        if (pc != null)
-        {
-            if(context.performed)
-            {
-                pc.Interact();
-            }
-        }
-    }*/
-
     public void Scare(CallbackContext context)
     {
         if (pc != null)
         {
-            if (context.started)
+            if (context.canceled)
             {
-                //pc.Scare();
+                pc.Scare();
             }
         }
     }

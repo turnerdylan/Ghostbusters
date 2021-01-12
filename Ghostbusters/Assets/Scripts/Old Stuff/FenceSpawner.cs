@@ -5,14 +5,14 @@ using UnityEngine;
 public class FenceSpawner : Weapon
 {
     public GameObject fencePrefab;
-    PlayerController player;
+    Player player;
     GameObject fencePost;
     bool canUse = true;
     Renderer rend;
 
     private void Awake()
     {
-        player = GetComponentInParent<PlayerController>();
+        player = GetComponentInParent<Player>();
         rend = GetComponentInChildren<Renderer>();
     }
     public override void Use()

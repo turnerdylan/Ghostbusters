@@ -51,7 +51,7 @@ public class MediumGhost : MonoBehaviour
 
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.mediumGhosts.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
         {
             if (spawnedGhosts >= ghostsToSpawn) break;
             if (!GhostManager.Instance.smallGhosts[i].activeSelf)

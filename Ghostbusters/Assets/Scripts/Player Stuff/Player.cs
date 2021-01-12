@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     //serializables
     [SerializeField]
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         print("scared");
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            if(Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
                 && GhostManager.Instance.bigGhosts[i].activeSelf)
             {
                 print("test");

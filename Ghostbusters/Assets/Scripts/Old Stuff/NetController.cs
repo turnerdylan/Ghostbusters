@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class NetController : Weapon
 {
-    PlayerController pc;
+    Player pc;
     public Transform storedGhostTransform;
     public Ghost capturedGhost;
     Animator animator;
 
     private void Start()
     {
-        pc = GetComponentInParent<PlayerController>();
+        pc = GetComponentInParent<Player>();
         animator = GetComponent<Animator>();
     }
 
