@@ -16,11 +16,6 @@ public class MediumGhost : MonoBehaviour
     public float transformDelay = 3f;
     public float transformTimer;
 
-    private void Start()
-    {
-        transformTimer = transformDelay;
-    }
-
     void Update()
     {
         if(canTransform)
@@ -42,6 +37,11 @@ public class MediumGhost : MonoBehaviour
         transformTimer = transformDelay;
     }
 
+    private void OnDisable()
+    {
+        canTransform = false;
+    }
+
     public void SplitApart()
     {
         /*Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
@@ -58,6 +58,7 @@ public class MediumGhost : MonoBehaviour
             {
                 GhostManager.Instance.smallGhosts[i].SetActive(true);
                 GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }

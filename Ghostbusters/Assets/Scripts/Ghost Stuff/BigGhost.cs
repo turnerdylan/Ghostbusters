@@ -40,11 +40,6 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        /*Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
-        Instantiate(mediumGhost, this.transform.position + new Vector3(-ghostSpawnOffset,0,-ghostSpawnOffset), Quaternion.identity);
-        GhostManager.Instance.bigGhosts.Remove(this.gameObject);
-        Destroy(this.gameObject);*/
-
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.mediumGhosts.Count; i++)
@@ -53,7 +48,7 @@ public class BigGhost : MonoBehaviour
             if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
             {
                 GhostManager.Instance.mediumGhosts[i].SetActive(true);
-                GhostManager.Instance.mediumGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.mediumGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset; //fix the math here to spawn them in separate locations
                 spawnedGhosts++;
             }
         }

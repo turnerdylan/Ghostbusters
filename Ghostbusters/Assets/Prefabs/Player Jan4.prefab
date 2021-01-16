@@ -997,6 +997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 10
+  viewAngle: 80
+  scareRange: 5
 --- !u!1 &9216301781484059371
 GameObject:
   m_ObjectHideFlags: 0

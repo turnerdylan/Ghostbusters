@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -11,24 +12,24 @@ public class Player : MonoBehaviour
     private float moveSpeed = 10f;
     [SerializeField]
     private float jumpForce = 10f;
+    [SerializeField]
+    private float viewAngle = 45f;
+    [SerializeField]
+    private float scareRange = 5f;
 
-    Interactable currentInteraction;
-    WeaponsController weapons;
+    
 
     //references
     private Rigidbody rb;
+    private Interactable currentInteraction;
+    private WeaponsController weapons;
 
     //private vars
-    //world direction the guy moves
     private Vector3 moveDirection = Vector3.zero;
-    //this is the input from joystick, in x and y dims
     private Vector2 inputMoveVector = Vector2.zero;
-
     private Vector3 inputLookVector = Vector3.zero;
     private float storedLookValue;
     private CheckIfGrounded isGrounded;
-
-    private float currentJumpForce;
 
     private void Awake()
     {
@@ -40,21 +41,29 @@ public class Player : MonoBehaviour
     void Update()
     {
         SetLookDirection();
-        int numberOfGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
-                && GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                numberOfGhosts++;
-                //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
-            }
-        }
+        //print( "Ghosts in range is " + TestForGhostsInRange());
     }
 
     private void FixedUpdate()
     {
         SetMoveDirection();
+    }
+
+
+
+
+    private int TestForGhostsInRange()
+    {
+        int numberOfGhosts = 0;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
+        {
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < scareRange
+                && GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                numberOfGhosts++;
+            }
+        }
+        return numberOfGhosts;
     }
 
     public void SetMoveVector(Vector2 direction)
@@ -80,18 +89,47 @@ public class Player : MonoBehaviour
 
     public void Scare()
     {
-        print("scared");
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < 5
+            //check if ghost is close enough and is active
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) < scareRange
                 && GhostManager.Instance.bigGhosts[i].activeSelf)
             {
-                print("test");
-                GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+                Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                //print(angleBetweenPlayerandGhost);
+
+                if(angleBetweenPlayerandGhost  < viewAngle / 2)
+                {
+                    if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        {
+            //check if ghost is close enough and is active
+            if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, transform.position) < scareRange
+                && GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                //print(angleBetweenPlayerandGhost);
+
+                if (angleBetweenPlayerandGhost < viewAngle / 2)
+                {
+                    print("test 1");
+                    if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
+                    {
+                        print("split medium");
+                        GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
+                    }
+                }
             }
         }
     }
-
 
     private void SetMoveDirection()
     {
@@ -110,21 +148,10 @@ public class Player : MonoBehaviour
             storedLookValue = Mathf.Atan2(inputMoveVector.x, inputMoveVector.y);
             transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
             //transform.rotation = Quaternion.Lerp(transform.rotation, storedLookValue * Mathf.Rad2Deg, 0);
-
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
         }
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        Interactable interactable;
-        if (other.gameObject.GetComponent<Interactable>())
-        {
-            interactable = other.gameObject.GetComponent<Interactable>();
-            currentInteraction = interactable;
-        }
-    }*/
 }

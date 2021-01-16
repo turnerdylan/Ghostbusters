@@ -55,7 +55,10 @@ public class PlayerInputHandlerTest : MonoBehaviour
         }*/
 
         scareInput = context.ReadValue<float>();
-        pc.Scare();
+        if(scareInput == 1)
+        {
+            pc.Scare();
+        }
         print("scare input is" + scareInput);
     }
 
