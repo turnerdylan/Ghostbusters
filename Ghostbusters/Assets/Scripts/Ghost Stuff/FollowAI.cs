@@ -9,11 +9,14 @@ public class FollowAI : MonoBehaviour
     private NavMeshAgent agent;
     private Transform target;
     public float speed = 5f;
+    Animator anim;
+    public GameObject boxTest;
     // Start is called before the first frame update
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         agent.speed = speed;
     }
 
@@ -22,9 +25,25 @@ public class FollowAI : MonoBehaviour
     {
         if(players.Length > 0)
             agent.SetDestination(GetClosestPlayer(players).position);
+
+        if (Vector3.Distance(transform.position, GetClosestPlayer(players).position) < 6)
+        {
+            anim.SetBool("Attack", true);
+        }
     }
 
-    Transform GetClosestPlayer(GameObject[] players)
+    public void EndAnimation(string name)
+    {
+        anim.SetBool(name, false);
+    }
+
+    private void OnDisable()
+    {
+        agent.speed = speed;
+        boxTest.gameObject.SetActive(false);
+    }
+
+Transform GetClosestPlayer(GameObject[] players)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;

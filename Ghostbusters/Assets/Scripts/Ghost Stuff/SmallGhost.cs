@@ -7,7 +7,7 @@ public class SmallGhost : MonoBehaviour
     public int listIndex = -1;
 
     bool canTransform = false;
-    public float transformDelay = 1f;
+    public float transformDelay;
     public float transformTimer;
 
     private void Start()
@@ -27,5 +27,10 @@ public class SmallGhost : MonoBehaviour
     {
         canTransform = true;
         transformTimer = transformDelay;
+    }
+
+    public void Bansish()
+    {
+        this.gameObject.SetActive(false);
     }
 }

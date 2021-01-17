@@ -13,11 +13,12 @@ public class MediumGhost : MonoBehaviour
     public float ghostSpawnOffset = 0.5f;
 
     bool canTransform = false;
-    public float transformDelay = 3f;
+    public float transformDelay;
     public float transformTimer;
 
     void Update()
     {
+        //TODO some logic is off here, fix it
         if(canTransform)
         {
             transformTimer -= Time.deltaTime;

@@ -46,7 +46,7 @@ MonoBehaviour:
   bigGhosts: []
   mediumGhosts: []
   smallGhosts: []
-  maxBigGhosts: 5
+  maxBigGhosts: 4
   maxMediumGhosts: 10
   maxSmallGhosts: 20
   bigGhostPrefab: {fileID: 834756269114162551, guid: d4f625309f6fc2c4092d6d8d707f1f91,
@@ -54,4 +54,7 @@ MonoBehaviour:
   mediumGhostPrefab: {fileID: 3996581311573420528, guid: 46c77fdd4cd4c414bb2cfb97d1c826a0,
     type: 3}
   smallGhostPrefab: {fileID: 298483656171211603, guid: b40701b9c960a514ebc9185ec96d405c,
+    type: 3}
+  joinTogetherDistance: 2.5
+  joinParticles: {fileID: 198791823504307442, guid: 3640199bf9dc32f4da57c37d57581f57,
     type: 3}

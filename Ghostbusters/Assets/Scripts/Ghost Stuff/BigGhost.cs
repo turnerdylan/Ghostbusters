@@ -36,6 +36,7 @@ public class BigGhost : MonoBehaviour
     {
         canTransform = true;
         transformTimer = transformDelay;
+
     }
 
     public void SplitApart()

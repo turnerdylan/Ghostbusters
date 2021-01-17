@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
 
     public void Scare()
     {
+        //TODO fix this logic so there is less repeating code
+
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             //check if ghost is close enough and is active
@@ -120,11 +122,29 @@ public class Player : MonoBehaviour
 
                 if (angleBetweenPlayerandGhost < viewAngle / 2)
                 {
-                    print("test 1");
                     if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
                     {
-                        print("split medium");
                         GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        {
+            //check if ghost is close enough and is active
+            if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, transform.position) < scareRange
+                && GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                //print(angleBetweenPlayerandGhost);
+
+                if (angleBetweenPlayerandGhost < viewAngle / 2)
+                {
+                    if (Physics.Linecast(transform.position, GhostManager.Instance.smallGhosts[i].transform.position))
+                    {
+                        GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Bansish();
                     }
                 }
             }

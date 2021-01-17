@@ -798,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 9216301780522222796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.8014555, y: 1.33, z: 1.1695505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7799, y: 1.7799, z: 1.7799}
   m_Children:
   - {fileID: 9216301780009956654}
   - {fileID: 9216301780044815000}
@@ -997,8 +997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 10
-  viewAngle: 80
-  scareRange: 5
+  viewAngle: 85.42
+  scareRange: 7.27
 --- !u!1 &9216301781484059371
 GameObject:
   m_ObjectHideFlags: 0
