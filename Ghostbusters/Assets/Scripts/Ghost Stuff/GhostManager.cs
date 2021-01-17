@@ -57,7 +57,7 @@ public class GhostManager : MonoBehaviour
         //set index
         for (int i = 0; i < maxBigGhosts; i++)
         {
-            GameObject current = Instantiate(bigGhostPrefab, transform.position + new Vector3(4*i, 0, 0), Quaternion.identity);
+            GameObject current = Instantiate(bigGhostPrefab, transform.position /*+ new Vector3(4*i, 0, 0)*/, Quaternion.identity);
             bigGhosts.Add(current);
             //current.gameObject.SetActive(false);
             current.GetComponent<BigGhost>()._listIndex = i;
@@ -65,7 +65,7 @@ public class GhostManager : MonoBehaviour
 
         for (int i = 0; i < maxMediumGhosts; i++)
         {
-            GameObject current = Instantiate(mediumGhostPrefab, transform.position + new Vector3(4*i, 0, 3), Quaternion.identity);
+            GameObject current = Instantiate(mediumGhostPrefab, transform.position /*+ new Vector3(4 * i, 0, 3)*/, Quaternion.identity);
             mediumGhosts.Add(current);
             current.gameObject.SetActive(false);
             current.GetComponent<MediumGhost>().listIndex = i;
@@ -73,7 +73,7 @@ public class GhostManager : MonoBehaviour
 
         for (int i = 0; i < maxSmallGhosts; i++)
         {
-            GameObject current = Instantiate(smallGhostPrefab, transform.position + new Vector3(4*i, 0, 6), Quaternion.identity);
+            GameObject current = Instantiate(smallGhostPrefab, transform.position /*+ new Vector3(4*i, 0, 6)*/, Quaternion.identity);
             smallGhosts.Add(current);
             current.gameObject.SetActive(false);
             current.GetComponent<SmallGhost>().listIndex = i;
