@@ -1,2 +1,2 @@
-# Ghostbusters
+# Spooked!
 Our capstone game!
