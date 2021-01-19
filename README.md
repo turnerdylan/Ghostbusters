@@ -13,4 +13,4 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ## 1/19/2021 - Week 1
 
 Test Image
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation%20Images/1-19-FerryLevel.JPG">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation%20Images/1-19-FerryLevel.JPG" width="250">
