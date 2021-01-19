@@ -2,9 +2,9 @@
 All the goings-ons for the wackiest CTD Capstone Game ever!
 ## 1/26/2021 - Week 2
 ### Goals:
-Z - A Character Animation up and running in Unity
-D - Ghost spawning throughout the level (time and space) 
-C - Multiplayer scaring
+- Z - A Character Animation up and running in Unity
+- D - Ghost spawning throughout the level (time and space) 
+- C - Multiplayer scaring
 
 
 ### Weekly Updates:
