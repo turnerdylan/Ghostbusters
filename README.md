@@ -12,5 +12,6 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ## 1/19/2021 - Week 1
 
-Test Image
+The initial prototype for Spooked! involves a blocked out version of our first level, the car ferry to the haunted island! We have cylinder block characters who can spawn in and scare capsule ghosts.
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation%20Images/1-19-FerryLevel.JPG" width="50%">
