@@ -41,4 +41,6 @@ The Luigi’s Mansion series is a wonderful example of a fun, spooky, non-horror
 
 ## FA20 - Previous Prototypes
 
+Our initial testing involved creating some ghost AI to direct the movement of the ghosts within the scene (pictured on the left) and a few different ways to catch ghosts (pictured on the right). From these tests, we decided to pivot towards the players scaring the ghosts through different stages and catching them once they were vunerable. 
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-catch-prototype.gif" width="49%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-movement-prototype.gif" width="51%">
