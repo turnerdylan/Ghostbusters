@@ -43,13 +43,16 @@ The Luigi’s Mansion series is a wonderful example of a fun, spooky, non-horror
 
 ### Unity Prototypes
 
-Our initial testing involved creating some ghost AI to direct the movement of the ghosts within the scene (pictured on the left) and a few different ways to catch ghosts (pictured on the right). From these tests, we decided to pivot towards the players scaring the ghosts through different stages and catching them once they were vunerable. 
+Our initial testing involved creating some ghost AI to direct the movement of the ghosts within the scene (pictured on the left) and a few different ways to catch ghosts (pictured on the right). From these tests, we decided to pivot towards the players scaring the ghosts through different stages and catching them once they were vulnerable. 
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-catch-prototype.gif" width="48.5%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-movement-prototype.gif" width="51.5%">
 
+### Low Poly Prototypes
+After deciding to pursue a low poly style for our assets, we moved forward in designing a few different characters, buildings, and scenes to try out the entire design flow for making these models. We are using Blender 2.9 for creating our 3D models with the goal of only using our own assets within this project. 
+
 ### Style Research 
 
-With the limited time of our team, we wanted to decide on a uniform design style for our 3D world so that we could all contribute assets to the development if need be. A sleek low poly style seemed feasible for our situation so we looked into a bunch of different games that include beautiful low poly design for insporation. Below are a few with shots from each game.
+With the limited time of our team, we wanted to decide on a uniform design style for our 3D world so that we could all contribute assets to the development if need be. A sleek low poly style seemed feasible for our situation so we looked into a bunch of different games that include beautiful low poly design for inspiration. Below are a few with shots from each game.
 
 _**Astroneer**_
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Astroneer.png" width="100%">
