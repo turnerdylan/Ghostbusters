@@ -39,8 +39,32 @@ The Luigi’s Mansion series is a wonderful example of a fun, spooky, non-horror
 
 - - -
 
-## FA20 - Previous Prototypes
+## FA20 - Previous Testing
+
+### Unity Prototypes
 
 Our initial testing involved creating some ghost AI to direct the movement of the ghosts within the scene (pictured on the left) and a few different ways to catch ghosts (pictured on the right). From these tests, we decided to pivot towards the players scaring the ghosts through different stages and catching them once they were vunerable. 
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-catch-prototype.gif" width="48.5%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-movement-prototype.gif" width="51.5%">
+
+### Style Research 
+
+With the limited time of our team, we wanted to decide on a uniform design style for our 3D world so that we could all contribute assets to the development if need be. A sleek low poly style seemed feasible for our situation so we looked into a bunch of different games that include beautiful low poly design for insporation. Below are a few with shots from each game.
+
+Astroneer
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Astroneer.png" width="100%">
+
+For the King
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/FortheKing.png" width="100%">
+
+Lara Croft GO
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LCGo.png" width="100%">
+
+Necropolis
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Necropolis.png" width="100%">
+
+Super Hot
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/SuperHot.png" width="100%">
+
+Grow Up
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GrowUp.png" width="100%">
