@@ -3,7 +3,7 @@
 # Documentation
 All the goings-ons for the wackiest CTD Capstone Game ever!
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-chase.gif" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-chase.gif" width="75%">
 
 - - -
 
