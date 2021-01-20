@@ -36,3 +36,9 @@ Our main takeaway from the Overcooked games is their combination of chaos and pl
 The Luigi’s Mansion series is a wonderful example of a fun, spooky, non-horror themed ghost game. The ghost hunting mechanics in LM3 involve a whole series of contraptions including a vacuum (for ghosts and also non-ghost sucking), a punger, a flashlight for stunning, a wind gust whoosh jump and a Luigi Doppelganger made out of goo named Gooigi. This allows for a huge range of ghost catching combinations. We want to emulate some of this variability but in a much simpler structure. We also want to create more dynamic ghost interactions, involving multiple players and key cooperation.
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/luigisMansion3.gif" width="75%">
+
+- - -
+
+## FA20 - Previous Prototypes
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-catch-prototype.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-movement-prototype.gif" width="50%">
