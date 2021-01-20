@@ -31,6 +31,10 @@ The first (mostly) full prototype for Spooked! involves a blocked out version of
 
 30% | 50% | 90% | 100%
 ------------ | ------------- | ------------- | ------------- 
+If our game is a house, this is the “foundation” | The “structure” | The “walls, floors, and ceilings” | The "furniture and decoration"
+Core game-loop completed | Mechanics polished and feeling good | Mechanics bug free within specific level dynamics | Final bug fixes
+Sketching out levels | Levels blocked out | Filling out levels with content | Final little level details
+Playtesting game-loop | Playtesting levels | Testing out game sound and UI | Publish Itch and Potentially Steam game pages
 
 
 - - - 
