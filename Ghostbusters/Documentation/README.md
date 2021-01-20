@@ -51,6 +51,10 @@ From these tests, we decided to pivot towards the players scaring the ghosts thr
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-catch-prototype.gif" width="48.5%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-movement-prototype.gif" width="51.5%">
 
+Our next line of testing involved trying out a few new forms of ghost movement, and scaring the ghosts to defeat them. In the prototype below, the player are pushed backwards when only one of them scares a ghost. In a successful scare, both players contribute and the ghost turns red. We also wanted to try out invisibility with the ghosts phasing in and out as the players try to scare them.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/scare-prototype.gif" width="75%">
+
 
 ### Style Research 
 
