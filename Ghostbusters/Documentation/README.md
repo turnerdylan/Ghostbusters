@@ -30,6 +30,7 @@ The first (mostly) full prototype for Spooked! involves a blocked out version of
 ## Project Timeline Goals
 
 30% | 50% | 90% | 100%
+------------ | ------------- | ------------- | ------------- 
 
 
 - - - 
