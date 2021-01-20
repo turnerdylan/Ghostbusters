@@ -55,12 +55,15 @@ From these tests, we decided to pivot towards the players scaring the ghosts thr
 After deciding to pursue a low poly style for our assets, we moved forward in designing a few different characters, buildings, and scenes to try out the entire design flow for making these models. We are using Blender 2.9 for creating our 3D models with the goal of only using our own assets within this project. 
 
 Some initial character ideas, a bread guy and a rolling cactus plant.
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Bread.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Cactus.png" width="50%">
 
 A few buildings that could exist in different places on our haunted island, a general building in town and a mushroom cottage for the enchanted forest.
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Building-Blue.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Building-Mush.png" width="50%">
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/House-Blue.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/House-Mush.png" width="50%">
 
 One idea for the feel of a library level.
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Scene-Library.png" width="50%">
 
 
