@@ -1,4 +1,5 @@
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-logo-b.png" width="50%">
+
 # Spooked! Documentation
 All the goings-ons for the wackiest CTD Capstone Game ever!
 ## 1/26/2021 - Week 2
