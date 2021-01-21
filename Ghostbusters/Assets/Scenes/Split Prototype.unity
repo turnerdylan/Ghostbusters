@@ -622,6 +622,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4198240862880816379, guid: 4da71c1e354810b459822efb2110026f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4da71c1e354810b459822efb2110026f,
         type: 3}
       propertyPath: m_Name
@@ -1016,6 +1021,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1f6b0179d630348afe455d2f17c002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1542572251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4198240862880816379, guid: 4da71c1e354810b459822efb2110026f,
+    type: 3}
+  m_PrefabInstance: {fileID: 593235825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1542572255
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542572251}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6228037765478285788, guid: 4da71c1e354810b459822efb2110026f, type: 3}
 --- !u!4 &1578582870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8239723117952756368, guid: 54e272020f5abc94b9a6f8bfd16d984e,
@@ -1172,10 +1197,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxBigGhosts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxMediumGhosts
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxSmallGhosts
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1925615210104531387, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.88
+      value: 14.17
       objectReference: {fileID: 0}
     - target: {fileID: 1925615210104531387, guid: fc907829a641741428874fa303f21e5f,
         type: 3}

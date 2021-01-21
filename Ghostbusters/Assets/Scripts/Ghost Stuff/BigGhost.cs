@@ -6,7 +6,12 @@ using UnityEngine.InputSystem;
 public class BigGhost : MonoBehaviour
 {
     public GameObject mediumGhost;
+    public int scaresNeeded = 1;
+    //public int scaresReceived = 0;
+    private bool scareInitiated = false;
+    public List<Player> players = new List<Player>();
 
+    float timer = 0.5f;
     public int _listIndex;
 
     public int ghostsToSpawn = 2;
@@ -15,6 +20,8 @@ public class BigGhost : MonoBehaviour
     bool canTransform = false;
     public float transformDelay = 3f;
     public float transformTimer;
+
+    public GameObject explosivePrefab;
 
     // Update is called once per frame
     void Update()
@@ -28,6 +35,30 @@ public class BigGhost : MonoBehaviour
                 {
                     SplitApart();
                 }
+            }
+        }
+
+        if(scareInitiated)
+        {
+            timer -= Time.deltaTime;
+            if(timer > 0)
+            {
+                if(players.Count == scaresNeeded)
+                {
+                    Debug.Log("Success!");
+                    ScareSuccess();
+                    scareInitiated = false;
+                    timer = 0.5f;
+                    players.Clear();
+                }
+            }
+            else
+            {
+                Debug.Log("Fail!");
+                ScareFail();
+                scareInitiated = false;
+                timer = 0.5f;
+                players.Clear();
             }
         }
     }
@@ -56,4 +87,28 @@ public class BigGhost : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+
+    public void AddPlayerScare(Player player)
+    {
+        if(!scareInitiated)
+        {
+            scareInitiated = true;
+        }
+        if(!players.Contains(player)) //not sure if this actually works 
+        {
+            players.Add(player);
+        }
+    }
+
+    private void ScareSuccess()
+    {
+        SplitApart();
+        //RandomEvent or blow back
+    }
+
+    private void ScareFail()
+    {
+        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+    }
+
 }

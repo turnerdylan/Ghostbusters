@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private float storedLookValue;
     private CheckIfGrounded isGrounded;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -104,7 +105,8 @@ public class Player : MonoBehaviour
                 if(angleBetweenPlayerandGhost  < viewAngle / 2)
                 {
                     if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+                        //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
             }
