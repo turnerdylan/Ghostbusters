@@ -46,3 +46,4 @@ MonoBehaviour:
   ghostSpawns: []
   levelMaxTime: 120
   startText: {fileID: 0}
+  levelTimerText: {fileID: 0}

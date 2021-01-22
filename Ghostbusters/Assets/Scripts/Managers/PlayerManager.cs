@@ -29,30 +29,11 @@ public class PlayerManager : MonoBehaviour
 
     public List<GameObject> players = new List<GameObject>();
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void EnableAllPlayerControls()
+    public void SetAllPlayerControls(bool state)
     {
         foreach(GameObject player in players)
         {
-            player.GetComponent<Player>().enabled = true;
-        }
-    }
-
-    public void DisableAllPlayerControls()
-    {
-        foreach (GameObject player in players)
-        {
-            player.GetComponent<Player>().enabled = false;
+            player.GetComponent<Player>().enabled = state;
         }
     }
 }

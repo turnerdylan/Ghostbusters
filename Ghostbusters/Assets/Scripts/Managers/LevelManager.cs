@@ -30,21 +30,12 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     #endregion
-
-    //locations to spawn ghosts in. Array of transforms
-    //a timer
-    //some format to spawn a certain amount of ghosts in at certain times
-    //ready set go screen
-    //timer in bottom corner
-    //various changes to level during level?
-
-    public List<Transform> ghostSpawns = new List<Transform>();
     public float levelMaxTime = 120;
 
     private float levelTimer;
     private float startTimer = 3;
 
-    bool levelHasStarted = false;
+    public bool levelHasStarted = false;
 
     public TextMeshProUGUI startText;
     public TextMeshProUGUI levelTimerText;
@@ -54,7 +45,8 @@ public class LevelManager : MonoBehaviour
     {
         levelTimer = levelMaxTime;
 
-        PlayerManager.Instance.DisableAllPlayerControls();
+        PlayerManager.Instance.SetAllPlayerControls(false);
+        GhostManager.Instance.SetAllGhostControls(false);
         StartCoroutine(StartCountdown());
     }
 
@@ -71,25 +63,35 @@ public class LevelManager : MonoBehaviour
             //levelTimerText.text = levelTimer.ToString("F0");
             var ts = TimeSpan.FromSeconds(levelTimer);
             levelTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+            if (levelTimer <= 0)
+            {
+                levelTimerText.text = "00:00";
+                SetUI(true);
+                startText.text = "level over";
+                PlayerManager.Instance.SetAllPlayerControls(false);
+            }
         }
+
+
     }
 
     IEnumerator StartCountdown()
     {
-
         yield return new WaitForSeconds(startTimer);
-        RemoveUI();
+        SetUI(false);
         BeginLevel();
-        PlayerManager.Instance.EnableAllPlayerControls();
     }
 
     private void BeginLevel()
     {
         levelHasStarted = true;
+        PlayerManager.Instance.SetAllPlayerControls(true);
+        GhostManager.Instance.SetAllGhostControls(true);
+        print("started level!");
     }
 
-    private void RemoveUI()
+    private void SetUI(bool state)
     {
-        startText.gameObject.SetActive(false);
+        startText.gameObject.SetActive(state);
     }
 }
