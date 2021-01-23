@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float scareRange = 5f;
 
-    
+
 
     //references
     private Rigidbody rb;
     private Interactable currentInteraction;
     private WeaponsController weapons;
+    private Animator anim;
 
     //private vars
     private Vector3 moveDirection = Vector3.zero;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isGrounded = GetComponentInChildren<CheckIfGrounded>();
         weapons = GetComponentInChildren<WeaponsController>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -155,9 +157,13 @@ public class Player : MonoBehaviour
     {
         if (inputMoveVector.magnitude > 0.5f)
         {
+          anim.SetBool("Walk", true);
             moveDirection = inputMoveVector * moveSpeed;
             //rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.y);
+        }
+        else{
+          anim.SetBool("Walk", false);
         }
     }
 
