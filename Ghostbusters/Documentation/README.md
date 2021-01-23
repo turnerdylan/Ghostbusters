@@ -10,7 +10,8 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ## 1/26/2021 - Week 2
 ### Goals:
 - Z - A Character Animation up and running in Unity
-This is a look at a mostly completed starting countdown, timer, and ghosts spawning in waves. In future updates we will replace the countdown with a better animated one and also improve the structure of the ghost waves so that they continually increase in difficulty.
+
+- D - This is a look at a mostly completed starting countdown, timer, and ghosts spawning in waves. In future updates we will replace the countdown with a better animated one and also improve the structure of the ghost waves so that they continually increase in difficulty.
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
 - C - Multiplayer scaring
 
