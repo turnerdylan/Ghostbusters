@@ -11,7 +11,7 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Goals:
 - Z - A Character Animation up and running in Unity
 This is a look at a mostly completed starting countdown, timer, and ghosts spawning in waves. In future updates we will replace the countdown with a better animated one and also improve the structure of the ghost waves so that they continually increase in difficulty.
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Week1.gif" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
 - C - Multiplayer scaring
 
 
@@ -24,7 +24,7 @@ This is a look at a mostly completed starting countdown, timer, and ghosts spawn
 
 The first (mostly) full prototype for Spooked! involves a blocked out version of our first level, the car ferry to the haunted island! We have cylinder block characters who can spawn in and scare capsule ghosts who will split into smaller and smaller ghosts, eventually disappearing. 
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Week1.gif" width="75%">
 
 - - -
 
