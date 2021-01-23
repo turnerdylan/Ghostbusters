@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daeb895f73515614485311e4bd618468, type: 3}
   m_Name: Test Wave
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 834756269114162551, guid: d4f625309f6fc2c4092d6d8d707f1f91, type: 3}
-  - {fileID: 834756269114162551, guid: d4f625309f6fc2c4092d6d8d707f1f91, type: 3}
-  - {fileID: 834756269114162551, guid: d4f625309f6fc2c4092d6d8d707f1f91, type: 3}
-  timeBetweenSpawns: 1
+  enemies: 0200000002000000020000000200000002000000
+  timeBetweenSpawns: 1.5
   spawnRandomFactor: 0.3

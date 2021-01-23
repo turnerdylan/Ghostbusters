@@ -88,6 +88,7 @@ public class LevelManager : MonoBehaviour
         PlayerManager.Instance.SetAllPlayerControls(true);
         GhostManager.Instance.SetAllGhostControls(true);
         print("started level!");
+        GhostSpawner.Instance.Test();
     }
 
     private void SetUI(bool state)

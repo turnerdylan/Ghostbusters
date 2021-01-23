@@ -46,7 +46,7 @@ MonoBehaviour:
   bigGhosts: []
   mediumGhosts: []
   smallGhosts: []
-  maxBigGhosts: 4
+  maxBigGhosts: 5
   maxMediumGhosts: 10
   maxSmallGhosts: 20
   bigGhostPrefab: {fileID: 834756269114162551, guid: d4f625309f6fc2c4092d6d8d707f1f91,

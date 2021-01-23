@@ -55,7 +55,7 @@ public class GhostManager : MonoBehaviour
         {
             GameObject current = Instantiate(bigGhostPrefab, transform.position , Quaternion.identity);     //instantiate ghosts
             bigGhosts.Add(current);                                                                         //fill the respective array with them
-            //current.gameObject.SetActive(false);                                                          //set them as inactive
+            current.gameObject.SetActive(false);                                                          //set them as inactive
             current.GetComponent<BigGhost>()._listIndex = i;                                                //set their list indexes
         }
 
@@ -185,6 +185,7 @@ public class GhostManager : MonoBehaviour
                 return i;
             }
         }
+        print("test 2");
         return -1;
     }
 }

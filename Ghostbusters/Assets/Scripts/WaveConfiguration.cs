@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public enum EnemyTypes
+{
+    SMALL,
+    MEDIUM,
+    BIG
+};
+
 [CreateAssetMenu(menuName = "Wave Configuration")]
 public class WaveConfiguration : ScriptableObject
 {
-    public List<GameObject> enemies = new List<GameObject>();
+    //public List<GameObject> enemies = new List<GameObject>();
+
+    public List<EnemyTypes> enemies = new List<EnemyTypes>();
 
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
-
-    public List<GameObject> GetWave()
-    {
-        return enemies;
-    }
 
     public float GetTimeBetweenSpawns()
     {

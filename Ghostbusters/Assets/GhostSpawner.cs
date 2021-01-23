@@ -31,29 +31,26 @@ public class GhostSpawner : MonoBehaviour
     int startingWave = 0;
     public List<Transform> ghostSpawnLocations = new List<Transform>();
 
-
     void Start()
     {
         var currentWave = waves[startingWave];
     }
 
-    void Update()
+    public void Test()
     {
-        if(LevelManager.Instance.levelHasStarted)
-        {
-            StartCoroutine(SpawnAllGhostsInWave(waves[startingWave]));
-        }
+        StartCoroutine(SpawnAllGhostsInWave(waves[startingWave]));
     }
 
-    private IEnumerator SpawnAllGhostsInWave(WaveConfiguration waveConfig)
+    public IEnumerator SpawnAllGhostsInWave(WaveConfiguration waveConfig)
     {
         for(int i=0; i<waveConfig.enemies.Count; i++)
         {
-            GameObject current = null;
-            if (waveConfig.enemies[i].GetComponent<BigGhost>())
+            
+            if (waveConfig.enemies[i] == EnemyTypes.BIG )
             {
-                print("test");
-                current = GhostManager.Instance.bigGhosts[GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts)];
+                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
+                GhostManager.Instance.bigGhosts[index].transform.position = ghostSpawnLocations[2].position;
+                GhostManager.Instance.bigGhosts[index].SetActive(true);
             }
             /*else if (waveConfig.enemies[i].GetComponent<MediumGhost>())
             {
@@ -63,12 +60,8 @@ public class GhostSpawner : MonoBehaviour
             {
                 current = GhostManager.Instance.GetFirstAvailableGhost(GhostManager.Instance.smallGhosts);
             }*/
-            if (current)
-            {
-                current.transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
-                current.SetActive(true);
-            }
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
         }
+        yield return null;
     }
 }
