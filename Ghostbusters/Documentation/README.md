@@ -11,13 +11,16 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Goals:
 - Z - A Character Animation up and running in Unity
 
-- D - This is a look at a mostly completed starting countdown, timer, and ghosts spawning in waves. In future updates we will replace the countdown with a better animated one and also improve the structure of the ghost waves so that they continually increase in difficulty.
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
+- D - Ghost spawning throughout the level (time and space)
+
 - C - Multiplayer scaring
 
 
 ### Weekly Updates:
-
+D - This is a look at a functional countdown, level timer, and ghost wave spawning. 
+The timer and countdown can be stylized in the future to match the theme of the game/levels but is currently working and adjustable per level. 
+The waves of ghosts are able to be customized per level across number, frequency, and difficulty of ghosts. This will allow us to control the variability and dificulty within each level we design and scale them according to the organization of our larger narrative.
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
 
 - - -
 
