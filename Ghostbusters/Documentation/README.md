@@ -9,25 +9,27 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ## 1/26/2021 - Week 2
 ### Goals:
-- Z - A Character Animation up and running in Unity
+- C - Multiplayer scaring
 
 - D - Ghost spawning throughout the level (time and space)
 
-- C - Multiplayer scaring
+- Z - A Character Animation up and running in Unity
 
 
 ### Weekly Updates:
-Z - Here are a few of the basic animations for our first rigged character. We might change to a different theme with our player characters, not necessarily sticking to just humans, but for the time being we wanted to develop them along the way and add player animations to the prototype. Below are our first passes at an idle, movement, and scare animation with this first character. Now that the process of creating the first characters, rigging them and adding animations is complete (at least initially), we can continue to add animations and new characters pretty easily. We have plans for a variety of other animations we might like to add including a stunned state, a scared state and maybe a jump. 
+C - In line with our goal to make our game cooperative, we've added a multiplayer scaring functionality which makes it so players must work together to split apart ghosts. On a successful scare, meaning all players have activated their scare simultaneously while also being in range of the ghost, the ghost will split apart. On a scare failure, the ghost applies a force to all the players and sends them flying back. In the future we plan on creating a number of events that will be triggered on a scare success which we hope will add some more chaos to the game.
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Idle.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Run.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Scare.gif" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/multiplayer-scare.gif" width="75%">
 
 D - This is a look at a functional countdown, level timer, and ghost wave spawning. 
 The timer and countdown can be stylized in the future to match the theme of the game/levels but is currently working and adjustable per level. 
 The waves of ghosts are able to be customized per level across number, frequency, and difficulty of ghosts. This will allow us to control the variability and dificulty within each level we design and scale them according to the organization of our larger narrative.
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Waves Gif.gif" width="75%">
 
-C - In line with our goal to make our game cooperative, we've added a multiplayer scaring functionality which makes it so players must work together to split apart ghosts. On a successful scare, meaning all players have activated their scare simultaneously while also being in range of the ghost, the ghost will split apart. On a scare failure, the ghost applies a force to all the players and sends them flying back. In the future we plan on creating a number of events that will be triggered on a scare success which we hope will add some more chaos to the game.
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/multiplayer-scare.gif" width="75%">
+Z - Here are a few of the basic animations for our first rigged character. We might change to a different theme with our player characters, not necessarily sticking to just humans, but for the time being we wanted to develop them along the way and add player animations to the prototype. Below are our first passes at an idle, movement, and scare animation with this first character. Now that the process of creating the first characters, rigging them and adding animations is complete (at least initially), we can continue to add animations and new characters pretty easily. We have plans for a variety of other animations we might like to add including a stunned state, a scared state and maybe a jump. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Idle.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Run.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Scare.gif" width="50%">
 
 - - -
 
