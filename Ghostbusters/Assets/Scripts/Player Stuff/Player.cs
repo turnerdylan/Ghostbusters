@@ -172,6 +172,7 @@ public class Player : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
+            //transform.rotation = Quaternion.Slerp(storedLookValue, storedLookValue * Mathf.Rad2Deg, 0.1f);
         }
     }
 }
