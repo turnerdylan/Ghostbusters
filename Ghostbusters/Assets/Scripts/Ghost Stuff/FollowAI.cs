@@ -39,7 +39,8 @@ public class FollowAI : MonoBehaviour
 
     private void OnDisable()
     {
-        agent.speed = speed;
+        if(agent)
+            agent.speed = speed;
         boxTest.gameObject.SetActive(false);
     }
 

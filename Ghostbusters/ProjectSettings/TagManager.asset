@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fence
   - Enemy
+  - BigGhost
   layers:
   - Default
   - TransparentFX

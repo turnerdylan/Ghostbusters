@@ -28,10 +28,6 @@ public class GhostManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-
-
-
-        
     }
     #endregion
 
@@ -59,7 +55,7 @@ public class GhostManager : MonoBehaviour
         {
             GameObject current = Instantiate(bigGhostPrefab, transform.position , Quaternion.identity);     //instantiate ghosts
             bigGhosts.Add(current);                                                                         //fill the respective array with them
-            //current.gameObject.SetActive(false);                                                          //set them as inactive
+            current.gameObject.SetActive(false);                                                          //set them as inactive
             current.GetComponent<BigGhost>()._listIndex = i;                                                //set their list indexes
         }
 
@@ -162,5 +158,34 @@ public class GhostManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SetAllGhostControls(bool state)
+    {
+        foreach(GameObject ghost in bigGhosts)
+        {
+            ghost.GetComponent<FollowAI>().enabled = state;
+        }
+        foreach (GameObject ghost in mediumGhosts)
+        {
+           ghost.GetComponent<WanderingAI>().enabled = state;
+        }
+        foreach (GameObject ghost in smallGhosts)
+        {
+            ghost.GetComponent<FleeAI>().enabled = state;
+        }
+    }
+
+    public int GetFirstAvailableGhostIndex(List<GameObject> ghostType)
+    {
+        for(int i=0; i<ghostType.Count; i++)
+        {
+            if(!ghostType[i].activeSelf)
+            {
+                return i;
+            }
+        }
+        print("test 2");
+        return -1;
     }
 }
