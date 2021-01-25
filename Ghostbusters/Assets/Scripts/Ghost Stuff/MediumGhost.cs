@@ -19,7 +19,7 @@ public class MediumGhost : MonoBehaviour
     void Update()
     {
         //TODO some logic is off here, fix it
-        if(canTransform)
+        /*if(canTransform)
         {
             transformTimer -= Time.deltaTime;
             if(transformTimer <= 0)
@@ -29,7 +29,7 @@ public class MediumGhost : MonoBehaviour
                     SplitApart();
                 }
             }
-        }
+        }*/
     }
 
     private void OnEnable()

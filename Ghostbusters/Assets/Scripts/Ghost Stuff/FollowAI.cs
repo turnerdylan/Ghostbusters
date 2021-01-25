@@ -5,28 +5,30 @@ using UnityEngine.AI;
 
 public class FollowAI : MonoBehaviour
 {
-    GameObject [] players;
+    //GameObject [] players;
     private NavMeshAgent agent;
     private Transform target;
     public float speed = 5f;
     Animator anim;
     public GameObject boxTest;
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        //players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         agent.speed = speed;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(players.Length > 0)
-            agent.SetDestination(GetClosestPlayer(players).position);
+        if(PlayerManager.Instance.players.Length > 0)
+            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position);
 
-        if (Vector3.Distance(transform.position, GetClosestPlayer(players).position) < 6)
+        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position) < 6)
         {
             anim.SetBool("Attack", true);
         }
@@ -44,19 +46,23 @@ public class FollowAI : MonoBehaviour
         boxTest.gameObject.SetActive(false);
     }
 
-Transform GetClosestPlayer(GameObject[] players)
+Transform GetClosestPlayer(Player[] players)
     {
         Transform tMin = null;
-        float minDist = Mathf.Infinity;
+        float distanceToClosestPlayer = Mathf.Infinity;
         Vector3 currentPos = transform.position;
-        foreach (GameObject t in players)
+        foreach (Player t in players)
         {
-            float dist = Vector3.Distance(t.transform.position, currentPos);
-            if (dist < minDist)
+            if(!t.isStunned)
             {
-                tMin = t.transform;
-                minDist = dist;
+                float currentCheckDistance = Vector3.Distance(t.transform.position, currentPos);
+                if (currentCheckDistance < distanceToClosestPlayer)
+                {
+                    tMin = t.transform;
+                    distanceToClosestPlayer = currentCheckDistance;
+                }
             }
+            
         }
         return tMin;
     }

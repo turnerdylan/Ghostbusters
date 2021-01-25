@@ -20,14 +20,9 @@ public class BoxTest : MonoBehaviour
     {
         if(other.GetComponent<Player>() != null)
         {
-            other.GetComponent<Player>().enabled = false;
-            StartCoroutine(StunPlayer(2, other.gameObject));
+            other.GetComponent<Player>().StunTest();
+            //StartCoroutine(other.GetComponent<Player>().StunPlayer());
+            //StartCoroutine(StunPlayer(other.GetComponent<Player>()));
         }
-    }
-
-    IEnumerator StunPlayer(float stunTime, GameObject player)
-    {
-        yield return new WaitForSeconds(stunTime);
-        player.GetComponent<Player>().enabled = false;
     }
 }

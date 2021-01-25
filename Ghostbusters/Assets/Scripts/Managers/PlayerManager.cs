@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,16 +25,19 @@ public class PlayerManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        players = FindObjectsOfType<Player>();
     }
     #endregion
 
-    public List<GameObject> players = new List<GameObject>();
+    public Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
+
 
     public void SetAllPlayerControls(bool state)
     {
-        foreach(GameObject player in players)
+        foreach(Player player in players)
         {
-            player.GetComponent<Player>().enabled = state;
+            player.enabled = state;
         }
     }
 }

@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63ba3fc2785bae94a9ffbfdcf32cd351, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,7 +342,7 @@ Animator:
   m_GameObject: {fileID: 8401658520763442755}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b9a87cd6a4481546b4fd7f5cb2268b5, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -449,7 +449,7 @@ Animator:
   m_GameObject: {fileID: 8401658521089246846}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1c98c51db186d554d89b2553570243b7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -999,6 +999,8 @@ MonoBehaviour:
   jumpForce: 10
   viewAngle: 85.42
   scareRange: 7.27
+  stunTime: 3
+  isStunned: 0
 --- !u!1 &9216301781484059371
 GameObject:
   m_ObjectHideFlags: 0

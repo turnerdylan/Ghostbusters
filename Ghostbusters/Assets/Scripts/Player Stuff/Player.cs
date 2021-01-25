@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     private float viewAngle = 45f;
     [SerializeField]
     private float scareRange = 5f;
+    [SerializeField]
+    private float stunTime = 3f;
+
+    public bool isStunned = false;
+    
 
     
 
@@ -174,5 +179,19 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
             //transform.rotation = Quaternion.Slerp(storedLookValue, storedLookValue * Mathf.Rad2Deg, 0.1f);
         }
+    }
+
+    public void StunTest()
+    {
+        StartCoroutine(StunPlayer());
+    }
+
+    public IEnumerator StunPlayer()
+    {
+        enabled = false;
+        isStunned = true;
+        yield return new WaitForSeconds(stunTime);
+        enabled = true;
+        isStunned = false;
     }
 }

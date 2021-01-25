@@ -19,7 +19,7 @@ public class BigGhost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canTransform)
+        /*if (canTransform)
         {
             transformTimer -= Time.deltaTime;
             if (transformTimer <= 0)
@@ -29,7 +29,7 @@ public class BigGhost : MonoBehaviour
                     SplitApart();
                 }
             }
-        }
+        }*/
     }
 
     private void OnEnable()
