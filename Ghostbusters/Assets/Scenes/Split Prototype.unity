@@ -121,57 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 54b85f184bb26444080c6d294a743ebc, type: 2}
---- !u!1 &21376471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 21376473}
-  - component: {fileID: 21376472}
-  m_Layer: 0
-  m_Name: Ghost Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &21376472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21376471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f286a7b71fef5454991190a5aef590d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - {fileID: 11400000, guid: 9191857585f6fe74b91629640349b651, type: 2}
-  ghostSpawnLocations:
-  - {fileID: 1224922507}
-  - {fileID: 579496230}
-  - {fileID: 389348955}
-  - {fileID: 667470987}
-  - {fileID: 707778454}
---- !u!4 &21376473
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21376471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &50521281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,6 +2300,100 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc907829a641741428874fa303f21e5f, type: 3}
+--- !u!1001 &6761392886075342424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: ghostSpawnLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 1224922507}
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: ghostSpawnLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 579496230}
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: ghostSpawnLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 389348955}
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: ghostSpawnLocations.Array.data[3]
+      value: 
+      objectReference: {fileID: 667470987}
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: ghostSpawnLocations.Array.data[4]
+      value: 
+      objectReference: {fileID: 707778454}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761392886053966735, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: m_Name
+      value: Ghost Spawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aac878fa43701704e810cc59bc3760b9, type: 3}
 --- !u!1001 &8730199554011361529
 PrefabInstance:
   m_ObjectHideFlags: 0
