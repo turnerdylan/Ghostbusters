@@ -7,6 +7,7 @@ public class SmallGhost : MonoBehaviour
     public int listIndex = -1;
 
     bool canTransform = false;
+    public bool scarable;
     public float transformDelay;
     public float transformTimer;
 
@@ -27,10 +28,18 @@ public class SmallGhost : MonoBehaviour
     {
         canTransform = true;
         transformTimer = transformDelay;
+        scarable = false;
+        StartCoroutine(ScareInvincibility());
     }
 
-    public void Bansish()
+    public void Banish()
     {
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator ScareInvincibility()
+    {
+        yield return new WaitForSeconds(1.75f);
+        scarable = true;
     }
 }
