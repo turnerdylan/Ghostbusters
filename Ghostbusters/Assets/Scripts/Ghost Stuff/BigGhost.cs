@@ -11,7 +11,8 @@ public class BigGhost : MonoBehaviour
     private bool scareInitiated = false;
     public List<Player> players = new List<Player>();
 
-    float timer = 0.5f;
+    float scareTimer = 0.2f;
+    float timer;
     public int _listIndex;
 
     public int ghostsToSpawn = 2;
@@ -20,10 +21,11 @@ public class BigGhost : MonoBehaviour
     bool canTransform = false;
     public float transformDelay = 3f;
     public float transformTimer;
-
+    public bool scarable;
     public GameObject explosivePrefab;
 
     // Update is called once per frame
+
     void Update()
     {
         if (canTransform)
@@ -48,7 +50,7 @@ public class BigGhost : MonoBehaviour
                     Debug.Log("Success!");
                     ScareSuccess();
                     scareInitiated = false;
-                    timer = 0.5f;
+                    timer = scareTimer;
                     players.Clear();
                 }
             }
@@ -57,7 +59,7 @@ public class BigGhost : MonoBehaviour
                 Debug.Log("Fail!");
                 ScareFail();
                 scareInitiated = false;
-                timer = 0.5f;
+                timer = scareTimer;
                 players.Clear();
             }
         }
@@ -67,7 +69,9 @@ public class BigGhost : MonoBehaviour
     {
         canTransform = true;
         transformTimer = transformDelay;
-
+        timer = scareTimer;
+        scarable = false;
+        StartCoroutine(ScareInvincibility());
     }
 
     public void SplitApart()
@@ -110,5 +114,9 @@ public class BigGhost : MonoBehaviour
     {
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
     }
-
+    IEnumerator ScareInvincibility()
+    {
+        yield return new WaitForSeconds(2.5f);
+        scarable = true;
+    }
 }

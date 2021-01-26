@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
                 {
                     if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
                         //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this); //add scarable condition?
                     }
                 }
             }
@@ -126,7 +126,8 @@ public class Player : MonoBehaviour
                 {
                     if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
                     {
-                        GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
+                        if(GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().scarable)
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
                     }
                 }
             }
@@ -146,7 +147,8 @@ public class Player : MonoBehaviour
                 {
                     if (Physics.Linecast(transform.position, GhostManager.Instance.smallGhosts[i].transform.position))
                     {
-                        GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Bansish();
+                        if(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().scarable)
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
                     }
                 }
             }

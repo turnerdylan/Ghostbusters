@@ -52,6 +52,7 @@ public class GhostManager : MonoBehaviour
     //TODO add some sort of time delay for joining or animation
 
     public ParticleSystem joinParticles;
+ 
 
     private void Start()
     {

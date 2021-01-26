@@ -15,7 +15,7 @@ public class MediumGhost : MonoBehaviour
     bool canTransform = false;
     public float transformDelay;
     public float transformTimer;
-
+    public bool scarable;
     void Update()
     {
         //TODO some logic is off here, fix it
@@ -36,6 +36,8 @@ public class MediumGhost : MonoBehaviour
     {
         canTransform = true;
         transformTimer = transformDelay;
+        scarable = false;
+        StartCoroutine(ScareInvincibility());
     }
 
     private void OnDisable()
@@ -65,5 +67,11 @@ public class MediumGhost : MonoBehaviour
         }
         gameObject.SetActive(false);
 
+    }
+
+    IEnumerator ScareInvincibility()
+    {
+        yield return new WaitForSeconds(1.75f);
+        scarable = true;
     }
 }
