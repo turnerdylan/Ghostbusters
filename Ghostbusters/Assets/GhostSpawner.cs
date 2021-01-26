@@ -49,17 +49,21 @@ public class GhostSpawner : MonoBehaviour
             if (waveConfig.enemies[i] == EnemyTypes.BIG )
             {
                 int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
-                GhostManager.Instance.bigGhosts[index].transform.position = ghostSpawnLocations[2].position;
+                GhostManager.Instance.bigGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
                 GhostManager.Instance.bigGhosts[index].SetActive(true);
             }
-            /*else if (waveConfig.enemies[i].GetComponent<MediumGhost>())
+            else if (waveConfig.enemies[i] == EnemyTypes.MEDIUM)
             {
-                current = GhostManager.Instance.GetFirstAvailableGhost(GhostManager.Instance.mediumGhosts);
+                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
+                GhostManager.Instance.mediumGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
+                GhostManager.Instance.mediumGhosts[index].SetActive(true);
             }
-            else if (waveConfig.enemies[i].GetComponent<SmallGhost>())
+            else if (waveConfig.enemies[i] == EnemyTypes.SMALL)
             {
-                current = GhostManager.Instance.GetFirstAvailableGhost(GhostManager.Instance.smallGhosts);
-            }*/
+                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.smallGhosts);
+                GhostManager.Instance.smallGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
+                GhostManager.Instance.smallGhosts[index].SetActive(true);
+            }
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
         }
         yield return null;
