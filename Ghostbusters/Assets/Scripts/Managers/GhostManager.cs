@@ -172,7 +172,7 @@ public class GhostManager : MonoBehaviour
         }
         foreach (GameObject ghost in smallGhosts)
         {
-            ghost.GetComponent<FleeAI>().enabled = state;
+            ghost.GetComponent<SmallGhostMovement>().enabled = state;
         }
     }
 

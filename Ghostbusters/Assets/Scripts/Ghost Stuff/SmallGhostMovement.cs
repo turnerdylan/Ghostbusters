@@ -20,13 +20,13 @@ public class SmallGhostMovement : MonoBehaviour
     public float wanderRadius;
     public float wanderTimer;
     public float seekDistance = 7.5f;
-    private TextMeshPro _stateText;
+    //private TextMeshPro _stateText;
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
-        _stateText = GetComponentInChildren<TextMeshPro>();
+        //_stateText = GetComponentInChildren<TextMeshPro>();
         StartCoroutine(State_Wander());
     }
 
@@ -44,7 +44,7 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Wander()
     {
         currentState = SMALL_GHOST_STATE.WANDER;
-        _stateText.text = "wander";
+        //_stateText.text = "wander";
 
         //wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
         timer = wanderTimer;
@@ -74,7 +74,7 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Flee()
     {
         currentState = SMALL_GHOST_STATE.FLEE;
-        _stateText.text = "flee";
+        //_stateText.text = "flee";
 
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
@@ -92,7 +92,7 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Seek()
     {
         currentState = SMALL_GHOST_STATE.SEEK;
-        _stateText.text = "seek";
+        //_stateText.text = "seek";
         while(currentState == SMALL_GHOST_STATE.SEEK)
         {
             agent.SetDestination(GetClosestGhost().position);
