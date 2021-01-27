@@ -21,25 +21,13 @@ public class BigGhost : MonoBehaviour
     bool canTransform = false;
     public float transformDelay = 3f;
     public float transformTimer;
-    public bool scarable;
+    public bool scareable;
     public GameObject explosivePrefab;
 
     // Update is called once per frame
 
     void Update()
     {
-        if (canTransform)
-        {
-            transformTimer -= Time.deltaTime;
-            if (transformTimer <= 0)
-            {
-                if (Keyboard.current.sKey.wasPressedThisFrame && canTransform)
-                {
-                    SplitApart();
-                }
-            }
-        }
-
         if(scareInitiated)
         {
             timer -= Time.deltaTime;
@@ -70,7 +58,7 @@ public class BigGhost : MonoBehaviour
         canTransform = true;
         transformTimer = transformDelay;
         timer = scareTimer;
-        scarable = false;
+        scareable = false;
         StartCoroutine(ScareInvincibility());
     }
 
@@ -84,7 +72,8 @@ public class BigGhost : MonoBehaviour
             if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
             {
                 GhostManager.Instance.mediumGhosts[i].SetActive(true);
-                GhostManager.Instance.mediumGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset; //fix the math here to spawn them in separate locations
+                Vector3 testposition = gameObject.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.mediumGhosts[i].transform.position = testposition;
                 spawnedGhosts++;
             }
         }
@@ -117,6 +106,6 @@ public class BigGhost : MonoBehaviour
     IEnumerator ScareInvincibility()
     {
         yield return new WaitForSeconds(2.5f);
-        scarable = true;
+        scareable = true;
     }
 }

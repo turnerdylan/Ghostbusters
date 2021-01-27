@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
     public void Scare()
     {
         //TODO fix this logic so there is less repeating code
+        anim.SetBool("Scare", true);
 
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
@@ -111,7 +112,8 @@ public class Player : MonoBehaviour
                 if(angleBetweenPlayerandGhost  < viewAngle / 2)
                 {
                     if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                     }
                 }
             }

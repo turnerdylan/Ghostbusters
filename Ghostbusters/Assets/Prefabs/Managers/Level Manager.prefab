@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d3a4dda4b2b2c4fbc846dd98d6985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostSpawns: []
   levelMaxTime: 120
+  levelHasStarted: 0
   startText: {fileID: 0}
   levelTimerText: {fileID: 0}
