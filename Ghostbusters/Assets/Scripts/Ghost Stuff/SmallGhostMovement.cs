@@ -11,22 +11,24 @@ public enum SMALL_GHOST_STATE
 };
 public class SmallGhostMovement : MonoBehaviour
 {
-    GameObject [] players;
+    //references
     private NavMeshAgent agent;
-    public float speed = 5f;
-    public float enemyDistanceRun = 4.0f;
+
+    //private serializables
+    [SerializeField] private float minDistanceForEnemyToRun = 4f;
+    [SerializeField] private float wanderRadius;
+    [SerializeField] private float timerUntilWanderMax = 2f;
+    [SerializeField] private float seekDistance = 7.5f;
+
+    //private variables
     SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.WANDER;
     private float timer;
-    public float wanderRadius;
-    public float wanderTimer;
-    public float seekDistance = 7.5f;
-    //private TextMeshPro _stateText;
+
+    //public variables
+
     void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-        //_stateText = GetComponentInChildren<TextMeshPro>();
         StartCoroutine(State_Wander());
     }
 
@@ -35,30 +37,24 @@ public class SmallGhostMovement : MonoBehaviour
         StartCoroutine(State_Wander());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public IEnumerator State_Wander()
     {
         currentState = SMALL_GHOST_STATE.WANDER;
         //_stateText.text = "wander";
 
         //wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
-        timer = wanderTimer;
+        timer = timerUntilWanderMax;
         while(currentState == SMALL_GHOST_STATE.WANDER)
         {
             timer += Time.deltaTime;
-            if (timer >= wanderTimer) 
+            if (timer >= timerUntilWanderMax) 
             {
                 Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, 1);
                 agent.SetDestination(newPos);
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, GetClosestPlayer(players).position) < enemyDistanceRun)
+            if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -78,10 +74,10 @@ public class SmallGhostMovement : MonoBehaviour
 
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - GetClosestPlayer(players).position;
+            Vector3 dirToPlayer = transform.position - GetClosestPlayer(PlayerManager.Instance.players).position;
             Vector3 newPos = transform.position + 2*dirToPlayer;
             agent.SetDestination(newPos);
-            if(Vector3.Distance(transform.position, GetClosestPlayer(players).position) >= enemyDistanceRun)
+            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) >= minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Wander());
                 yield break;
@@ -96,7 +92,7 @@ public class SmallGhostMovement : MonoBehaviour
         while(currentState == SMALL_GHOST_STATE.SEEK)
         {
             agent.SetDestination(GetClosestGhost().position);
-            if(Vector3.Distance(transform.position, GetClosestPlayer(players).position) < enemyDistanceRun) //if player comes within in range while seeking
+            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun) //if player comes within in range while seeking
             {
                 StartCoroutine(State_Flee()); 
                 yield break;
@@ -109,12 +105,12 @@ public class SmallGhostMovement : MonoBehaviour
             yield return null;
         }
     }
-    Transform GetClosestPlayer(GameObject[] players)
+    Transform GetClosestPlayer(Player[] players)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
-        foreach (GameObject t in players)
+        foreach (Player t in players)
         {
             float dist = Vector3.Distance(t.transform.position, currentPos);
             if (dist < minDist)

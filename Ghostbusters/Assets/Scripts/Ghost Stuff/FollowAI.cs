@@ -5,21 +5,20 @@ using UnityEngine.AI;
 
 public class FollowAI : MonoBehaviour
 {
-    //GameObject [] players;
+    //references
     private NavMeshAgent agent;
+    private Animator anim;
+
+    //private serializables
+    [SerializeField] private GameObject boxTest;
+
+    //private variables
     private Transform target;
-    public float speed = 5f;
-    Animator anim;
-    public GameObject boxTest;
-
-
 
     void Start()
     {
-        //players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        agent.speed = speed;
     }
 
 
@@ -42,7 +41,6 @@ public class FollowAI : MonoBehaviour
     private void OnDisable()
     {
         if(agent)
-            agent.speed = speed;
         boxTest.gameObject.SetActive(false);
     }
 
@@ -53,7 +51,7 @@ Transform GetClosestPlayer(Player[] players)
         Vector3 currentPos = transform.position;
         foreach (Player t in players)
         {
-            if(!t.isStunned)
+            if(!t.GetStunState())
             {
                 float currentCheckDistance = Vector3.Distance(t.transform.position, currentPos);
                 if (currentCheckDistance < distanceToClosestPlayer)

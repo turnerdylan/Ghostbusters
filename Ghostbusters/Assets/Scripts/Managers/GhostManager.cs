@@ -31,6 +31,15 @@ public class GhostManager : MonoBehaviour
     }
     #endregion
 
+    //references
+    public ParticleSystem joinParticles;
+
+    //private serializables
+
+    //private variables
+
+    //public variables
+
     //TODO make these arrays because they are a fixed size
     public List<GameObject> bigGhosts = new List<GameObject>();         //All big ghosts in scene
     public List<GameObject> mediumGhosts = new List<GameObject>();      //All medium ghosts in scene
@@ -44,10 +53,10 @@ public class GhostManager : MonoBehaviour
     public GameObject mediumGhostPrefab;
     public GameObject smallGhostPrefab;
 
-    public float joinTogetherDistance = 2.5f;
+    [SerializeField] private float joinTogetherDistance = 2.5f;
     //TODO add some sort of time delay for joining or animation
 
-    public ParticleSystem joinParticles;
+
 
     private void Start()
     {
@@ -56,7 +65,7 @@ public class GhostManager : MonoBehaviour
             GameObject current = Instantiate(bigGhostPrefab, transform.position , Quaternion.identity);     //instantiate ghosts
             bigGhosts.Add(current);                                                                         //fill the respective array with them
             current.gameObject.SetActive(false);                                                          //set them as inactive
-            current.GetComponent<BigGhost>()._listIndex = i;                                                //set their list indexes
+            current.GetComponent<BigGhost>().SetListIndex(i);                                                //set their list indexes
         }
 
         for (int i = 0; i < maxMediumGhosts; i++)
@@ -64,7 +73,7 @@ public class GhostManager : MonoBehaviour
             GameObject current = Instantiate(mediumGhostPrefab, transform.position, Quaternion.identity);
             mediumGhosts.Add(current);
             current.gameObject.SetActive(false);
-            current.GetComponent<MediumGhost>().listIndex = i;
+            current.GetComponent<MediumGhost>().SetListIndex(i);
         }
 
         for (int i = 0; i < maxSmallGhosts; i++)
@@ -72,49 +81,43 @@ public class GhostManager : MonoBehaviour
             GameObject current = Instantiate(smallGhostPrefab, transform.position, Quaternion.identity);
             smallGhosts.Add(current);
             current.gameObject.SetActive(false);
-            current.GetComponent<SmallGhost>().listIndex = i;
+            current.GetComponent<SmallGhost>().SetListIndex(i);
         }
     }
 
-
     void Update()
     {
-        if(true/*Keyboard.current.wKey.wasPressedThisFrame*/)
+        //double for loop to compare all ghosts agaisnt one another
+        for (int i = 0; i < mediumGhosts.Count; i++)
         {
-            //double for loop to compare all ghosts agaisnt one another
-            for (int i = 0; i < mediumGhosts.Count; i++)
+            for (int j = i+1; j < mediumGhosts.Count; j++)
             {
-                for (int j = i+1; j < mediumGhosts.Count; j++)
+                if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
+                    && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <=0
+                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0
+                    && mediumGhosts[i].gameObject.activeSelf
+                    && mediumGhosts[j].gameObject.activeSelf)
                 {
-                    if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
-                        && mediumGhosts[i].GetComponent<MediumGhost>().transformTimer <=0
-                        && mediumGhosts[j].GetComponent<MediumGhost>().transformTimer <=0
-                        && mediumGhosts[i].gameObject.activeSelf
-                        && mediumGhosts[j].gameObject.activeSelf)
-                    {
-                        JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
-                    }
-
+                    JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
                 }
+
             }
-            //double for loop to compare all ghosts agaisnt one another
-            for (int i = 0; i < smallGhosts.Count; i++)
+        }
+        //double for loop to compare all ghosts agaisnt one another
+        for (int i = 0; i < smallGhosts.Count; i++)
+        {
+            for (int j = i+1; j < smallGhosts.Count; j++)
             {
-                for (int j = i+1; j < smallGhosts.Count; j++)
+                if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
+                    && smallGhosts[i].GetComponent<SmallGhost>()._transformTimer <= 0
+                    && smallGhosts[j].GetComponent<SmallGhost>()._transformTimer <= 0
+                    && smallGhosts[i].gameObject.activeSelf
+                    && smallGhosts[j].gameObject.activeSelf)
                 {
-                    if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
-                        && smallGhosts[i].GetComponent<SmallGhost>().transformTimer <= 0
-                        && smallGhosts[j].GetComponent<SmallGhost>().transformTimer <= 0
-                        && smallGhosts[i].gameObject.activeSelf
-                        && smallGhosts[j].gameObject.activeSelf)
-                    {
-                        JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
-                    }
+                    JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
                 }
             }
         }
-
-
     }
 
     private void JoinTogetherMedium(GameObject ghost1, GameObject ghost2)

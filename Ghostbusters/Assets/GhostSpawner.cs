@@ -27,7 +27,7 @@ public class GhostSpawner : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] List<WaveConfiguration> waves;
+    [SerializeField] private List<WaveConfiguration> waves = new List<WaveConfiguration>();
     int startingWave = 0;
     public List<Transform> ghostSpawnLocations = new List<Transform>();
 

@@ -5,63 +5,56 @@ using UnityEngine.InputSystem;
 
 public class MediumGhost : MonoBehaviour
 {
+    //references
     public GameObject smallGhost;
 
-    public int listIndex = -1;
+    //private serializables
+    [SerializeField] private int _ghostsToSpawn = 2;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;
+    [SerializeField] private bool _scareable = false;
+    [SerializeField] private float _onScareInvincibilityTime = 1.5f;
+    [SerializeField] private float _transformTimerMax = 1.5f;
 
-    public int ghostsToSpawn = 2;
-    public float ghostSpawnOffset = 0.5f;
+    //private variables
+    private int _listIndex = -1;
+    private float _transformTimer;
+    private bool _canTransform = false;
 
-    bool canTransform = false;
-    public float transformDelay;
-    public float transformTimer;
-    public bool scarable;
-    void Update()
+    //public variables
+
+    private void Start()
     {
-        //TODO some logic is off here, fix it
-        if(canTransform)
+        _transformTimer = _transformTimerMax;
+    }
+
+    private void Update()
+    {
+        if (_canTransform)
         {
-            transformTimer -= Time.deltaTime;
-            if(transformTimer <= 0)
-            {
-                if (Keyboard.current.sKey.wasPressedThisFrame && canTransform)
-                {
-                    SplitApart();
-                }
-            }
+            _transformTimer -= Time.deltaTime;
         }
     }
 
     private void OnEnable()
     {
-        canTransform = true;
-        transformTimer = transformDelay;
-        scarable = false;
-        StartCoroutine(ScareInvincibility());
-    }
-
-    private void OnDisable()
-    {
-        canTransform = false;
+        _canTransform = true;
+        _transformTimer = _transformTimerMax;
+        _scareable = false;
+        StartCoroutine(ScareInvincibilityDelay());
     }
 
     public void SplitApart()
     {
-        /*Instantiate(mediumGhost, this.transform.position + new Vector3(ghostSpawnOffset,0,ghostSpawnOffset), Quaternion.identity);
-        Instantiate(mediumGhost, this.transform.position + new Vector3(-ghostSpawnOffset,0,-ghostSpawnOffset), Quaternion.identity);
-        GhostManager.Instance.bigGhosts.Remove(this.gameObject);
-        Destroy(this.gameObject);*/
-
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
         {
-            if (spawnedGhosts >= ghostsToSpawn) break;
+            if (spawnedGhosts >= _ghostsToSpawn) break;
             if (!GhostManager.Instance.smallGhosts[i].activeSelf)
             {
                 GhostManager.Instance.smallGhosts[i].SetActive(true);
                 GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset;
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }
@@ -69,9 +62,24 @@ public class MediumGhost : MonoBehaviour
 
     }
 
-    IEnumerator ScareInvincibility()
+    IEnumerator ScareInvincibilityDelay()
     {
-        yield return new WaitForSeconds(1.75f);
-        scarable = true;
+        yield return new WaitForSeconds(_onScareInvincibilityTime);
+        _scareable = true;
+    }
+
+    public float GetTransformTimer()
+    {
+        return _transformTimer;
+    }
+
+    public bool GetScarable()
+    {
+        return _scareable;
+    }
+
+    public void SetListIndex(int index)
+    {
+        _listIndex = index;
     }
 }

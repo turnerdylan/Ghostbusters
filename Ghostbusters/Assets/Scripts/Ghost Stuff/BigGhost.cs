@@ -5,40 +5,39 @@ using UnityEngine.InputSystem;
 
 public class BigGhost : MonoBehaviour
 {
-    public GameObject mediumGhost;
-    public int scaresNeeded = 1;
-    //public int scaresReceived = 0;
-    private bool scareInitiated = false;
-    public List<Player> players = new List<Player>();
-
-    float scareTimer = 0.2f;
-    float timer;
-    public int _listIndex;
-
-    public int ghostsToSpawn = 2;
-    public float ghostSpawnOffset = 0.5f;
-
-    bool canTransform = false;
-    public float transformDelay = 3f;
-    public float transformTimer;
-    public bool scareable;
+    //references
+    [SerializeField] private GameObject mediumGhost;
     public GameObject explosivePrefab;
 
-    // Update is called once per frame
+    //private serializables
+    [SerializeField] private int _ghostsToSpawn = 2;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;
+    [SerializeField] private bool _scareable = false;
+    [SerializeField] private int _scaresNeeded = 1;
+    [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
+    [SerializeField] private float _onScareInvincibilityTime = 2.5f;
+
+    //private variables
+    private bool scareInitiated = false;
+    private int _listIndex;
+    private float _scareInputsTimer;
+
+    //public variables
+    public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
 
     void Update()
     {
         if(scareInitiated)
         {
-            timer -= Time.deltaTime;
-            if(timer > 0)
+            _scareInputsTimer -= Time.deltaTime; 
+            if(_scareInputsTimer > 0)
             {
-                if(players.Count == scaresNeeded)
+                if(players.Count == _scaresNeeded)
                 {
                     Debug.Log("Success!");
                     ScareSuccess();
                     scareInitiated = false;
-                    timer = scareTimer;
+                    _scareInputsTimer = _scareInputsTimerMaxTime;
                     players.Clear();
                 }
             }
@@ -47,7 +46,7 @@ public class BigGhost : MonoBehaviour
                 Debug.Log("Fail!");
                 ScareFail();
                 scareInitiated = false;
-                timer = scareTimer;
+                _scareInputsTimer = _scareInputsTimerMaxTime;
                 players.Clear();
             }
         }
@@ -55,10 +54,8 @@ public class BigGhost : MonoBehaviour
 
     private void OnEnable()
     {
-        canTransform = true;
-        transformTimer = transformDelay;
-        timer = scareTimer;
-        scareable = false;
+        _scareInputsTimer = _scareInputsTimerMaxTime;
+        _scareable = false;
         StartCoroutine(ScareInvincibility());
     }
 
@@ -68,17 +65,16 @@ public class BigGhost : MonoBehaviour
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.mediumGhosts.Count; i++)
         {
-            if (spawnedGhosts >= ghostsToSpawn) break;
+            if (spawnedGhosts >= _ghostsToSpawn) break;
             if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
             {
                 GhostManager.Instance.mediumGhosts[i].SetActive(true);
-                Vector3 testposition = gameObject.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * ghostSpawnOffset; //fix the math here to spawn them in separate locations
+                Vector3 testposition = gameObject.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset; //fix the math here to spawn them in separate locations
                 GhostManager.Instance.mediumGhosts[i].transform.position = testposition;
                 spawnedGhosts++;
             }
         }
         gameObject.SetActive(false);
-
     }
 
     public void AddPlayerScare(Player player)
@@ -103,9 +99,20 @@ public class BigGhost : MonoBehaviour
     {
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
     }
+
     IEnumerator ScareInvincibility()
     {
-        yield return new WaitForSeconds(2.5f);
-        scareable = true;
+        yield return new WaitForSeconds(_onScareInvincibilityTime);
+        _scareable = true;
+    }
+
+    public bool GetScarable()
+    {
+        return _scareable;
+    }
+
+    public void SetListIndex(int index)
+    {
+        _listIndex = index;
     }
 }

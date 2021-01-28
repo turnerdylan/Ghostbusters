@@ -7,40 +7,28 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    //serializables
-    [SerializeField]
-    private float moveSpeed = 10f;
-    [SerializeField]
-    private float jumpForce = 10f;
-    [SerializeField]
-    private float viewAngle = 45f;
-    [SerializeField]
-    private float scareRange = 5f;
-    [SerializeField]
-    private float stunTime = 3f;
-
-    public bool isStunned = false;
-    
-
-
-
     //references
     private Rigidbody rb;
     private Interactable currentInteraction;
     private WeaponsController weapons;
     private Animator anim;
 
-    //private vars
-    private Vector3 moveDirection = Vector3.zero;
-    private Vector2 inputMoveVector = Vector2.zero;
-    private Vector3 inputLookVector = Vector3.zero;
-    private float storedLookValue;
-    private CheckIfGrounded isGrounded;
+    //serializables
+    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _viewAngle = 45f;
+    [SerializeField] private float _scareRange = 5f;
+    [SerializeField] private float _stunTime = 3f;
+    [SerializeField] private bool _isStunned = false;
+
+    //private variables
+    private Vector3 _moveDirection = Vector3.zero;
+    private Vector2 _inputMoveVector = Vector2.zero;
+    private Vector3 _inputLookVector = Vector3.zero;
+    private float _storedLookValue;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        isGrounded = GetComponentInChildren<CheckIfGrounded>();
         weapons = GetComponentInChildren<WeaponsController>();
         anim = GetComponent<Animator>();
     }
@@ -64,7 +52,7 @@ public class Player : MonoBehaviour
         int numberOfGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < scareRange
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < _scareRange
                 && GhostManager.Instance.bigGhosts[i].activeSelf)
             {
                 numberOfGhosts++;
@@ -75,15 +63,7 @@ public class Player : MonoBehaviour
 
     public void SetMoveVector(Vector2 direction)
     {
-        inputMoveVector = direction;
-    }
-
-    public void Jump()
-    {
-        if (isGrounded.GetIsGrounded())
-        {
-            rb.velocity = new Vector3(inputMoveVector.x, jumpForce, inputMoveVector.y);
-        }
+        _inputMoveVector = direction;
     }
 
     /*public void Interact()
@@ -102,17 +82,18 @@ public class Player : MonoBehaviour
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             //check if ghost is close enough and is active
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) < scareRange
+            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) < _scareRange
                 && GhostManager.Instance.bigGhosts[i].activeSelf)
             {
                 Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                 float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                 //print(angleBetweenPlayerandGhost);
 
-                if(angleBetweenPlayerandGhost  < viewAngle / 2)
+                if(angleBetweenPlayerandGhost  < _viewAngle / 2)
                 {
                     if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
                         //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        //TODO fix this logic
                         GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                     }
                 }
@@ -122,18 +103,18 @@ public class Player : MonoBehaviour
         for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
         {
             //check if ghost is close enough and is active
-            if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, transform.position) < scareRange
+            if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, transform.position) < _scareRange
                 && GhostManager.Instance.mediumGhosts[i].activeSelf)
             {
                 Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
                 float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                 //print(angleBetweenPlayerandGhost);
 
-                if (angleBetweenPlayerandGhost < viewAngle / 2)
+                if (angleBetweenPlayerandGhost < _viewAngle / 2)
                 {
                     if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
                     {
-                        if(GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().scarable)
+                        if(GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
                             GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
                     }
                 }
@@ -143,18 +124,18 @@ public class Player : MonoBehaviour
         for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
         {
             //check if ghost is close enough and is active
-            if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, transform.position) < scareRange
+            if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, transform.position) < _scareRange
                 && GhostManager.Instance.smallGhosts[i].activeSelf)
             {
                 Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
                 float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                 //print(angleBetweenPlayerandGhost);
 
-                if (angleBetweenPlayerandGhost < viewAngle / 2)
+                if (angleBetweenPlayerandGhost < _viewAngle / 2)
                 {
                     if (Physics.Linecast(transform.position, GhostManager.Instance.smallGhosts[i].transform.position))
                     {
-                        if(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().scarable)
+                        if(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
                             GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
                     }
                 }
@@ -164,12 +145,12 @@ public class Player : MonoBehaviour
 
     private void SetMoveDirection()
     {
-        if (inputMoveVector.magnitude > 0.5f)
+        if (_inputMoveVector.magnitude > 0.5f)
         {
           anim.SetBool("Walk", true);
-            moveDirection = inputMoveVector * moveSpeed;
+            _moveDirection = _inputMoveVector * _moveSpeed;
             //rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
-            rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.y);
+            rb.velocity = new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y);
         }
         else{
           anim.SetBool("Walk", false);
@@ -178,17 +159,22 @@ public class Player : MonoBehaviour
 
     private void SetLookDirection()
     {
-        if (inputMoveVector.magnitude > 0.7f)
+        if (_inputMoveVector.magnitude > 0.7f)
         {
-            storedLookValue = Mathf.Atan2(inputMoveVector.x, inputMoveVector.y);
-            transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
+            _storedLookValue = Mathf.Atan2(_inputMoveVector.x, _inputMoveVector.y);
+            transform.rotation = Quaternion.Euler(0, _storedLookValue * Mathf.Rad2Deg, 0);
             //transform.rotation = Quaternion.Lerp(transform.rotation, storedLookValue * Mathf.Rad2Deg, 0);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, storedLookValue * Mathf.Rad2Deg, 0);
+            transform.rotation = Quaternion.Euler(0, _storedLookValue * Mathf.Rad2Deg, 0);
             //transform.rotation = Quaternion.Slerp(storedLookValue, storedLookValue * Mathf.Rad2Deg, 0.1f);
         }
+    }
+
+    public bool GetStunState()
+    {
+        return _isStunned;
     }
 
     public void StunTest()
@@ -199,10 +185,10 @@ public class Player : MonoBehaviour
     public IEnumerator StunPlayer()
     {
         enabled = false;
-        isStunned = true;
-        yield return new WaitForSeconds(stunTime);
+        _isStunned = true;
+        yield return new WaitForSeconds(_stunTime);
         enabled = true;
-        isStunned = false;
+        _isStunned = false;
     }
 }
 

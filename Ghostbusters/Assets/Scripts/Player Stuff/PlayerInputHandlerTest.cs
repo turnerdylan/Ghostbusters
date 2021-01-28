@@ -17,42 +17,14 @@ public class PlayerInputHandlerTest : MonoBehaviour
         //controls = new PlayerControls();
     }
 
-    /*    public void InitializePlayer(PlayerConfiguration config)
-        {
-            playerConfig = config;
-            playerMesh.material = config.playerMaterial;
-            config.Input.onActionTriggered += Input_onActionTriggered;
-        }*/
-
-    /*private void Input_onActionTriggered(CallbackContext obj)
-    {
-        if (obj.action.name == controls.PlayerMovement.Movement.name)
-        {
-            OnMove(obj);
-        }
-    }*/
-
     public void OnMove(CallbackContext context)
     {
         if (pc != null)
             pc.SetMoveVector(context.ReadValue<Vector2>());
     }
 
-    /*public void OnLook(CallbackContext context)
-    {
-        if (pc != null)
-            pc.SetLookVector(context.ReadValue<Vector2>());
-    }*/
-
     public void Scare(CallbackContext context)
     {
-        /*if (pc != null)
-        {
-            if (context.canceled)
-            {
-                pc.Scare();
-            }
-        }*/
 
         scareInput = context.ReadValue<float>();
         if(scareInput == 1)

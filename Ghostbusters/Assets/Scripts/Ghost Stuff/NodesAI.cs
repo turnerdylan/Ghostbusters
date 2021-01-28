@@ -3,32 +3,39 @@ using UnityEngine.AI;
 using System.Collections;
  
 public class NodesAI : MonoBehaviour {
- 
-    public float wanderTimer;
-    public Transform[] nodes;
+
+    //references
     private NavMeshAgent agent;
-    private float timer;
+
+    //private serializables
+    [SerializeField] private Transform[] nodes;
+    [SerializeField] private float wanderTimerMax;
+
+    //private variables
+    private float wanderTimer;
     private int lastIndex = -1;
- 
+
+    //public variables
+
     // Use this for initialization
     void OnEnable () {
-        wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
+        wanderTimerMax = Random.Range(wanderTimerMax - 1, wanderTimerMax + 1);
         agent = GetComponent<NavMeshAgent> ();
-        timer = wanderTimer;
+        wanderTimer = wanderTimerMax;
     }
  
     // Update is called once per frame
     void Update () {
-        timer += Time.deltaTime;
+        wanderTimer += Time.deltaTime;
  
-        if (timer >= wanderTimer) {
-            Vector3 newPos = RandomNode();
+        if (wanderTimer >= wanderTimerMax) {
+            Vector3 newPos = GetRandomNode();
             agent.SetDestination(newPos);
-            timer = 0;
+            wanderTimer = 0;
         }
     }
  
-    public Vector3 RandomNode() 
+    public Vector3 GetRandomNode() 
     {
         int index = Random.Range(0, nodes.Length);
 
