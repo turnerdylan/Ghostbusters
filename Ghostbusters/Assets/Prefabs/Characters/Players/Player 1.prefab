@@ -965,12 +965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed921772a303b9e489f05e5b52b11166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15.14
-  jumpForce: 10
-  viewAngle: 90
-  scareRange: 7.27
-  stunTime: 3
-  isStunned: 0
+  _moveSpeed: 10
+  _viewAngle: 90
+  _scareRange: 8
+  _stunTime: 3
+  _isStunned: 0
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

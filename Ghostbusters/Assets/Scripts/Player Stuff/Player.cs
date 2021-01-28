@@ -85,15 +85,18 @@ public class Player : MonoBehaviour
             if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) < _scareRange
                 && GhostManager.Instance.bigGhosts[i].activeSelf)
             {
+                print("test1");
                 Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                 float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                 //print(angleBetweenPlayerandGhost);
 
                 if(angleBetweenPlayerandGhost  < _viewAngle / 2)
                 {
+                    print("test2");
                     if(Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position)){
                         //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                         //TODO fix this logic
+                        print("test");
                         GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                     }
                 }
