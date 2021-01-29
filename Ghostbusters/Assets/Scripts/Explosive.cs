@@ -6,6 +6,7 @@ public class Explosive : MonoBehaviour
 {
     public float radius = 5.0F;
     public float power = 10.0F;
+    public LayerMask layer;
 
     void Awake()
     {
@@ -16,7 +17,7 @@ public class Explosive : MonoBehaviour
     {
         Debug.Log("boom");
         Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius, 1 << 9);
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius, layer);
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();

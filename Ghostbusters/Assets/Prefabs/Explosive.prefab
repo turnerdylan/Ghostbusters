@@ -43,5 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad49bd2fa42db54f932de2cd1631df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  power: 1500
+  radius: 10
+  power: 5000
+  layer:
+    serializedVersion: 2
+    m_Bits: 512

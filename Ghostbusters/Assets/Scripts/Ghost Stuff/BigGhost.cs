@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class BigGhost : MonoBehaviour
 {
     //references
     [SerializeField] private GameObject mediumGhost;
+    [SerializeField] private TextMeshPro scareFeedbackText;
     public GameObject explosivePrefab;
 
     //private serializables
@@ -16,6 +18,7 @@ public class BigGhost : MonoBehaviour
     [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
+    
 
     //private variables
     private bool scareInitiated = false;
@@ -27,6 +30,8 @@ public class BigGhost : MonoBehaviour
 
     void Update()
     {
+        scareFeedbackText.text = players.Count.ToString();
+
         if(scareInitiated)
         {
             _scareInputsTimer -= Time.deltaTime; 
