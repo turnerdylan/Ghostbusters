@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d394636e621a1664184fa37b0305e0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listIndex: -1
-  transformDelay: 1
-  transformTimer: 0
+  _transformTimerMax: 1.5
+  _scareable: 0
+  _transformTimer: 0
 --- !u!54 &6898249272801137603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,11 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  enemyDistanceRun: 6
+  minDistanceForEnemyToRun: 10
   wanderRadius: 25
-  wanderTimer: 2
-  seekDistance: 10
+  timerUntilWanderMax: 2
+  seekDistance: 20
 --- !u!195 &3970470942201345342
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -156,8 +155,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 298483656171211603}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
+  m_Radius: 1
+  m_Speed: 6
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120

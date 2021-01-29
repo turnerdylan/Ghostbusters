@@ -26,7 +26,7 @@ public class SmallGhostMovement : MonoBehaviour
 
     //public variables
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(State_Wander());
@@ -35,6 +35,7 @@ public class SmallGhostMovement : MonoBehaviour
     void OnEnable()
     {
         StartCoroutine(State_Wander());
+        //StartCoroutine()
     }
 
     public IEnumerator State_Wander()
@@ -157,4 +158,9 @@ public class SmallGhostMovement : MonoBehaviour
     {
         agent.Warp(RandomNavSphere(transform.position, 40f, 1));
     }
+
+    /*public IEnumerator RunAway(Vector3 direction)
+    {
+        ve
+    }*/
 }

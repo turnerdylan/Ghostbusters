@@ -128,11 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallGhost: {fileID: 298483656171211603, guid: b40701b9c960a514ebc9185ec96d405c,
     type: 3}
-  listIndex: -1
-  ghostsToSpawn: 2
-  ghostSpawnOffset: 0.5
-  transformDelay: 1
-  transformTimer: 0
+  _ghostsToSpawn: 2
+  _ghostSpawnOffset: 0.5
+  _scareable: 0
+  _onScareInvincibilityTime: 1.5
+  _transformTimerMax: 1.5
 --- !u!114 &7065307136784474831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3996581311573420528}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
