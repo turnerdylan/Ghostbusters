@@ -28,8 +28,10 @@ These levels will include some dynamic features that turn the static area into a
 
 - Library or Grocery Store with shifting shelves
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Library.jpg" width="75%">
+
 - Roller Rink / Arcade with a spinning floor
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-RollerRink.jpg" width="75%">
+
 - Bar or Coffee Shop with re-arranging tables
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Bar.jpg" width="75%">
 
@@ -37,19 +39,25 @@ The current ideas for the coastal area include:
 
 - Car ferry with tilting deck
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Ferry.jpg" width="75%">
+
 - Boat docks with floating or drifting boats
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks1.jpg" width="75%">
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks2.jpg" width="40%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks3.jpg" width="40%">
+
 - Pier with TBD dynamics
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Pier.jpg" width="75%">
+
 - Lighthouse with spinning illumination (Sketches coming soon)
 
 The current ideas for the wild area include:
 
 - Mushroom town with growing and changing mushrooms
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-MushroomTown.jpg" width="75%">
+
 - Enchanted forest with passing animals
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-EnchantedForest.jpg" width="75%">
+
 - Cave with TBD dynamics
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Cave.jpg" width="75%">
 
