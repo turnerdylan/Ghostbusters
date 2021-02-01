@@ -22,35 +22,35 @@ D -
 
 Z - Our goal is to have ~8-10 playable levels in the game. This number can be adjusted depending on the time it takes to develop and playtest each of them but as far as our preparation and timeline go, we should be on track at least through this part. The levels can be broken up into 3 categories based on their location/theme: coast, town, and wild areas, below is a hand drawn and general digital version of the haunted island (name pending) created on the dope site https://inkarnate.com/ . 
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-Map.jpg" width="50%"> <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Map-Sketch.jpg" width="50%"> 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-Map.jpg" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Map-Sketch.jpg" width="50%"> 
 
 These levels will include some dynamic features that turn the static area into a strategic environment for the players to conquer. The current ideas for the town area include: 
 
 - Library or Grocery Store with shifting shelves
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Library.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Library.jpg" width="75%">
 - Roller Rink / Arcade with a spinning floor
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-RollerRink.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-RollerRink.jpg" width="75%">
 - Bar or Coffee Shop with re-arranging tables
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Bar.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Bar.jpg" width="75%">
 
 The current ideas for the coastal area include:
 
 - Car ferry with tilting deck
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Ferry.jpg" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Ferry.jpg" width="75%">
 - Boat docks with floating or drifting boats
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks1.jpg" width="100%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks2.jpg" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks3.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks1.jpg" width="75%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks2.jpg" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Docks3.jpg" width="50%">
 - Pier with TBD dynamics
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Pier.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Pier.jpg" width="75%">
 - Lighthouse with spinning illumination (Sketches coming soon)
 
 The current ideas for the wild area include:
 
 - Mushroom town with growing and changing mushrooms
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-MushroomTown.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-MushroomTown.jpg" width="75%">
 - Enchanted forest with passing animals
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-EnchantedForest.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-EnchantedForest.jpg" width="75%">
 - Cave with TBD dynamics
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Cave.jpg" width="100%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelSketch-Cave.jpg" width="75%">
 
 
 - - - 
