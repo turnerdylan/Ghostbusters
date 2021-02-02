@@ -57,4 +57,4 @@ MonoBehaviour:
     type: 3}
   smallGhostPrefab: {fileID: 298483656171211603, guid: b40701b9c960a514ebc9185ec96d405c,
     type: 3}
-  joinTogetherDistance: 2.5
+  joinTogetherDistance: 4

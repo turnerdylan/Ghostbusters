@@ -42,7 +42,11 @@ public class FollowAI : MonoBehaviour
     private void OnDisable()
     {
         if(agent)
-        boxTest.gameObject.SetActive(false);
+        {
+            boxTest.gameObject.SetActive(false);
+            agent.speed = 5;
+        }
+        
     }
 
 Transform GetClosestPlayer(Player[] players)

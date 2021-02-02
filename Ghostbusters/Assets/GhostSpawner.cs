@@ -46,10 +46,10 @@ public class GhostSpawner : MonoBehaviour
     {
             for (int i = 0; i < waveConfig.enemies.Count; i++)
             {
-            while(GhostManager.Instance.GetGhostScore() < ghostSpawnThreshold) //TODO, pickup where u left off yo
+            /*while(GhostManager.Instance.GetGhostScore() < ghostSpawnThreshold) //TODO, pickup where u left off yo
             {
 
-            }
+            }*/
                 if (waveConfig.enemies[i] == EnemyTypes.BIG)
                 {
                     int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
