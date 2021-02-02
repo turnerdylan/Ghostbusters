@@ -23,9 +23,26 @@ Upon a successful scare, the background turns to green. On a failed scare, which
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Multiplayer_Button_Success.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Multiplayer_Button Fail.png" width="50%">
 With the ScareManager set up it will be easy to tweak different variables and test out different methods for multi-button scaring including combo button presses.
 
-D - This week we did more prototyping and bug fixing. Specifically we worked on adjusting the way that the ghosts spawned in and added a new feature to the game. The B.A.G. (bust-a-ghost). Currently the player is able to pick it up and put it down but there are issues that need adressing for more interaction to take place. There is also the addition of the van, an in-game object that players will need to interact with to help catch their ghosts
+D - This week we did more prototyping and bug fixing. Specifically, we worked on adjusting the way that the ghosts spawned in and added a new feature to the game: the B.A.G. (Bust-A-Ghost) or potentially S.A.C (Spirit-Aprehension-Contraption). Currently, the player is able to pick it up and put it down but there are issues that need adressing for more interactions to take place. There is also the upgrading of the van, an in-game object that players will need to interact with to deposite the ghosts caught in the B.A.G/S.A.C.
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Documentation2-2.gif" width="75%">
+
+We also playtested our prototype (sans B.A.G.) with two players to get some feedback on the current group of mechanics. This includes the ghosts spawning in as they are scared away, banishing the small ghosts instead of catching and depositing them, both players needing to hit a single scare button simultaneously to scare the big ghosts, and the big ghosts being able to stun the players who become inactive for a few seconds. Our notes from the session were as follows:
+
+- Lots of chaos initially!
+- The big ghost stunning might be happening too frequently/quickly, a swing into the stun and pause might be helpful to make them feel slower and not soooo hard to beat
+- Breaking the big ghost for the first time and it splitting into medium ghosts is **very** satisfying
+- The subsequent scare spamming to break the medium ghosts and scare away the small ones is kinda fun if it is localized
+- Currently, if both players get stunned together the level ends... do we want this fail condition?
+- Eventually the players began communicating about when one got stunned which was cool to see
+- Medium and small ghost recombining mught be happening too quickly after the larger size splits apart
+- Need to add a stunned animation when the players get hit so that it is clear what is happening
+- Might be good to adjust the scare animation so it doesn't look like the players are humping the ghosts lol
+- Communication about scaring the big ghosts is pretty low at the moment -> different and specific buttons to press might help (see Colin's prototype above)
+- Small ghosts are a little buggy when trying to scare/catch (pretty sure about a few of the fixes)
+- Need to implement showing where the ghsots are spawning before they poof into existence
+- Need to fix the failed group scare reaction so that players are blown back a bit (currently not exploding anyone anywhere)
+- Ferry map is a bit crowded at the moment, might be good to shrink the players and ghsots a tiny bit on this map
 
 Z - Our goal is to have ~8-10 playable levels in the game. This number can be adjusted depending on the time it takes to develop and playtest each of them but as far as our preparation and timeline go, we should be on track at least through this part. The levels can be broken up into 3 categories based on their location/theme: coast, town, and wild areas, below is a hand drawn and general digital version of the haunted island (name pending) created on the dope site https://inkarnate.com/ . 
 
