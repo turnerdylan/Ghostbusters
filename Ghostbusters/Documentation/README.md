@@ -18,7 +18,9 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Weekly Updates:
 C - 
 
-D - 
+D - This week we did more prototyping and bug fixing. Specifically we worked on adjusting the way that the ghosts spawned in and added a new feature to the game. The B.A.G. (bust-a-ghost). Currently the player is able to pick it up and put it down but there are issues that need adressing for more interaction to take place.
+
+<img src="" width="50%">
 
 Z - Our goal is to have ~8-10 playable levels in the game. This number can be adjusted depending on the time it takes to develop and playtest each of them but as far as our preparation and timeline go, we should be on track at least through this part. The levels can be broken up into 3 categories based on their location/theme: coast, town, and wild areas, below is a hand drawn and general digital version of the haunted island (name pending) created on the dope site https://inkarnate.com/ . 
 
