@@ -17,6 +17,9 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ### Weekly Updates:
 C - This week we made a number of general bug fixes regarding ghost mechanics as well as started prototyping different multiplayer scaring options. Currently, to split a ghost players must all press the same button simultaneously while near the ghost. We wanted to test splitting mechanics involving pressing a number of different buttons among players. To do this we made a new scene and setup a ScareManager which tracks different players scares and which button they pressed. The picture below shows the very basic setup for testing this mechanic which involves displaying a randomized set of 4 button directions for players to push within a certain period of time.
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Multiplayer_Button" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Multiplayer_Button_Success" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Multiplayer_Button_Fail" width="75%">
 
 D - This week we did more prototyping and bug fixing. Specifically we worked on adjusting the way that the ghosts spawned in and added a new feature to the game. The B.A.G. (bust-a-ghost). Currently the player is able to pick it up and put it down but there are issues that need adressing for more interaction to take place. There is also the addition of the van, an in-game object that players will need to interact with to help catch their ghosts
 
