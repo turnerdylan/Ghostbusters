@@ -41,6 +41,30 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Swing Bag"",
+                    ""type"": ""Button"",
+                    ""id"": ""5de7ff59-d4f5-447b-b1ea-7c5b58af6e6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Get Bag"",
+                    ""type"": ""Button"",
+                    ""id"": ""afd7bc04-9bd8-4b54-ac46-55db00d92407"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Drop Bag"",
+                    ""type"": ""Button"",
+                    ""id"": ""4a4e1e4a-9467-41a4-8c06-0aabce81cc3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -228,6 +252,61 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Scare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b5baf4c-eb40-49c3-8fdd-33dd0c3f79fe"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Get Bag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""726ef58b-bebb-4b42-aa13-22d234262547"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Get Bag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9973cd8e-8a5e-4a6f-b194-1c60a8616a93"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Swing Bag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2abd974a-d245-4016-b245-04ceaefe612b"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drop Bag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""084b603d-c92c-4209-91cb-1db4e76ab22d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drop Bag"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -808,6 +887,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Scare = m_Player.FindAction("Scare", throwIfNotFound: true);
+        m_Player_SwingBag = m_Player.FindAction("Swing Bag", throwIfNotFound: true);
+        m_Player_GetBag = m_Player.FindAction("Get Bag", throwIfNotFound: true);
+        m_Player_DropBag = m_Player.FindAction("Drop Bag", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -872,6 +954,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Scare;
+    private readonly InputAction m_Player_SwingBag;
+    private readonly InputAction m_Player_GetBag;
+    private readonly InputAction m_Player_DropBag;
     public struct PlayerActions
     {
         private @SampleInput m_Wrapper;
@@ -879,6 +964,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Scare => m_Wrapper.m_Player_Scare;
+        public InputAction @SwingBag => m_Wrapper.m_Player_SwingBag;
+        public InputAction @GetBag => m_Wrapper.m_Player_GetBag;
+        public InputAction @DropBag => m_Wrapper.m_Player_DropBag;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -897,6 +985,15 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Scare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
                 @Scare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
                 @Scare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
+                @SwingBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
+                @SwingBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
+                @SwingBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
+                @GetBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
+                @GetBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
+                @GetBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
+                @DropBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropBag;
+                @DropBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropBag;
+                @DropBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropBag;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -910,6 +1007,15 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Scare.started += instance.OnScare;
                 @Scare.performed += instance.OnScare;
                 @Scare.canceled += instance.OnScare;
+                @SwingBag.started += instance.OnSwingBag;
+                @SwingBag.performed += instance.OnSwingBag;
+                @SwingBag.canceled += instance.OnSwingBag;
+                @GetBag.started += instance.OnGetBag;
+                @GetBag.performed += instance.OnGetBag;
+                @GetBag.canceled += instance.OnGetBag;
+                @DropBag.started += instance.OnDropBag;
+                @DropBag.performed += instance.OnDropBag;
+                @DropBag.canceled += instance.OnDropBag;
             }
         }
     }
@@ -1069,6 +1175,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnScare(InputAction.CallbackContext context);
+        void OnSwingBag(InputAction.CallbackContext context);
+        void OnGetBag(InputAction.CallbackContext context);
+        void OnDropBag(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

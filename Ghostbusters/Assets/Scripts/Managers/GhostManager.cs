@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.AI;
 
 
 //singleton object
@@ -37,6 +38,7 @@ public class GhostManager : MonoBehaviour
     //private serializables
 
     //private variables
+    private int _ghostScore = 0;
 
     //public variables
 
@@ -85,22 +87,26 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+
     void Update()
     {
+        CalculateGhostScore();
+        print(_ghostScore);
+
         //double for loop to compare all ghosts agaisnt one another
         for (int i = 0; i < mediumGhosts.Count; i++)
         {
             for (int j = i+1; j < mediumGhosts.Count; j++)
             {
-                if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
-                    && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <=0
-                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0
-                    && mediumGhosts[i].gameObject.activeSelf
-                    && mediumGhosts[j].gameObject.activeSelf)
+                if(mediumGhosts[i].gameObject.activeSelf && mediumGhosts[j].gameObject.activeSelf)
                 {
-                    JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
+                    if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
+                    && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <= 0
+                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0)
+                    {
+                        JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
+                    }
                 }
-
             }
         }
         //double for loop to compare all ghosts agaisnt one another
@@ -108,14 +114,42 @@ public class GhostManager : MonoBehaviour
         {
             for (int j = i+1; j < smallGhosts.Count; j++)
             {
-                if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
-                    && smallGhosts[i].GetComponent<SmallGhost>()._transformTimer <= 0
-                    && smallGhosts[j].GetComponent<SmallGhost>()._transformTimer <= 0
-                    && smallGhosts[i].gameObject.activeSelf
-                    && smallGhosts[j].gameObject.activeSelf)
+                if(smallGhosts[i].gameObject.activeSelf && smallGhosts[j].gameObject.activeSelf)
                 {
-                    JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
+                    if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
+                    && smallGhosts[i].GetComponent<SmallGhost>()._transformTimer <= 0
+                    && smallGhosts[j].GetComponent<SmallGhost>()._transformTimer <= 0)
+                    {
+                        JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
+                    }
                 }
+                
+            }
+        }
+    }
+
+    private void CalculateGhostScore()
+    {
+        _ghostScore = 0;
+        foreach(GameObject ghost in bigGhosts)
+        {
+            if(ghost.activeSelf)
+            {
+                _ghostScore += 4;
+            }
+        }
+        foreach (GameObject ghost in mediumGhosts)
+        {
+            if (ghost.activeSelf)
+            {
+                _ghostScore += 2;
+            }
+        }
+        foreach (GameObject ghost in smallGhosts)
+        {
+            if (ghost.activeSelf)
+            {
+                _ghostScore += 1;
             }
         }
     }
@@ -167,15 +201,16 @@ public class GhostManager : MonoBehaviour
     {
         foreach(GameObject ghost in bigGhosts)
         {
-            ghost.GetComponent<FollowAI>().enabled = state;
+            ghost.GetComponent<NavMeshAgent>().enabled = state;
+            //TODO: disable other behaviors here too?
         }
         foreach (GameObject ghost in mediumGhosts)
         {
-           ghost.GetComponent<WanderingAI>().enabled = state;
+           ghost.GetComponent<NavMeshAgent>().enabled = state;
         }
         foreach (GameObject ghost in smallGhosts)
         {
-            ghost.GetComponent<SmallGhostMovement>().enabled = state;
+            ghost.GetComponent<NavMeshAgent>().enabled = state;
         }
     }
 
@@ -190,5 +225,10 @@ public class GhostManager : MonoBehaviour
         }
         print("test 2");
         return -1;
+    }
+
+    public int GetGhostScore()
+    {
+        return _ghostScore;
     }
 }

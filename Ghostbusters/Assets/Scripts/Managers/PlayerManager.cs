@@ -40,4 +40,16 @@ public class PlayerManager : MonoBehaviour
             player.enabled = state;
         }
     }
+
+    public void CheckIfAllPlayersAreStunned()
+    {
+        foreach(Player player in players)
+        {
+            if(player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            {
+                return;
+            }
+        }
+        LevelManager.Instance.EndLevel();
+    }
 }

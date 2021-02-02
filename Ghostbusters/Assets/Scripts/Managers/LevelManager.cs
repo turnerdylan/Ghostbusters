@@ -6,6 +6,13 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using System;
 
+public enum LEVEL_STATE
+{
+    COUNTDOWN,
+    STARTED,
+    ENDED
+};
+
 public class LevelManager : MonoBehaviour
 {
     #region Singleton Setup and Awake
@@ -30,34 +37,38 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     #endregion
+
+    private LEVEL_STATE currentState = LEVEL_STATE.COUNTDOWN;
+
+    //level timer stuff
     public float levelMaxTime = 120;
-
     private float levelTimer;
-    private float startTimer = 3;
+    //countdown timer
+    private float startCountdownTimer = 3;
 
-    public bool levelHasStarted = false;
-
+    //UI stuff
     public TextMeshProUGUI startText;
     public TextMeshProUGUI levelTimerText;
 
 
     private void Start()
     {
+        //level setup
         levelTimer = levelMaxTime;
-
         PlayerManager.Instance.SetAllPlayerControls(false);
         GhostManager.Instance.SetAllGhostControls(false);
+
         StartCoroutine(StartCountdown());
     }
 
     private void Update()
     {
-        //start countdown
-        startTimer -= Time.deltaTime;
-        startText.text = startTimer.ToString("F0");
-
-        //level timer
-        if(levelHasStarted)
+        if(currentState == LEVEL_STATE.COUNTDOWN)
+        {
+            startCountdownTimer -= Time.deltaTime;
+            startText.text = startCountdownTimer.ToString("F0");
+        }
+        else if(currentState == LEVEL_STATE.STARTED)
         {
             levelTimer -= Time.deltaTime;
             //levelTimerText.text = levelTimer.ToString("F0");
@@ -65,34 +76,49 @@ public class LevelManager : MonoBehaviour
             levelTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
             if (levelTimer <= 0)
             {
-                levelTimerText.text = "00:00";
-                SetUI(true);
-                startText.text = "level over";
-                PlayerManager.Instance.SetAllPlayerControls(false);
+                EndLevel();
             }
+        }
+        else if(currentState == LEVEL_STATE.ENDED)
+        {
+            levelTimerText.text = "00:00";
+            startText.text = "level over";
+            SetUI(true);
+            PlayerManager.Instance.SetAllPlayerControls(false);
+            GhostManager.Instance.SetAllGhostControls(false);
         }
 
 
     }
 
+    public void EndLevel()
+    {
+        currentState = LEVEL_STATE.ENDED;
+    }
+
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(startTimer);
+        yield return new WaitForSeconds(startCountdownTimer);
         SetUI(false);
         BeginLevel();
     }
 
     private void BeginLevel()
     {
-        levelHasStarted = true;
+        currentState = LEVEL_STATE.STARTED;
         PlayerManager.Instance.SetAllPlayerControls(true);
         GhostManager.Instance.SetAllGhostControls(true);
-        print("started level!");
-        GhostSpawner.Instance.Test();
+        print("Started level!");
+        GhostSpawner.Instance.TriggerGhostSpawns();
     }
 
     private void SetUI(bool state)
     {
         startText.gameObject.SetActive(state);
+    }
+
+    public LEVEL_STATE GetLevelState()
+    {
+        return currentState;
     }
 }

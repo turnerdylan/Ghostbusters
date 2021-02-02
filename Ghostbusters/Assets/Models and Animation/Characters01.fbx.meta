@@ -439,15 +439,50 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Character1
-      parentName: Characters01(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1, y: 1, z: 1}
     - name: Character+Armature01
       parentName: Characters01(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKLegPole.L
+      parentName: Character+Armature01
+      position: {x: -0.21589231, y: -0.5581661, z: 0.58917284}
+      rotation: {x: -0.000000119209275, y: 0.00000008940697, z: 1, w: -3.5527137e-15}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: IKLegPole.L_end
+      parentName: IKLegPole.L
+      position: {x: -0, y: 0.25320703, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKLegPole.R
+      parentName: Character+Armature01
+      position: {x: 0.21589231, y: -0.5581661, z: 0.58917284}
+      rotation: {x: 0.000000119209275, y: 0.00000008940697, z: 1, w: 3.5527137e-15}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: IKLegPole.R_end
+      parentName: IKLegPole.R
+      position: {x: -0, y: 0.25320703, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKTarget.L
+      parentName: Character+Armature01
+      position: {x: -0.21589231, y: -0.000000009221374, z: 0.15420464}
+      rotation: {x: -0.0000000014315518, y: 0.999973, z: 0.0073522925, w: -0.00000019470187}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000002}
+    - name: IKTarget.L_end
+      parentName: IKTarget.L
+      position: {x: -0, y: 0.18126252, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IKTarget.R
+      parentName: Character+Armature01
+      position: {x: 0.21589231, y: -0.000000009221374, z: 0.15420464}
+      rotation: {x: 0.0000000014315518, y: 0.999973, z: 0.0073522925, w: 0.00000019470187}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000002}
+    - name: IKTarget.R_end
+      parentName: IKTarget.R
+      position: {x: -0, y: 0.18126252, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Root
       parentName: Character+Armature01
@@ -564,45 +599,10 @@ ModelImporter:
       position: {x: -0, y: 0.35164222, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: IKLegPole.L
-      parentName: Character+Armature01
-      position: {x: -0.21589231, y: -0.5581661, z: 0.58917284}
-      rotation: {x: -0.000000119209275, y: 0.00000008940697, z: 1, w: -3.5527137e-15}
-      scale: {x: 1.0000002, y: 1, z: 1}
-    - name: IKLegPole.L_end
-      parentName: IKLegPole.L
-      position: {x: -0, y: 0.25320703, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: IKTarget.L
-      parentName: Character+Armature01
-      position: {x: -0.21589231, y: -0.000000009221374, z: 0.15420464}
-      rotation: {x: -0.0000000014315518, y: 0.999973, z: 0.0073522925, w: -0.00000019470187}
-      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000002}
-    - name: IKTarget.L_end
-      parentName: IKTarget.L
-      position: {x: -0, y: 0.18126252, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: IKLegPole.R
-      parentName: Character+Armature01
-      position: {x: 0.21589231, y: -0.5581661, z: 0.58917284}
-      rotation: {x: 0.000000119209275, y: 0.00000008940697, z: 1, w: 3.5527137e-15}
-      scale: {x: 1.0000002, y: 1, z: 1}
-    - name: IKLegPole.R_end
-      parentName: IKLegPole.R
-      position: {x: -0, y: 0.25320703, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: IKTarget.R
-      parentName: Character+Armature01
-      position: {x: 0.21589231, y: -0.000000009221374, z: 0.15420464}
-      rotation: {x: 0.0000000014315518, y: 0.999973, z: 0.0073522925, w: 0.00000019470187}
-      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000002}
-    - name: IKTarget.R_end
-      parentName: IKTarget.R
-      position: {x: -0, y: 0.18126252, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+    - name: Character1
+      parentName: Characters01(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -617,7 +617,7 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
+  autoGenerateAvatarMappingIfUnspecified: 0
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1

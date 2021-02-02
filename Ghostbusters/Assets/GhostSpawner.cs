@@ -28,44 +28,53 @@ public class GhostSpawner : MonoBehaviour
     #endregion
 
     [SerializeField] private List<WaveConfiguration> waves = new List<WaveConfiguration>();
-    int startingWave = 0;
+    [SerializeField] int ghostSpawnThreshold = 10;
     public List<Transform> ghostSpawnLocations = new List<Transform>();
+    int startingWave = 0;
 
     void Start()
     {
         var currentWave = waves[startingWave];
     }
 
-    public void Test()
+    public void TriggerGhostSpawns()
     {
         StartCoroutine(SpawnAllGhostsInWave(waves[startingWave]));
     }
 
     public IEnumerator SpawnAllGhostsInWave(WaveConfiguration waveConfig)
     {
-        for(int i=0; i<waveConfig.enemies.Count; i++)
-        {
-            
-            if (waveConfig.enemies[i] == EnemyTypes.BIG )
+            for (int i = 0; i < waveConfig.enemies.Count; i++)
             {
-                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
-                GhostManager.Instance.bigGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
-                GhostManager.Instance.bigGhosts[index].SetActive(true);
-            }
-            else if (waveConfig.enemies[i] == EnemyTypes.MEDIUM)
+            while(GhostManager.Instance.GetGhostScore() < ghostSpawnThreshold) //TODO, pickup where u left off yo
             {
-                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-                GhostManager.Instance.mediumGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
-                GhostManager.Instance.mediumGhosts[index].SetActive(true);
+
             }
-            else if (waveConfig.enemies[i] == EnemyTypes.SMALL)
-            {
-                int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.smallGhosts);
-                GhostManager.Instance.smallGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
-                GhostManager.Instance.smallGhosts[index].SetActive(true);
+                if (waveConfig.enemies[i] == EnemyTypes.BIG)
+                {
+                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
+                    GhostManager.Instance.bigGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
+                    GhostManager.Instance.bigGhosts[index].SetActive(true);
+                }
+                else if (waveConfig.enemies[i] == EnemyTypes.MEDIUM)
+                {
+                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
+                    GhostManager.Instance.mediumGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
+                    GhostManager.Instance.mediumGhosts[index].SetActive(true);
+                }
+                else if (waveConfig.enemies[i] == EnemyTypes.SMALL)
+                {
+                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.smallGhosts);
+                    GhostManager.Instance.smallGhosts[index].transform.position = ghostSpawnLocations[Random.Range(0, ghostSpawnLocations.Count)].position;
+                    GhostManager.Instance.smallGhosts[index].SetActive(true);
+                }
+                yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
             }
-            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
-        }
+        
         yield return null;
     }
+
+
+    //right before i spawn a new ghost, check if the number is higher than the threshold
+    //while the number is less than 
 }

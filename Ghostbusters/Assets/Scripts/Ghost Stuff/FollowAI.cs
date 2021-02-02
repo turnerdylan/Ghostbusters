@@ -52,7 +52,7 @@ Transform GetClosestPlayer(Player[] players)
         Vector3 currentPos = transform.position;
         foreach (Player t in players)
         {
-            if(!t.GetStunState())
+            if(t.GetPlayerState() != PLAYER_STATE.STUNNED)
             {
                 float currentCheckDistance = Vector3.Distance(t.transform.position, currentPos);
                 if (currentCheckDistance < distanceToClosestPlayer)
@@ -63,6 +63,7 @@ Transform GetClosestPlayer(Player[] players)
             }
             
         }
+        if (tMin == null) return tMin;
         return tMin;
     }
 }

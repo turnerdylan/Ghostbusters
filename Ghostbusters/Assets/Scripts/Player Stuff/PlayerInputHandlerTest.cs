@@ -10,6 +10,9 @@ public class PlayerInputHandlerTest : MonoBehaviour
     private Player pc;
 
     private float scareInput;
+    private float getBagInput;
+    private float swingBagInput;
+    private float dropBagInput;
 
     private void Awake()
     {
@@ -34,4 +37,30 @@ public class PlayerInputHandlerTest : MonoBehaviour
         print("scare input is" + scareInput);
     }
 
+    public void GetBag(CallbackContext context)
+    {
+        getBagInput = context.ReadValue<float>();
+        if(getBagInput == 1)
+        {
+            pc.GetBag();
+        }
+    }
+
+    public void DropBag(CallbackContext context)
+    {
+        dropBagInput = context.ReadValue<float>();
+        if (dropBagInput == 1)
+        {
+            pc.DropBag();
+        }
+    }
+
+    public void SwingBag(CallbackContext context)
+    {
+        swingBagInput = context.ReadValue<float>();
+        if (swingBagInput == 1)
+        {
+            pc.SwingBag();
+        }
+    }
 }

@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676d4ce85a123d447bd77a5ab6028c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joinParticles: {fileID: 198791823504307442, guid: 3640199bf9dc32f4da57c37d57581f57,
+    type: 3}
   bigGhosts: []
   mediumGhosts: []
   smallGhosts: []
@@ -56,5 +58,3 @@ MonoBehaviour:
   smallGhostPrefab: {fileID: 298483656171211603, guid: b40701b9c960a514ebc9185ec96d405c,
     type: 3}
   joinTogetherDistance: 2.5
-  joinParticles: {fileID: 198791823504307442, guid: 3640199bf9dc32f4da57c37d57581f57,
-    type: 3}

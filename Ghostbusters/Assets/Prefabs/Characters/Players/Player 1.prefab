@@ -92,6 +92,36 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1438828148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438828149}
+  m_Layer: 9
+  m_Name: Bag Transform (link to hands later)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438828149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438828148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.144, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6635086342476835361}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &31824079950324233
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +915,7 @@ Transform:
   m_Children:
   - {fileID: 6983791713177456224}
   - {fileID: 906916263}
+  - {fileID: 1438828149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -999,6 +1030,51 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 127e8b06-258c-407b-a62a-6c693911d03d
     m_ActionName: Player/Scare[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: GetBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: afd7bc04-9bd8-4b54-ac46-55db00d92407
+    m_ActionName: Player/GetBag[/Keyboard/k,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: SwingBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5de7ff59-d4f5-447b-b1ea-7c5b58af6e6b
+    m_ActionName: Player/SwingBag[/Keyboard/k,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: DropBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4a4e1e4a-9467-41a4-8c06-0aabce81cc3b
+    m_ActionName: Player/Drop Bag[/Keyboard/k,/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1014,7 +1090,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 5.51
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1062,7 +1138,8 @@ MonoBehaviour:
   _viewAngle: 90
   _scareRange: 10
   _stunTime: 3
-  _isStunned: 0
+  _rotationSpeed: 10
+  testTransform: {fileID: 1438828149}
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

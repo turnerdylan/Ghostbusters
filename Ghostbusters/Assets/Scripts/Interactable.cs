@@ -2,15 +2,18 @@
 
 public class Interactable : MonoBehaviour
 {
-    float radius = 2f;
+    public float interactionRadius = 3f;
 
-    public bool canInteract = false;
+    public bool isInteracting = false;
     Transform player;
-    public Player pc;
+    public Player currentPlayer;
 
-    private void Start()
+    private void Update()
     {
-        pc = FindObjectOfType<Player>();
+        if(isInteracting)
+        {
+
+        }
     }
 
     public virtual void Interact()
@@ -27,24 +30,23 @@ public class Interactable : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //display button UI
+
         if (other.gameObject.layer == 9)
         {
-            canInteract = true;
+            isInteracting = true;
         }
-        pc = other.GetComponent<Player>();
+        currentPlayer = other.GetComponent<Player>();
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnInteractedWith(Player player)
     {
-        if (other.gameObject.layer == 9)
-        {
-            canInteract = false;
-        }
-        pc = null;
+        isInteracting = true;
+        currentPlayer = player;
     }
 }
