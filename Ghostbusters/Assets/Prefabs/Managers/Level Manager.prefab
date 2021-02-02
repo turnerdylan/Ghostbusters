@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMaxTime: 120
-  levelHasStarted: 0
   startText: {fileID: 0}
   levelTimerText: {fileID: 0}

@@ -5,21 +5,21 @@ using UnityEngine.AI;
 
 public class FollowAI : MonoBehaviour
 {
-    //GameObject [] players;
+    //references
     private NavMeshAgent agent;
+    private Animator anim;
+
+    //private serializables
+    [SerializeField] private GameObject boxTest;
+    [SerializeField] private float _attackRange = 8;
+
+    //private variables
     private Transform target;
-    public float speed = 5f;
-    Animator anim;
-    public GameObject boxTest;
-
-
 
     void Start()
     {
-        //players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        agent.speed = speed;
     }
 
 
@@ -28,7 +28,7 @@ public class FollowAI : MonoBehaviour
         if(PlayerManager.Instance.players.Length > 0)
             agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position);
 
-        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position) < 6)
+        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position) < _attackRange)
         {
             anim.SetBool("Attack", true);
         }
@@ -42,18 +42,23 @@ public class FollowAI : MonoBehaviour
     private void OnDisable()
     {
         if(agent)
-            agent.speed = speed;
-        boxTest.gameObject.SetActive(false);
+        {
+            boxTest.gameObject.SetActive(false);
+            agent.speed = 5;
+        }
+        
     }
 
 Transform GetClosestPlayer(Player[] players)
     {
+        if (PlayerManager.Instance.CheckIfAllPlayersAreStunned()) agent.ResetPath();
+
         Transform tMin = null;
         float distanceToClosestPlayer = Mathf.Infinity;
         Vector3 currentPos = transform.position;
         foreach (Player t in players)
         {
-            if(!t.isStunned)
+            if(t.GetPlayerState() != PLAYER_STATE.STUNNED)
             {
                 float currentCheckDistance = Vector3.Distance(t.transform.position, currentPos);
                 if (currentCheckDistance < distanceToClosestPlayer)
@@ -64,6 +69,7 @@ Transform GetClosestPlayer(Player[] players)
             }
             
         }
+        if (tMin == null) return tMin;
         return tMin;
     }
 }

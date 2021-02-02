@@ -4,42 +4,58 @@ using UnityEngine;
 
 public class SmallGhost : MonoBehaviour
 {
-    public int listIndex = -1;
+    //references
 
-    bool canTransform = false;
-    public bool scarable;
-    public float transformDelay;
-    public float transformTimer;
+    //private serializables
+    [SerializeField] private float _transformTimerMax = 1.5f;
+    [SerializeField] private bool _scareable = true;
+
+    //private variables
+    private int _listIndex;
+    bool _canTransform = false;
+    public float _transformTimer;
+
+    //public variables
 
     private void Start()
     {
-        transformTimer = transformDelay;
+        _transformTimer = _transformTimerMax;
     }
 
     private void Update()
     {
-        if(canTransform)
+        if(_canTransform)
         {
-            transformTimer -= Time.deltaTime;
+            _transformTimer -= Time.deltaTime;
         }
     }
 
     private void OnEnable()
     {
-        canTransform = true;
-        transformTimer = transformDelay;
-        scarable = false;
+        _canTransform = true;
+        _transformTimer = _transformTimerMax;
+        _scareable = false;
         StartCoroutine(ScareInvincibility());
     }
 
     public void Banish()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     IEnumerator ScareInvincibility()
     {
         yield return new WaitForSeconds(1.75f);
-        scarable = true;
+        _scareable = true;
+    }
+
+    public bool GetScarable()
+    {
+        return _scareable;
+    }
+
+    public void SetListIndex(int index)
+    {
+        _listIndex = index;
     }
 }
