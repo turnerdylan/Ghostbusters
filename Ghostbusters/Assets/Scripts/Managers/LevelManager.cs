@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
     public float levelMaxTime = 120;
     private float levelTimer;
     //countdown timer
-    private float startCountdownTimer = 3;
+    private float startCountdownTimer = 5;
 
     //UI stuff
     public TextMeshProUGUI startText;
@@ -55,8 +55,9 @@ public class LevelManager : MonoBehaviour
     {
         //level setup
         levelTimer = levelMaxTime;
-        PlayerManager.Instance.SetAllPlayerControls(false);
-        GhostManager.Instance.SetAllGhostControls(false);
+        Time.timeScale = 0;
+        /*PlayerManager.Instance.SetAllPlayerControls(false);
+        GhostManager.Instance.SetAllGhostControls(false);*/
 
         StartCoroutine(StartCountdown());
     }
@@ -65,7 +66,7 @@ public class LevelManager : MonoBehaviour
     {
         if(currentState == LEVEL_STATE.COUNTDOWN)
         {
-            startCountdownTimer -= Time.deltaTime;
+            startCountdownTimer -= Time.unscaledDeltaTime;
             startText.text = startCountdownTimer.ToString("F0");
         }
         else if(currentState == LEVEL_STATE.STARTED)
@@ -81,6 +82,7 @@ public class LevelManager : MonoBehaviour
         }
         else if(currentState == LEVEL_STATE.ENDED)
         {
+            //move all of this to end level function?
             levelTimerText.text = "00:00";
             startText.text = "level over";
             SetUI(true);
@@ -94,17 +96,21 @@ public class LevelManager : MonoBehaviour
     public void EndLevel()
     {
         currentState = LEVEL_STATE.ENDED;
+        //add a delay here
+        Time.timeScale = 0;
     }
 
+    //janky but its cool cause it will all be replaced with an animation countdown
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(startCountdownTimer);
+        yield return new WaitForSecondsRealtime(startCountdownTimer - 2);
         SetUI(false);
         BeginLevel();
     }
 
     private void BeginLevel()
     {
+        Time.timeScale = 1;
         currentState = LEVEL_STATE.STARTED;
         PlayerManager.Instance.SetAllPlayerControls(true);
         GhostManager.Instance.SetAllGhostControls(true);

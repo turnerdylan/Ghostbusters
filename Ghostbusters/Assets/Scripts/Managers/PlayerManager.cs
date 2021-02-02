@@ -41,15 +41,16 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void CheckIfAllPlayersAreStunned()
+    public bool CheckIfAllPlayersAreStunned()
     {
         foreach(Player player in players)
         {
-            if(player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            if(player.GetPlayerState() != PLAYER_STATE.STUNNED || player == null)
             {
-                return;
+                return false;
             }
         }
         LevelManager.Instance.EndLevel();
+        return true;
     }
 }

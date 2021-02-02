@@ -125,9 +125,10 @@ public class Player : MonoBehaviour
     {
         if(currentState == PLAYER_STATE.WITH_BAG)
         {
-            if(/*player is close to the car*/false)
+            if(Vector3.Distance(transform.position, Van.Instance.GetBagStoredPosition()) < Van.Instance.GetInteractionRadius())
             {
-                //drop the bag on the car
+                Bag.Instance.transform.parent = Van.Instance.transform;
+                Bag.Instance.transform.position = Van.Instance.GetBagStoredPosition();
             }
             else
             {

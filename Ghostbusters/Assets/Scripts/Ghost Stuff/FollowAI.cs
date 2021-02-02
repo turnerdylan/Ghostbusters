@@ -51,6 +51,8 @@ public class FollowAI : MonoBehaviour
 
 Transform GetClosestPlayer(Player[] players)
     {
+        if (PlayerManager.Instance.CheckIfAllPlayersAreStunned()) agent.ResetPath();
+
         Transform tMin = null;
         float distanceToClosestPlayer = Mathf.Infinity;
         Vector3 currentPos = transform.position;
