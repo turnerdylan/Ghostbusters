@@ -11,7 +11,7 @@ public class MediumGhost : MonoBehaviour
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;
-    [SerializeField] private bool _scareable = false;
+    [SerializeField] private bool _scareable = true;
     [SerializeField] private float _onScareInvincibilityTime = 1.5f;
     [SerializeField] private float _transformTimerMax = 1.5f;
 

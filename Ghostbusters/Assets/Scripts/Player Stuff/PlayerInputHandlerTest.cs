@@ -63,4 +63,27 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.SwingBag();
         }
     }
+    public void UpScare(CallbackContext context)
+    {
+        if(pc != null && context.performed)
+        {
+            //Debug.Log("Hello");
+            pc.UpScare();
+        }
+    }
+    public void DownScare(CallbackContext context)
+    {
+        if(pc != null && context.performed)
+            pc.DownScare();
+    }
+    public void LeftScare(CallbackContext context)
+    {
+        if(pc != null && context.performed)
+            pc.LeftScare();
+    }
+    public void RightScare(CallbackContext context)
+    {
+        if(pc != null && context.performed)
+            pc.RightScare();
+    }
 }

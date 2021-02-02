@@ -14,7 +14,7 @@ public class BigGhost : MonoBehaviour
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;
-    [SerializeField] private bool _scareable = false;
+    [SerializeField] private bool _scareable = true;
     [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
@@ -28,6 +28,10 @@ public class BigGhost : MonoBehaviour
     //public variables
     public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
 
+    void Start()
+    {
+        _scaresNeeded = PlayerManager.Instance.players.Length;
+    }
     void Update()
     {
         scareFeedbackText.text = players.Count.ToString();

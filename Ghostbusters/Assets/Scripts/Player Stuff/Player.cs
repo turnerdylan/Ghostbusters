@@ -12,6 +12,14 @@ public enum PLAYER_STATE
     STUNNED,
 };
 
+public enum ButtonPressed
+{
+    None,
+    Up,
+    Down,
+    Left,
+    Right
+}
 public class Player : MonoBehaviour
 {
     //references
@@ -37,6 +45,7 @@ public class Player : MonoBehaviour
     //public
     public Transform testTransform; //delete this later
 
+    public ButtonPressed _buttonPressed = ButtonPressed.None;
     private void Awake()
     {
         GetComponentInChildren<Light>().spotAngle = _viewAngle;
@@ -199,7 +208,9 @@ public class Player : MonoBehaviour
                         if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
                         {
                             if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
+                            {
                                 GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
+                            }
                         }
                     }
                 }
@@ -276,6 +287,43 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_stunTime);
         enabled = true;
         currentState = PLAYER_STATE.NORMAL;
+    }
+
+    public void UpScare()
+    {
+        if(ScareManager.Instance.scareInitiated)
+        {
+            Debug.Log("Up pressed");
+            _buttonPressed = ButtonPressed.Up;
+            ScareManager.Instance.AddPlayerScare(this);
+        }
+    }
+    public void DownScare()
+    {
+        if(ScareManager.Instance.scareInitiated)
+        {
+            Debug.Log("down pressed");
+            _buttonPressed = ButtonPressed.Down;
+            ScareManager.Instance.AddPlayerScare(this);
+        }
+    }
+    public void LeftScare()
+    {
+        if(ScareManager.Instance.scareInitiated)
+        {
+            Debug.Log("left pressed");
+            _buttonPressed = ButtonPressed.Left;
+            ScareManager.Instance.AddPlayerScare(this);
+        }
+    }
+    public void RightScare()
+    {
+        if(ScareManager.Instance.scareInitiated)
+        {
+            Debug.Log("right pressed");
+            _buttonPressed = ButtonPressed.Right;
+            ScareManager.Instance.AddPlayerScare(this);
+        }
     }
 }
 

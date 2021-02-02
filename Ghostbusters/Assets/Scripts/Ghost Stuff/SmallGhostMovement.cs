@@ -35,7 +35,6 @@ public class SmallGhostMovement : MonoBehaviour
     void OnEnable()
     {
         StartCoroutine(State_Wander());
-        //StartCoroutine()
     }
 
     public IEnumerator State_Wander()
@@ -55,15 +54,16 @@ public class SmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun)
-            {
-                StartCoroutine(State_Flee());
-                yield break;
-            }
-            if(Vector3.Distance(transform.position, GetClosestGhost().position) < seekDistance)
-            {
-                StartCoroutine(State_Seek());
-            }
+            // if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun)
+            // {
+            //     StartCoroutine(State_Flee());
+            //     yield break;
+            // }
+            // if(Vector3.Distance(transform.position, GetClosestGhost().position) < seekDistance)
+            // {
+            //     StartCoroutine(State_Seek());
+            //     yield break;
+            // }
             yield return null;
         }
     }
