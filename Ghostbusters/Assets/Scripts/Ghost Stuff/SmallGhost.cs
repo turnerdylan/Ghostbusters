@@ -8,7 +8,7 @@ public class SmallGhost : MonoBehaviour
 
     //private serializables
     [SerializeField] private float _transformTimerMax = 1.5f;
-    [SerializeField] private bool _scareable = false;
+    [SerializeField] private bool _scareable = true;
 
     //private variables
     private int _listIndex;

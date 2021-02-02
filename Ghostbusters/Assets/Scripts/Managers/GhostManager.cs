@@ -188,7 +188,7 @@ public class GhostManager : MonoBehaviour
                 return i;
             }
         }
-        print("test 2");
+        //print("test 2");
         return -1;
     }
 }

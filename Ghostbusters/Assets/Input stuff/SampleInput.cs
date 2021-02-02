@@ -41,6 +41,38 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""UpScare"",
+                    ""type"": ""Button"",
+                    ""id"": ""204b452f-1e71-49fa-a04d-d18d530a8e5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""DownScare"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bb00dba-278a-4d86-acb7-14513329c6ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""LeftScare"",
+                    ""type"": ""Button"",
+                    ""id"": ""096a908f-be68-4f87-8131-d3a9a15434f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""RightScare"",
+                    ""type"": ""Button"",
+                    ""id"": ""db9b2184-e4e7-4807-aae9-b156e0c41708"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -228,6 +260,50 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Scare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f07bd38b-9aa8-4e8d-8e03-763e160aeab6"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""DownScare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86130a5f-b265-4ef1-862d-35d08ea1a2d0"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftScare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11b5cf39-2793-462b-b9f9-c548b5688fd7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RightScare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""616dba2b-fe31-4f01-91b7-1c8caeb672b9"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""UpScare"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -808,6 +884,10 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Scare = m_Player.FindAction("Scare", throwIfNotFound: true);
+        m_Player_UpScare = m_Player.FindAction("UpScare", throwIfNotFound: true);
+        m_Player_DownScare = m_Player.FindAction("DownScare", throwIfNotFound: true);
+        m_Player_LeftScare = m_Player.FindAction("LeftScare", throwIfNotFound: true);
+        m_Player_RightScare = m_Player.FindAction("RightScare", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -872,6 +952,10 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Scare;
+    private readonly InputAction m_Player_UpScare;
+    private readonly InputAction m_Player_DownScare;
+    private readonly InputAction m_Player_LeftScare;
+    private readonly InputAction m_Player_RightScare;
     public struct PlayerActions
     {
         private @SampleInput m_Wrapper;
@@ -879,6 +963,10 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Scare => m_Wrapper.m_Player_Scare;
+        public InputAction @UpScare => m_Wrapper.m_Player_UpScare;
+        public InputAction @DownScare => m_Wrapper.m_Player_DownScare;
+        public InputAction @LeftScare => m_Wrapper.m_Player_LeftScare;
+        public InputAction @RightScare => m_Wrapper.m_Player_RightScare;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -897,6 +985,18 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Scare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
                 @Scare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
                 @Scare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
+                @UpScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
+                @UpScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
+                @UpScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
+                @DownScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
+                @DownScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
+                @DownScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
+                @LeftScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftScare;
+                @LeftScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftScare;
+                @LeftScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftScare;
+                @RightScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightScare;
+                @RightScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightScare;
+                @RightScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightScare;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -910,6 +1010,18 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Scare.started += instance.OnScare;
                 @Scare.performed += instance.OnScare;
                 @Scare.canceled += instance.OnScare;
+                @UpScare.started += instance.OnUpScare;
+                @UpScare.performed += instance.OnUpScare;
+                @UpScare.canceled += instance.OnUpScare;
+                @DownScare.started += instance.OnDownScare;
+                @DownScare.performed += instance.OnDownScare;
+                @DownScare.canceled += instance.OnDownScare;
+                @LeftScare.started += instance.OnLeftScare;
+                @LeftScare.performed += instance.OnLeftScare;
+                @LeftScare.canceled += instance.OnLeftScare;
+                @RightScare.started += instance.OnRightScare;
+                @RightScare.performed += instance.OnRightScare;
+                @RightScare.canceled += instance.OnRightScare;
             }
         }
     }
@@ -1069,6 +1181,10 @@ public class @SampleInput : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnScare(InputAction.CallbackContext context);
+        void OnUpScare(InputAction.CallbackContext context);
+        void OnDownScare(InputAction.CallbackContext context);
+        void OnLeftScare(InputAction.CallbackContext context);
+        void OnRightScare(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

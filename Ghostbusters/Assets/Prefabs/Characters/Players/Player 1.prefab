@@ -881,7 +881,7 @@ Transform:
   m_GameObject: {fileID: 6635086342476835366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.26, y: 0, z: -8.56}
-  m_LocalScale: {x: 1.7799, y: 1.7799, z: 1.7799}
+  m_LocalScale: {x: 0.49392223, y: 0.49392223, z: 0.49392223}
   m_Children:
   - {fileID: 6983791713177456224}
   - {fileID: 906916263}
@@ -999,6 +999,66 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 127e8b06-258c-407b-a62a-6c693911d03d
     m_ActionName: Player/Scare[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: UpScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 204b452f-1e71-49fa-a04d-d18d530a8e5c
+    m_ActionName: Player/UpScare[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: DownScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7bb00dba-278a-4d86-acb7-14513329c6ec
+    m_ActionName: Player/DownScare[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: LeftScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 096a908f-be68-4f87-8131-d3a9a15434f3
+    m_ActionName: Player/LeftScare[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: RightScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: db9b2184-e4e7-4807-aae9-b156e0c41708
+    m_ActionName: Player/RightScare[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
