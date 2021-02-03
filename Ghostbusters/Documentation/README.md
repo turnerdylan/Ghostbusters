@@ -6,7 +6,22 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-chase.gif" width="75%">
 
 - - -
-## 1/26/2021 - Week 3
+
+## 1/26/2021 - Week 4
+### Goals:
+- C - Implementing group button scare
+
+- D - Adding level dynamics to the Ferry Level and more playtesting
+
+- Z - Adding player and ghost animations
+
+
+### Weekly Updates:
+
+
+- - -
+
+## 1/26/2021 - Week 3 Playtesting and Refining
 ### Goals:
 - C - Beginning the multi button group scare prototype
 
