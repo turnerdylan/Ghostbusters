@@ -23,7 +23,10 @@ public class Explosive : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
             if (rb != null)
-                rb.AddExplosionForce(power, explosionPos, radius, 0.0f);
+            {
+                rb.gameObject.GetComponent<Player>().TriggerStun(0.5f);
+                rb.AddExplosionForce(power, explosionPos, radius, 0.5f);
+            }
         }
         Destroy(gameObject, 0.5f);
     }

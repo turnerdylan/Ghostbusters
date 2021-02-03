@@ -107,15 +107,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.89
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 2
+    minRegionArea: 100
     manualCellSize: 0
-    cellSize: 0.29666665
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -1838,7 +1838,17 @@ PrefabInstance:
     - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
       propertyPath: maxSmallGhosts
-      value: 0
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxMediumGhosts
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxBigGhosts
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1925615210104531387, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
@@ -1904,14 +1914,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1438828149, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 1438828149, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.01
-      objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835361, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1969,8 +1971,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835362, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
-      propertyPath: m_Constraints
-      value: 112
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
@@ -1979,8 +1981,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
-      propertyPath: _moveSpeed
-      value: 12
+      propertyPath: _viewAngle
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}

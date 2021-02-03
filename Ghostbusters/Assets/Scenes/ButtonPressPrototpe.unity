@@ -159,6 +159,8 @@ MonoBehaviour:
   background: {fileID: 1092948026}
   scareInitiated: 0
   timer: 5
+  btnCount: 00000000000000000000000000000000
+  targetBtnCount: 00000000000000000000000000000000
 --- !u!4 &270373903
 Transform:
   m_ObjectHideFlags: 0
@@ -575,8 +577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0002594}
-  m_SizeDelta: {x: 869, y: 488.7505}
+  m_AnchoredPosition: {x: -0.00016975, y: 0}
+  m_SizeDelta: {x: 929.00037, y: 522.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1173228470
 PrefabInstance:
@@ -638,11 +640,6 @@ PrefabInstance:
     - target: {fileID: 6635086342476835361, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8,

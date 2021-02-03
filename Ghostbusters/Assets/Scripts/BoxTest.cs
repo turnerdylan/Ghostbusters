@@ -20,7 +20,7 @@ public class BoxTest : MonoBehaviour
     {
         if(other.GetComponent<Player>() != null)
         {
-            other.GetComponent<Player>().TriggerStun();
+            other.GetComponent<Player>().TriggerStun(other.GetComponent<Player>()._stunTime);
             PlayerManager.Instance.CheckIfAllPlayersAreStunned();
             //StartCoroutine(other.GetComponent<Player>().StunPlayer());
             //StartCoroutine(StunPlayer(other.GetComponent<Player>()));

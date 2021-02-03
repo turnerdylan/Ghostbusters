@@ -30,7 +30,7 @@ public class BigGhost : MonoBehaviour
 
     void Start()
     {
-        _scaresNeeded = PlayerManager.Instance.players.Length;
+        _scaresNeeded = PlayerManager.Instance.players.Length; //it takes all players in the scene to split big ghost
     }
     void Update()
     {
@@ -92,7 +92,7 @@ public class BigGhost : MonoBehaviour
         {
             scareInitiated = true;
         }
-        if(!players.Contains(player)) //not sure if this actually works 
+        if(!players.Contains(player))
         {
             players.Add(player);
         }

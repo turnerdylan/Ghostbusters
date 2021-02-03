@@ -91,7 +91,7 @@ public class GhostManager : MonoBehaviour
     void Update()
     {
         CalculateGhostScore();
-        print(_ghostScore);
+        //print(_ghostScore);
 
         //double for loop to compare all ghosts agaisnt one another
         for (int i = 0; i < mediumGhosts.Count; i++)

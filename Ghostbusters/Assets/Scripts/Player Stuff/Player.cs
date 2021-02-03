@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _viewAngle = 45f;
     [SerializeField] private float _scareRange = 5f;
-    [SerializeField] private float _stunTime = 3f;
+    [SerializeField] public float _stunTime = 3f;
     [SerializeField] private float _rotationSpeed = 10f;
 
     //private variables
@@ -40,12 +40,13 @@ public class Player : MonoBehaviour
     private Vector3 _inputLookVector = Vector3.zero;
 
     private float _storedLookValue;
-    PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
+    public PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
 
     //public
     public Transform testTransform; //delete this later
 
     public ButtonPressed _buttonPressed = ButtonPressed.None;
+
     private void Awake()
     {
         GetComponentInChildren<Light>().spotAngle = _viewAngle;
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -173,19 +174,16 @@ public class Player : MonoBehaviour
             {
                 if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
-                    print("test1");
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                     //print(angleBetweenPlayerandGhost);
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        print("test2");
                         if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
                         {
                             GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                             //TODO fix this logic
-                            print("test");
                             //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                         }
                     }
@@ -209,7 +207,7 @@ public class Player : MonoBehaviour
                         {
                             if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
                             {
-                                GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
+                                GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                             }
                         }
                     }
@@ -275,20 +273,19 @@ public class Player : MonoBehaviour
         return currentState;
     }
 
-    public void TriggerStun()
+    public void TriggerStun(float stunTime)
     {
-        StartCoroutine(StunPlayer());
+        StartCoroutine(StunPlayer(stunTime));
     }
 
-    public IEnumerator StunPlayer()
+    public IEnumerator StunPlayer(float stunTime)
     {
         enabled = false;
         currentState = PLAYER_STATE.STUNNED;
-        yield return new WaitForSeconds(_stunTime);
+        yield return new WaitForSeconds(stunTime);
         enabled = true;
         currentState = PLAYER_STATE.NORMAL;
     }
-
     public void UpScare()
     {
         if(ScareManager.Instance.scareInitiated)

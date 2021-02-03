@@ -76,13 +76,24 @@ public class SmallGhostMovement : MonoBehaviour
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
             Vector3 dirToPlayer = transform.position - GetClosestPlayer(PlayerManager.Instance.players).position;
-            Vector3 newPos = transform.position + 2*dirToPlayer;
+            Vector3 newPos = transform.position + dirToPlayer;
             agent.SetDestination(newPos);
-            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) >= minDistanceForEnemyToRun)
+            if(!agent.pathPending)
             {
-                StartCoroutine(State_Wander());
-                yield break;
+                if(agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    if(!agent.hasPath || agent.velocity.sqrMagnitude == 0)
+                    {
+                        StartCoroutine(State_Wander());
+                        yield break;
+                    }
+                }
             }
+            // if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) >= minDistanceForEnemyToRun)
+            // {
+            //     StartCoroutine(State_Wander());
+            //     yield break;
+            // }
             yield return null;
         }
     }
