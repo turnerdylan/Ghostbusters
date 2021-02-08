@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ScareManager : MonoBehaviour
 {
-    private List<ButtonPressed> targetBtnList = new List<ButtonPressed>();
-    private List<ButtonPressed> btnList = new List<ButtonPressed>();
+    private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
+    private List<BUTTON_PRESS> btnList = new List<BUTTON_PRESS>();
     public List<Player> players = new List<Player>();
 
     public Text[] buttonTexts = new Text[4];
@@ -90,7 +90,7 @@ public class ScareManager : MonoBehaviour
         players.Clear();
         foreach(Player player in players)
         {
-            player._buttonPressed = ButtonPressed.None;
+            player.SetButtonPress(BUTTON_PRESS.None);
         }
     }
     void StartScare()
@@ -102,16 +102,16 @@ public class ScareManager : MonoBehaviour
         {
             switch(targetBtnList[i])
             {
-                case ButtonPressed.Up:
+                case BUTTON_PRESS.Up:
                     buttonTexts[i].text = "U";
                     break;
-                case ButtonPressed.Down:
+                case BUTTON_PRESS.Down:
                     buttonTexts[i].text = "D";
                     break;
-                case ButtonPressed.Left:
+                case BUTTON_PRESS.Left:
                     buttonTexts[i].text = "L";
                     break;
-                case ButtonPressed.Right:
+                case BUTTON_PRESS.Right:
                     buttonTexts[i].text = "R";
                     break;
             }
@@ -129,48 +129,48 @@ public class ScareManager : MonoBehaviour
         //     btnList.Add(player._buttonPressed);
         // }
         players.Add(player);
-        btnList.Add(player._buttonPressed);
-        switch(player._buttonPressed)
+        btnList.Add(player.GetButtonPress());
+        switch(player.GetButtonPress())
         {
-            case ButtonPressed.Up:
+            case BUTTON_PRESS.Up:
                 btnCount[0]++;
                 break;
-            case ButtonPressed.Down:
+            case BUTTON_PRESS.Down:
                 btnCount[1]++;
                 break;
-            case ButtonPressed.Left:
+            case BUTTON_PRESS.Left:
                 btnCount[2]++;
                 break;
-            case ButtonPressed.Right:
+            case BUTTON_PRESS.Right:
                 btnCount[3]++;
                 break;
         }
 
     }
 
-    void CountElements(int[] btnCount, List<ButtonPressed> btnList)
+    void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
     {
-        foreach(ButtonPressed btnPressed in btnList)
+        foreach(BUTTON_PRESS btnPressed in btnList)
         {
             switch(btnPressed)
             {
-                case ButtonPressed.Up:
+                case BUTTON_PRESS.Up:
                     btnCount[0]++;
                     break;
-                case ButtonPressed.Down:
+                case BUTTON_PRESS.Down:
                     btnCount[1]++;
                     break;
-                case ButtonPressed.Left:
+                case BUTTON_PRESS.Left:
                     btnCount[2]++;
                     break;
-                case ButtonPressed.Right:
+                case BUTTON_PRESS.Right:
                     btnCount[3]++;
                     break;
             }
         }
     }
 
-    void GenerateSequence(List<ButtonPressed> targetBtnList)
+    void GenerateSequence(List<BUTTON_PRESS> targetBtnList)
     {
         for(int i = 0; i<4; i++)// i < players.Length
         {
@@ -178,16 +178,16 @@ public class ScareManager : MonoBehaviour
             switch(btn)
             {
                 case 1:
-                    targetBtnList.Add(ButtonPressed.Up);
+                    targetBtnList.Add(BUTTON_PRESS.Up);
                     break;
                 case 2:
-                    targetBtnList.Add(ButtonPressed.Down);
+                    targetBtnList.Add(BUTTON_PRESS.Down);
                     break;
                 case 3:
-                    targetBtnList.Add(ButtonPressed.Left);
+                    targetBtnList.Add(BUTTON_PRESS.Left);
                     break;
                 case 4:
-                    targetBtnList.Add(ButtonPressed.Right);
+                    targetBtnList.Add(BUTTON_PRESS.Right);
                     break;
             }
         }

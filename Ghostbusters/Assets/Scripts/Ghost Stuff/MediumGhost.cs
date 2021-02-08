@@ -73,7 +73,7 @@ public class MediumGhost : MonoBehaviour
         return _transformTimer;
     }
 
-    public bool GetScarable()
+    public bool CheckIfScarable()
     {
         return _scareable;
     }

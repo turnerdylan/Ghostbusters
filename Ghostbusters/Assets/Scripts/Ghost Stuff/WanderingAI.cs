@@ -7,17 +7,36 @@ public class WanderingAI : MonoBehaviour {
     public float wanderRadius;
     public float wanderTimer;
     private NavMeshAgent agent;
+    private Rigidbody rb;
+    private Animator anim;
     private float timer;
- 
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+    }
+
     // Use this for initialization
     void OnEnable () {
         wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
-        agent = GetComponent<NavMeshAgent> ();
+        
         timer = wanderTimer;
     }
- 
+
     // Update is called once per frame
     void Update () {
+        if (agent.destination != null)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
+
+
         timer += Time.deltaTime;
  
         if (timer >= wanderTimer) {

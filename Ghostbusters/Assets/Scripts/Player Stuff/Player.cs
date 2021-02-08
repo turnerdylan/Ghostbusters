@@ -12,7 +12,7 @@ public enum PLAYER_STATE
     STUNNED,
 };
 
-public enum ButtonPressed
+public enum BUTTON_PRESS
 {
     None,
     Up,
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Interactable currentInteraction;
     private Animator anim;
+    private Light spotlight;
 
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
@@ -40,45 +41,28 @@ public class Player : MonoBehaviour
     private Vector3 _inputLookVector = Vector3.zero;
 
     private float _storedLookValue;
+
+    //states
     PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
+    BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
 
     //public
     public Transform testTransform; //delete this later
 
-    public ButtonPressed _buttonPressed = ButtonPressed.None;
+    
     private void Awake()
     {
-        GetComponentInChildren<Light>().spotAngle = _viewAngle;
+        spotlight = GetComponentInChildren<Light>();
+        spotlight.spotAngle = _viewAngle;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-    }
 
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
     {
         SetMoveDirection();
         SetLookDirection();
-    }
-
-
-
-    //TODO: delete this at some point
-    private int TestForGhostsInRange()
-    {
-        int numberOfGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < _scareRange
-                && GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                numberOfGhosts++;
-            }
-        }
-        return numberOfGhosts;
     }
 
     public void SetMoveVector(Vector2 direction)
@@ -94,16 +78,6 @@ public class Player : MonoBehaviour
             currentInteraction.Interact();
     }
 
-    public void SetInteraction(Interactable interaction)
-    {
-        currentInteraction = interaction;
-    }
-
-    public void RemoveInteraction()
-    {
-        currentInteraction = null;
-    }
-
     public void GetBag()
     {
         if(currentState == PLAYER_STATE.NORMAL)
@@ -112,8 +86,6 @@ public class Player : MonoBehaviour
             {
                 //set player to holding bag state
                 //set player holding bag animation
-                //disable player scaring controls
-                //parent bag to the player
                 Bag.Instance.transform.parent = transform;
                 Bag.Instance.transform.position = testTransform.position;
                 Bag.Instance.GetComponent<Rigidbody>().isKinematic = true;
@@ -121,13 +93,6 @@ public class Player : MonoBehaviour
         }
         //StartCoroutine(QuickTestDelay(1));
         currentState = PLAYER_STATE.WITH_BAG;
-    }
-
-    IEnumerator QuickTestDelay(int state)
-    {
-        yield return new WaitForSeconds(0.2f);
-        if (state == 1) currentState = PLAYER_STATE.WITH_BAG;
-        else if (state == 2) currentState = PLAYER_STATE.NORMAL;
     }
 
     public void DropBag()
@@ -166,6 +131,8 @@ public class Player : MonoBehaviour
     {
         //TODO fix this logic so there is less repeating code
         anim.SetBool("Scare", true);
+        
+        StartCoroutine(ChangeSpotlightColor());
 
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
@@ -173,20 +140,15 @@ public class Player : MonoBehaviour
             {
                 if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
-                    print("test1");
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                     //print(angleBetweenPlayerandGhost);
-
+                    print("testing1");
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        print("test2");
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        if (GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().CheckIfScarable())
                         {
                             GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                            //TODO fix this logic
-                            print("test");
-                            //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                         }
                     }
                 }
@@ -205,12 +167,9 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
                         {
-                            if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
-                            {
-                                GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
-                            }
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
                         }
                     }
                 }
@@ -230,16 +189,20 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.smallGhosts[i].transform.position))
-                        {
-                            if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                                GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
-                        }
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
                     }
                 }
             }
             
         }
+    }
+
+    private IEnumerator ChangeSpotlightColor()
+    {
+        spotlight.color = Color.red;
+        yield return new WaitForSeconds(.5f); //change this to player scare cooldown later
+        spotlight.color = Color.white;
     }
 
     private void SetMoveDirection()
@@ -270,10 +233,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    #region Getters & Setters
     public PLAYER_STATE GetPlayerState()
     {
         return currentState;
     }
+
+    public BUTTON_PRESS GetButtonPress()
+    {
+        return _buttonPressed;
+    }
+
+    public void SetButtonPress(BUTTON_PRESS state)
+    {
+        _buttonPressed = state;
+    }
+    #endregion
 
     public void TriggerStun()
     {
@@ -294,7 +269,7 @@ public class Player : MonoBehaviour
         if(ScareManager.Instance.scareInitiated)
         {
             Debug.Log("Up pressed");
-            _buttonPressed = ButtonPressed.Up;
+            _buttonPressed = BUTTON_PRESS.Up;
             ScareManager.Instance.AddPlayerScare(this);
         }
     }
@@ -303,7 +278,7 @@ public class Player : MonoBehaviour
         if(ScareManager.Instance.scareInitiated)
         {
             Debug.Log("down pressed");
-            _buttonPressed = ButtonPressed.Down;
+            _buttonPressed = BUTTON_PRESS.Down;
             ScareManager.Instance.AddPlayerScare(this);
         }
     }
@@ -312,7 +287,7 @@ public class Player : MonoBehaviour
         if(ScareManager.Instance.scareInitiated)
         {
             Debug.Log("left pressed");
-            _buttonPressed = ButtonPressed.Left;
+            _buttonPressed = BUTTON_PRESS.Left;
             ScareManager.Instance.AddPlayerScare(this);
         }
     }
@@ -321,7 +296,7 @@ public class Player : MonoBehaviour
         if(ScareManager.Instance.scareInitiated)
         {
             Debug.Log("right pressed");
-            _buttonPressed = ButtonPressed.Right;
+            _buttonPressed = BUTTON_PRESS.Right;
             ScareManager.Instance.AddPlayerScare(this);
         }
     }

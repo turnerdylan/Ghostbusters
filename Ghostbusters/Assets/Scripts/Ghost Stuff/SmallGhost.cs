@@ -45,7 +45,7 @@ public class SmallGhost : MonoBehaviour
 
     IEnumerator ScareInvincibility()
     {
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(1);
         _scareable = true;
     }
 

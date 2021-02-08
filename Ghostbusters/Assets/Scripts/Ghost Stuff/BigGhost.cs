@@ -7,23 +7,22 @@ using TMPro;
 public class BigGhost : MonoBehaviour
 {
     //references
-    [SerializeField] private GameObject mediumGhost;
-    [SerializeField] private TextMeshPro scareFeedbackText;
+    [SerializeField] private GameObject mediumGhost = null;
+    [SerializeField] private TextMeshPro scareFeedbackText = null;
     public GameObject explosivePrefab;
 
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;
-    [SerializeField] private bool _scareable = true;
-    [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
     
-
     //private variables
     private bool scareInitiated = false;
     private int _listIndex;
     private float _scareInputsTimer;
+    private bool _scareable = true;
+    private int _scaresNeeded = 1;
+
 
     //public variables
     public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
@@ -32,9 +31,11 @@ public class BigGhost : MonoBehaviour
     {
         _scaresNeeded = PlayerManager.Instance.players.Length;
     }
+
     void Update()
     {
         scareFeedbackText.text = players.Count.ToString();
+        print(players.Count);
 
         if(scareInitiated)
         {
@@ -53,7 +54,7 @@ public class BigGhost : MonoBehaviour
             else
             {
                 Debug.Log("Fail!");
-                ScareFail();
+                //ScareFail();
                 scareInitiated = false;
                 _scareInputsTimer = _scareInputsTimerMaxTime;
                 players.Clear();
@@ -78,8 +79,7 @@ public class BigGhost : MonoBehaviour
             if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
             {
                 GhostManager.Instance.mediumGhosts[i].SetActive(true);
-                Vector3 testposition = gameObject.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset; //fix the math here to spawn them in separate locations
-                GhostManager.Instance.mediumGhosts[i].transform.position = testposition;
+                GhostManager.Instance.mediumGhosts[i].transform.position = transform.position;
                 spawnedGhosts++;
             }
         }
@@ -88,11 +88,11 @@ public class BigGhost : MonoBehaviour
 
     public void AddPlayerScare(Player player)
     {
-        if(!scareInitiated)
-        {
-            scareInitiated = true;
-        }
-        if(!players.Contains(player)) //not sure if this actually works 
+        print("testing123");
+        scareInitiated = true;
+        _scareInputsTimer = _scareInputsTimerMaxTime;
+
+        if (!players.Contains(player)) //not sure if this actually works 
         {
             players.Add(player);
         }
@@ -111,11 +111,12 @@ public class BigGhost : MonoBehaviour
 
     IEnumerator ScareInvincibility()
     {
+
         yield return new WaitForSeconds(_onScareInvincibilityTime);
         _scareable = true;
     }
 
-    public bool GetScarable()
+    public bool CheckIfScarable()
     {
         return _scareable;
     }
