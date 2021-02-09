@@ -722,7 +722,7 @@ MonoBehaviour:
   - {fileID: 1995022643232151117}
   - {fileID: 8175745811266535587}
   buttonSequenceSprite: {fileID: 6140562614325325566}
-  timer: 10
+  timer: 3
 --- !u!114 &7760811846356712089
 MonoBehaviour:
   m_ObjectHideFlags: 0

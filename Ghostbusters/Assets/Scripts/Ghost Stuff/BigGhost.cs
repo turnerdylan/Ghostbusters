@@ -194,6 +194,10 @@ public class BigGhost : MonoBehaviour
                     btnList.Add(player._buttonPressed);
                     shouldAdd = true;
                 }
+                else
+                {
+                    ScareFail();
+                }
                 break;
             case 3:
                 if(CountInList(player)<2)
@@ -202,6 +206,10 @@ public class BigGhost : MonoBehaviour
                     btnList.Add(player._buttonPressed);
                     shouldAdd = true;
                 }
+                else
+                {
+                    ScareFail();
+                }
                 break;
             case 4:
                 if(CountInList(player)<1)
@@ -209,6 +217,10 @@ public class BigGhost : MonoBehaviour
                     players.Add(player);
                     btnList.Add(player._buttonPressed);
                     shouldAdd = true;
+                }
+                else
+                {
+                    ScareFail();
                 }
                 break;
             default:
