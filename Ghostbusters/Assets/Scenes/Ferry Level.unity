@@ -928,6 +928,12 @@ PrefabInstance:
       propertyPath: ghostSpawnLocations.Array.data[4]
       value: 
       objectReference: {fileID: 1402336308}
+    - target: {fileID: 6761392886053966720, guid: aac878fa43701704e810cc59bc3760b9,
+        type: 3}
+      propertyPath: waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99e5c117d13dadb4bb7021329d507fb7,
+        type: 2}
     - target: {fileID: 6761392886053966721, guid: aac878fa43701704e810cc59bc3760b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1969,11 +1975,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6635086342476835362, guid: 5913e5518553b424b96ce659fe9ae8a8,
-        type: 3}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_Name
@@ -1982,7 +1983,7 @@ PrefabInstance:
     - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: _viewAngle
-      value: 90
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}

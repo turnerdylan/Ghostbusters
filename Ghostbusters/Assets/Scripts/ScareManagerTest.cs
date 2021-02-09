@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class ScareManager : MonoBehaviour
+public class ScareManagerTest : MonoBehaviour
 {
     private List<ButtonPressed> targetBtnList = new List<ButtonPressed>();
     private List<ButtonPressed> btnList = new List<ButtonPressed>();
@@ -16,11 +16,11 @@ public class ScareManager : MonoBehaviour
     public bool scareInitiated;
     public float timer = 10f;
     private float _timer;
-    public int[] btnCount = new int[4];
-    public int[] targetBtnCount = new int[4];
+    [SerializeField] private int[] btnCount = new int[4];   
+    [SerializeField] private int[] targetBtnCount = new int[4];
     
     #region Singleton Setup and Awake
-    public static ScareManager Instance
+    public static ScareManagerTest Instance
     {
         get
         {
@@ -28,7 +28,7 @@ public class ScareManager : MonoBehaviour
         }
     }
 
-    private static ScareManager instance = null;
+    private static ScareManagerTest instance = null;
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class ScareManager : MonoBehaviour
     #endregion
     void Start()
     {
-        arrayLength = PlayerManager.Instance.players.Length;
+        //arrayLength = PlayerManager.Instance.players.Length;
         _timer = timer;
         StartScare();
 

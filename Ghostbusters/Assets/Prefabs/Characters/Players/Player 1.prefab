@@ -1104,7 +1104,7 @@ Rigidbody:
   m_GameObject: {fileID: 6635086342476835366}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 5.51
+  m_Drag: 1
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1150,14 +1150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 12
-  _viewAngle: 90
-  _scareRange: 10
-  _stunTime: 3
+  _viewAngle: 45
   _rotationSpeed: 10
   currentState: 0
   testTransform: {fileID: 1438828149}
+  _scareRange: 10
+  _stunTime: 2
   _buttonPressed: 0
-  canMove: 1
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _viewAngle = 45f;
-    [SerializeField] private float _scareRange = 5f;
-    [SerializeField] public float _stunTime = 3f;
     [SerializeField] private float _rotationSpeed = 10f;
 
     //private variables
@@ -44,7 +42,8 @@ public class Player : MonoBehaviour
 
     //public
     public Transform testTransform; //delete this later
-
+    public float _scareRange = 5f;
+    public float _stunTime = 3f;
     public ButtonPressed _buttonPressed = ButtonPressed.None;
 
     private void Awake()
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        //Debug.DrawRay(transform.position, transform.forward*10, Color.red, 0.0f, false);
     }
 
     private void FixedUpdate()
@@ -182,7 +181,7 @@ public class Player : MonoBehaviour
                     {
                         if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
                         {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                            //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                             //TODO fix this logic
                             //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                         }
@@ -288,38 +287,99 @@ public class Player : MonoBehaviour
     }
     public void UpScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        //Debug.Log("Up added");
+        _buttonPressed = ButtonPressed.Up;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("Up pressed");
-            _buttonPressed = ButtonPressed.Up;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                //Debug.Log("is active");
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    //Debug.Log("in range");
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        //Debug.Log("angle");
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }            
         }
     }
     public void DownScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Down;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("down pressed");
-            _buttonPressed = ButtonPressed.Down;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }            
         }
     }
     public void LeftScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Left;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("left pressed");
-            _buttonPressed = ButtonPressed.Left;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }            
         }
     }
     public void RightScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Right;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("right pressed");
-            _buttonPressed = ButtonPressed.Right;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }            
         }
     }
 }

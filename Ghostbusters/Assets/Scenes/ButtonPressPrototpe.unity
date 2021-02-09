@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &270373901
+--- !u!1 &33070598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,47 +129,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 270373903}
-  - component: {fileID: 270373902}
+  - component: {fileID: 33070600}
+  - component: {fileID: 33070599}
   m_Layer: 0
-  m_Name: ScareManager
+  m_Name: ScareManagerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &270373902
+--- !u!114 &33070599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270373901}
+  m_GameObject: {fileID: 33070598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b814388af5029143b2aaf612cf14826, type: 3}
+  m_Script: {fileID: 11500000, guid: dc90eba55fa19df43a56b0739307251a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
   buttonTexts:
-  - {fileID: 1798127081}
-  - {fileID: 1981011542}
-  - {fileID: 660335437}
-  - {fileID: 583202341}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   background: {fileID: 1092948026}
   scareInitiated: 0
-  timer: 5
+  timer: 10
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
---- !u!4 &270373903
+--- !u!4 &33070600
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270373901}
+  m_GameObject: {fileID: 33070598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 521.11755, y: 250.15878, z: -60.543068}
+  m_LocalPosition: {x: -1.0797403, y: -12.202705, z: 9.610348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
