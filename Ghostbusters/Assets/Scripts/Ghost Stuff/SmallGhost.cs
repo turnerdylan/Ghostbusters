@@ -9,6 +9,7 @@ public class SmallGhost : MonoBehaviour
     //private serializables
     [SerializeField] private float _transformTimerMax = 1.5f;
     [SerializeField] private bool _scareable = true;
+    [SerializeField] private float _onScareInvincibilityTime = 1.0f;
 
     //private variables
     private int _listIndex;
@@ -45,7 +46,7 @@ public class SmallGhost : MonoBehaviour
 
     IEnumerator ScareInvincibility()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(_onScareInvincibilityTime);
         _scareable = true;
     }
 

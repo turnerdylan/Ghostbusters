@@ -14,7 +14,12 @@ public class BigGhost : MonoBehaviour
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;
+    [SerializeField] private bool _scareable = true;
+    [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
+    [SerializeField] private int[] btnCount = new int[4];   
+    [SerializeField] private int[] targetBtnCount = new int[4];
     
     //private variables
     private bool scareInitiated = false;
@@ -23,48 +28,87 @@ public class BigGhost : MonoBehaviour
     private bool _scareable = true;
     private int _scaresNeeded = 1;
 
-
     //public variables
     public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
+    public Sprite[] sprites = new Sprite[4];
+    public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
+    public GameObject buttonSequenceSprite;
+    private List<ButtonPressed> targetBtnList = new List<ButtonPressed>();
+    private List<ButtonPressed> btnList = new List<ButtonPressed>();
+    private bool sequenceGenerated = false;
+    private bool inRange;
+    //private int arrayLength;
+    public float timer = 10f; //scare timer
+    private float _timer; //scare timer
 
     void Start()
     {
-        _scaresNeeded = PlayerManager.Instance.players.Length;
+        _scaresNeeded = PlayerManager.Instance.players.Length; //it takes all players in the scene to split big ghost
+        _timer = timer;
     }
 
     void Update()
     {
         scareFeedbackText.text = players.Count.ToString();
         print(players.Count);
+        foreach(Player player in PlayerManager.Instance.players)
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
+            {
+                inRange = true;
+                break;
+            }
+            else
+            {
+                inRange = false;
+            }
+        }
+
+        if(inRange)
+        {
+            if(!sequenceGenerated)
+            {
+                GenerateSequence();
+                buttonSequenceSprite.SetActive(true);
+            }
+        }   
+        else
+        {
+            buttonSequenceSprite.SetActive(false);
+            sequenceGenerated = false;
+            ResetScare();
+        }
 
         if(scareInitiated)
         {
-            _scareInputsTimer -= Time.deltaTime; 
-            if(_scareInputsTimer > 0)
+            _timer -= Time.deltaTime;
+            if(_timer > 0)
             {
-                if(players.Count == _scaresNeeded)
+                if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
                 {
-                    Debug.Log("Success!");
+                    //fail
+                    ScareFail();
+                    ResetScare();
+                }
+                else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
+                {
+                    //success
                     ScareSuccess();
-                    scareInitiated = false;
-                    _scareInputsTimer = _scareInputsTimerMaxTime;
-                    players.Clear();
+                    ResetScare();
                 }
             }
             else
             {
-                Debug.Log("Fail!");
-                //ScareFail();
-                scareInitiated = false;
-                _scareInputsTimer = _scareInputsTimerMaxTime;
-                players.Clear();
+                //fail
+                ScareFail();
+                ResetScare();
             }
         }
     }
 
     private void OnEnable()
     {
-        _scareInputsTimer = _scareInputsTimerMaxTime;
+        //_scareInputsTimer = _scareInputsTimerMaxTime;
         _scareable = false;
         StartCoroutine(ScareInvincibility());
     }
@@ -84,18 +128,6 @@ public class BigGhost : MonoBehaviour
             }
         }
         gameObject.SetActive(false);
-    }
-
-    public void AddPlayerScare(Player player)
-    {
-        print("testing123");
-        scareInitiated = true;
-        _scareInputsTimer = _scareInputsTimerMaxTime;
-
-        if (!players.Contains(player)) //not sure if this actually works 
-        {
-            players.Add(player);
-        }
     }
 
     private void ScareSuccess()
@@ -124,5 +156,177 @@ public class BigGhost : MonoBehaviour
     public void SetListIndex(int index)
     {
         _listIndex = index;
+    }
+    void ResetScare()
+    {
+        scareInitiated = false;
+        _timer = timer;
+        System.Array.Clear(btnCount, 0, btnCount.Length);
+        System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
+        targetBtnList.Clear();
+        btnList.Clear();
+        players.Clear();
+        foreach(Player player in players)
+        {
+            player._buttonPressed = ButtonPressed.None;
+        }
+    }
+    void StartScare()
+    {
+        scareInitiated = true;
+    }
+    public void AddPlayerScare(Player player)
+    {
+        bool shouldAdd = false;
+        if(!scareInitiated)
+        {
+            StartScare();
+        }
+        switch(PlayerManager.Instance.players.Length)
+        {
+            case 1:
+                players.Add(player);
+                btnList.Add(player._buttonPressed);
+                shouldAdd = true;
+                break;
+            case 2:
+                if(CountInList(player)<2)
+                {
+                    players.Add(player);
+                    btnList.Add(player._buttonPressed);
+                    shouldAdd = true;
+                }
+                break;
+            case 3:
+                if(CountInList(player)<2)
+                {
+                    players.Add(player);
+                    btnList.Add(player._buttonPressed);
+                    shouldAdd = true;
+                }
+                break;
+            case 4:
+                if(CountInList(player)<1)
+                {
+                    players.Add(player);
+                    btnList.Add(player._buttonPressed);
+                    shouldAdd = true;
+                }
+                break;
+            default:
+                print("Invalid number of players");
+                break;
+        }
+
+        if(shouldAdd)
+        {
+            switch(player._buttonPressed)
+            {
+                case ButtonPressed.Up:
+                    btnCount[0]++;
+                    break;
+                case ButtonPressed.Down:
+                    btnCount[1]++;
+                    break;
+                case ButtonPressed.Left:
+                    btnCount[2]++;
+                    break;
+                case ButtonPressed.Right:
+                    btnCount[3]++;
+                    break;
+                default:
+                    print("Invalid button state");
+                    break;
+            }
+        }
+
+    }
+
+    void CountElements(int[] btnCount, List<ButtonPressed> btnList)
+    {
+        foreach(ButtonPressed btnPressed in btnList)
+        {
+            switch(btnPressed)
+            {
+                case ButtonPressed.Up:
+                    btnCount[0]++;
+                    break;
+                case ButtonPressed.Down:
+                    btnCount[1]++;
+                    break;
+                case ButtonPressed.Left:
+                    btnCount[2]++;
+                    break;
+                case ButtonPressed.Right:
+                    btnCount[3]++;
+                    break;
+                default:
+                    print("Invalid button state");
+                    break;
+            }
+        }
+    }
+
+    void GenerateSequence()
+    {
+        for(int i = 0; i<4; i++)// i < players.Length
+        {
+            int btn = UnityEngine.Random.Range(1,5);
+            switch(btn)
+            {
+                case 1:
+                    targetBtnList.Add(ButtonPressed.Up);
+                    break;
+                case 2:
+                    targetBtnList.Add(ButtonPressed.Down);
+                    break;
+                case 3:
+                    targetBtnList.Add(ButtonPressed.Left);
+                    break;
+                case 4:
+                    targetBtnList.Add(ButtonPressed.Right);
+                    break;
+                default:
+                    print("Invalid number generation");
+                    break;
+            }
+        }
+
+        for (int i=0; i<spriteRends.Count; i++)
+        {
+            switch(targetBtnList[i])
+            {
+                case ButtonPressed.Up:
+                    spriteRends[i].sprite = sprites[0];
+                    break;
+                case ButtonPressed.Down:
+                    spriteRends[i].sprite = sprites[1];
+                    break;
+                case ButtonPressed.Left:
+                    spriteRends[i].sprite = sprites[2];
+                    break;
+                case ButtonPressed.Right:
+                    spriteRends[i].sprite = sprites[3];
+                    break;
+                default:
+                    print("Invalid button state");
+                    break;
+            }
+        }
+        CountElements(targetBtnCount, targetBtnList);
+        sequenceGenerated = true;
+    }
+
+    int CountInList(Player player)
+    {
+        int count = 0;
+        foreach(Player p in players)
+        {
+            if(p == player)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }
