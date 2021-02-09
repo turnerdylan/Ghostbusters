@@ -18,6 +18,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ### Weekly Updates:
 
+C - 
+
+D - 
+
+Z - We created a cleaner ghost character with a movement and stun animation to add to the level as well as 6 new characters who all use the same player rig and animations. Below are the ghost animations and screenshots of the characters. So far we have 3 people player characters as well as 4 wacky friendos like: Buff Bird, Fish Head, Roboi and Sweets. We can potentially add as many new characters as we can create models for since the rig and animations are all tied together which is fun. 
+
+**Ghosties:** 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Ghost-Move.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animation-Ghost-Stun.gif" width="50%">
+
+**Characters:**
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Person1.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Person2.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Person3.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-BuffBird.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-FishHead.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Roboi.png" width="20%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Character-Sweets.png" width="20%">
+
 
 - - -
 
