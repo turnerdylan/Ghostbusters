@@ -20,7 +20,9 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 C - 
 
-D - 
+D - We added skins to all the ghosts along with their running and attack animations. Not pictured is the changes to the level which include a reskinned car and upcoming level dynamics. Additionally, we will be including the ghost BAG tool in the upcoming weeks and will implement that alongside the additional animations that the characters will have.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/SkinnedGhosts.gif" width="75%">
 
 Z - We created a cleaner ghost character with a movement and stun animation to add to the level as well as 6 new characters who all use the same player rig and animations. Below are the ghost animations and screenshots of the characters. So far we have 3 people player characters as well as 4 wacky friendos like: Buff Bird, Fish Head, Roboi and Sweets. We can potentially add as many new characters as we can create models for since the rig and animations are all tied together which is fun. 
 
