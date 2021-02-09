@@ -12,7 +12,7 @@ public enum PLAYER_STATE
     STUNNED,
 };
 
-public enum ButtonPressed
+public enum BUTTON_PRESS
 {
     None,
     Up,
@@ -26,12 +26,11 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Interactable currentInteraction;
     private Animator anim;
+    private Light spotlight;
 
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _viewAngle = 45f;
-    [SerializeField] private float _scareRange = 5f;
-    [SerializeField] private float _stunTime = 3f;
     [SerializeField] private float _rotationSpeed = 10f;
 
     //private variables
@@ -40,45 +39,27 @@ public class Player : MonoBehaviour
     private Vector3 _inputLookVector = Vector3.zero;
 
     private float _storedLookValue;
-    PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
+    public PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
 
     //public
     public Transform testTransform; //delete this later
+    public float _scareRange = 5f;
+    public float _stunTime = 3f;
+    BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
 
-    public ButtonPressed _buttonPressed = ButtonPressed.None;
+
     private void Awake()
     {
-        GetComponentInChildren<Light>().spotAngle = _viewAngle;
+        spotlight = GetComponentInChildren<Light>();
+        spotlight.spotAngle = _viewAngle;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
     {
         SetMoveDirection();
         SetLookDirection();
-    }
-
-
-
-    //TODO: delete this at some point
-    private int TestForGhostsInRange()
-    {
-        int numberOfGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, gameObject.transform.position) < _scareRange
-                && GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                numberOfGhosts++;
-            }
-        }
-        return numberOfGhosts;
     }
 
     public void SetMoveVector(Vector2 direction)
@@ -94,16 +75,6 @@ public class Player : MonoBehaviour
             currentInteraction.Interact();
     }
 
-    public void SetInteraction(Interactable interaction)
-    {
-        currentInteraction = interaction;
-    }
-
-    public void RemoveInteraction()
-    {
-        currentInteraction = null;
-    }
-
     public void GetBag()
     {
         if(currentState == PLAYER_STATE.NORMAL)
@@ -112,8 +83,6 @@ public class Player : MonoBehaviour
             {
                 //set player to holding bag state
                 //set player holding bag animation
-                //disable player scaring controls
-                //parent bag to the player
                 Bag.Instance.transform.parent = transform;
                 Bag.Instance.transform.position = testTransform.position;
                 Bag.Instance.GetComponent<Rigidbody>().isKinematic = true;
@@ -121,13 +90,6 @@ public class Player : MonoBehaviour
         }
         //StartCoroutine(QuickTestDelay(1));
         currentState = PLAYER_STATE.WITH_BAG;
-    }
-
-    IEnumerator QuickTestDelay(int state)
-    {
-        yield return new WaitForSeconds(0.2f);
-        if (state == 1) currentState = PLAYER_STATE.WITH_BAG;
-        else if (state == 2) currentState = PLAYER_STATE.NORMAL;
     }
 
     public void DropBag()
@@ -166,6 +128,8 @@ public class Player : MonoBehaviour
     {
         //TODO fix this logic so there is less repeating code
         anim.SetBool("Scare", true);
+        
+        StartCoroutine(ChangeSpotlightColor());
 
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
@@ -173,20 +137,15 @@ public class Player : MonoBehaviour
             {
                 if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
-                    print("test1");
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                     //print(angleBetweenPlayerandGhost);
-
+                    print("testing1");
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        print("test2");
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        if (GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().CheckIfScarable())
                         {
                             GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                            //TODO fix this logic
-                            print("test");
-                            //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().SplitApart();
                         }
                     }
                 }
@@ -205,12 +164,9 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.mediumGhosts[i].transform.position))
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
                         {
-                            if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
-                            {
-                                GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().SplitApart();
-                            }
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                         }
                     }
                 }
@@ -230,16 +186,20 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.smallGhosts[i].transform.position))
-                        {
-                            if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                                GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
-                        }
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
                     }
                 }
             }
             
         }
+    }
+
+    private IEnumerator ChangeSpotlightColor()
+    {
+        spotlight.color = Color.red;
+        yield return new WaitForSeconds(.5f); //change this to player scare cooldown later
+        spotlight.color = Color.white;
     }
 
     private void SetMoveDirection()
@@ -270,59 +230,132 @@ public class Player : MonoBehaviour
         }
     }
 
+    #region Getters & Setters
     public PLAYER_STATE GetPlayerState()
     {
         return currentState;
     }
 
-    public void TriggerStun()
+    public BUTTON_PRESS GetButtonPress()
     {
-        StartCoroutine(StunPlayer());
+        return _buttonPressed;
     }
 
-    public IEnumerator StunPlayer()
+    public void SetButtonPress(BUTTON_PRESS state)
+    {
+        _buttonPressed = state;
+    }
+    #endregion
+
+
+    public void TriggerStun(float stunTime)
+    {
+        StartCoroutine(StunPlayer(stunTime));
+    }
+
+    public IEnumerator StunPlayer(float stunTime)
     {
         enabled = false;
         currentState = PLAYER_STATE.STUNNED;
-        yield return new WaitForSeconds(_stunTime);
+        yield return new WaitForSeconds(stunTime);
         enabled = true;
         currentState = PLAYER_STATE.NORMAL;
     }
-
     public void UpScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        //Debug.Log("Up added");
+        _buttonPressed = ButtonPressed.Up;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("Up pressed");
-            _buttonPressed = ButtonPressed.Up;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                //Debug.Log("is active");
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    //Debug.Log("in range");
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        //Debug.Log("angle");
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
         }
     }
     public void DownScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Down;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("down pressed");
-            _buttonPressed = ButtonPressed.Down;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
         }
     }
     public void LeftScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Left;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("left pressed");
-            _buttonPressed = ButtonPressed.Left;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
         }
     }
     public void RightScare()
     {
-        if(ScareManager.Instance.scareInitiated)
+        _buttonPressed = ButtonPressed.Right;
+        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
-            Debug.Log("right pressed");
-            _buttonPressed = ButtonPressed.Right;
-            ScareManager.Instance.AddPlayerScare(this);
+            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
+                        {
+                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
         }
     }
 }
