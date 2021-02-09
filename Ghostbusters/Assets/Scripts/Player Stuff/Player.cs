@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     public Transform testTransform; //delete this later
     public float _scareRange = 5f;
     public float _stunTime = 3f;
-    BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
+    public BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
 
 
     private void Awake()
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         
         StartCoroutine(ChangeSpotlightColor());
 
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
+        /*for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)
             {
@@ -140,17 +140,17 @@ public class Player : MonoBehaviour
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                     //print(angleBetweenPlayerandGhost);
-                    print("testing1");
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
                         if (GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().CheckIfScarable())
                         {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                            print("test");
+                            //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                         }
                     }
                 }
             }            
-        }
+        }*/
 
         for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
         {
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().GetScarable())
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
                         {
                             GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                         }
@@ -248,9 +248,9 @@ public class Player : MonoBehaviour
     #endregion
 
 
-    public void TriggerStun(float stunTime)
+    public void TriggerStun()
     {
-        StartCoroutine(StunPlayer(stunTime));
+        StartCoroutine(StunPlayer(_stunTime));
     }
 
     public IEnumerator StunPlayer(float stunTime)
@@ -264,7 +264,7 @@ public class Player : MonoBehaviour
     public void UpScare()
     {
         //Debug.Log("Up added");
-        _buttonPressed = ButtonPressed.Up;
+        _buttonPressed = BUTTON_PRESS.Up;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
     }
     public void DownScare()
     {
-        _buttonPressed = ButtonPressed.Down;
+        _buttonPressed = BUTTON_PRESS.Down;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)
@@ -314,7 +314,7 @@ public class Player : MonoBehaviour
     }
     public void LeftScare()
     {
-        _buttonPressed = ButtonPressed.Left;
+        _buttonPressed = BUTTON_PRESS.Left;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)
@@ -337,7 +337,7 @@ public class Player : MonoBehaviour
     }
     public void RightScare()
     {
-        _buttonPressed = ButtonPressed.Right;
+        _buttonPressed = BUTTON_PRESS.Right;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)

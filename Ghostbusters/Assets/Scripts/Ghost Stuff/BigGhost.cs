@@ -25,16 +25,14 @@ public class BigGhost : MonoBehaviour
     private bool scareInitiated = false;
     private int _listIndex;
     private float _scareInputsTimer;
-    private bool _scareable = true;
-    private int _scaresNeeded = 1;
 
     //public variables
     public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
     public Sprite[] sprites = new Sprite[4];
     public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
     public GameObject buttonSequenceSprite;
-    private List<ButtonPressed> targetBtnList = new List<ButtonPressed>();
-    private List<ButtonPressed> btnList = new List<ButtonPressed>();
+    private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
+    private List<BUTTON_PRESS> btnList = new List<BUTTON_PRESS>();
     private bool sequenceGenerated = false;
     private bool inRange;
     //private int arrayLength;
@@ -168,7 +166,7 @@ public class BigGhost : MonoBehaviour
         players.Clear();
         foreach(Player player in players)
         {
-            player._buttonPressed = ButtonPressed.None;
+            player._buttonPressed = BUTTON_PRESS.None;
         }
     }
     void StartScare()
@@ -222,16 +220,16 @@ public class BigGhost : MonoBehaviour
         {
             switch(player._buttonPressed)
             {
-                case ButtonPressed.Up:
+                case BUTTON_PRESS.Up:
                     btnCount[0]++;
                     break;
-                case ButtonPressed.Down:
+                case BUTTON_PRESS.Down:
                     btnCount[1]++;
                     break;
-                case ButtonPressed.Left:
+                case BUTTON_PRESS.Left:
                     btnCount[2]++;
                     break;
-                case ButtonPressed.Right:
+                case BUTTON_PRESS.Right:
                     btnCount[3]++;
                     break;
                 default:
@@ -242,22 +240,22 @@ public class BigGhost : MonoBehaviour
 
     }
 
-    void CountElements(int[] btnCount, List<ButtonPressed> btnList)
+    void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
     {
-        foreach(ButtonPressed btnPressed in btnList)
+        foreach(BUTTON_PRESS btnPressed in btnList)
         {
             switch(btnPressed)
             {
-                case ButtonPressed.Up:
+                case BUTTON_PRESS.Up:
                     btnCount[0]++;
                     break;
-                case ButtonPressed.Down:
+                case BUTTON_PRESS.Down:
                     btnCount[1]++;
                     break;
-                case ButtonPressed.Left:
+                case BUTTON_PRESS.Left:
                     btnCount[2]++;
                     break;
-                case ButtonPressed.Right:
+                case BUTTON_PRESS.Right:
                     btnCount[3]++;
                     break;
                 default:
@@ -275,16 +273,16 @@ public class BigGhost : MonoBehaviour
             switch(btn)
             {
                 case 1:
-                    targetBtnList.Add(ButtonPressed.Up);
+                    targetBtnList.Add(BUTTON_PRESS.Up);
                     break;
                 case 2:
-                    targetBtnList.Add(ButtonPressed.Down);
+                    targetBtnList.Add(BUTTON_PRESS.Down);
                     break;
                 case 3:
-                    targetBtnList.Add(ButtonPressed.Left);
+                    targetBtnList.Add(BUTTON_PRESS.Left);
                     break;
                 case 4:
-                    targetBtnList.Add(ButtonPressed.Right);
+                    targetBtnList.Add(BUTTON_PRESS.Right);
                     break;
                 default:
                     print("Invalid number generation");
@@ -296,16 +294,16 @@ public class BigGhost : MonoBehaviour
         {
             switch(targetBtnList[i])
             {
-                case ButtonPressed.Up:
+                case BUTTON_PRESS.Up:
                     spriteRends[i].sprite = sprites[0];
                     break;
-                case ButtonPressed.Down:
+                case BUTTON_PRESS.Down:
                     spriteRends[i].sprite = sprites[1];
                     break;
-                case ButtonPressed.Left:
+                case BUTTON_PRESS.Left:
                     spriteRends[i].sprite = sprites[2];
                     break;
-                case ButtonPressed.Right:
+                case BUTTON_PRESS.Right:
                     spriteRends[i].sprite = sprites[3];
                     break;
                 default:
