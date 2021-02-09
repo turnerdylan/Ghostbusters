@@ -1031,19 +1031,63 @@ MonoBehaviour:
     m_ActionId: 127e8b06-258c-407b-a62a-6c693911d03d
     m_ActionName: Player/Scare[/Keyboard/k]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: UpScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 204b452f-1e71-49fa-a04d-d18d530a8e5c
     m_ActionName: Player/UpScare[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: DownScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7bb00dba-278a-4d86-acb7-14513329c6ec
     m_ActionName: Player/DownScare[/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: LeftScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 096a908f-be68-4f87-8131-d3a9a15434f3
     m_ActionName: Player/LeftScare[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: RightScare
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: db9b2184-e4e7-4807-aae9-b156e0c41708
     m_ActionName: Player/RightScare[/DualShock4GamepadHID/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
@@ -1060,7 +1104,7 @@ Rigidbody:
   m_GameObject: {fileID: 6635086342476835366}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 5.51
+  m_Drag: 5
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1106,11 +1150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 12
-  _viewAngle: 90
+  _viewAngle: 120
+  _rotationSpeed: 15
+  currentState: 0
+  testTransform: {fileID: 1438828149}
   _scareRange: 10
   _stunTime: 3
-  _rotationSpeed: 10
-  testTransform: {fileID: 1438828149}
+  _buttonPressed: 0
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

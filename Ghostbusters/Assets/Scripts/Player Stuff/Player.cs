@@ -280,10 +280,7 @@ public class Player : MonoBehaviour
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
                         //Debug.Log("angle");
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
-                        {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                        }
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
             }
@@ -303,10 +300,7 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
-                        {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                        }
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
             }
@@ -326,10 +320,7 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
-                        {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                        }
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
             }
@@ -349,10 +340,7 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (Physics.Linecast(transform.position, GhostManager.Instance.bigGhosts[i].transform.position))
-                        {
-                            GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                        }
+                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
             }
