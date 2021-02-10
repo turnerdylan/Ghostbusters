@@ -7,11 +7,25 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 1/26/2021 - Week 4
+## 1/26/2021 - Week 5
+### Goals:
+- C - Implementing specific button scare to medium and small ghosts
+
+- D - Implement player animations and visual feedback
+
+- Z - Blocking out all levels
+
+
+### Weekly Updates:
+
+
+- - -
+
+## 1/26/2021 - Week 4 All the BUTTONS!
 ### Goals:
 - C - Implementing group button scare
 
-- D - Adding level dynamics to the Ferry Level and more playtesting
+- D - Adding ghost interactions with models and more playtesting
 
 - Z - Adding player and ghost animations
 
