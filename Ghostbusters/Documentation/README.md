@@ -32,7 +32,9 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ### Weekly Updates:
 
-C - 
+C - We have implemented our multi-button scaring prototype into the Ferry level. When a player gets close to a big ghost a random button sequence is generated and displayed above the ghost. Players must collectively press all the buttons above the ghost within a certain time period (1-3 seconds) in order to split the ghost. For example, if the sequence generated is X, B, A, B then one player must press X while another presses A while another two players press B. If too many of a single button are pressed or the buttons aren't pressed in time, the scare fails and players are blown back. The next step for multi-button scaring will be to add visual feedback for seeing which buttons have been pressed and how much time is left to scare.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/playtest.gif" width="75%">
 
 D - We added skins to all the ghosts along with their running and attack animations. Not pictured is the changes to the level which include a reskinned car and upcoming level dynamics. Additionally, we will be including the ghost BAG tool in the upcoming weeks and will implement that alongside the additional animations that the characters will have.
 
