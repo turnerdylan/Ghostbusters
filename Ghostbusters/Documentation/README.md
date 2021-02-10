@@ -36,6 +36,22 @@ C - We have implemented our multi-button scaring prototype into the Ferry level.
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/playtest.gif" width="75%">
 
+We also playtested our prototype again with four players to get some feedback on the revised group of mechanics. The updates include ghosts spawning in with location effects, big ghosts having 4 buttons that all players need to press simultaneously to scare tham, and players getting exploded back when they unsuccesfully scare a ghost. Our notes from the session are as follows
+
+- Lots of chaos initially again!
+- Mentioned that the ghost splitting mechanic is a bit like the slimes from Minecraft
+- Good communication about which buttons they each were pressing to scare the big ghosts
+- Ghost stun needs to be less frequent
+- Probably need to adjust the waves of ghosts per level
+- Can successfully scare the big ghost but if it is surrounded, it immediately recombines, which is a problem.
+- Some medium ghosts cannot be scared???
+- It's a little bit unclear when you are trying to scare certain ghosts
+- Also difficult to differentiate between which ghost you are all trying to scare when they look the same
+- Spamming buttons when a big ghost splits to split the medium ones too (since they get trapped) -> might be good to implement a ghost push so they separate themselves from the players 
+- Being able to push the medium and small ghosts around is funny
+
+This was a pretty chaotic and fun playtest and we will probably use these players again to try out later levels since the group chemistry is good.
+
 D - We added skins to all the ghosts along with their running and attack animations. Not pictured is the changes to the level which include a reskinned car and upcoming level dynamics. Additionally, we will be including the ghost BAG tool in the upcoming weeks and will implement that alongside the additional animations that the characters will have.
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/SkinnedGhosts.gif" width="75%">
