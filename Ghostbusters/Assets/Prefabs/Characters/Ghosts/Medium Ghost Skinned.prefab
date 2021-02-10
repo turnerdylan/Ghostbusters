@@ -462,12 +462,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallGhost: {fileID: 0}
+  smallGhost: {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff,
+    type: 3}
+  explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
+    type: 3}
   _ghostsToSpawn: 2
   _ghostSpawnOffset: 0.5
   _scareable: 1
+  _scaresNeeded: 1
+  _scareInputsTimerMaxTime: 0.2
   _onScareInvincibilityTime: 0.5
   _transformTimerMax: 1.5
+  players: []
 --- !u!114 &-2513423993525626586
 MonoBehaviour:
   m_ObjectHideFlags: 0

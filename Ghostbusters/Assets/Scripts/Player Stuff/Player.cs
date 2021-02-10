@@ -255,6 +255,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator StunPlayer(float stunTime)
     {
+        anim.SetTrigger("Stunned");
         enabled = false;
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
