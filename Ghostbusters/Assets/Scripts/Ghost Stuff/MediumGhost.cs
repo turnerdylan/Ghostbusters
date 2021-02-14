@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+public enum MEDIUM_STATE
+{
+    NORMAL,
+    RUNNING,
+};
+
+
 public class MediumGhost : MonoBehaviour
 {
     //references
     public GameObject smallGhost;
     public GameObject explosivePrefab;
+    Rigidbody rb;
+
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
@@ -23,6 +33,7 @@ public class MediumGhost : MonoBehaviour
     private bool _canTransform = false;
     private bool scareInitiated = false;
     
+    
     private float _scareInputsTimer;
 
     //public variables
@@ -30,6 +41,7 @@ public class MediumGhost : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         _transformTimer = _transformTimerMax;
         if(PlayerManager.Instance.players.Length == 1)
             _scaresNeeded = 1;
@@ -71,6 +83,7 @@ public class MediumGhost : MonoBehaviour
 
     private void OnEnable()
     {
+
         _scareInputsTimer = _scareInputsTimerMaxTime;
         _canTransform = true;
         _transformTimer = _transformTimerMax;
@@ -136,5 +149,17 @@ public class MediumGhost : MonoBehaviour
     private void ScareFail()
     {
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+    }
+
+    public void TriggerRunAway(Vector3 direction)
+    {
+        StartCoroutine(RunAwayOnSpawn(direction));
+    }
+
+    IEnumerator RunAwayOnSpawn(Vector3 direction)
+    {
+        print("running");
+        rb.velocity = direction;
+        yield return new WaitForSeconds(3f);
     }
 }

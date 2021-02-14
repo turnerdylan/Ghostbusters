@@ -24,12 +24,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906916262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.424, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6635086342476835361}
-  m_RootOrder: 0
+  m_Father: {fileID: 6983791713177456224}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &906916264
 Light:
@@ -115,13 +115,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438828148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.91, z: 1.01}
+  m_LocalRotation: {x: -0.00000007636842, y: -0.00000011887455, z: 0.7276548, w: 0.68594354}
+  m_LocalPosition: {x: 0.01699809, y: 0.30000007, z: 0.45000026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6635086342476835361}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 8296680966626063594}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 93.380005}
 --- !u!1 &31824079950324233
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children:
   - {fileID: 4997815531274602142}
+  - {fileID: 1438828149}
   m_Father: {fileID: 1975915516525514001}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,7 +897,7 @@ GameObject:
   - component: {fileID: 8154425335734983823}
   - component: {fileID: 6635086342476835360}
   m_Layer: 9
-  m_Name: Player 1
+  m_Name: Yellow Shirt Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -913,9 +914,7 @@ Transform:
   m_LocalPosition: {x: 1.26, y: 0, z: -8.56}
   m_LocalScale: {x: 1.7799, y: 1.7799, z: 1.7799}
   m_Children:
-  - {fileID: 906916263}
   - {fileID: 6983791713177456224}
-  - {fileID: 1438828149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1090,6 +1089,68 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: db9b2184-e4e7-4807-aae9-b156e0c41708
     m_ActionName: Player/RightScare[/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: GetBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f97d999d-872a-42d1-b7af-1758f874b960
+    m_ActionName: Player/GetBag[/Keyboard/k,/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e37b6aad-33fc-44a7-abe6-8f9bb96ca39c
+    m_ActionName: Player1/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fab505b7-0578-41ec-a506-ab8769f31041
+    m_ActionName: Player1/Look[/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3642abe0-12cd-4cde-8618-7c38602743b5
+    m_ActionName: Player1/Scare[/Keyboard/k,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67b89d68-42c1-4ade-8618-5c541e2d5610
+    m_ActionName: Player1/Grab Bag[/Keyboard/k,/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f63939aa-86f1-4236-81c0-d7193c875775
+    m_ActionName: Player1/UpScare[/DualShock4GamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d4da6e72-ac9b-49e2-9c3d-ed8933690bf0
+    m_ActionName: Player1/DownScare[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2111ffc4-710b-46db-9033-00d1d5926261
+    m_ActionName: Player1/LeftScare[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 90fb1888-4c65-495a-8922-af6c81254b5a
+    m_ActionName: Player1/RightScare[/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: SwingBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6
+    m_ActionName: Player/GrabBag[/Keyboard/k,/DualShock4GamepadHID/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1157,6 +1218,7 @@ MonoBehaviour:
   _scareRange: 10
   _stunTime: 3
   _buttonPressed: 0
+  handTransform: {fileID: 0}
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3
@@ -1358,8 +1420,9 @@ Transform:
   m_Children:
   - {fileID: 6919287755174360129}
   - {fileID: 4390386852463126114}
+  - {fileID: 906916263}
   m_Father: {fileID: 6635086342476835361}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8079626146470246695
 GameObject:

@@ -7,14 +7,12 @@ using TMPro;
 public class BigGhost : MonoBehaviour
 {
     //references
-    [SerializeField] private GameObject mediumGhost = null;
     [SerializeField] private TextMeshPro scareFeedbackText = null;
     public GameObject explosivePrefab;
+    public ParticleSystem hitEffect;
+    public ParticleSystem explosionEffect;
 
     //private serializables
-    [SerializeField] private int _ghostsToSpawn = 2;
-    [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;
     [SerializeField] private bool _scareable = true;
     [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
@@ -27,7 +25,7 @@ public class BigGhost : MonoBehaviour
     private float _scareInputsTimer;
 
     //public variables
-    public List<Player> players = new List<Player>();  //TODO: does this need to exist or can we reference the player manager?
+    public List<Player> players = new List<Player>();
     public Sprite[] sprites = new Sprite[4];
     public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
     public GameObject buttonSequenceSprite;
@@ -48,7 +46,6 @@ public class BigGhost : MonoBehaviour
     void Update()
     {
         scareFeedbackText.text = players.Count.ToString();
-        print(players.Count);
         foreach(Player player in PlayerManager.Instance.players)
         {
             if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
@@ -113,18 +110,16 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        //set 2 medium ghosts active and set their positions to this position + offset
-        int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.mediumGhosts.Count; i++)
-        {
-            if (spawnedGhosts >= _ghostsToSpawn) break;
-            if(!GhostManager.Instance.mediumGhosts[i].activeSelf)
-            {
-                GhostManager.Instance.mediumGhosts[i].SetActive(true);
-                GhostManager.Instance.mediumGhosts[i].transform.position = transform.position;
-                spawnedGhosts++;
-            }
-        }
+        int ghost1 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
+        GhostManager.Instance.mediumGhosts[ghost1].SetActive(true);
+        GhostManager.Instance.mediumGhosts[ghost1].transform.position = transform.position;
+        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhost>().TriggerRunAway();
+
+        int ghost2 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
+        //set active
+        GhostManager.Instance.mediumGhosts[ghost2].SetActive(true);
+        GhostManager.Instance.mediumGhosts[ghost2].transform.position = transform.position;
+        
         gameObject.SetActive(false);
     }
 
@@ -137,6 +132,7 @@ public class BigGhost : MonoBehaviour
     private void ScareFail()
     {
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
     IEnumerator ScareInvincibility()

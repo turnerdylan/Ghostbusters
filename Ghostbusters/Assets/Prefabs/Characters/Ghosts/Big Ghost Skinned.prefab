@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6213202626420905282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2187971298360419738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546875060049962592}
   - component: {fileID: 2234504191293346738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2862083112642959057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3424632887732590627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4091003919203019716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897821670195746941}
   - component: {fileID: 1995022643232151117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885746478713178845}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7225854315820349374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2304597521740625219}
   - component: {fileID: 8175745811266535587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38191461341360229}
   - component: {fileID: 8930627220288243687}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2382115738473881522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8451096295804434342}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387039292820332047}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7651813865187067009}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 7760811846356712090}
   - component: {fileID: 7760811846356712091}
   - component: {fileID: 7760811846356712084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Ghost Skinned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,6 +702,10 @@ MonoBehaviour:
   scareFeedbackText: {fileID: 4969216122789545366}
   explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
     type: 3}
+  hitEffect: {fileID: 198635777028098840, guid: 6fb79962b5722fb4a9958b904d7b53df,
+    type: 3}
+  explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
+    type: 3}
   _ghostsToSpawn: 2
   _scareInputsTimerMaxTime: 0.5
   _ghostSpawnOffset: 0.5
@@ -736,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxTest: {fileID: 8400662735829862909}
-  _attackRange: 5
+  _attackRange: 6.5
 --- !u!54 &7760811846356712090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -803,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947711907929108364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GeneralGhost-Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7489017513035956301}
   - component: {fileID: 8542993266447725662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: General Ghosty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +933,7 @@ GameObject:
   - component: {fileID: 1047376262339492588}
   - component: {fileID: 4025129032800597707}
   - component: {fileID: 6859278178302254633}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,13 +947,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8400662735829862909}
-  m_LocalRotation: {x: 0.1324308, y: -0.019263735, z: -0.002704285, w: 0.9910014}
-  m_LocalPosition: {x: 0, y: 0.88, z: 0.12}
+  m_LocalRotation: {x: 0.030641075, y: -0.019982066, z: -0.0048000864, w: 0.9993192}
+  m_LocalPosition: {x: -0.02, y: 1.21, z: 0.58}
   m_LocalScale: {x: 1.9200002, y: 1.89, z: 1.37}
   m_Children: []
   m_Father: {fileID: 2187971298360419738}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.5, y: -2.3100002, z: -0.62100005}
 --- !u!33 &8289586623550293930
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -965,7 +969,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8400662735829862909}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1031,7 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6636071726002117482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6875951749611416036}
   - component: {fileID: 5687288141742921481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1152,7 @@ GameObject:
   - component: {fileID: 4252509892137882759}
   - component: {fileID: 4969216122789545366}
   - component: {fileID: 2999275645110098588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
