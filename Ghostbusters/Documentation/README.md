@@ -17,6 +17,23 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 
 ### Weekly Updates:
+C - 
+
+D - 
+
+Z - The next steps within our level development were to create simplified 'block' levels with the general feel and layout that we want without too much detail or nice assets. We have moved forward with 9 levels including: the Car Ferry (first level), Boat Docks, Pier, Bar, Roller Rink, Library, Enchanted Forest, Cave, and Mushroom Village levels. Below are images of each in their first iteration (sans ferry level since that has been the playtested level in previous posts) 
+
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-BoatDocks.JPG" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-Pier.JPG" width="30%">
+
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-Bar.JPG" width="30%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-RollerRink.JPG" width="30%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-Library.JPG" width="30%">
+
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-EnchantedForest.JPG" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-Cave.JPG" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelBlock-MushroomVillage.JPG" width="30%">
+
 
 
 - - -
