@@ -7,7 +7,21 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 1/26/2021 - Week 5
+## 1/26/2021 - Week 6
+### Goals:
+- C - Local/World Effect Development
+
+- D - Implementing Levels and Connecting all the Stuffs
+
+- Z - UI and Menu Sketches
+
+
+### Weekly Updates:
+
+
+- - -
+
+## 1/26/2021 - Week 5 Bags, Buttons, Bugs and Battlefields
 ### Goals:
 - C - Implementing specific button scare to medium and small ghosts
 
