@@ -19,7 +19,7 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Weekly Updates:
 C - We have implemented the multi button scare mechanic to the medium and small ghosts. It is currently setup so that a random sequence of 4 buttons is generated for a large ghost, 2 for a medium ghost, and 1 for a small ghost each requiring the respective number of players to scare it at once. Additionally, we have added more visual feedback to the scaring mechanic including a timer, indicators for when a button has been pressed, and indicators for whether the scare was succesful or not.
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/medium-ghost-multi-button.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/small-ghost-multi-button.png" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/medium-ghost-multi-button.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/small-ghost-multi-button.png" width="42%">
 
 D - This week I was able to implement a lot of new features. One of which is the grab bag that allows you to grab small ghosts and collect them for future deposit. The bag has a limit and displays the amount of ghosts you are carrying in the bag at one time. This need a little bit of bugfixing. Additionally, I implemented player stunned animations so that the player can tell when they are out of the fight. The last feature was level dynamics, like the van moving back and forth, and a few small visual details that allow the player to be more immersed in the world.
 
