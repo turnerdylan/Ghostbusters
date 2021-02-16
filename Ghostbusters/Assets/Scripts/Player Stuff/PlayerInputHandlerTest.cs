@@ -42,7 +42,7 @@ public class PlayerInputHandlerTest : MonoBehaviour
         getBagInput = context.ReadValue<float>();
         if(getBagInput == 1)
         {
-            pc.GetBag();
+            pc.PickupBag();
         }
     }
 
@@ -57,9 +57,11 @@ public class PlayerInputHandlerTest : MonoBehaviour
 
     public void SwingBag(CallbackContext context)
     {
+        print("test");
         swingBagInput = context.ReadValue<float>();
-        if (swingBagInput == 1)
+        if (context.performed)
         {
+            print("test1");
             pc.SwingBag();
         }
     }

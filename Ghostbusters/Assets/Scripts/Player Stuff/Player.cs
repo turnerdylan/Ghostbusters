@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     public float _scareRange = 5f;
     public float _stunTime = 3f;
     public BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
-
+    public Transform handTransform;
 
     private void Awake()
     {
@@ -75,21 +75,22 @@ public class Player : MonoBehaviour
             currentInteraction.Interact();
     }
 
-    public void GetBag()
+    public void PickupBag()
     {
         if(currentState == PLAYER_STATE.NORMAL)
         {
+            anim.SetBool("Hold", true);
             if (Vector3.Distance(Bag.Instance.gameObject.transform.position, transform.position) < Bag.Instance.GetInteractionRadius())
             {
-                //set player to holding bag state
-                //set player holding bag animation
-                Bag.Instance.transform.parent = transform;
-                Bag.Instance.transform.position = testTransform.position;
-                Bag.Instance.GetComponent<Rigidbody>().isKinematic = true;
+                currentState = PLAYER_STATE.WITH_BAG;
+                Bag.Instance.transform.parent = testTransform;
+                Bag.Instance.transform.localPosition = Vector3.zero;
+                //Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                Destroy(Bag.Instance.GetComponent<Rigidbody>());
             }
         }
-        //StartCoroutine(QuickTestDelay(1));
-        currentState = PLAYER_STATE.WITH_BAG;
+        Bag.Instance.SetBagState(Bag.BAG_STATE.PICKED_UP);
+
     }
 
     public void DropBag()
@@ -117,11 +118,20 @@ public class Player : MonoBehaviour
     {
         if(currentState == PLAYER_STATE.WITH_BAG)
         {
+            anim.SetTrigger("Catch");
             print("swung bag");
+            
         }
-        //anim.SetBool();
-        //activate bag collider
-        //trigger animation
+    }
+
+    public void SwingBagStart()
+    {
+        Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;
+    }
+
+    public void SwingBagEnd()
+    {
+        Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
     }
 
     public void Scare()
@@ -152,47 +162,45 @@ public class Player : MonoBehaviour
             }            
         }*/
 
-        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
-        {
-            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
+        // for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        // {
+        //     if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+        //     {
+        //         if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+        //         {
+        //             Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+        //             float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+        //             //print(angleBetweenPlayerandGhost);
 
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
-                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
-                    }
-                }
-            }
-            
-        }
+        //             if (angleBetweenPlayerandGhost < _viewAngle / 2)
+        //             {
+        //                 if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
+        //                 {
+        //                     GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
+        // for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        // {
+        //     if(GhostManager.Instance.smallGhosts[i].activeSelf)
+        //     {
+        //         if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+        //         {
+        //             Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+        //             float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+        //             //print(angleBetweenPlayerandGhost);
 
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
-                    }
-                }
-            }
-            
-        }
+        //             if (angleBetweenPlayerandGhost < _viewAngle / 2)
+        //             {
+        //                 if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+        //                     GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     private IEnumerator ChangeSpotlightColor()
@@ -255,6 +263,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator StunPlayer(float stunTime)
     {
+        anim.SetTrigger("Stunned");
         enabled = false;
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
@@ -285,6 +294,46 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        {
+            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
+                        {
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        {
+            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
+                    }
+                }
+            }
+        }
     }
     public void DownScare()
     {
@@ -301,6 +350,44 @@ public class Player : MonoBehaviour
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
                         GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        {
+            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
+                        {
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        {
+            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
                     }
                 }
             }
@@ -325,6 +412,44 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        {
+            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
+                        {
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        {
+            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
+                    }
+                }
+            }
+        }
     }
     public void RightScare()
     {
@@ -341,6 +466,44 @@ public class Player : MonoBehaviour
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
                         GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        {
+            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
+                        {
+                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        {
+            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
+                {
+                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
+                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                    //print(angleBetweenPlayerandGhost);
+
+                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                    {
+                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
+                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
                     }
                 }
             }
