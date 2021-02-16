@@ -7,18 +7,50 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 1/26/2021 - Week 4
+## 1/26/2021 - Week 5
+### Goals:
+- C - Implementing specific button scare to medium and small ghosts
+
+- D - Implement player animations and visual feedback
+
+- Z - Blocking out all levels
+
+
+### Weekly Updates:
+
+
+- - -
+
+## 1/26/2021 - Week 4 All the BUTTONS!
 ### Goals:
 - C - Implementing group button scare
 
-- D - Adding level dynamics to the Ferry Level and more playtesting
+- D - Adding ghost interactions with models and more playtesting
 
 - Z - Adding player and ghost animations
 
 
 ### Weekly Updates:
 
-C - 
+C - We have implemented our multi-button scaring prototype into the Ferry level. When a player gets close to a big ghost a random button sequence is generated and displayed above the ghost. Players must collectively press all the buttons above the ghost within a certain time period (1-3 seconds) in order to split the ghost. For example, if the sequence generated is X, B, A, B then one player must press X while another presses A while another two players press B. If too many of a single button are pressed or the buttons aren't pressed in time, the scare fails and players are blown back. The next step for multi-button scaring will be to add visual feedback for seeing which buttons have been pressed and how much time is left to scare.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/playtest.gif" width="75%">
+
+We also playtested our prototype again with four players to get some feedback on the revised group of mechanics. The updates include ghosts spawning in with location effects, big ghosts having 4 buttons that all players need to press simultaneously to scare tham, and players getting exploded back when they unsuccesfully scare a ghost. Our notes from the session are as follows
+
+- Lots of chaos initially again!
+- Mentioned that the ghost splitting mechanic is a bit like the slimes from Minecraft
+- Good communication about which buttons they each were pressing to scare the big ghosts
+- Ghost stun needs to be less frequent
+- Probably need to adjust the waves of ghosts per level
+- Can successfully scare the big ghost but if it is surrounded, it immediately recombines, which is a problem.
+- Some medium ghosts cannot be scared???
+- It's a little bit unclear when you are trying to scare certain ghosts
+- Also difficult to differentiate between which ghost you are all trying to scare when they look the same
+- Spamming buttons when a big ghost splits to split the medium ones too (since they get trapped) -> might be good to implement a ghost push so they separate themselves from the players 
+- Being able to push the medium and small ghosts around is funny
+
+This was a pretty chaotic and fun playtest and we will probably use these players again to try out later levels since the group chemistry is good.
 
 D - We added skins to all the ghosts along with their running and attack animations. Not pictured is the changes to the level which include a reskinned car and upcoming level dynamics. Additionally, we will be including the ghost BAG tool in the upcoming weeks and will implement that alongside the additional animations that the characters will have.
 
