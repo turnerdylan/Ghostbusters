@@ -52,7 +52,7 @@ public class Bag : MonoBehaviour
     [SerializeField] private float _interactionRadius = 3f;
     [SerializeField] private int _numberOfHeldGhosts;
     [SerializeField] private int _maxNumberOfGhostsHeld = 10;
-    public List<Vector3> caughtGhostSpritePositions = new List<Vector3>(); //offset is + 1 in the y direction
+    public List<Transform> caughtGhostSpritePositions = new List<Transform>(); //offset is + 1 in the y direction
     Vector3 firstListPos;
     [SerializeField] GameObject ghostSprite;
 
@@ -64,11 +64,6 @@ public class Bag : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         buttonSprite = GetComponentInChildren<SpriteRenderer>();
-
-        for (int i=0; i<_maxNumberOfGhostsHeld; i++)
-        {
-            caughtGhostSpritePositions.Add(transform.position + new Vector3(0, i + 2, 0)); //make this parented to the player
-        }
         
     }
 
@@ -100,7 +95,8 @@ public class Bag : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             _numberOfHeldGhosts++;
-            Instantiate(ghostSprite, caughtGhostSpritePositions[_numberOfHeldGhosts], Quaternion.identity);
+            var newSprite = Instantiate(ghostSprite, caughtGhostSpritePositions[_numberOfHeldGhosts].position, Quaternion.identity);
+            newSprite.transform.parent = this.transform;
         }
     }
 
