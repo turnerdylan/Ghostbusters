@@ -50,7 +50,8 @@ public class SmallGhostMovement : MonoBehaviour
             if (timer >= timerUntilWanderMax) 
             {
                 Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, 1);
-                agent.SetDestination(newPos);
+                if(agent)
+                    agent.SetDestination(newPos);
                 timer = 0;
             }
 
