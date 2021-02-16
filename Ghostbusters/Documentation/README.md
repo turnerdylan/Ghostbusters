@@ -21,7 +21,7 @@ C -
 
 D - This week I was able to implement a lot of new features. One of which is the grab bag that allows you to grab small ghosts and collect them for future deposit. The bag has a limit and displays the amount of ghosts you are carrying in the bag at one time. This need a little bit of bugfixing. Additionally, I implemented player stunned animations so that the player can tell when they are out of the fight. The last feature was level dynamics, like the van moving back and forth, and a few small visual details that allow the player to be more immersed in the world.
 
-<img src="" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Animations%20and%20visuals.gif" width="75%">
 
 Z - The next steps within our level development were to create simplified 'block' levels with the general feel and layout that we want without too much detail or nice assets. We have moved forward with 9 levels including: the Car Ferry (first level), Boat Docks, Pier, Bar, Roller Rink, Library, Enchanted Forest, Cave, and Mushroom Village levels. Below are images of each in their first iteration (sans ferry level since that has been the playtested level in previous posts) 
 
