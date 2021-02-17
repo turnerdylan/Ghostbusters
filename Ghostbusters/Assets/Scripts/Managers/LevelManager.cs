@@ -67,24 +67,24 @@ public class LevelManager : MonoBehaviour
         if(currentState == LEVEL_STATE.COUNTDOWN)
         {
             startCountdownTimer -= Time.unscaledDeltaTime;
-            startText.text = startCountdownTimer.ToString("F0");
+            if (startCountdownTimer < 0.5f) startText.text = "Go!";
+            else startText.text = startCountdownTimer.ToString("F0");
         }
         else if(currentState == LEVEL_STATE.STARTED)
-        {
+            {
+            if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
+
             levelTimer -= Time.deltaTime;
-            //levelTimerText.text = levelTimer.ToString("F0");
             var ts = TimeSpan.FromSeconds(levelTimer);
             levelTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
-            if (levelTimer <= 0)
-            {
-                EndLevel();
-            }
+
+            if (levelTimer <= 0) EndLevel();
         }
         else if(currentState == LEVEL_STATE.ENDED)
         {
             //move all of this to end level function?
             levelTimerText.text = "00:00";
-            startText.text = "level over";
+            startText.text = "level over. Press any button to go to the next level";
             SetUI(true);
             PlayerManager.Instance.SetAllPlayerControls(false);
             GhostManager.Instance.SetAllGhostControls(false);

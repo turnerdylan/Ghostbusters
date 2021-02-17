@@ -77,7 +77,9 @@ public class Player : MonoBehaviour
 
     public void PickupBag()
     {
-        if(currentState == PLAYER_STATE.NORMAL)
+        if (currentState == PLAYER_STATE.WITH_BAG) DropBag();
+
+        else if(currentState == PLAYER_STATE.NORMAL)
         {
             anim.SetBool("Hold", true);
             if (Vector3.Distance(Bag.Instance.gameObject.transform.position, transform.position) < Bag.Instance.GetInteractionRadius())
@@ -85,7 +87,7 @@ public class Player : MonoBehaviour
                 currentState = PLAYER_STATE.WITH_BAG;
                 Bag.Instance.transform.parent = testTransform;
                 Bag.Instance.transform.localPosition = Vector3.zero;
-                //Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
                 Destroy(Bag.Instance.GetComponent<Rigidbody>());
             }
         }
@@ -97,20 +99,12 @@ public class Player : MonoBehaviour
     {
         if(currentState == PLAYER_STATE.WITH_BAG)
         {
-            if(Vector3.Distance(transform.position, Van.Instance.GetBagStoredPosition()) < Van.Instance.GetInteractionRadius())
-            {
-                Bag.Instance.transform.parent = Van.Instance.transform;
-                Bag.Instance.transform.position = Van.Instance.GetBagStoredPosition();
-            }
-            else
-            {
-                //drop bag on the ground
-                Bag.Instance.transform.parent = null;
-                //Bag.Instance.transform.position = transform.position + Vector3.back + Vector3.up * 3;
-                Bag.Instance.GetComponent<Rigidbody>().isKinematic = false;
-            }
+            Bag.Instance.transform.parent = null;
+            Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            Bag.Instance.gameObject.AddComponent<Rigidbody>();
+            Bag.Instance.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+            print("test");
         }
-        //StartCoroutine(QuickTestDelay(2));
         currentState = PLAYER_STATE.NORMAL;
     }
 
@@ -118,9 +112,7 @@ public class Player : MonoBehaviour
     {
         if(currentState == PLAYER_STATE.WITH_BAG)
         {
-            anim.SetTrigger("Catch");
-            print("swung bag");
-            
+            anim.SetTrigger("Catch");           
         }
     }
 
@@ -132,75 +124,6 @@ public class Player : MonoBehaviour
     public void SwingBagEnd()
     {
         Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
-    }
-
-    public void Scare()
-    {
-        //TODO fix this logic so there is less repeating code
-        anim.SetBool("Scare", true);
-        
-        StartCoroutine(ChangeSpotlightColor());
-
-        /*for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if(GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().CheckIfScarable())
-                        {
-                            print("test");
-                            //GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                        }
-                    }
-                }
-            }            
-        }*/
-
-        // for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
-        // {
-        //     if(GhostManager.Instance.mediumGhosts[i].activeSelf)
-        //     {
-        //         if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-        //         {
-        //             Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-        //             float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-        //             //print(angleBetweenPlayerandGhost);
-
-        //             if (angleBetweenPlayerandGhost < _viewAngle / 2)
-        //             {
-        //                 if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-        //                 {
-        //                     GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        // {
-        //     if(GhostManager.Instance.smallGhosts[i].activeSelf)
-        //     {
-        //         if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-        //         {
-        //             Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-        //             float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-        //             //print(angleBetweenPlayerandGhost);
-
-        //             if (angleBetweenPlayerandGhost < _viewAngle / 2)
-        //             {
-        //                 if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-        //                     GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().Banish();
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     private IEnumerator ChangeSpotlightColor()
@@ -270,25 +193,23 @@ public class Player : MonoBehaviour
         enabled = true;
         currentState = PLAYER_STATE.NORMAL;
     }
-    public void UpScare()
+    public void Scare(BUTTON_PRESS buttonDirection)
     {
-        //Debug.Log("Up added");
-        _buttonPressed = BUTTON_PRESS.Up;
+        anim.SetBool("Scare", true);
+        StartCoroutine(ChangeSpotlightColor());
+
+        _buttonPressed = buttonDirection;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
             if(GhostManager.Instance.bigGhosts[i].activeSelf)
             {
-                //Debug.Log("is active");
                 if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
-                    //Debug.Log("in range");
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        //Debug.Log("angle");
                         GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
                     }
                 }
@@ -311,199 +232,6 @@ public class Player : MonoBehaviour
                         {
                             GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                         }
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-    }
-    public void DownScare()
-    {
-        _buttonPressed = BUTTON_PRESS.Down;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if(GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
-        {
-            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
-                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-    }
-    public void LeftScare()
-    {
-        _buttonPressed = BUTTON_PRESS.Left;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if(GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
-        {
-            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
-                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-    }
-    public void RightScare()
-    {
-        _buttonPressed = BUTTON_PRESS.Right;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
-        {
-            if(GhostManager.Instance.bigGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
-        {
-            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
-                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
-        {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
-            {
-                if (Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    Vector3 dirToGhost = (GhostManager.Instance.smallGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        if (GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().GetScarable())
-                            GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhost>().AddPlayerScare(this);
                     }
                 }
             }

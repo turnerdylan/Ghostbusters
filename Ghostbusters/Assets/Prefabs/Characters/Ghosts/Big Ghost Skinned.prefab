@@ -871,14 +871,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059531075614ab9488e2d2dcdb767a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumGhost: {fileID: 3996581311573420528, guid: 46c77fdd4cd4c414bb2cfb97d1c826a0,
-    type: 3}
   scareFeedbackText: {fileID: 4969216122789545366}
   explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
     type: 3}
-  _ghostsToSpawn: 2
-  _scareInputsTimerMaxTime: 0.5
-  _ghostSpawnOffset: 0.5
+  hitEffect: {fileID: 198635777028098840, guid: 6fb79962b5722fb4a9958b904d7b53df,
+    type: 3}
+  explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
+    type: 3}
   _scareable: 1
   _onScareInvincibilityTime: 2.5
   btnCount: 00000000000000000000000000000000

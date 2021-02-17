@@ -678,7 +678,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player-Scare
-  m_Speed: 3
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4583462270937177745}
@@ -691,7 +691,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6014556521834919803, guid: 881600cea5be11341870975229e88ca4,
+  m_Motion: {fileID: 6764148374719098034, guid: af8b2fdc4dfa7e645937dde33dfdc13d,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

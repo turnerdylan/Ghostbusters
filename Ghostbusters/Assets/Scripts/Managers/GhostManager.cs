@@ -127,7 +127,7 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    private void CalculateGhostScore()
+    public int CalculateGhostScore()
     {
         _ghostScore = 0;
         foreach(GameObject ghost in bigGhosts)
@@ -151,6 +151,7 @@ public class GhostManager : MonoBehaviour
                 _ghostScore += 1;
             }
         }
+        return _ghostScore;
     }
 
     private void JoinTogetherMedium(GameObject ghost1, GameObject ghost2)

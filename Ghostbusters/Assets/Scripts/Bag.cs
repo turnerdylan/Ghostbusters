@@ -51,6 +51,7 @@ public class Bag : MonoBehaviour
 
     [SerializeField] private float _interactionRadius = 3f;
     [SerializeField] private int _numberOfHeldGhosts;
+    [SerializeField] private int _maxNumberOfHeldGhosts = 4;
     [SerializeField] private int _maxNumberOfGhostsHeld = 10;
     public List<Transform> caughtGhostSpritePositions = new List<Transform>(); //offset is + 1 in the y direction
     Vector3 firstListPos;
@@ -98,11 +99,6 @@ public class Bag : MonoBehaviour
             var newSprite = Instantiate(ghostSprite, caughtGhostSpritePositions[_numberOfHeldGhosts].position, Quaternion.identity);
             newSprite.transform.parent = this.transform;
         }
-    }
-
-    public void DropBagDueToGhostHit()
-    {
-
     }
 
     public float GetInteractionRadius()
