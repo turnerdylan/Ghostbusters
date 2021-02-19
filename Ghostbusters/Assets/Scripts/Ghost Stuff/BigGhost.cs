@@ -62,17 +62,11 @@ public class BigGhost : MonoBehaviour
 
         if(inRange)
         {
-            if(!sequenceGenerated)
-            {
-                GenerateSequence();
-                buttonSequenceSprite.SetActive(true);
-            }
+            buttonSequenceSprite.SetActive(true);
         }   
         else
         {
             buttonSequenceSprite.SetActive(false);
-            sequenceGenerated = false;
-            ResetScare();
         }
 
         if(scareInitiated)
@@ -84,20 +78,17 @@ public class BigGhost : MonoBehaviour
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
                 {
                     //fail
-                    ResetScare();
                     ScareFail();
                 }
                 else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
                 {
                     //success
-                    ResetScare();
                     ScareSuccess();
                 }
             }
             else
             {
                 //fail
-                ResetScare();
                 ScareFail();
             }
         }
@@ -105,7 +96,6 @@ public class BigGhost : MonoBehaviour
 
     private void OnEnable()
     {
-        GenerateSequence();
         //_scareInputsTimer = _scareInputsTimerMaxTime;
         _scareable = false;
         StartCoroutine(ScareInvincibility());
@@ -128,12 +118,14 @@ public class BigGhost : MonoBehaviour
 
     private void ScareSuccess()
     {
+        ResetScare();
         SplitApart();
         //RandomEvent or blow back
     }
 
     private void ScareFail()
     {
+        ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
@@ -159,8 +151,8 @@ public class BigGhost : MonoBehaviour
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
-        System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
-        targetBtnList.Clear();
+        //System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
+        //targetBtnList.Clear();
         btnList.Clear();
         players.Clear();
         foreach(Player player in players)
@@ -277,7 +269,7 @@ public class BigGhost : MonoBehaviour
         }
     }
 
-    void GenerateSequence()
+    public void GenerateSequence()
     {
         for(int i = 0; i<4; i++)// i < players.Length
         {

@@ -68,6 +68,7 @@ public class GhostManager : MonoBehaviour
             bigGhosts.Add(current);                                                                         //fill the respective array with them
             current.gameObject.SetActive(false);                                                          //set them as inactive
             current.GetComponent<BigGhost>().SetListIndex(i);                                                //set their list indexes
+            current.GetComponent<BigGhost>().GenerateSequence();
         }
 
         for (int i = 0; i < maxMediumGhosts; i++)
@@ -76,6 +77,7 @@ public class GhostManager : MonoBehaviour
             mediumGhosts.Add(current);
             current.gameObject.SetActive(false);
             current.GetComponent<MediumGhost>().SetListIndex(i);
+            current.GetComponent<MediumGhost>().GenerateSequence();
         }
 
         for (int i = 0; i < maxSmallGhosts; i++)
