@@ -85,17 +85,11 @@ public class MediumGhost : MonoBehaviour
 
         if(inRange)
         {
-            if(!sequenceGenerated)
-            {
-                GenerateSequence();
-                buttonSequenceSprite.SetActive(true);
-            }
+            buttonSequenceSprite.SetActive(true);
         }   
         else
         {
             buttonSequenceSprite.SetActive(false);
-            sequenceGenerated = false;
-            ResetScare();
         }
 
         if(scareInitiated)
@@ -108,20 +102,17 @@ public class MediumGhost : MonoBehaviour
                 {
                     //fail
                     ScareFail();
-                    ResetScare();
                 }
                 else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
                 {
                     //success
                     ScareSuccess();
-                    ResetScare();
                 }
             }
             else
             {
                 //fail
                 ScareFail();
-                ResetScare();
             }
         }
     }
@@ -256,10 +247,12 @@ public class MediumGhost : MonoBehaviour
     }
     private void ScareSuccess()
     {
+        ResetScare();
         SplitApart();
     }
     private void ScareFail()
     {
+        ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
     }
 
@@ -268,8 +261,8 @@ public class MediumGhost : MonoBehaviour
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
-        System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
-        targetBtnList.Clear();
+        //System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
+        //targetBtnList.Clear();
         btnList.Clear();
         players.Clear();
         foreach(Player player in players)
@@ -307,7 +300,7 @@ public class MediumGhost : MonoBehaviour
         }
     }
 
-    void GenerateSequence()
+    public void GenerateSequence()
     {
         for(int i = 0; i<2; i++)// i < players.Length
         {
