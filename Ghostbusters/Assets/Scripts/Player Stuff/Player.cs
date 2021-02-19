@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
         {
             Van.Instance.DepositGhosts(Bag.Instance.GetNumberOfHeldGhosts());
-            Bag.Instance.SetNumberOfHeldGhosts(0);
+            Bag.Instance.DepositAllGhosts();
         }
         else if(currentState == PLAYER_STATE.WITH_BAG)
         {
@@ -198,6 +198,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator StunPlayer(float stunTime)
     {
+        DropBag();
         anim.SetTrigger("Stunned");
         enabled = false;
         currentState = PLAYER_STATE.STUNNED;
@@ -207,6 +208,8 @@ public class Player : MonoBehaviour
     }
     public void Scare(BUTTON_PRESS buttonDirection)
     {
+        if (currentState != PLAYER_STATE.NORMAL) return;
+
         anim.SetBool("Scare", true);
         StartCoroutine(ChangeSpotlightColor());
 

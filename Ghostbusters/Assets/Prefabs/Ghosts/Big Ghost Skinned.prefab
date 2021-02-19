@@ -1107,13 +1107,13 @@ GameObject:
   - component: {fileID: 1047376262339492588}
   - component: {fileID: 4025129032800597707}
   - component: {fileID: 6859278178302254633}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6464017192153349170
 Transform:
   m_ObjectHideFlags: 0

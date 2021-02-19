@@ -51,25 +51,23 @@ public class Bag : MonoBehaviour
 
     [SerializeField] private float _interactionRadius = 3f;
     [SerializeField] private int _numberOfHeldGhosts;
-    [SerializeField] private int _maxNumberOfGhostsHeld = 10;
-    public List<Transform> caughtGhostSpritePositions = new List<Transform>(); //offset is + 1 in the y direction
-    Vector3 firstListPos;
-    [SerializeField] GameObject ghostSprite;
+    [SerializeField] private int _maxNumberOfGhostsHeld = 4;
+    public List<GameObject> caughtGhostSpritePositions = new List<GameObject>();
+    [SerializeField] Sprite emptySprite;
+    [SerializeField] Sprite ghostSprite;
 
-    SpriteRenderer buttonSprite;
     Rigidbody rb;
     BAG_STATE bagState = BAG_STATE.ON_GROUND;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        buttonSprite = GetComponentInChildren<SpriteRenderer>();
         
     }
 
     private void Update()
     {
-        if(bagState != BAG_STATE.PICKED_UP)
+        /*if(bagState != BAG_STATE.PICKED_UP)
         {
             foreach (Player player in PlayerManager.Instance.players)
             {
@@ -86,7 +84,7 @@ public class Bag : MonoBehaviour
         else
         {
             buttonSprite.enabled = false;
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other) //on a capture
@@ -95,8 +93,7 @@ public class Bag : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             _numberOfHeldGhosts++;
-            var newSprite = Instantiate(ghostSprite, caughtGhostSpritePositions[_numberOfHeldGhosts].position, Quaternion.identity);
-            newSprite.transform.parent = this.transform;
+            caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
         }
     }
 
@@ -115,9 +112,13 @@ public class Bag : MonoBehaviour
         return _numberOfHeldGhosts;
     }
 
-    public void SetNumberOfHeldGhosts(int value)
+    public void DepositAllGhosts()
     {
-        _numberOfHeldGhosts = value;
+        _numberOfHeldGhosts = 0;
+        foreach(GameObject sprite in caughtGhostSpritePositions)
+        {
+            sprite.GetComponent<SpriteRenderer>().sprite = emptySprite;
+        }
     }
 
 }
