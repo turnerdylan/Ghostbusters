@@ -81,14 +81,20 @@ public class Player : MonoBehaviour
 
         else if(currentState == PLAYER_STATE.NORMAL)
         {
-            anim.SetBool("Hold", true);
             if (Vector3.Distance(Bag.Instance.gameObject.transform.position, transform.position) < Bag.Instance.GetInteractionRadius())
             {
-                currentState = PLAYER_STATE.WITH_BAG;
-                Bag.Instance.transform.parent = testTransform;
-                Bag.Instance.transform.localPosition = Vector3.zero;
-                Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                Destroy(Bag.Instance.GetComponent<Rigidbody>());
+                Vector3 dirToBag = (Bag.Instance.gameObject.transform.position - transform.position).normalized;
+                float angleBetweenPlayerandBag = Vector3.Angle(transform.forward, dirToBag);
+
+                if (angleBetweenPlayerandBag < _viewAngle / 2)
+                {
+                    anim.SetBool("Hold", true);
+                    currentState = PLAYER_STATE.WITH_BAG;
+                    Bag.Instance.transform.parent = testTransform;
+                    Bag.Instance.transform.localPosition = Vector3.zero;
+                    Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    Destroy(Bag.Instance.GetComponent<Rigidbody>());
+                }
             }
         }
         Bag.Instance.SetBagState(Bag.BAG_STATE.PICKED_UP);
@@ -97,15 +103,21 @@ public class Player : MonoBehaviour
 
     public void DropBag()
     {
-        if(currentState == PLAYER_STATE.WITH_BAG)
+        if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
         {
+            Van.Instance.DepositGhosts(Bag.Instance.GetNumberOfHeldGhosts());
+            Bag.Instance.SetNumberOfHeldGhosts(0);
+        }
+        else if(currentState == PLAYER_STATE.WITH_BAG)
+        {
+            anim.SetBool("Hold", false);
             Bag.Instance.transform.parent = null;
             Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
             Bag.Instance.gameObject.AddComponent<Rigidbody>();
             Bag.Instance.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
-            print("test");
+            currentState = PLAYER_STATE.NORMAL;
         }
-        currentState = PLAYER_STATE.NORMAL;
+        
     }
 
     public void SwingBag()

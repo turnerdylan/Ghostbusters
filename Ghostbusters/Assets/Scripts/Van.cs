@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Van : MonoBehaviour
 {
@@ -27,7 +28,8 @@ public class Van : MonoBehaviour
     #endregion
 
     [SerializeField] private float _interactionRadius = 6f;
-    [SerializeField] Transform bagStoredPosition = null;
+    [SerializeField] private TextMeshPro counterText;
+    [SerializeField] private int numberOfStoredGhosts = 0;
 
     SpriteRenderer buttonSprite;
 
@@ -38,9 +40,11 @@ public class Van : MonoBehaviour
 
     private void Update()
     {
+        counterText.text = numberOfStoredGhosts.ToString();
+
         foreach (Player player in PlayerManager.Instance.players)
         {
-            if (Vector3.Distance(bagStoredPosition.position, player.transform.position) < _interactionRadius && !GetComponentInChildren<Bag>())
+            if (Vector3.Distance(transform.position, player.transform.position) < _interactionRadius && !GetComponentInChildren<Bag>())
             {
                 buttonSprite.enabled = true;
             }
@@ -56,8 +60,8 @@ public class Van : MonoBehaviour
         return _interactionRadius;
     }
 
-    public Vector3 GetBagStoredPosition()
+    public void DepositGhosts(int storedGhosts)
     {
-        return bagStoredPosition.position;
+        numberOfStoredGhosts += storedGhosts;
     }
 }
