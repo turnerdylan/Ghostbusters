@@ -22,14 +22,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Scare",
-                    "type": "Button",
-                    "id": "127e8b06-258c-407b-a62a-6c693911d03d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "SwingBag",
                     "type": "Button",
                     "id": "48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6",
@@ -241,28 +233,6 @@
                     "processors": "",
                     "groups": "Joystick",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7b98e4f4-fcb1-4c63-991c-08719a389432",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Scare",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8d68a3e4-7500-453a-b43a-26d39497afb5",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Scare",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

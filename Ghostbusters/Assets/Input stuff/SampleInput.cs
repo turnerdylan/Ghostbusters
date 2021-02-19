@@ -35,14 +35,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Scare"",
-                    ""type"": ""Button"",
-                    ""id"": ""127e8b06-258c-407b-a62a-6c693911d03d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
                     ""name"": ""SwingBag"",
                     ""type"": ""Button"",
                     ""id"": ""48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6"",
@@ -254,28 +246,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Joystick"",
                     ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7b98e4f4-fcb1-4c63-991c-08719a389432"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Scare"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8d68a3e4-7500-453a-b43a-26d39497afb5"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Scare"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1268,7 +1238,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Scare = m_Player.FindAction("Scare", throwIfNotFound: true);
         m_Player_SwingBag = m_Player.FindAction("SwingBag", throwIfNotFound: true);
         m_Player_GetBag = m_Player.FindAction("GetBag", throwIfNotFound: true);
         m_Player_UpScare = m_Player.FindAction("UpScare", throwIfNotFound: true);
@@ -1348,7 +1317,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Scare;
     private readonly InputAction m_Player_SwingBag;
     private readonly InputAction m_Player_GetBag;
     private readonly InputAction m_Player_UpScare;
@@ -1361,7 +1329,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public PlayerActions(@SampleInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Scare => m_Wrapper.m_Player_Scare;
         public InputAction @SwingBag => m_Wrapper.m_Player_SwingBag;
         public InputAction @GetBag => m_Wrapper.m_Player_GetBag;
         public InputAction @UpScare => m_Wrapper.m_Player_UpScare;
@@ -1383,9 +1350,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Scare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
-                @Scare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
-                @Scare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScare;
                 @SwingBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
                 @SwingBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
                 @SwingBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
@@ -1414,9 +1378,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Scare.started += instance.OnScare;
-                @Scare.performed += instance.OnScare;
-                @Scare.canceled += instance.OnScare;
                 @SwingBag.started += instance.OnSwingBag;
                 @SwingBag.performed += instance.OnSwingBag;
                 @SwingBag.canceled += instance.OnSwingBag;
@@ -1682,7 +1643,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnScare(InputAction.CallbackContext context);
         void OnSwingBag(InputAction.CallbackContext context);
         void OnGetBag(InputAction.CallbackContext context);
         void OnUpScare(InputAction.CallbackContext context);

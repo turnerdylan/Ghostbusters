@@ -100,11 +100,6 @@ public class Bag : MonoBehaviour
         }
     }
 
-    public void DropBagDueToGhostHit()
-    {
-
-    }
-
     public float GetInteractionRadius()
     {
         return _interactionRadius;
@@ -113,6 +108,16 @@ public class Bag : MonoBehaviour
     public void SetBagState(BAG_STATE state)
     {
         bagState = state;
+    }
+
+    public int GetNumberOfHeldGhosts()
+    {
+        return _numberOfHeldGhosts;
+    }
+
+    public void SetNumberOfHeldGhosts(int value)
+    {
+        _numberOfHeldGhosts = value;
     }
 
 }

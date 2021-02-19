@@ -26,66 +26,41 @@ public class PlayerInputHandlerTest : MonoBehaviour
             pc.SetMoveVector(context.ReadValue<Vector2>());
     }
 
-    public void Scare(CallbackContext context)
-    {
-
-        scareInput = context.ReadValue<float>();
-        if(scareInput == 1)
-        {
-            pc.Scare();
-        }
-        print("scare input is" + scareInput);
-    }
-
     public void GetBag(CallbackContext context)
     {
         getBagInput = context.ReadValue<float>();
-        if(getBagInput == 1)
+        if(context.performed)
         {
             pc.PickupBag();
         }
     }
 
-    public void DropBag(CallbackContext context)
-    {
-        dropBagInput = context.ReadValue<float>();
-        if (dropBagInput == 1)
-        {
-            pc.DropBag();
-        }
-    }
-
     public void SwingBag(CallbackContext context)
     {
-        print("test");
         swingBagInput = context.ReadValue<float>();
         if (context.performed)
         {
-            print("test1");
             pc.SwingBag();
         }
     }
     public void UpScare(CallbackContext context)
     {
         if(pc != null && context.performed)
-        {
-            //Debug.Log("Hello");
-            pc.UpScare();
-        }
+            pc.Scare(BUTTON_PRESS.Up);
     }
     public void DownScare(CallbackContext context)
     {
         if(pc != null && context.performed)
-            pc.DownScare();
+            pc.Scare(BUTTON_PRESS.Down);
     }
     public void LeftScare(CallbackContext context)
     {
         if(pc != null && context.performed)
-            pc.LeftScare();
+            pc.Scare(BUTTON_PRESS.Left);
     }
     public void RightScare(CallbackContext context)
     {
         if(pc != null && context.performed)
-            pc.RightScare();
+            pc.Scare(BUTTON_PRESS.Right);
     }
 }

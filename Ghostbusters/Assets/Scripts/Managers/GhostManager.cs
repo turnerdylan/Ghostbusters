@@ -68,6 +68,7 @@ public class GhostManager : MonoBehaviour
             bigGhosts.Add(current);                                                                         //fill the respective array with them
             current.gameObject.SetActive(false);                                                          //set them as inactive
             current.GetComponent<BigGhost>().SetListIndex(i);                                                //set their list indexes
+            current.GetComponent<BigGhost>().GenerateSequence();
         }
 
         for (int i = 0; i < maxMediumGhosts; i++)
@@ -76,6 +77,7 @@ public class GhostManager : MonoBehaviour
             mediumGhosts.Add(current);
             current.gameObject.SetActive(false);
             current.GetComponent<MediumGhost>().SetListIndex(i);
+            current.GetComponent<MediumGhost>().GenerateSequence();
         }
 
         for (int i = 0; i < maxSmallGhosts; i++)
@@ -127,7 +129,7 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    private void CalculateGhostScore()
+    public int CalculateGhostScore()
     {
         _ghostScore = 0;
         foreach(GameObject ghost in bigGhosts)
@@ -151,6 +153,7 @@ public class GhostManager : MonoBehaviour
                 _ghostScore += 1;
             }
         }
+        return _ghostScore;
     }
 
     private void JoinTogetherMedium(GameObject ghost1, GameObject ghost2)
