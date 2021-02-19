@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
                 return false;
             }
         }
-        //LevelManager.Instance.EndLevel();
+        LevelManager.Instance.EndLevel();
         return true;
     }
 }
