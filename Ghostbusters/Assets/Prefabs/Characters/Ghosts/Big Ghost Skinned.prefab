@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 391c0521051fad24ebf85117ed9d0036, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.8, y: 4.8}
@@ -305,7 +305,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4274336203648576917}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.739641}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 6758455847882527396}
@@ -480,7 +480,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 924fa7b7c7aab244c967dac0a5ff9925, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.8, y: 4.8}
@@ -624,7 +624,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 015e194492473ff4aa7a3bfc21cf7d03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.8, y: 4.8}
@@ -657,8 +657,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140562614325325566}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 3.53, z: -0.6958565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: 3.53, z: -0.63}
   m_LocalScale: {x: -0.4, y: 0.33333334, z: 0.4}
   m_Children:
   - {fileID: 6875951749611416036}
@@ -888,11 +888,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37968fc2cd73d5543aab635b815383c5, type: 3}
   - {fileID: 21300000, guid: 924fa7b7c7aab244c967dac0a5ff9925, type: 3}
   - {fileID: 21300000, guid: 391c0521051fad24ebf85117ed9d0036, type: 3}
-  pressedSprites:
-  - {fileID: 21300000, guid: 5817629f9deadde4f9b5ebc94c564696, type: 3}
-  - {fileID: 21300000, guid: fe7e7f4da121b924eae525e05dbbd658, type: 3}
-  - {fileID: 21300000, guid: 343b6825e97115748a140b769c543d9d, type: 3}
-  - {fileID: 21300000, guid: 0931c8e9f7f168b4d9898b38df2cf24b, type: 3}
+  checkMark: {fileID: 21300000, guid: f702d656bb5443b4289730b63fb199ae, type: 3}
   spriteRends:
   - {fileID: 5687288141742921481}
   - {fileID: 2234504191293346738}
@@ -1303,7 +1299,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37968fc2cd73d5543aab635b815383c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.8, y: 4.8}
