@@ -22,8 +22,9 @@ C -
 D - 
 
 Z - Our current idea for the UI and menu for Spooked is that the entire thing exists within the team's ghost van. The menu sketch pictured below shows a simple view of the inside wall of the van with a map of the island, pictures of the characters, a laptop and miscelaneous items from the levels completed. The wall map with act as the navigation menu for the team probably with small indicators or icons that the each player can move about to show where they want to go. When all players are hovered over the same level location, they will probably be promted to go to that location on the laptop screen along with their previous progress on that level and achievements or whatever. The players will be able to change and choose their characters when selected into the photo wall on the left.There, they can switch photos to select their character which will appear with their player number or name or whatever on the polaroid-like photo frame. The settings window will be able to pop out from the top right and overlay things like sound settings, controls, save and quit.  
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/UISketch-Menu.jpg" width="75%">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/UISketch-Layout.jpg" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/UISketch-Settings.jpg" width="30%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/UISketch-Layout.jpg" width="35%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/UISketch-Settings.jpg" width="35%">
 
 - - -
 
