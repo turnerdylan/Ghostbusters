@@ -19,8 +19,7 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Weekly Updates:
 C - We were able to fix almost all the major bugs in our level prototype this week. Additionally, we fixed the movement in medium and small ghosts to prevent them from getting stuck on edges and to have more natural wander and flee movement. We also implemented a separate mechanic to prevent ghosts from recombining immediately. You can see this mechanic implemented in the first image. Finally, we built the framework for triggering random world events on a successful scare with a custom event system. The various events still need to be implemented but as a test we had the lights turn off in the scene on a successful scare which can be seen in the second image.
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-separate.gif" width="50%">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/random-event.gif" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-separate.gif" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/random-event.gif" width="50%">
 
 D - This week was a successful week because we were able to fully finish our first version of the prototype. This includes all ghosts types working, player skins and maps implemented, and most of the bugs squashed. We were able to playtest with some of the new levels and we tried brainstorming ideas for new features and how to fix the parts of the game that weren't working. Check out some gameplay below. Our next steps will be to playtest, playtest, playtest!
 
