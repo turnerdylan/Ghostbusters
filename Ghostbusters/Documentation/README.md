@@ -21,7 +21,7 @@ C -
 
 D - This week was a successful week because we were able to fully finish our first version of the prototype. This includes all ghosts types working, player skins and maps implemented, and most of the bugs squashed. We were able to playtest with some of the new levels and we tried brainstorming ideas for new features and how to fix the parts of the game that weren't working. Check out some gameplay below. Our next steps will be to playtest, playtest, playtest!
 
-<img src="" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Feb23_CaptureForClass_Trim.gif" width="75%">
 
 Z - Our current idea for the UI and menu for Spooked is that the entire thing exists within the team's ghost van. The menu sketch pictured below shows a simple view of the inside wall of the van with a map of the island, pictures of the characters, a laptop and miscelaneous items from the levels completed. The wall map with act as the navigation menu for the team probably with small indicators or icons that the each player can move about to show where they want to go. When all players are hovered over the same level location, they will probably be promted to go to that location on the laptop screen along with their previous progress on that level and achievements or whatever. The players will be able to change and choose their characters when selected into the photo wall on the left.There, they can switch photos to select their character which will appear with their player number or name or whatever on the polaroid-like photo frame. The settings window will be able to pop out from the top right and overlay things like sound settings, controls, save and quit.  
 
