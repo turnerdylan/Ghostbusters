@@ -243,10 +243,7 @@ public class Player : MonoBehaviour
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
                             GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
                     }
                 }
             }

@@ -22,7 +22,7 @@ public class MediumGhost : MonoBehaviour
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 2;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
-    [SerializeField] private bool _scareable = true;
+    [SerializeField] private bool formable = true;
     [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 1.0f;
@@ -123,7 +123,7 @@ public class MediumGhost : MonoBehaviour
         _scareInputsTimer = _scareInputsTimerMaxTime;
         _canTransform = true;
         _transformTimer = _transformTimerMax;
-        _scareable = false;
+        formable = false;
         StartCoroutine(ScareInvincibilityDelay());
     }
 
@@ -149,7 +149,7 @@ public class MediumGhost : MonoBehaviour
     IEnumerator ScareInvincibilityDelay()
     {
         yield return new WaitForSeconds(_onScareInvincibilityTime);
-        _scareable = true;
+        formable = true;
     }
 
     public float GetTransformTimer()
@@ -157,9 +157,9 @@ public class MediumGhost : MonoBehaviour
         return _transformTimer;
     }
 
-    public bool CheckIfScarable()
+    public bool CheckIfFormable()
     {
-        return _scareable;
+        return formable;
     }
 
     public void SetListIndex(int index)

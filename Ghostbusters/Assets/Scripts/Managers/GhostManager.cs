@@ -103,7 +103,9 @@ public class GhostManager : MonoBehaviour
                 {
                     if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
                     && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <= 0
-                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0)
+                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0
+                    && mediumGhosts[i].GetComponent<MediumGhost>().CheckIfFormable()
+                    && mediumGhosts[j].GetComponent<MediumGhost>().CheckIfFormable())
                     {
                         JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
                     }

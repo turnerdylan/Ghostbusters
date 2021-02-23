@@ -89,6 +89,7 @@ public class Bag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) //on a capture
     {
+        if (_numberOfHeldGhosts == _maxNumberOfGhostsHeld) return;
         if(other.GetComponent<SmallGhost>())
         {
             other.gameObject.SetActive(false);
