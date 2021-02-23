@@ -220,6 +220,7 @@ public class Player : MonoBehaviour
             {
                 if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
+
                     Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
 
@@ -237,14 +238,17 @@ public class Player : MonoBehaviour
             {
                 if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
                 {
+                    //print("Distance");
                     Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                     //print(angleBetweenPlayerandGhost);
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
+                        //print("Angle");
                         if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
                         {
+                            //print("Scareable");
                             GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                         }
                     }

@@ -782,7 +782,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37968fc2cd73d5543aab635b815383c5, type: 3}
   - {fileID: 21300000, guid: 924fa7b7c7aab244c967dac0a5ff9925, type: 3}
   - {fileID: 21300000, guid: 391c0521051fad24ebf85117ed9d0036, type: 3}
-  checkMark: {fileID: 0}
+  checkMark: {fileID: 21300000, guid: f702d656bb5443b4289730b63fb199ae, type: 3}
   spriteRends:
   - {fileID: 673783699218326761}
   - {fileID: 868930302378662551}
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b956b7aa87078954eb1d997331942aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 25
+  wanderRadius: 35
   wanderTimer: 5
 --- !u!1 &8023474520333378077
 GameObject:

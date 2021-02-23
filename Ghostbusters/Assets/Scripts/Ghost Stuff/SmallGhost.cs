@@ -31,10 +31,10 @@ public class SmallGhost : MonoBehaviour
 
     private void Update()
     {
-        if(_canTransform)
-        {
-            _transformTimer -= Time.deltaTime;
-        }
+        // if(_canTransform)
+        // {
+        //     _transformTimer -= Time.deltaTime;
+        // }
     }
 
     private void OnEnable()

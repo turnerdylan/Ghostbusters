@@ -106,22 +106,26 @@ public class BigGhost : MonoBehaviour
     {
         int ghost1 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
         GhostManager.Instance.mediumGhosts[ghost1].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost1].transform.position = transform.position;
+        GhostManager.Instance.mediumGhosts[ghost1].transform.position = transform.position + new Vector3(2.5f, 0, 0);
         //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhost>().TriggerRunAway();
 
         int ghost2 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
         //set active
         GhostManager.Instance.mediumGhosts[ghost2].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost2].transform.position = transform.position;
-        
+        GhostManager.Instance.mediumGhosts[ghost2].transform.position = transform.position + new Vector3(-2.5f, 0, 0);
+
+        GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+        GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+
         gameObject.SetActive(false);
+
     }
 
     private void ScareSuccess()
     {
         ResetScare();
         SplitApart();
-        //RandomEvent or blow back
+        RandomEvent();
     }
 
     private void ScareFail()
@@ -291,7 +295,7 @@ public class BigGhost : MonoBehaviour
                     targetBtnList.Add(BUTTON_PRESS.Right);
                     break;
                 default:
-                    print("Invalid number generation");
+                    print("Number generation outside range");
                     break;
             }
         }
@@ -354,6 +358,20 @@ public class BigGhost : MonoBehaviour
             {
                 break;
             }
+        }
+    }
+
+    void RandomEvent()
+    {
+        int num = UnityEngine.Random.Range(1,2);
+        switch(num)
+        {
+            case 1:
+                GameEvents.current.LightsOff();
+                break;
+            default:
+                print("Number generation outside range");
+                break;
         }
     }
 }
