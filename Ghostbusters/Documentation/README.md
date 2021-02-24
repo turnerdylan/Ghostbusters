@@ -7,7 +7,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 1/26/2021 - Week 6
+## 1/26/2021 - Week 7
+### Goals:
+- C - Creating a version without medium ghosts to playtest
+
+- D - Adding a menu scene and playtesting
+
+- Z - Adjust ghost models and add inside vehicle model
+
+
+### Weekly Updates:
+
+- - -
+
+## 1/26/2021 - Week 6 Levels and Effects!
 ### Goals:
 - C - Local/World Effect Development
 
