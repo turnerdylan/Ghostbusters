@@ -7,20 +7,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 1/26/2021 - Week 7
+## 3/9/26/2021 - Week 7 & 8
 ### Goals:
-- C - Creating a version without medium ghosts to playtest
+- C - Updating big and medium ghost movement & adding player scare counter
 
-- D - Adding a menu scene and playtesting
+- D - Adding a menu scene, implementing scare animations & creating a peak-a-boo ghost prototype
 
-- Z - Adjust ghost models and add inside vehicle model
+- Z - Modeling and rigging more ghosts and modeling the menu inside of the van
 
 
 ### Weekly Updates:
 
 - - -
 
-## 1/26/2021 - Week 6 Levels and Effects!
+## 2/23/2021 - Week 6 Levels and Effects!
 ### Goals:
 - C - Local/World Effect Development
 
@@ -46,7 +46,7 @@ Z - Our current idea for the UI and menu for Spooked is that the entire thing ex
 
 - - -
 
-## 1/26/2021 - Week 5 Bags, Buttons, Bugs and Battlefields
+## 2/16/2021 - Week 5 Bags, Buttons, Bugs and Battlefields
 ### Goals:
 - C - Implementing specific button scare to medium and small ghosts
 
@@ -74,7 +74,7 @@ Z - The next steps within our level development were to create simplified 'block
 
 - - -
 
-## 1/26/2021 - Week 4 All the BUTTONS!
+## 2/9/2021 - Week 4 All the BUTTONS!
 ### Goals:
 - C - Implementing group button scare
 
@@ -122,7 +122,7 @@ Z - We created a cleaner ghost character with a movement and stun animation to a
 
 - - -
 
-## 1/26/2021 - Week 3 Playtesting and Refining
+## 2/2/2021 - Week 3 Playtesting and Refining
 ### Goals:
 - C - Beginning the multi button group scare prototype
 
