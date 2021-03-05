@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private Interactable currentInteraction;
     private Animator anim;
     private Light spotlight;
+    private PeekabooGhost peekaboo;
 
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
         spotlight.spotAngle = _viewAngle;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        peekaboo = FindObjectOfType<PeekabooGhost>();
     }
 
     private void FixedUpdate()
@@ -210,8 +212,30 @@ public class Player : MonoBehaviour
     {
         if (currentState != PLAYER_STATE.NORMAL) return;
 
-        anim.SetBool("Scare", true);
-        StartCoroutine(ChangeSpotlightColor());
+        switch (buttonDirection)
+        {
+            case BUTTON_PRESS.Up:
+                anim.SetBool("ScareUp", true);
+                break;
+            case BUTTON_PRESS.Down:
+                anim.SetBool("ScareDown", true);
+                break;
+            case BUTTON_PRESS.Left:
+                anim.SetBool("ScareLeft", true);
+                break;
+            case BUTTON_PRESS.Right:
+                anim.SetBool("ScareRight", true);
+                break;
+        }
+        
+        //StartCoroutine(ChangeSpotlightColor());
+
+        if (Vector3.Distance(peekaboo.transform.position, transform.position) <= peekaboo.GetInteractRange())
+        {
+            peekaboo.SummonGhost();
+            print("test");
+            return;
+        }
 
         _buttonPressed = buttonDirection;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)

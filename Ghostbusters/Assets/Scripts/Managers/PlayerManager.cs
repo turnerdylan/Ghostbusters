@@ -53,4 +53,26 @@ public class PlayerManager : MonoBehaviour
         //LevelManager.Instance.EndLevel();
         return true;
     }
+
+    public Transform GetClosestPlayer()
+    {
+        Transform closestPlayerTransform = null;
+        float distanceToClosestPlayerTemp = Mathf.Infinity;
+
+        foreach (Player player in players)
+        {
+            if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            {
+                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
+                if (currentCheckDistance < distanceToClosestPlayerTemp)
+                {
+                    closestPlayerTransform = player.transform;
+                    distanceToClosestPlayerTemp = currentCheckDistance;
+                }
+            }
+
+        }
+        if (closestPlayerTransform == null) return closestPlayerTransform;
+        return closestPlayerTransform;
+    }
 }
