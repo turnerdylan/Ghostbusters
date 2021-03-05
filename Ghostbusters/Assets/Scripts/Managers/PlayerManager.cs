@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
                 return false;
             }
         }
-        LevelManager.Instance.EndLevel();
+        //LevelManager.Instance.EndLevel();
         return true;
     }
 
@@ -64,5 +64,27 @@ public class PlayerManager : MonoBehaviour
             totalScore += player.score;
         }
         scoreText.text = "Score: " + totalScore.ToString("F0");
+    }
+    
+    public Transform GetClosestPlayer()
+    {
+        Transform closestPlayerTransform = null;
+        float distanceToClosestPlayerTemp = Mathf.Infinity;
+
+        foreach (Player player in players)
+        {
+            if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            {
+                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
+                if (currentCheckDistance < distanceToClosestPlayerTemp)
+                {
+                    closestPlayerTransform = player.transform;
+                    distanceToClosestPlayerTemp = currentCheckDistance;
+                }
+            }
+
+        }
+        if (closestPlayerTransform == null) return closestPlayerTransform;
+        return closestPlayerTransform;
     }
 }

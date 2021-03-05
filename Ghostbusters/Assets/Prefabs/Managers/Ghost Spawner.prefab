@@ -45,6 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: 9191857585f6fe74b91629640349b651, type: 2}
+  spawnParticleEffect: {fileID: 1096990256788668890, guid: d215d14959c7d1941bf234bda75b053e,
+    type: 3}
+  ghostSpawnThreshold: 10
+  timeToSpawnInOneGhost: 2
+  ghostInBetweenSpawnDelay: 5
   ghostSpawnLocations:
   - {fileID: 0}
   - {fileID: 0}

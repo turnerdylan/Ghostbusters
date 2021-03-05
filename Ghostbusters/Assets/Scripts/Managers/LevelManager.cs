@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
         }
         else if(currentState == LEVEL_STATE.STARTED)
             {
-            if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
+            //if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
 
             levelTimer -= Time.deltaTime;
             var ts = TimeSpan.FromSeconds(levelTimer);
