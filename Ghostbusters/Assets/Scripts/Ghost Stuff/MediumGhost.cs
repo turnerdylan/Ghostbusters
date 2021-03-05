@@ -20,7 +20,7 @@ public class MediumGhost : MonoBehaviour
     Rigidbody rb;
 
     //private serializables
-    [SerializeField] private int _ghostsToSpawn = 2;
+    [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
     [SerializeField] private bool _scareable = true;
     [SerializeField] private int _scaresNeeded = 1;
@@ -45,7 +45,7 @@ public class MediumGhost : MonoBehaviour
     public Sprite[] sprites = new Sprite[4];
     //public Sprite[] pressedSprites = new Sprite[4];
     public Sprite checkMark;
-    public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
+    public List<Image> images = new List<Image>();
     public GameObject buttonSequenceSprite;
     public Image timerBar;
     private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
@@ -304,21 +304,21 @@ public class MediumGhost : MonoBehaviour
     }
     void SetSprites()
     {
-        for (int i=0; i<spriteRends.Count; i++)
+        for (int i=0; i<images.Count; i++)
         {
             switch(targetBtnList[i])
             {
                 case BUTTON_PRESS.Up:
-                    spriteRends[i].sprite = sprites[0];
+                    images[i].sprite = sprites[0];
                     break;
                 case BUTTON_PRESS.Down:
-                    spriteRends[i].sprite = sprites[1];
+                    images[i].sprite = sprites[1];
                     break;
                 case BUTTON_PRESS.Left:
-                    spriteRends[i].sprite = sprites[2];
+                    images[i].sprite = sprites[2];
                     break;
                 case BUTTON_PRESS.Right:
-                    spriteRends[i].sprite = sprites[3];
+                    images[i].sprite = sprites[3];
                     break;
                 default:
                     print("Invalid button state");
@@ -345,9 +345,9 @@ public class MediumGhost : MonoBehaviour
         {
             if(button == targetBtnList[i] && !pressed)
             {
-                if(spriteRends[i].sprite != checkMark)
+                if(images[i].sprite != checkMark)
                 {
-                    spriteRends[i].sprite = checkMark;
+                    images[i].sprite = checkMark;
                     pressed = true;
                 }
             }

@@ -14,6 +14,8 @@ public class BigGhost : MonoBehaviour
     public ParticleSystem explosionEffect;
 
     //private serializables
+    [SerializeField] private int _ghostsToSpawn = 8;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
     [SerializeField] private bool _scareable = true;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
     [SerializeField] private int[] btnCount = new int[4];   
@@ -104,18 +106,21 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        int ghost1 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-        GhostManager.Instance.mediumGhosts[ghost1].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost1].transform.position = transform.position + new Vector3(2.5f, 0, 0);
-        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhost>().TriggerRunAway();
+        int spawnedGhosts = 0;
+        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
+        {
+            if (spawnedGhosts >= _ghostsToSpawn) break;
+            if (!GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                GhostManager.Instance.smallGhosts[i].SetActive(true);
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+                spawnedGhosts++;
+            }
+        }
 
-        int ghost2 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-        //set active
-        GhostManager.Instance.mediumGhosts[ghost2].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost2].transform.position = transform.position + new Vector3(-2.5f, 0, 0);
-
-        GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
-        GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+        //GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
 
         gameObject.SetActive(false);
 
@@ -125,7 +130,7 @@ public class BigGhost : MonoBehaviour
     {
         ResetScare();
         SplitApart();
-        RandomEvent();
+        //RandomEvent();
     }
 
     private void ScareFail()

@@ -94,6 +94,14 @@ public class Bag : MonoBehaviour
             other.gameObject.SetActive(false);
             _numberOfHeldGhosts++;
             caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
+            foreach(Player player in PlayerManager.Instance.players)
+            {
+                if(player.GetPlayerState() == PLAYER_STATE.WITH_BAG)
+                {
+                    player.score++;
+                    PlayerManager.Instance.CalculateScore();
+                }
+            }
         }
     }
 

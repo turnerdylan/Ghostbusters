@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     public float _stunTime = 3f;
     public BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
     public Transform handTransform;
+    public int score;
 
     private void Awake()
     {
