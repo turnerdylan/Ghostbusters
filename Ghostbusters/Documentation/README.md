@@ -9,14 +9,29 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ## 3/9/26/2021 - Week 7 & 8
 ### Goals:
-- C - Updating big and medium ghost movement & adding player scare counter
+- C - Updating ghost movement, adding player scare counter and implementing EMP tower prototype
 
-- D - Adding a menu scene, implementing scare animations & creating a peak-a-boo ghost prototype
+- D - Adding a menu scene, implementing scare animations, creating a peak-a-boo ghost prototype & implementing player health
 
-- Z - Modeling and rigging more ghosts and modeling the menu inside of the van
+- Z - Modeling and rigging and animating more ghosts and modeling the menu inside of the van and EMP towers
 
 
 ### Weekly Updates:
+Group - Our team was impacted by Covid-19 in week 7 so the updates for this section are a compilation of the progress and changes from week 7 and 8. After playtesting the game flow we had up to week 7 a bit, we realized that the game needed a few more elements to help the interactions have more dept and add to the cooperation and chaos we were looking for. 
+
+One problem we saw was that the players have no incentive to worry about an errant medium or small ghost on the map and that the focus had become about trying to scare a big ghost in the level by breaking it down from there as a group. This is what we had wanted initially, but recently realized the gameplay felt too streamlined a process where players attention was *very* centralized. From here, we back up a bit and thought through the interactions we had created so far, and then new ideas we could add to it. After a bunch of ideation and talking through some of our new and old ideas, we decided to switch up the flow of scaring ghosts. 
+
+It starts with a new way to begin the ghost interactions. Rather than entering into a level that has ghosts milling about and spawning in, we thought it might be fun to have some sort of summoning section before the ghosts are out in the open where the group needs to come together to scare them. Our first attempt at this summoning phase involves a peek-a-boo gopher style mechanic where ghosts poke their heads up from the ground and then down, only to pop back up in a different spot. When a player successfully spooks a gopher ghost, it pops into the level in a larger form where the players need to come together to split it. 
+
+Our next big update involves the last stage of the ghost interaction. After a ghost (big or medium) is scared, it splits instead into a ton of super small speedy ghosts. Here players can now activate some ghost spooking technology around the map to blast and freeze the tiny ghosts. From there, it should be easy pickings to scare or grab all the small ghosts on the map. 
+
+These updates will be implemented and ready to run for our largest playtesting session yet at the Whaaat?! Festival Naaaturecade event happening this weekend. (Playtest results to follow soon) 
+
+C - 
+
+D - 
+
+Z - 
 
 - - -
 
