@@ -7,12 +7,13 @@ public enum SMALL_GHOST_STATE
 {
     WANDER, //default
     FLEE, //when player is close
-    SEEK //when ghost is close
+    SEEK, //when ghost is close
+    FROZEN
 };
 public class SmallGhostMovement : MonoBehaviour
 {
     //references
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     //private serializables
     [SerializeField] private float minDistanceForEnemyToRun = 4f;
@@ -21,7 +22,7 @@ public class SmallGhostMovement : MonoBehaviour
     [SerializeField] private float seekDistance = 7.5f;
 
     //private variables
-    SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
+    public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
     private float timer;
 
     //public variables
@@ -92,6 +93,15 @@ public class SmallGhostMovement : MonoBehaviour
                     yield break;
                 }
             }
+            yield return null;
+        }
+    }
+    public IEnumerator State_Frozen()
+    {
+        currentState = SMALL_GHOST_STATE.FROZEN;
+        while(currentState == SMALL_GHOST_STATE.FROZEN)
+        {
+            agent.isStopped = true;
             yield return null;
         }
     }

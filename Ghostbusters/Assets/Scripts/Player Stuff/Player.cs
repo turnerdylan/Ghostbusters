@@ -238,6 +238,15 @@ public class Player : MonoBehaviour
             return;
         }
 
+        foreach(Tower tower in TowerManager.Instance.towers)
+        {
+            if(Vector3.Distance(tower.transform.position, transform.position) <= _scareRange)
+            {
+                tower.LoadScare(buttonDirection);
+                return;
+            }
+        }
+
         _buttonPressed = buttonDirection;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
         {
@@ -271,11 +280,7 @@ public class Player : MonoBehaviour
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
                         //print("Angle");
-                        if (GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().CheckIfScarable())
-                        {
-                            //print("Scareable");
-                            GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                        }
+                        GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                     }
                 }
             }
