@@ -42,7 +42,7 @@ public class Van : MonoBehaviour
     {
         counterText.text = numberOfStoredGhosts.ToString();
 
-        foreach (Player player in PlayerManager.Instance.players)
+        /*foreach (Player player in PlayerManager.Instance.players)
         {
             if (Vector3.Distance(transform.position, player.transform.position) < _interactionRadius && !GetComponentInChildren<Bag>())
             {
@@ -52,7 +52,7 @@ public class Van : MonoBehaviour
             {
                 buttonSprite.enabled = false;
             }
-        }
+        }*/
     }
 
     public float GetInteractionRadius()

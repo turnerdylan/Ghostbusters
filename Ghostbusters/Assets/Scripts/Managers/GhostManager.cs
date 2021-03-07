@@ -92,41 +92,41 @@ public class GhostManager : MonoBehaviour
 
     void Update()
     {
-        CalculateGhostScore();
+        // CalculateGhostScore();
 
-        //double for loop to compare all ghosts agaisnt one another
-        for (int i = 0; i < mediumGhosts.Count; i++)
-        {
-            for (int j = i+1; j < mediumGhosts.Count; j++)
-            {
-                if(mediumGhosts[i].gameObject.activeSelf && mediumGhosts[j].gameObject.activeSelf)
-                {
-                    if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
-                    && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <= 0
-                    && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0)
-                    {
-                        JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
-                    }
-                }
-            }
-        }
-        //double for loop to compare all ghosts agaisnt one another
-        for (int i = 0; i < smallGhosts.Count; i++)
-        {
-            for (int j = i+1; j < smallGhosts.Count; j++)
-            {
-                if(smallGhosts[i].gameObject.activeSelf && smallGhosts[j].gameObject.activeSelf)
-                {
-                    if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
-                    && smallGhosts[i].GetComponent<SmallGhost>()._transformTimer <= 0
-                    && smallGhosts[j].GetComponent<SmallGhost>()._transformTimer <= 0)
-                    {
-                        JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
-                    }
-                }
+        // //double for loop to compare all ghosts agaisnt one another
+        // for (int i = 0; i < mediumGhosts.Count; i++)
+        // {
+        //     for (int j = i+1; j < mediumGhosts.Count; j++)
+        //     {
+        //         if(mediumGhosts[i].gameObject.activeSelf && mediumGhosts[j].gameObject.activeSelf)
+        //         {
+        //             if (Vector3.Distance(mediumGhosts[i].transform.position, mediumGhosts[j].transform.position) < joinTogetherDistance
+        //             && mediumGhosts[i].GetComponent<MediumGhost>().GetTransformTimer() <= 0
+        //             && mediumGhosts[j].GetComponent<MediumGhost>().GetTransformTimer() <= 0)
+        //             {
+        //                 JoinTogetherMedium(mediumGhosts[i].transform.gameObject, mediumGhosts[j].transform.gameObject); //make this a coroutine
+        //             }
+        //         }
+        //     }
+        // }
+        // //double for loop to compare all ghosts agaisnt one another
+        // for (int i = 0; i < smallGhosts.Count; i++)
+        // {
+        //     for (int j = i+1; j < smallGhosts.Count; j++)
+        //     {
+        //         if(smallGhosts[i].gameObject.activeSelf && smallGhosts[j].gameObject.activeSelf)
+        //         {
+        //             if (Vector3.Distance(smallGhosts[i].transform.position, smallGhosts[j].transform.position) < joinTogetherDistance
+        //             && smallGhosts[i].GetComponent<SmallGhost>()._transformTimer <= 0
+        //             && smallGhosts[j].GetComponent<SmallGhost>()._transformTimer <= 0)
+        //             {
+        //                 JoinTogetherSmall(smallGhosts[i].transform.gameObject, smallGhosts[j].transform.gameObject); //make this a coroutine
+        //             }
+        //         }
                 
-            }
-        }
+        //     }
+        // }
     }
 
     public int CalculateGhostScore()

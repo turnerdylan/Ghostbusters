@@ -20,9 +20,9 @@ public class MediumGhost : MonoBehaviour
     Rigidbody rb;
 
     //private serializables
-    [SerializeField] private int _ghostsToSpawn = 2;
+    [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
-    [SerializeField] private bool _scareable = true;
+    [SerializeField] private bool formable = true;
     [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 1.0f;
@@ -43,8 +43,9 @@ public class MediumGhost : MonoBehaviour
     public List<Player> players = new List<Player>();
 
     public Sprite[] sprites = new Sprite[4];
-    public Sprite[] pressedSprites = new Sprite[4];
-    public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
+    //public Sprite[] pressedSprites = new Sprite[4];
+    public Sprite checkMark;
+    public List<Image> images = new List<Image>();
     public GameObject buttonSequenceSprite;
     public Image timerBar;
     private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
@@ -123,7 +124,7 @@ public class MediumGhost : MonoBehaviour
         _scareInputsTimer = _scareInputsTimerMaxTime;
         _canTransform = true;
         _transformTimer = _transformTimerMax;
-        _scareable = false;
+        formable = false;
         StartCoroutine(ScareInvincibilityDelay());
     }
 
@@ -149,7 +150,7 @@ public class MediumGhost : MonoBehaviour
     IEnumerator ScareInvincibilityDelay()
     {
         yield return new WaitForSeconds(_onScareInvincibilityTime);
-        _scareable = true;
+        formable = true;
     }
 
     public float GetTransformTimer()
@@ -157,9 +158,9 @@ public class MediumGhost : MonoBehaviour
         return _transformTimer;
     }
 
-    public bool CheckIfScarable()
+    public bool CheckIfFormable()
     {
-        return _scareable;
+        return formable;
     }
 
     public void SetListIndex(int index)
@@ -175,52 +176,24 @@ public class MediumGhost : MonoBehaviour
             StartScare();
         }
         MakePressed(player._buttonPressed);
-        switch(PlayerManager.Instance.players.Length)
+        if(PlayerManager.Instance.players.Length > 1)
         {
-            case 1:
+            if(!players.Contains(player))
+            {
                 players.Add(player);
                 btnList.Add(player._buttonPressed);
                 shouldAdd = true;
-                break;
-            case 2:
-                if(CountInList(player)<2)
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            case 3:
-                if(CountInList(player)<2)
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            case 4:
-                if(CountInList(player)<1)
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            default:
-                print("Invalid number of players");
-                break;
+            }
+            else
+            {
+                ScareFail();
+            }
+        }
+        else
+        {
+            players.Add(player);
+            btnList.Add(player._buttonPressed);
+            shouldAdd = true;
         }
 
         if(shouldAdd)
@@ -265,6 +238,7 @@ public class MediumGhost : MonoBehaviour
         //targetBtnList.Clear();
         btnList.Clear();
         players.Clear();
+        SetSprites();
         foreach(Player player in players)
         {
             player._buttonPressed = BUTTON_PRESS.None;
@@ -324,32 +298,34 @@ public class MediumGhost : MonoBehaviour
                     break;
             }
         }
-
-        for (int i=0; i<spriteRends.Count; i++)
+        SetSprites();
+        CountElements(targetBtnCount, targetBtnList);
+        sequenceGenerated = true;
+    }
+    void SetSprites()
+    {
+        for (int i=0; i<images.Count; i++)
         {
             switch(targetBtnList[i])
             {
                 case BUTTON_PRESS.Up:
-                    spriteRends[i].sprite = sprites[0];
+                    images[i].sprite = sprites[0];
                     break;
                 case BUTTON_PRESS.Down:
-                    spriteRends[i].sprite = sprites[1];
+                    images[i].sprite = sprites[1];
                     break;
                 case BUTTON_PRESS.Left:
-                    spriteRends[i].sprite = sprites[2];
+                    images[i].sprite = sprites[2];
                     break;
                 case BUTTON_PRESS.Right:
-                    spriteRends[i].sprite = sprites[3];
+                    images[i].sprite = sprites[3];
                     break;
                 default:
                     print("Invalid button state");
                     break;
             }
         }
-        CountElements(targetBtnCount, targetBtnList);
-        sequenceGenerated = true;
     }
-
     int CountInList(Player player)
     {
         int count = 0;
@@ -369,39 +345,10 @@ public class MediumGhost : MonoBehaviour
         {
             if(button == targetBtnList[i] && !pressed)
             {
-                switch(button)
+                if(images[i].sprite != checkMark)
                 {
-                    case BUTTON_PRESS.Up:
-                        if(spriteRends[i].sprite != pressedSprites[0])
-                        {
-                            spriteRends[i].sprite = pressedSprites[0];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Down:
-                        if(spriteRends[i].sprite != pressedSprites[1])
-                        {
-                            spriteRends[i].sprite = pressedSprites[1];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Left:
-                        if(spriteRends[i].sprite != pressedSprites[2])
-                        {
-                            spriteRends[i].sprite = pressedSprites[2];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Right:
-                        if(spriteRends[i].sprite != pressedSprites[3])
-                        {
-                            spriteRends[i].sprite = pressedSprites[3];
-                            pressed = true;
-                        }
-                        break;
-                    default:
-                        print("Invalid button state");
-                        break;
+                    images[i].sprite = checkMark;
+                    pressed = true;
                 }
             }
             if(pressed)

@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
     public float levelMaxTime = 120;
     private float levelTimer;
     //countdown timer
-    private float startCountdownTimer = 5;
+    [SerializeField] private float startCountdownTimer = 3;
 
     //UI stuff
     public TextMeshProUGUI startText;
@@ -53,12 +53,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //level setup
         levelTimer = levelMaxTime;
         Time.timeScale = 0;
-        /*PlayerManager.Instance.SetAllPlayerControls(false);
-        GhostManager.Instance.SetAllGhostControls(false);*/
-
         StartCoroutine(StartCountdown());
     }
 
@@ -67,12 +63,13 @@ public class LevelManager : MonoBehaviour
         if(currentState == LEVEL_STATE.COUNTDOWN)
         {
             startCountdownTimer -= Time.unscaledDeltaTime;
+
             if (startCountdownTimer < 0.5f) startText.text = "Go!";
             else startText.text = startCountdownTimer.ToString("F0");
         }
         else if(currentState == LEVEL_STATE.STARTED)
             {
-            if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
+            //if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
 
             levelTimer -= Time.deltaTime;
             var ts = TimeSpan.FromSeconds(levelTimer);
@@ -103,7 +100,8 @@ public class LevelManager : MonoBehaviour
     //janky but its cool cause it will all be replaced with an animation countdown
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSecondsRealtime(startCountdownTimer - 2);
+
+        yield return new WaitForSecondsRealtime(startCountdownTimer);
         SetUI(false);
         BeginLevel();
     }

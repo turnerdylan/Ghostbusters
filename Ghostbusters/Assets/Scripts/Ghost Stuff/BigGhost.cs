@@ -14,6 +14,8 @@ public class BigGhost : MonoBehaviour
     public ParticleSystem explosionEffect;
 
     //private serializables
+    [SerializeField] private int _ghostsToSpawn = 8;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
     [SerializeField] private bool _scareable = true;
     [SerializeField] private float _onScareInvincibilityTime = 2.5f;
     [SerializeField] private int[] btnCount = new int[4];   
@@ -27,8 +29,9 @@ public class BigGhost : MonoBehaviour
     //public variables
     public List<Player> players = new List<Player>();
     public Sprite[] sprites = new Sprite[4];
-    public Sprite[] pressedSprites = new Sprite[4];
-    public List<SpriteRenderer> spriteRends = new List<SpriteRenderer>();
+    //public Sprite[] pressedSprites = new Sprite[4];
+    public Sprite checkMark;
+    public List<Image> images = new List<Image>();
     public GameObject buttonSequenceSprite;
     public Image timerBar;
     private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
@@ -103,24 +106,31 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        int ghost1 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-        GhostManager.Instance.mediumGhosts[ghost1].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost1].transform.position = transform.position;
-        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhost>().TriggerRunAway();
+        int spawnedGhosts = 0;
+        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
+        {
+            if (spawnedGhosts >= _ghostsToSpawn) break;
+            if (!GhostManager.Instance.smallGhosts[i].activeSelf)
+            {
+                GhostManager.Instance.smallGhosts[i].SetActive(true);
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+                spawnedGhosts++;
+            }
+        }
 
-        int ghost2 = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-        //set active
-        GhostManager.Instance.mediumGhosts[ghost2].SetActive(true);
-        GhostManager.Instance.mediumGhosts[ghost2].transform.position = transform.position;
-        
+        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+        //GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
+
         gameObject.SetActive(false);
+
     }
 
     private void ScareSuccess()
     {
         ResetScare();
         SplitApart();
-        //RandomEvent or blow back
+        //RandomEvent();
     }
 
     private void ScareFail()
@@ -155,6 +165,7 @@ public class BigGhost : MonoBehaviour
         //targetBtnList.Clear();
         btnList.Clear();
         players.Clear();
+        SetSprites();
         foreach(Player player in players)
         {
             player._buttonPressed = BUTTON_PRESS.None;
@@ -204,7 +215,7 @@ public class BigGhost : MonoBehaviour
                 }
                 break;
             case 4:
-                if(CountInList(player)<1)
+                if(!players.Contains(player))
                 {
                     players.Add(player);
                     btnList.Add(player._buttonPressed);
@@ -289,36 +300,39 @@ public class BigGhost : MonoBehaviour
                     targetBtnList.Add(BUTTON_PRESS.Right);
                     break;
                 default:
-                    print("Invalid number generation");
+                    print("Number generation outside range");
                     break;
             }
         }
-
-        for (int i=0; i<spriteRends.Count; i++)
+        SetSprites();
+        CountElements(targetBtnCount, targetBtnList);
+        sequenceGenerated = true;
+    }
+    void SetSprites()
+    {
+        for (int i=0; i<images.Count; i++)
         {
             switch(targetBtnList[i])
             {
                 case BUTTON_PRESS.Up:
-                    spriteRends[i].sprite = sprites[0];
+                images[i].sprite = sprites[0];
                     break;
                 case BUTTON_PRESS.Down:
-                    spriteRends[i].sprite = sprites[1];
+                images[i].sprite = sprites[1];
                     break;
                 case BUTTON_PRESS.Left:
-                    spriteRends[i].sprite = sprites[2];
+                images[i].sprite = sprites[2];
                     break;
                 case BUTTON_PRESS.Right:
-                    spriteRends[i].sprite = sprites[3];
+                images[i].sprite = sprites[3];
                     break;
                 default:
                     print("Invalid button state");
                     break;
             }
         }
-        CountElements(targetBtnCount, targetBtnList);
-        sequenceGenerated = true;
     }
-
+    
     int CountInList(Player player)
     {
         int count = 0;
@@ -339,45 +353,30 @@ public class BigGhost : MonoBehaviour
         {
             if(button == targetBtnList[i] && !pressed)
             {
-                switch(button)
+                if (images[i].sprite != checkMark)
                 {
-                    case BUTTON_PRESS.Up:
-                        if(spriteRends[i].sprite != pressedSprites[0])
-                        {
-                            spriteRends[i].sprite = pressedSprites[0];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Down:
-                        if(spriteRends[i].sprite != pressedSprites[1])
-                        {
-                            spriteRends[i].sprite = pressedSprites[1];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Left:
-                        if(spriteRends[i].sprite != pressedSprites[2])
-                        {
-                            spriteRends[i].sprite = pressedSprites[2];
-                            pressed = true;
-                        }
-                        break;
-                    case BUTTON_PRESS.Right:
-                        if(spriteRends[i].sprite != pressedSprites[3])
-                        {
-                            spriteRends[i].sprite = pressedSprites[3];
-                            pressed = true;
-                        }
-                        break;
-                    default:
-                        print("Invalid button state");
-                        break;
+                 images[i].sprite = checkMark;
+                    pressed = true;
                 }
             }
             if(pressed)
             {
                 break;
             }
+        }
+    }
+
+    void RandomEvent()
+    {
+        int num = UnityEngine.Random.Range(1,2);
+        switch(num)
+        {
+            case 1:
+                GameEvents.current.LightsOff();
+                break;
+            default:
+                print("Number generation outside range");
+                break;
         }
     }
 }

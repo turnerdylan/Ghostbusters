@@ -6,11 +6,9 @@ public class GhostStunHitBox : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        print("triggered");
         if(other.GetComponent<Player>())
         {
-            print("stunned");
-            other.GetComponent<Player>().TriggerStun();
+            other.GetComponent<Player>().LoseHP();
             PlayerManager.Instance.CheckIfAllPlayersAreStunned();
         }
     }
