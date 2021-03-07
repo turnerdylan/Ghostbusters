@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Light spotlight;
     private PeekabooGhost peekaboo;
-    private TextMeshPro healthText;
 
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
@@ -63,8 +62,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         peekaboo = FindObjectOfType<PeekabooGhost>();
-        healthText = GetComponentInChildren<TextMeshPro>();
-        healthText.text = _playerHealth.ToString();
     }
 
     private void FixedUpdate()
@@ -206,7 +203,6 @@ public class Player : MonoBehaviour
     {
         _playerHealth--;
         hearts[_playerHealth].sprite = heartEmpty;
-        healthText.text = _playerHealth.ToString();
         if(_playerHealth <= 0)
         {
             StartCoroutine(StunPlayer(_stunTime));
@@ -227,7 +223,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(stunTime);
         enabled = true;
         _playerHealth = 3;
-        healthText.text = _playerHealth.ToString();
         hearts[0].sprite = heartFilled;
         hearts[1].sprite = heartFilled;
         hearts[2].sprite = heartFilled;
