@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEditor;
 using UnityEngine.InputSystem;
 
@@ -28,11 +29,16 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Light spotlight;
     private PeekabooGhost peekaboo;
+    private TextMeshPro healthText;
 
     //serializables
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private float _viewAngle = 45f;
     [SerializeField] private float _rotationSpeed = 10f;
+    [SerializeField] private int _playerHealth = 3;
+    [SerializeField] Sprite heartFilled;
+    [SerializeField] Sprite heartEmpty;
+    [SerializeField] List<SpriteRenderer> hearts = new List<SpriteRenderer>();
 
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
@@ -56,6 +62,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         peekaboo = FindObjectOfType<PeekabooGhost>();
+        healthText = GetComponentInChildren<TextMeshPro>();
+        healthText.text = _playerHealth.ToString();
     }
 
     private void FixedUpdate()
@@ -193,6 +201,17 @@ public class Player : MonoBehaviour
     #endregion
 
 
+    public void LoseHP()
+    {
+        _playerHealth--;
+        hearts[_playerHealth].sprite = heartEmpty;
+        healthText.text = _playerHealth.ToString();
+        if(_playerHealth <= 0)
+        {
+            StartCoroutine(StunPlayer(_stunTime));
+        }
+    }
+
     public void TriggerStun()
     {
         StartCoroutine(StunPlayer(_stunTime));
@@ -206,6 +225,11 @@ public class Player : MonoBehaviour
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
         enabled = true;
+        _playerHealth = 3;
+        healthText.text = _playerHealth.ToString();
+        hearts[0].sprite = heartFilled;
+        hearts[1].sprite = heartFilled;
+        hearts[2].sprite = heartFilled;
         currentState = PLAYER_STATE.NORMAL;
     }
     public void Scare(BUTTON_PRESS buttonDirection)

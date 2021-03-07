@@ -8,7 +8,7 @@ public class GhostStunHitBox : MonoBehaviour
     {
         if(other.GetComponent<Player>())
         {
-            other.GetComponent<Player>().TriggerStun();
+            other.GetComponent<Player>().LoseHP();
             PlayerManager.Instance.CheckIfAllPlayersAreStunned();
         }
     }
