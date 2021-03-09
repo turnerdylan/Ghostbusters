@@ -29,9 +29,13 @@ These updates will be implemented and ready to run for our largest playtesting s
 
 C - 
 
-D - This week was the start of a new round of mechanics and design updates. I was able to get a simple UI menu scene designed with some placeholder images, this will serve as our intro menu as players enter the game. On the second round of changes we added the brand new 'peekaboo ghost' which players must locate and scare in order to summon new ghosts. I also implemented the new player health dynamic. This allows for better feedback to allow players to know what is going on, and also gives the players one more item to focus on as the chaos ensues inside the game.
+D - This week was the start of a new round of mechanics and design updates. I was able to get a simple UI menu scene designed with some placeholder images, this will serve as our intro menu as players enter the game.
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clipMenu.PNG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clip3-8.PNG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clipMenu.PNG" width="75%">
+
+On the second round of changes we added the brand new 'peekaboo ghost' which players must locate and scare in order to summon new ghosts. I also implemented the new player health dynamic. This allows for better feedback to allow players to know what is going on, and also gives the players one more item to focus on as the chaos ensues inside the game.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clip3-8.PNG" width="75%">
 
 Z - 
 
