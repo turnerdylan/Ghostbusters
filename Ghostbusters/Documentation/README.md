@@ -29,7 +29,10 @@ These updates will be implemented and ready to run for our largest playtesting s
 
 C - This week we've added a number of new mechanics. One such change was the addition of scare towers. These are towers in four corners of the level that the players must "load" a scare into to activate. Once all four towers are activated with the four different scares, all the small ghosts in the scene get frozen in place. This allows players to grab them more easily. The speed of the ghosts has been set such that they are too fast for the player to catch normally. When each tower is activated it emits a particle effect that indicates which scare has been used. There is a timer on each tower before it gets deactivated. The idea is that if all four players contribute to activating the tower then all towers can be activated instantly while a single player could activate all the towers but it will take longer.
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-1.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-2.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-3.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-4.png" width="25%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-1.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-2.png" width="50%">
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-3.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-4.png" width="50%">
+
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare.gif" width="75%">
 
 D - This week was the start of a new round of mechanics and design updates. I was able to get a simple UI menu scene designed with some placeholder images, this will serve as our intro menu as players enter the game.
