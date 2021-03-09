@@ -37,7 +37,9 @@ On the second round of changes we added the brand new 'peekaboo ghost' which pla
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clip3-8.PNG" width="75%">
 
-Z - 
+Z -This week we developed a variety new ghost models all with movement animations (pictured below), stun animations and spooked animations. The goal was to create ~5 ghosts with distinct silhouettes to have spawn in within the levels, each having different versions of the basic system, a stun attack, movement and splitting into smaller versions of themselves. I think the variations in the enemies with give the levels in the game more flavor and also the ghosts are just so goofy it's wonderful.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-BedSheetBoi.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-Bun.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-GeneralGuy.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-Leggg.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-SharkDodododododo.gif" width="30%">
 
 - - -
 
