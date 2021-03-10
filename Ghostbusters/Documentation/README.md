@@ -7,7 +7,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 3/9/26/2021 - Week 7 & 8
+## 3/9/26/2021 - Week 9
+### Goals:
+- C - Tower mechanics updates and ghost button sequence adjustments
+
+- D - Bag changes and Peek-a-Boo ghost updates
+
+- Z - Menu scene development 
+
+
+### Weekly Updates:
+
+- - -
+
+## 3/9/26/2021 - Week 7 & 8: Towers and 
 ### Goals:
 - C - Updating ghost movement, adding player scare counter and implementing EMP tower prototype
 
