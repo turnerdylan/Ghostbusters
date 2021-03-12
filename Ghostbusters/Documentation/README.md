@@ -7,7 +7,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 3/9/26/2021 - Week 7 & 8
+## 3/9/26/2021 - Week 9
+### Goals:
+- C - Tower mechanics updates and ghost button sequence adjustments
+
+- D - Bag changes and Peek-a-Boo ghost updates
+
+- Z - Menu scene development 
+
+
+### Weekly Updates:
+
+- - -
+
+## 3/9/26/2021 - Week 7 & 8: Towers and 
 ### Goals:
 - C - Updating ghost movement, adding player scare counter and implementing EMP tower prototype
 
@@ -27,11 +40,25 @@ Our next big update involves the last stage of the ghost interaction. After a gh
 
 These updates will be implemented and ready to run for our largest playtesting session yet at the Whaaat?! Festival Naaaturecade event happening this weekend. (Playtest results to follow soon) 
 
-C - 
+C - This week we've added a number of new mechanics. One such change was the addition of scare towers. These are towers in four corners of the level that the players must "load" a scare into to activate. Once all four towers are activated with the four different scares, all the small ghosts in the scene get frozen in place. This allows players to grab them more easily. The speed of the ghosts has been set such that they are too fast for the player to catch normally. When each tower is activated it emits a particle effect that indicates which scare has been used. There is a timer on each tower before it gets deactivated. The idea is that if all four players contribute to activating the tower then all towers can be activated instantly while a single player could activate all the towers but it will take longer.
 
-D - 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-1.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-2.png" width="50%">
 
-Z - 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-3.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare-4.png" width="50%">
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-scare.gif" width="75%">
+
+D - This week was the start of a new round of mechanics and design updates. I was able to get a simple UI menu scene designed with some placeholder images, this will serve as our intro menu as players enter the game.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clipMenu.PNG" width="75%">
+
+On the second round of changes we added the brand new 'peekaboo ghost' which players must locate and scare in order to summon new ghosts. I also implemented the new player health dynamic. This allows for better feedback to allow players to know what is going on, and also gives the players one more item to focus on as the chaos ensues inside the game.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/clip3-8.PNG" width="75%">
+
+Z -This week we developed a variety new ghost models all with movement animations (pictured below), stun animations and spooked animations. The goal was to create ~5 ghosts with distinct silhouettes to have spawn in within the levels, each having different versions of the basic system, a stun attack, movement and splitting into smaller versions of themselves. I think the variations in the enemies with give the levels in the game more flavor and also the ghosts are just so goofy it's wonderful.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-BedSheetBoi.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-Bun.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-GeneralGuy.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-Leggg.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GhostAnim-SharkDodododododo.gif" width="30%">
 
 - - -
 
