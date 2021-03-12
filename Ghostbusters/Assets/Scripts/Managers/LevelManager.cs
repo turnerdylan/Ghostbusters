@@ -55,7 +55,9 @@ public class LevelManager : MonoBehaviour
     {
         levelTimer = levelMaxTime;
         Time.timeScale = 0;
-        StartCoroutine(StartCountdown());
+        //StartCoroutine(StartCountdown());
+        SetUI(false);
+        BeginLevel();
     }
 
     private void Update()

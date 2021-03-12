@@ -43,6 +43,14 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
+                    ""name"": ""Dive"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d5bb0d9-ebc3-4d12-b754-46204601abc1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
                     ""name"": ""GetBag"",
                     ""type"": ""Button"",
                     ""id"": ""f97d999d-872a-42d1-b7af-1758f874b960"",
@@ -328,12 +336,23 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7af5284e-fb1f-45b8-91c2-de02b71f8faf"",
+                    ""id"": ""eeeac0c4-ef7f-4d16-a928-122871ee36b1"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df9c11b4-3e5b-4b4f-86db-1e651c44f558"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""SwingBag"",
+                    ""action"": ""Dive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -914,6 +933,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_SwingBag = m_Player.FindAction("SwingBag", throwIfNotFound: true);
+        m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
         m_Player_GetBag = m_Player.FindAction("GetBag", throwIfNotFound: true);
         m_Player_UpScare = m_Player.FindAction("UpScare", throwIfNotFound: true);
         m_Player_DownScare = m_Player.FindAction("DownScare", throwIfNotFound: true);
@@ -983,6 +1003,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_SwingBag;
+    private readonly InputAction m_Player_Dive;
     private readonly InputAction m_Player_GetBag;
     private readonly InputAction m_Player_UpScare;
     private readonly InputAction m_Player_DownScare;
@@ -995,6 +1016,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @SwingBag => m_Wrapper.m_Player_SwingBag;
+        public InputAction @Dive => m_Wrapper.m_Player_Dive;
         public InputAction @GetBag => m_Wrapper.m_Player_GetBag;
         public InputAction @UpScare => m_Wrapper.m_Player_UpScare;
         public InputAction @DownScare => m_Wrapper.m_Player_DownScare;
@@ -1018,6 +1040,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @SwingBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
                 @SwingBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
                 @SwingBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
+                @Dive.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
+                @Dive.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
+                @Dive.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
                 @GetBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
                 @GetBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
                 @GetBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
@@ -1046,6 +1071,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @SwingBag.started += instance.OnSwingBag;
                 @SwingBag.performed += instance.OnSwingBag;
                 @SwingBag.canceled += instance.OnSwingBag;
+                @Dive.started += instance.OnDive;
+                @Dive.performed += instance.OnDive;
+                @Dive.canceled += instance.OnDive;
                 @GetBag.started += instance.OnGetBag;
                 @GetBag.performed += instance.OnGetBag;
                 @GetBag.canceled += instance.OnGetBag;
@@ -1220,6 +1248,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSwingBag(InputAction.CallbackContext context);
+        void OnDive(InputAction.CallbackContext context);
         void OnGetBag(InputAction.CallbackContext context);
         void OnUpScare(InputAction.CallbackContext context);
         void OnDownScare(InputAction.CallbackContext context);

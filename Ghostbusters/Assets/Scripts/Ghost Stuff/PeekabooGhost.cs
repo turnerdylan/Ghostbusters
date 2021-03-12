@@ -13,52 +13,54 @@ public class PeekabooGhost : MonoBehaviour
     //timer for changing locations
     [SerializeField] List<Transform> locations = new List<Transform>();
     [SerializeField] float interactionRange;
-    [SerializeField] float changeLocationsTimerMax = 5f;
+    [SerializeField] float cantTeleportTimerMax = 3f;
+    float cantTeleportTimer;
+
     Animator anim;
-    [SerializeField] float animDuration;
-    [SerializeField] float startValue = 0;
-    [SerializeField] float endValue = -3;
     
     int currentLocationIndex;
-    public float changeLocationsTimer;
+    bool canTeleport = false;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        changeLocationsTimer = changeLocationsTimerMax;
+        anim = GetComponentInChildren<Animator>();
         currentLocationIndex = Random.Range(0, locations.Count);
         transform.position = locations[currentLocationIndex].position;
+        cantTeleportTimer = cantTeleportTimerMax;
     }
 
     private void Update()
     {
+        cantTeleportTimer -= Time.deltaTime;
+        //look at player
         var target = PlayerManager.Instance.GetClosestPlayer();
         Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
         this.transform.LookAt(targetPostition);
 
-        changeLocationsTimer -= Time.deltaTime;
-        if(changeLocationsTimer < 0)
+        //
+        if (Vector3.Distance(transform.position, target.position) < 10 && cantTeleportTimer < 0)
         {
-            //StartCoroutine(GoDown());
-            changeLocationsTimer = changeLocationsTimerMax;
             ChangeLocations();
         }
     }
 
-    /*private IEnumerator GoDown()
+    private IEnumerator GoDown()
     {
+        //get some values
         float timeElapsed = 0;
+        float timeToGoDown = 50;
+        Vector3 goToPosition = new Vector3(transform.position.x, transform.position.y - 5, transform.position.z);
 
-        while (timeElapsed < animDuration)
+
+        //lerp the alpha
+        while (timeElapsed < timeToGoDown)
         {
-            transform.position.y = Mathf.Lerp(startValue, endValue, timeElapsed / animDuration);
+            transform.position = Vector3.Lerp(transform.position, goToPosition, timeElapsed / timeToGoDown);
             timeElapsed += Time.deltaTime;
-
             yield return null;
         }
-
-        valueToLerp = endValue;
-    }*/
+        yield return null;
+    }
 
     ////functions
     //change locations
@@ -66,6 +68,7 @@ public class PeekabooGhost : MonoBehaviour
     //summon ghost
     private void ChangeLocations()
     {
+
         int tempIndex = Random.Range(0, locations.Count);
         while(tempIndex == currentLocationIndex)
         {
@@ -73,6 +76,7 @@ public class PeekabooGhost : MonoBehaviour
         }
         currentLocationIndex = tempIndex;
         transform.position = locations[currentLocationIndex].position;
+        cantTeleportTimer = cantTeleportTimerMax;
     }
 
     public void SummonGhost()

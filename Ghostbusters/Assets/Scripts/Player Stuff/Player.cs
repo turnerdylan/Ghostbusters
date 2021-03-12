@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     private Vector3 _moveDirection = Vector3.zero;
     private Vector2 _inputMoveVector = Vector2.zero;
     private Vector3 _inputLookVector = Vector3.zero;
-
+    private bool canDive = true;
     private float _storedLookValue;
     public PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
 
@@ -134,6 +134,32 @@ public class Player : MonoBehaviour
         {
             anim.SetTrigger("Catch");           
         }
+    }
+
+    public void Dive()
+    {
+        if(canDive)
+        {
+            anim.SetTrigger("Dive");
+            canDive = false;
+            StartCoroutine(DashSpeed());
+        }
+    }
+
+    IEnumerator DashSpeed()
+    {
+        float speedModifier = 3;
+        _moveSpeed *= speedModifier;
+        yield return new WaitForSeconds(.5f);
+        _moveSpeed /= speedModifier;
+        StartCoroutine(CantDashDelay());
+        
+    }
+
+    private IEnumerator CantDashDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canDive = true;
     }
 
     public void SwingBagStart()
