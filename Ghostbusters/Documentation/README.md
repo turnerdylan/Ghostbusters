@@ -17,6 +17,18 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 
 ### Weekly Updates:
+C - 
+
+D - 
+
+Z - I mostly worked on getting some more modeling and menu things completed this week, starting with the low poly overview of the island. We wanted it to look like a simplified bird's eye view of the island including all of the areas that our levels are taking place in. A version of this map will exist in the menu for Spooked next to the character selection.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/SpookedMap-LowPoly.JPG" width="75%">
+
+For our character selection, we wanted players to easily be able to choose and swap their characters before entering a level. Our idea that the menu exists inside of the Spooked team van extends to the character selection as well. I took some renders of the characters and turned them into stylized polaroid like photos that will hand on the wall inside the van and swap to whichever character you want to play as. Below are the character portraits. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-Yellow.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-FishHead.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-BuffBird.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-Roboi.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-Sweets.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-Blondie.png" width="25%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Polaroid-RedShirt.png" width="25%">
+
 
 - - -
 
