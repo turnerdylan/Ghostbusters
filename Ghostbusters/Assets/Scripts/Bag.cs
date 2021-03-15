@@ -90,15 +90,20 @@ public class Bag : MonoBehaviour
     private void OnTriggerEnter(Collider other) //on a capture
     {
         if (_numberOfHeldGhosts == _maxNumberOfGhostsHeld) return;
-        if(other.GetComponent<SmallGhost>())
+
+        if(other.GetComponent<SmallGhost>() && other.GetComponent<SmallGhostMovement>().currentState == SMALL_GHOST_STATE.FROZEN)
         {
-            other.gameObject.SetActive(false);
-            _numberOfHeldGhosts++;
-            caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
+            // other.gameObject.SetActive(false);
+            // _numberOfHeldGhosts++;
+            // caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
             foreach(Player player in PlayerManager.Instance.players)
             {
                 if(player.GetPlayerState() == PLAYER_STATE.WITH_BAG)
                 {
+                    other.gameObject.SetActive(false);
+                    _numberOfHeldGhosts++;
+                    caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
+                    
                     player.score++;
                     PlayerManager.Instance.CalculateScore();
                 }

@@ -39,18 +39,19 @@ public class Tower : MonoBehaviour
         {
             _timer -= Time.deltaTime;
             //timerBar.fillAmount = _timer/towerTimer;
-            if(_timer > 0)
+            if(_timer <= 0)
             {
-                //change color of tower
-            }
-            else
-            {
-                scareLoaded = false;
-                particles[0].Stop();
-                particles[1].Stop();
-                _timer = towerTimer;
+                ResetTower();
             }
         }
+    }
+
+    public void ResetTower()
+    {
+        scareLoaded = false;
+        particles[0].Stop();
+        particles[1].Stop();
+        _timer = towerTimer;
     }
 
     public void LoadScare(BUTTON_PRESS scareToLoad)
@@ -82,10 +83,10 @@ public class Tower : MonoBehaviour
             particles[0].Play();
             particles[1].Play();
         }
-        if(TowerManager.Instance.AllLoaded())
-        {
-            TowerManager.Instance.FreezeGhosts();
-        }
+        // if(TowerManager.Instance.AllLoaded())
+        // {
+        //     TowerManager.Instance.FreezeGhosts();
+        // }
     }
 
     
