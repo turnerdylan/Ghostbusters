@@ -164,12 +164,12 @@ public class Player : MonoBehaviour
 
     public void SwingBagStart()
     {
-        Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;
+        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;
     }
 
     public void SwingBagEnd()
     {
-        Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
+        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
     }
 
     private IEnumerator ChangeSpotlightColor()
@@ -290,6 +290,11 @@ public class Player : MonoBehaviour
                 tower.LoadScare(buttonDirection);
                 return;
             }
+        }
+
+        if(Vector3.Distance(TowerManager.Instance.transform.position, transform.position) <= _scareRange && buttonDirection == BUTTON_PRESS.Down)
+        {
+            TowerManager.Instance.PressButton();
         }
 
         _buttonPressed = buttonDirection;

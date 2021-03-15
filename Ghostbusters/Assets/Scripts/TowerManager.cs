@@ -31,8 +31,10 @@ public class TowerManager : MonoBehaviour
 
     public Tower[] towers = new Tower[4];
     public float freezeTimer = 15.0f;
-    private bool allLoaded;
+    //private bool allLoaded;
+    private bool buttonPressed;
     private float _timer;
+    public float towerRange = 50.0f;
 
     void Start()
     {
@@ -41,50 +43,69 @@ public class TowerManager : MonoBehaviour
 
     void Update()
     {
-        if(allLoaded)
+        if(buttonPressed)
         {
             _timer -= Time.deltaTime;
             //timerBar.fillAmount = _timer/towerTimer;
-            if(_timer > 0)
+            if(_timer <= 0)
             {
-
-            }
-            else
-            {
-                allLoaded = false;
+                buttonPressed = false;
                 _timer = freezeTimer;
                 UnFreezeGhosts();
+                foreach(Tower tower in towers)
+                {
+                    if(tower.scareLoaded)
+                    {
+                        tower.ResetTower();
+                    }
+                }
             }
         }
     }
 
-    public bool AllLoaded()
+    public void PressButton()
     {
-        int numLoaded = 0;
-        foreach(Tower tower in towers)
-        {
-            if(tower.scareLoaded)
-                numLoaded++;
-        }
-        if(numLoaded == 4)
-        {
-            allLoaded = true;
-            return true;
-        }
-        else
-            return false;
+        buttonPressed = true;
+        FreezeGhosts();
     }
+
+    // public bool AllLoaded()
+    // {
+    //     int numLoaded = 0;
+    //     foreach(Tower tower in towers)
+    //     {
+    //         if(tower.scareLoaded)
+    //             numLoaded++;
+    //     }
+    //     if(numLoaded == 4)
+    //     {
+    //         allLoaded = true;
+    //         return true;
+    //     }
+    //     else
+    //         return false;
+    // }
 
     public void FreezeGhosts()
     {
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        foreach(Tower tower in towers)
         {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            if(tower.scareLoaded)
             {
-                StartCoroutine(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhostMovement>().State_Frozen());
+                for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+                {
+                    if(GhostManager.Instance.smallGhosts[i].activeSelf)
+                    {
+                        if(Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, tower.transform.position) <= towerRange)
+                        {
+                            StartCoroutine(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhostMovement>().State_Frozen());
+                        }
+                    }
+                }
             }
         }
     }
+
     private void UnFreezeGhosts()
     {
         print("Unfreeze ghosts");
