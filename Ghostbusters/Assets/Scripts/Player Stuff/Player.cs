@@ -162,15 +162,6 @@ public class Player : MonoBehaviour
         canDive = true;
     }
 
-    public void SwingBagStart()
-    {
-        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;
-    }
-
-    public void SwingBagEnd()
-    {
-        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
-    }
 
     private IEnumerator ChangeSpotlightColor()
     {
