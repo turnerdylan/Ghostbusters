@@ -19,7 +19,7 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 ### Weekly Updates:
 C - 
 
-D - This week we spent a lot of time redesigning our game. I updated the peekaboo ghosts so that they only run away when you get near them. We decided to get rid of the bag entirely and replace it with player-attached backpacks, because the bag was too slow. I also spent some time redesigning the main menu so that we caould get a character select screen working. Check it out below!
+D - This week we spent a lot of time redesigning our game. I updated the peekaboo ghosts so that they only run away when you get near them. We decided to get rid of the bag entirely and replace it with player-attached backpacks, because the bag was too slow. I also spent some time redesigning the main menu so that we could get a character select screen working. Check it out below!
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuSceneCapture.gif" width="75%">
 
