@@ -8,20 +8,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 3/9/26/2021 - Week 9
+## 3/23/26/2021 - Week 10
 ### Goals:
-- C - Tower mechanics updates and ghost button sequence adjustments
+- C - Ghost behavior updates
 
-- D - Bag changes and Peek-a-Boo ghost updates
+- D - Menu and tutorial development
 
-- Z - Menu scene development 
+- Z - Level development
 
 
 ### Weekly Updates:
 
 - - -
 
-## 3/9/26/2021 - Week 9
+## 3/16/26/2021 - Week 9 [Ch-ch-ch-ch-changes!](https://www.youtube.com/watch?v=pl3vxEudif8&ab_channel=ArthurQuintard)
 ### Goals:
 - C - Tower mechanics updates and ghost button sequence adjustments
 
