@@ -5,6 +5,20 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GroupPhoto.png" width="75%">
 
+
+- - -
+
+## 3/9/26/2021 - Week 9
+### Goals:
+- C - Tower mechanics updates and ghost button sequence adjustments
+
+- D - Bag changes and Peek-a-Boo ghost updates
+
+- Z - Menu scene development 
+
+
+### Weekly Updates:
+
 - - -
 
 ## 3/9/26/2021 - Week 9
@@ -31,7 +45,7 @@ Another feature we added was a limited lifetime on the small ghosts so that afte
 
 D - This week we spent a lot of time redesigning our game. I updated the peekaboo ghosts so that they only run away when you get near them. We decided to get rid of the bag entirely and replace it with player-attached backpacks, because the bag was too slow. I also spent some time redesigning the main menu so that we could get a character select screen working. Check it out below!
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuSceneCapture.gif" width="75%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuSceneUpdates.gif" width="75%">
 
 
 Z - I mostly worked on getting some more modeling and menu things completed this week, starting with the low poly overview of the island. We wanted it to look like a simplified bird's eye view of the island including all of the areas that our levels are taking place in. A version of this map will exist in the menu for Spooked next to the character selection.
