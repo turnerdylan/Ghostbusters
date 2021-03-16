@@ -101,7 +101,7 @@ public class BigGhost : MonoBehaviour
     {
         //_scareInputsTimer = _scareInputsTimerMaxTime;
         _scareable = false;
-        StartCoroutine(ScareInvincibility());
+        //StartCoroutine(ScareInvincibility());
     }
 
     public void SplitApart()
@@ -113,7 +113,7 @@ public class BigGhost : MonoBehaviour
             if (!GhostManager.Instance.smallGhosts[i].activeSelf)
             {
                 GhostManager.Instance.smallGhosts[i].SetActive(true);
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                // GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
                 GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
@@ -136,7 +136,7 @@ public class BigGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        //Instantiate(explosivePrefab, transform.position, Quaternion.identity);
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 

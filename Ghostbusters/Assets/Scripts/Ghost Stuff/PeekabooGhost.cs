@@ -82,9 +82,19 @@ public class PeekabooGhost : MonoBehaviour
     public void SummonGhost()
     {
         //int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
-        int index = Random.Range(0, GhostManager.Instance.mediumGhosts.Count);
-        GhostManager.Instance.mediumGhosts[index].SetActive(true);
-        GhostManager.Instance.mediumGhosts[index].transform.position = transform.position;
+        int ghostRange = Random.Range(0, GhostManager.Instance.mediumGhosts.Count+GhostManager.Instance.bigGhosts.Count);
+        if(ghostRange < GhostManager.Instance.mediumGhosts.Count)
+        {
+            int index = Random.Range(0, GhostManager.Instance.mediumGhosts.Count);
+            GhostManager.Instance.mediumGhosts[index].SetActive(true);
+            GhostManager.Instance.mediumGhosts[index].transform.position = transform.position;
+        }
+        else
+        {
+            int index = Random.Range(0, GhostManager.Instance.bigGhosts.Count);
+            GhostManager.Instance.bigGhosts[index].SetActive(true);
+            GhostManager.Instance.bigGhosts[index].transform.position = transform.position;
+        }
     }
 
     public float GetInteractRange()

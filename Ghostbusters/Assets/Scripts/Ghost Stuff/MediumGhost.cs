@@ -125,7 +125,7 @@ public class MediumGhost : MonoBehaviour
         _canTransform = true;
         _transformTimer = _transformTimerMax;
         formable = false;
-        StartCoroutine(ScareInvincibilityDelay());
+        //StartCoroutine(ScareInvincibilityDelay());
     }
 
     public void SplitApart()
@@ -226,7 +226,7 @@ public class MediumGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        //Instantiate(explosivePrefab, transform.position, Quaternion.identity);
     }
 
     void ResetScare()

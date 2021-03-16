@@ -29,7 +29,7 @@ public class Van : MonoBehaviour
 
     [SerializeField] private float _interactionRadius = 6f;
     [SerializeField] private TextMeshPro counterText;
-    [SerializeField] private int numberOfStoredGhosts = 0;
+    public int numberOfStoredGhosts = 0;
 
     SpriteRenderer buttonSprite;
 
@@ -62,6 +62,8 @@ public class Van : MonoBehaviour
 
     public void DepositGhosts(int storedGhosts)
     {
+        print("deposit ghosts");
         numberOfStoredGhosts += storedGhosts;
+        PlayerManager.Instance.CalculateScore();
     }
 }

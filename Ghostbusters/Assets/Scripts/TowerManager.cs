@@ -35,6 +35,9 @@ public class TowerManager : MonoBehaviour
     private bool buttonPressed;
     private float _timer;
     public float towerRange = 50.0f;
+    public GameObject buttonTop;
+    public Transform pressedTransform;
+    public Transform unpressedTransform;
 
     void Start()
     {
@@ -43,8 +46,9 @@ public class TowerManager : MonoBehaviour
 
     void Update()
     {
-        if(buttonPressed)
+        if(buttonPressed) //might need to add condition for if button is pressed but no small ghosts are active
         {
+            buttonTop.SetActive(false);
             _timer -= Time.deltaTime;
             //timerBar.fillAmount = _timer/towerTimer;
             if(_timer <= 0)
@@ -61,8 +65,20 @@ public class TowerManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            buttonTop.SetActive(true);
+        }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            //print("Button pressed");
+            PressButton();
+        }
+    }
     public void PressButton()
     {
         buttonPressed = true;
@@ -108,7 +124,7 @@ public class TowerManager : MonoBehaviour
 
     private void UnFreezeGhosts()
     {
-        print("Unfreeze ghosts");
+        //print("Unfreeze ghosts");
         for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
         {
             if(GhostManager.Instance.smallGhosts[i].activeSelf)
@@ -118,5 +134,6 @@ public class TowerManager : MonoBehaviour
             }
         }
     }
+
         
 }

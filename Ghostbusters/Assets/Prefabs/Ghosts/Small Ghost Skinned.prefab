@@ -466,8 +466,10 @@ MonoBehaviour:
   _scareable: 1
   _onScareInvincibilityTime: 1
   players: []
-  timer: 3
+  timer: 30
   _transformTimer: 0
+  blinkDuration: 15
+  redMat: {fileID: 2100000, guid: 2338f8ff5e2d9cd46875e99872e7efd3, type: 2}
 --- !u!114 &1038077007321225001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,10 +482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
   seekDistance: 7.5
+  currentState: 1
 --- !u!1 &8138825041592426302
 GameObject:
   m_ObjectHideFlags: 0

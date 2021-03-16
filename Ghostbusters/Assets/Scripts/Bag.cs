@@ -105,7 +105,7 @@ public class Bag : MonoBehaviour
                     caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
                     
                     player.score++;
-                    PlayerManager.Instance.CalculateScore();
+                    //PlayerManager.Instance.CalculateScore();
                 }
             }
         }

@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
         {
             totalScore += player.score;
         }
-        scoreText.text = "Score: " + totalScore.ToString("F0");
+        scoreText.text = "Score: " + totalScore;
     }
     
     public Transform GetClosestPlayer()

@@ -233,4 +233,12 @@ public class GhostManager : MonoBehaviour
     {
         return _ghostScore;
     }
+
+    // public bool CheckIfAnyActive()
+    // {
+    //     foreach(SmallGhost ghost in smallGhosts)
+    //     {
+
+    //     }
+    // }
 }
