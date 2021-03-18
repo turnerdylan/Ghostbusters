@@ -856,11 +856,11 @@ GameObject:
   - component: {fileID: 6987372127616524335}
   - component: {fileID: 7760811846356712095}
   - component: {fileID: 7760811846356712088}
-  - component: {fileID: 7760811846356712089}
   - component: {fileID: 7760811846356712090}
   - component: {fileID: 7760811846356712091}
   - component: {fileID: 7760811846356712084}
   - component: {fileID: 1412309227510670846}
+  - component: {fileID: 6252642605387238931}
   m_Layer: 0
   m_Name: Big Ghost Skinned
   m_TagString: Untagged
@@ -919,6 +919,8 @@ MonoBehaviour:
     type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
+  _ghostsToSpawn: 8
+  _ghostSpawnOffset: 0.5
   _scareable: 1
   _onScareInvincibilityTime: 2.5
   btnCount: 00000000000000000000000000000000
@@ -938,20 +940,6 @@ MonoBehaviour:
   buttonSequenceSprite: {fileID: 1753744802558271486}
   timerBar: {fileID: 3399797207480336639}
   timer: 3
---- !u!114 &7760811846356712089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760811846356712085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxTest: {fileID: 8400662735829862909}
-  _attackRange: 5
 --- !u!54 &7760811846356712090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1022,6 +1010,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1753744802558271486}
+--- !u!114 &6252642605387238931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760811846356712085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7b73029148ef048a9983ed31456aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderRadius: 50
+  wanderTimer: 8
 --- !u!1 &8138825041592426302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1158,6 @@ GameObject:
   - component: {fileID: 8289586623550293930}
   - component: {fileID: 1047376262339492588}
   - component: {fileID: 4025129032800597707}
-  - component: {fileID: 6859278178302254633}
   m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
@@ -1238,18 +1239,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6859278178302254633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8400662735829862909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5660ed564be244f469106f7927e00b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8558127064687100086
 GameObject:
   m_ObjectHideFlags: 0

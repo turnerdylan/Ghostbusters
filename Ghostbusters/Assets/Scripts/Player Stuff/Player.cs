@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     public Transform handTransform;
     public int score;
     public TextMeshProUGUI heldGhostsText;
+    public GameObject redX;
     bool canMove = true;
 
     private void Awake()
@@ -98,6 +99,17 @@ public class Player : MonoBehaviour
             currentInteraction.Interact();
     }
 
+    public void FlashX()
+    {
+        StartCoroutine(DisplayX());
+    }
+
+    IEnumerator DisplayX()
+    {
+        redX.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        redX.SetActive(false);
+    }
     public void PickupBag()
     {
         DropBag();
@@ -310,6 +322,7 @@ public class Player : MonoBehaviour
     }
     public IEnumerator DisableTrigger(float time)
     {
+        print("trigger disabled");
         GetComponent<SphereCollider>().isTrigger = false;
         yield return new WaitForSeconds(time);
         GetComponent<SphereCollider>().isTrigger = true;

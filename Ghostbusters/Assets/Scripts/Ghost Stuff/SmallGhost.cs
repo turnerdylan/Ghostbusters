@@ -21,47 +21,34 @@ public class SmallGhost : MonoBehaviour
     public float _transformTimer;
     private bool scareInitiated = false;
 
-    public float blinkDuration = 12.0f;
-    private float blinkRate = 1.0f;
-    private float _blinkRate;
-    private float blinkAccel = 0.935f;
-    private Material currMat;
-    public Material redMat;
-    bool isFlashing = false;
+    public float fadeDuration = 12.0f;
+    private Color currColor;
+    bool isFading = false;
     //public variables
 
     private void Start()
     {
         _transformTimer = _transformTimerMax;
-        currMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+        currColor = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
     }
 
     private void FixedUpdate()
     {
         _timer += Time.deltaTime;
-        if(_timer > timer && !isFlashing)
+        if(_timer > timer && !isFading)
         {
-            FlashGhost();
+            FadeGhost();
         }
-        // if(isFlashing)
-        // {
-        //     _blinkRate -= 0.0009f;
-        // }
-        // if(_canTransform)
-        // {
-        //     _transformTimer -= Time.deltaTime;
-        // }
     }
 
     private void OnEnable()
     {
-        _blinkRate = blinkRate;
+        GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1, 1, 1, 0.83f);
         _timer = 0f;
         _canTransform = true;
         _transformTimer = _transformTimerMax;
         _scareable = false;
         StartCoroutine(ScareInvincibility());
-
     }
 
     public void Banish()
@@ -85,45 +72,21 @@ public class SmallGhost : MonoBehaviour
         _listIndex = index;
     }
 
-    void FlashGhost()
+    void FadeGhost()
     {
-        isFlashing = true;
-        StartCoroutine(Flash());
+        isFading = true;
+        StartCoroutine(Fade(0.0f, fadeDuration));
     }
-    public IEnumerator Flash()
+    public IEnumerator Fade(float aValue, float aTime)
     {
-        float counter = 0;
-        float innerCounter = 0;
-
-        bool isRed = false;
-
-        while(counter < blinkDuration)
+        float alpha = GetComponentInChildren<SkinnedMeshRenderer>().material.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
-            counter += Time.deltaTime;
-            innerCounter += Time.deltaTime;
-
-            if(innerCounter > _blinkRate)
-            {
-                _blinkRate *= blinkAccel;
-                isRed = !isRed;
-                innerCounter = 0f;
-            }
-
-            if(isRed)
-            {
-                GetComponentInChildren<SkinnedMeshRenderer>().material = redMat;
-            }
-            else
-            {
-                GetComponentInChildren<SkinnedMeshRenderer>().material = currMat;
-            }
-
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha,aValue,t));
+            GetComponentInChildren<SkinnedMeshRenderer>().material.color = newColor;
             yield return null;
         }
-
-        GetComponentInChildren<SkinnedMeshRenderer>().material = currMat;
-        isFlashing = false;
+        isFading = false;
         gameObject.SetActive(false);
-        //explode
     }
 }

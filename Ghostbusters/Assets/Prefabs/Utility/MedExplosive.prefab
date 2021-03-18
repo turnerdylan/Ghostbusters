@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 12
-  power: 500
+  power: 3500
   layer:
     serializedVersion: 2
     m_Bits: 512

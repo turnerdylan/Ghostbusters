@@ -102,6 +102,7 @@ public class MediumGhost : MonoBehaviour
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
                 {
                     //fail
+                    players[players.Count-1].FlashX(); //if wrong button is pressed or too many of one button then display an x above the last player to scare
                     ScareFail();
                 }
                 else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
@@ -130,7 +131,10 @@ public class MediumGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        players[players.Count-1].InitiateDisableTrigger(0.75f);
+        foreach(Player player in players)
+        {
+            player.InitiateDisableTrigger(0.75f);
+        }
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
@@ -220,13 +224,13 @@ public class MediumGhost : MonoBehaviour
     }
     private void ScareSuccess()
     {
-        ResetScare();
         SplitApart();
+        ResetScare();
     }
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
+        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
     }
 
     void ResetScare()

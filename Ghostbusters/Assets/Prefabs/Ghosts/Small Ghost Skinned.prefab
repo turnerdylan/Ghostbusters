@@ -466,10 +466,9 @@ MonoBehaviour:
   _scareable: 1
   _onScareInvincibilityTime: 1
   players: []
-  timer: 30
+  timer: 25
   _transformTimer: 0
-  blinkDuration: 15
-  redMat: {fileID: 2100000, guid: 2338f8ff5e2d9cd46875e99872e7efd3, type: 2}
+  fadeDuration: 16
 --- !u!114 &1038077007321225001
 MonoBehaviour:
   m_ObjectHideFlags: 0
