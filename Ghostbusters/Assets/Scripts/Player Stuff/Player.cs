@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     public Transform handTransform;
     public int score;
     public TextMeshProUGUI heldGhostsText;
+    bool canMove = true;
 
     private void Awake()
     {
@@ -68,8 +69,11 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        SetMoveDirection();
-        SetLookDirection();
+        if(canMove)
+        {
+            SetMoveDirection();
+            SetLookDirection();
+        }
     }
 
     private void OnTriggerEnter(Collider other) //on a capture
@@ -173,6 +177,7 @@ public class Player : MonoBehaviour
         if(canDive)
         {
             anim.SetTrigger("Dive");
+            TriggerDisableMovement(0.5f);
             canDive = false;
             StartCoroutine(DashSpeed());
         }
@@ -180,12 +185,13 @@ public class Player : MonoBehaviour
 
     IEnumerator DashSpeed()
     {
-        float speedModifier = 2;
-        _moveSpeed *= speedModifier;
-        yield return new WaitForSeconds(0.25f);
-        _moveSpeed /= speedModifier;
+        // float speedModifier = 2;
+        // _moveSpeed *= speedModifier;
+        rb.AddForce(transform.forward*3000);
+        //yield return new WaitForSeconds(0.2f);
+        // _moveSpeed /= speedModifier;
         StartCoroutine(CantDashDelay());
-        
+        yield return null;
     }
 
     private IEnumerator CantDashDelay()
@@ -194,6 +200,17 @@ public class Player : MonoBehaviour
         canDive = true;
     }
 
+    public void TriggerDisableMovement(float time)
+    {
+        StartCoroutine(DisableMovement(time));
+    }
+
+    public IEnumerator DisableMovement(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
+    }
     public void SwingBagStart()
     {
         //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;

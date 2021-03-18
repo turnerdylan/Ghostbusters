@@ -24,8 +24,9 @@ public class Explosive : MonoBehaviour
 
             if (rb != null)
             {
-                rb.gameObject.GetComponent<Player>().TriggerStun();
-                rb.AddExplosionForce(power, explosionPos, radius, 0.5f);
+                //rb.gameObject.GetComponent<Player>().TriggerStun();
+                rb.GetComponent<Player>().TriggerDisableMovement(0.2f);
+                rb.AddExplosionForce(power, explosionPos, radius, 0.0f);
             }
         }
         Destroy(gameObject, 0.5f);

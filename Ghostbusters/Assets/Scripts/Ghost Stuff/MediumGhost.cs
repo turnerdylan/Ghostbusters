@@ -130,6 +130,7 @@ public class MediumGhost : MonoBehaviour
 
     public void SplitApart()
     {
+        players[players.Count-1].InitiateDisableTrigger(0.75f);
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
@@ -144,7 +145,6 @@ public class MediumGhost : MonoBehaviour
             }
         }
         gameObject.SetActive(false);
-
     }
 
     IEnumerator ScareInvincibilityDelay()
@@ -226,7 +226,7 @@ public class MediumGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        //Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Instantiate(explosivePrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
     }
 
     void ResetScare()

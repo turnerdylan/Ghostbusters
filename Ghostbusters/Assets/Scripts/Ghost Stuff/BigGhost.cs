@@ -106,6 +106,7 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
+        //players[players.Count].InitiateDisableTrigger(0.75f);
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
         {
@@ -136,7 +137,7 @@ public class BigGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        //Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
