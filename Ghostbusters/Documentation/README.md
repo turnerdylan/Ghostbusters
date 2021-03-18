@@ -5,9 +5,23 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/GroupPhoto.png" width="75%">
 
+
 - - -
 
-## 3/9/26/2021 - Week 9
+## 3/23/26/2021 - Week 10
+### Goals:
+- C - Ghost behavior updates
+
+- D - Menu and tutorial development
+
+- Z - Level development
+
+
+### Weekly Updates:
+
+- - -
+
+## 3/16/26/2021 - Week 9 [Ch-ch-ch-ch-changes!](https://www.youtube.com/watch?v=pl3vxEudif8&ab_channel=ArthurQuintard)
 ### Goals:
 - C - Tower mechanics updates and ghost button sequence adjustments
 
@@ -17,9 +31,22 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 
 ### Weekly Updates:
-C - 
+C - At the start of the week we decided to adjust the mechanics for the towers to better fit the interaction loop we were looking for. We changed it so there was a button to activate the towers and any number of towers could be activated at once with each tower freezing only the ghosts within its quadrant. 
 
-D - 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tower-button.png" width="75%">
+
+However after playtesting and receiving feedback we decided to move away from the tower idea as it ultimately did not achieve what we wanted to fix intitially. After discussing a few options we decided to strip our prototype of any unnecessary features in favor of a more simplified game loop. Our current idea is to have players able to pick up as many small ghosts as they want without needing to hold a bag. In order to catch small ghosts players must simply dive towards them. If players are hit by a big ghost than they drop all the ghosts they are holding which incentivizes dropping ghosts off at the van. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/drop-ghosts.gif" width="75%">
+
+Another feature we added was a limited lifetime on the small ghosts so that after a certain period of time they flash red and disappear.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ghost-flashing.gif" width="75%">
+
+D - This week we spent a lot of time redesigning our game. I updated the peekaboo ghosts so that they only run away when you get near them. We decided to get rid of the bag entirely and replace it with player-attached backpacks, because the bag was too slow. I also spent some time redesigning the main menu so that we could get a character select screen working. Check it out below!
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuSceneUpdates.gif" width="75%">
+
 
 Z - I mostly worked on getting some more modeling and menu things completed this week, starting with the low poly overview of the island. We wanted it to look like a simplified bird's eye view of the island including all of the areas that our levels are taking place in. A version of this map will exist in the menu for Spooked next to the character selection.
 
