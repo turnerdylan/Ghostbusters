@@ -41,10 +41,12 @@ public class PeekabooGhost : MonoBehaviour
             this.transform.LookAt(targetPostition);
             if (Vector3.Distance(transform.position, target.position) < 10 && cantTeleportTimer < 0)
             {
-                cantTeleportTimer = cantTeleportTimerMax;
-                StartCoroutine(LerpFunction());
+                //cantTeleportTimer = cantTeleportTimerMax;
+                //StartCoroutine(LerpFunction());
                 //anim.SetTrigger("Down");
-                //ChangeLocations();
+                
+                
+                ChangeLocations();
             }
         }
     }
@@ -87,9 +89,8 @@ public class PeekabooGhost : MonoBehaviour
     //summon ghost
     private void ChangeLocations()
     {
-        print("test1");
         int tempIndex = Random.Range(0, locations.Count);
-        while(tempIndex == currentLocationIndex)
+        while (tempIndex == currentLocationIndex)
         {
             tempIndex = Random.Range(0, locations.Count);
         }
@@ -100,6 +101,7 @@ public class PeekabooGhost : MonoBehaviour
 
     public void SummonGhost()
     {
+
         //int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
         int ghostRange = Random.Range(0, GhostManager.Instance.mediumGhosts.Count+GhostManager.Instance.bigGhosts.Count);
         if(ghostRange < GhostManager.Instance.mediumGhosts.Count)
@@ -114,6 +116,7 @@ public class PeekabooGhost : MonoBehaviour
             GhostManager.Instance.bigGhosts[index].SetActive(true);
             GhostManager.Instance.bigGhosts[index].transform.position = transform.position;
         }
+        ChangeLocations();
     }
 
     public float GetInteractRange()

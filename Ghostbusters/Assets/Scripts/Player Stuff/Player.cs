@@ -110,34 +110,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         redX.SetActive(false);
     }
-    public void PickupBag()
-    {
-        DropBag();
-        // if (currentState == PLAYER_STATE.WITH_BAG) DropBag();
 
-        // else if(currentState == PLAYER_STATE.NORMAL)
-        // {
-        //     if (Vector3.Distance(Bag.Instance.gameObject.transform.position, transform.position) < Bag.Instance.GetInteractionRadius())
-        //     {
-        //         Vector3 dirToBag = (Bag.Instance.gameObject.transform.position - transform.position).normalized;
-        //         float angleBetweenPlayerandBag = Vector3.Angle(transform.forward, dirToBag);
-
-        //         if (angleBetweenPlayerandBag < _viewAngle / 2)
-        //         {
-        //             anim.SetBool("Hold", true);
-        //             currentState = PLAYER_STATE.WITH_BAG;
-        //             Bag.Instance.transform.parent = testTransform;
-        //             Bag.Instance.transform.localPosition = Vector3.zero;
-        //             Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        //             Destroy(Bag.Instance.GetComponent<Rigidbody>());
-        //         }
-        //     }
-        // }
-        // Bag.Instance.SetBagState(Bag.BAG_STATE.PICKED_UP);
-
-    }
-
-    public void DropBag()
+    public void DepositGhosts()
     {
         if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
         {
@@ -145,18 +119,7 @@ public class Player : MonoBehaviour
             Van.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
             heldGhostsText.text = _numberOfHeldGhosts.ToString();
-            //Bag.Instance.DepositAllGhosts();
-        }
-        // else if(currentState == PLAYER_STATE.WITH_BAG)
-        // {
-        //     anim.SetBool("Hold", false);
-        //     Bag.Instance.transform.parent = null;
-        //     Bag.Instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        //     Bag.Instance.gameObject.AddComponent<Rigidbody>();
-        //     Bag.Instance.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
-        //     currentState = PLAYER_STATE.NORMAL;
-        // }
-        
+        }        
     }
 
     public void DropGhosts()
@@ -303,7 +266,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator StunPlayer(float stunTime)
     {
-        DropBag();
+        DepositGhosts();
         anim.SetTrigger("Stunned");
         GetComponent<PlayerInputHandler>().enabled = false;
         currentState = PLAYER_STATE.STUNNED;
@@ -352,7 +315,6 @@ public class Player : MonoBehaviour
         if (Vector3.Distance(peekaboo.transform.position, transform.position) <= peekaboo.GetInteractRange())
         {
             peekaboo.SummonGhost();
-            print("test");
             return;
         }
 

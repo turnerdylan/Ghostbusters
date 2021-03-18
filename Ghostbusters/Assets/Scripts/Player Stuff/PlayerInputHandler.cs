@@ -30,15 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(context.performed)
         {
-            player.PickupBag();
-        }
-    }
-
-    public void SwingBag(CallbackContext context)
-    {
-        if (context.performed)
-        {
-            player.SwingBag();
+            player.DepositGhosts();
         }
     }
 

@@ -38,23 +38,6 @@ public class Van : MonoBehaviour
         buttonSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        counterText.text = numberOfStoredGhosts.ToString();
-
-        /*foreach (Player player in PlayerManager.Instance.players)
-        {
-            if (Vector3.Distance(transform.position, player.transform.position) < _interactionRadius && !GetComponentInChildren<Bag>())
-            {
-                buttonSprite.enabled = true;
-            }
-            else
-            {
-                buttonSprite.enabled = false;
-            }
-        }*/
-    }
-
     public float GetInteractionRadius()
     {
         return _interactionRadius;
@@ -63,6 +46,7 @@ public class Van : MonoBehaviour
     public void DepositGhosts(int storedGhosts)
     {
         print("deposit ghosts");
+        counterText.text = numberOfStoredGhosts.ToString();
         numberOfStoredGhosts += storedGhosts;
         PlayerManager.Instance.CalculateScore();
     }
