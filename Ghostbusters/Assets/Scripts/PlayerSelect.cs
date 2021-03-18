@@ -6,6 +6,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerSelect : MonoBehaviour
 {
     public List<Material> playerImages = new List<Material>();
+    CameraManager cameraManager;
     int imageIndex = 0;
 
     public int playerIndex;
@@ -19,24 +20,14 @@ public class PlayerSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraManager = FindObjectOfType<CameraManager>();
         mesh = GetComponent<MeshRenderer>();
         UpdateTextures();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        SetMoveDirection();
-    }
-
-    public void OnMove(CallbackContext context)
-    {
-        
-    }
-
     public void OnRight(CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS)
         {
             print("right");
             imageIndex++;
@@ -50,7 +41,7 @@ public class PlayerSelect : MonoBehaviour
 
     public void OnLeft(CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS)
         {
             print("left");
             imageIndex--;
@@ -68,17 +59,6 @@ public class PlayerSelect : MonoBehaviour
         {
             
         }
-    }
-
-    public void SetMoveVector(Vector2 direction)
-    {
-        inputVector = direction;
-    }
-
-    private void SetMoveDirection()
-    {
-        moveDirection = inputVector * cursorMoveSpeed;
-        
     }
 
     public void UpdateTextures()

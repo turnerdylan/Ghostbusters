@@ -15,6 +15,7 @@ public class PeekabooGhost : MonoBehaviour
     [SerializeField] float interactionRange;
     [SerializeField] float cantTeleportTimerMax = 3f;
     float cantTeleportTimer;
+    [SerializeField] float timeToLerp = 5;
 
     Animator anim;
     
@@ -34,13 +35,17 @@ public class PeekabooGhost : MonoBehaviour
         cantTeleportTimer -= Time.deltaTime;
         //look at player
         var target = PlayerManager.Instance.GetClosestPlayer();
-        Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
-        this.transform.LookAt(targetPostition);
-
-        //
-        if (Vector3.Distance(transform.position, target.position) < 10 && cantTeleportTimer < 0)
+        if(target)
         {
-            ChangeLocations();
+            Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
+            this.transform.LookAt(targetPostition);
+            if (Vector3.Distance(transform.position, target.position) < 10 && cantTeleportTimer < 0)
+            {
+                cantTeleportTimer = cantTeleportTimerMax;
+                StartCoroutine(LerpFunction());
+                //anim.SetTrigger("Down");
+                //ChangeLocations();
+            }
         }
     }
 
@@ -51,8 +56,6 @@ public class PeekabooGhost : MonoBehaviour
         float timeToGoDown = 50;
         Vector3 goToPosition = new Vector3(transform.position.x, transform.position.y - 5, transform.position.z);
 
-
-        //lerp the alpha
         while (timeElapsed < timeToGoDown)
         {
             transform.position = Vector3.Lerp(transform.position, goToPosition, timeElapsed / timeToGoDown);
@@ -62,13 +65,29 @@ public class PeekabooGhost : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator LerpFunction()
+    {
+        print("test1");
+        float time = 0;
+
+
+        while (time < timeToLerp)
+        {
+            gameObject.transform.position = Vector3.Lerp(transform.position, transform.position - new Vector3(0, 50, 0), time / timeToLerp);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = transform.position - new Vector3(0, 50, 0);
+    }
+
     ////functions
     //change locations
     //interact, get scared out of peekaboo state
     //summon ghost
     private void ChangeLocations()
     {
-
+        print("test1");
         int tempIndex = Random.Range(0, locations.Count);
         while(tempIndex == currentLocationIndex)
         {

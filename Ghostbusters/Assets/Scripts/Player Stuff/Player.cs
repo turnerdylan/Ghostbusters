@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
     #endregion
 
 
-    public void LoseHP()
+    /*public void LoseHP()
     {
         _playerHealth--;
         hearts[_playerHealth].sprite = heartEmpty;
@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(StunPlayer(_stunTime));
         }
-    }
+    }*/
 
     public void TriggerStun()
     {
@@ -272,20 +272,6 @@ public class Player : MonoBehaviour
             peekaboo.SummonGhost();
             print("test");
             return;
-        }
-
-        foreach(Tower tower in TowerManager.Instance.towers)
-        {
-            if(Vector3.Distance(tower.transform.position, transform.position) <= _scareRange)
-            {
-                tower.LoadScare(buttonDirection);
-                return;
-            }
-        }
-
-        if(Vector3.Distance(TowerManager.Instance.transform.position, transform.position) <= _scareRange && buttonDirection == BUTTON_PRESS.Down)
-        {
-            TowerManager.Instance.PressButton();
         }
 
         _buttonPressed = buttonDirection;

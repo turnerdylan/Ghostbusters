@@ -30,16 +30,27 @@ public class PlayerSelectManager : MonoBehaviour
     #endregion
 
     public List<PlayerSelect> players = new List<PlayerSelect>();
+    public List<SpriteRenderer> pluses = new List<SpriteRenderer>();
     public int numberOfPlayers;
+    List<int> playerCharacterIndexes = new List<int>();
 
     public static ReadOnlyArray<Gamepad> allGamepads;
 
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].gameObject.SetActive(false);
+        }
         allGamepads = Gamepad.all;
         numberOfPlayers = allGamepads.Count;
         print(numberOfPlayers);
+        UpdatePlayerPictures();
+    }
+
+    private void Update()
+    {
         UpdatePlayerPictures();
     }
 
@@ -71,6 +82,7 @@ public class PlayerSelectManager : MonoBehaviour
         for (int i = 0; i < numberOfPlayers; i++)
         {
             players[i].gameObject.SetActive(true);
+            pluses[i].gameObject.SetActive(false);
         }
     }
 }
