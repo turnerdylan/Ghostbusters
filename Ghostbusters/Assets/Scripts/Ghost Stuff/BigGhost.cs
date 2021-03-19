@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class BigGhost : MonoBehaviour
 {
@@ -115,7 +116,7 @@ public class BigGhost : MonoBehaviour
             {
                 GhostManager.Instance.smallGhosts[i].SetActive(true);
                 // GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }
@@ -124,7 +125,7 @@ public class BigGhost : MonoBehaviour
         //GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
 
         gameObject.SetActive(false);
-
+        ChaosManager.Instance.PickRandomChaosEvent();
     }
 
     private void ScareSuccess()

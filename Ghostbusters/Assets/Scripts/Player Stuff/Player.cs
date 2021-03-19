@@ -31,13 +31,9 @@ public class Player : MonoBehaviour
     private PeekabooGhost peekaboo;
 
     //serializables
-    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] public float _moveSpeed = 10f; // wrong spot
     [SerializeField] private float _viewAngle = 45f;
     [SerializeField] private float _rotationSpeed = 10f;
-    [SerializeField] private int _playerHealth = 3;
-    [SerializeField] Sprite heartFilled;
-    [SerializeField] Sprite heartEmpty;
-    [SerializeField] List<SpriteRenderer> hearts = new List<SpriteRenderer>();
     [SerializeField] private int _numberOfHeldGhosts;
 
     //private variables
@@ -55,7 +51,7 @@ public class Player : MonoBehaviour
     public BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
     public Transform handTransform;
     public int score;
-    public TextMeshProUGUI heldGhostsText;
+    public TextMeshPro heldGhostsText;
     public GameObject redX;
     bool canMove = true;
 
@@ -249,16 +245,6 @@ public class Player : MonoBehaviour
     #endregion
 
 
-    public void LoseHP()
-    {
-        _playerHealth--;
-        hearts[_playerHealth].sprite = heartEmpty;
-        if(_playerHealth <= 0)
-        {
-            StartCoroutine(StunPlayer(_stunTime));
-        }
-    }
-
     public void TriggerStun()
     {
         StartCoroutine(StunPlayer(_stunTime));
@@ -272,10 +258,6 @@ public class Player : MonoBehaviour
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
         GetComponent<PlayerInputHandler>().enabled = true;
-        _playerHealth = 3;
-        hearts[0].sprite = heartFilled;
-        hearts[1].sprite = heartFilled;
-        hearts[2].sprite = heartFilled;
         currentState = PLAYER_STATE.NORMAL;
     }
 
