@@ -16,8 +16,27 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - Z - Level development
 
+- Group - Playtest, playtest, playtest!
+
 
 ### Weekly Updates:
+Group - We have been playtesting to get feedback on different element of the game and boy do we have notes! From our first playtest this weeks we learned a lot of things and here are our key takeaways: 
+
+- Players have a TON of fun chasing the little ghosts around the level, especially when there are LOTS of little ghosts around
+- The big ghost 'event' (in this case super speed) worked GREAT right as the big ghost splits and definitely added chaos
+- The peek-a-boo ghosts need some help being more engaging and clearer - visual feedback should help but mechanically stuff might need to change
+- The button interaction especially for the 4 button big ghosts needs an overhaul UI-wise as it is NOT intuitive right now
+- Related, players need feedback on WHO has scared a particular ghost already in the 4 button interactions
+- Seeing players drop off ghosts at the van worked pretty well, escpecially lots of communication right at the end of the level
+- We need to add a border or respawn so that when players walk off the screen they aren't gone for good
+
+This was a very insightful playtest that has helped us figure out if certain things are working and how to rethink some of the moving parts in our game. More playtests and progress coming soon!
+
+C - 
+
+D - 
+
+Z - 
 
 - - -
 
