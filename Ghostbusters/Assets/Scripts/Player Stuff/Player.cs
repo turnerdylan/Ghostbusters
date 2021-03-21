@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     public TextMeshPro heldGhostsText;
     public GameObject redX;
     bool canMove = true;
+    public bool backwardsControls = false;
 
     private void Awake()
     {
@@ -85,6 +86,8 @@ public class Player : MonoBehaviour
     public void SetMoveVector(Vector2 direction)
     {
         _inputMoveVector = direction;
+        if(backwardsControls)
+            _inputMoveVector = direction * -1;
     }
 
     public void Interact()

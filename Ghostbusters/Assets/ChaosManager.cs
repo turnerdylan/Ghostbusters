@@ -29,8 +29,44 @@ public class ChaosManager : MonoBehaviour
 
     public void PickRandomChaosEvent()
     {
-        StartCoroutine(SuperSpeed());
+        int random = Random.Range(0, 3);
+        switch (random)
+        {
+            case 0:
+                StartCoroutine(SuperSpeed());
+                break;
+            case 1:
+                StartCoroutine(BackwardsControls());
+                break;
+            case 2:
+                TeleportPlayers(); //this only teleports the first two players
+                break;
+        }
+    }
 
+    private void TeleportPlayers()
+    {
+        var p1 = PlayerManager.Instance.players[0];
+        var p2 = PlayerManager.Instance.players[1];
+
+        var position1 = p1.transform.position;
+        var position2 = p2.transform.position;
+
+        p1.transform.position = position2;
+        p2.transform.position = position1;
+    }
+
+    private IEnumerator BackwardsControls()
+    {
+        foreach (Player player in PlayerManager.Instance.players)
+        {
+            player.backwardsControls = true;
+        }
+        yield return new WaitForSeconds(5);
+        foreach (Player player in PlayerManager.Instance.players)
+        {
+            player.backwardsControls = false;
+        }
     }
 
     private IEnumerator SuperSpeed()
@@ -44,18 +80,5 @@ public class ChaosManager : MonoBehaviour
         {
             player._moveSpeed = 25;
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

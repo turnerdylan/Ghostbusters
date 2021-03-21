@@ -11,7 +11,6 @@ public class FollowAI : MonoBehaviour
     private Rigidbody rb;
 
     //private serializables
-    [SerializeField] private GameObject boxTest = null;
     [SerializeField] private float _attackRange = 8;
 
     //private variables
@@ -27,7 +26,7 @@ public class FollowAI : MonoBehaviour
 
     void Update()
     {
-        if (rb.velocity.magnitude > 1) anim.SetBool("Run", true);
+        if (rb.velocity.magnitude > 0) anim.SetBool("Run", true);
         else anim.SetBool("Run", false);
 
         if (PlayerManager.Instance.players.Length > 0 && agent)
@@ -36,7 +35,6 @@ public class FollowAI : MonoBehaviour
         if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position) < _attackRange)
         {
             anim.SetBool("Attack", true);
-            boxTest.gameObject.SetActive(true);
             StartCoroutine(EndAttack());
         }
     }
@@ -45,14 +43,12 @@ public class FollowAI : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         anim.SetBool("Attack", false);
-        boxTest.gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
         if(agent)
         {
-            boxTest.gameObject.SetActive(false);
             agent.speed = 5;
         }
         
