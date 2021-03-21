@@ -36,7 +36,13 @@ C -
 
 D - 
 
-Z - 
+Z - After changing up the mechanics and doing more playtesting, we realized that the level design needed to follow a more open layout concept. We dug into this idea and created a new set of level models that we have been using for our most recent playtests. Below are some images of what these more block based levels look like. Our goal is still to have a variety of levels (probably 8 or so) for the story and then one introduction/tutorial level (probably the ferry level that has been posted on here before). 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel2.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel3.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel4.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel5.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel6.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel7.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel8.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/BlockLevel9.JPG" width="50%">
+
 
 - - -
 
