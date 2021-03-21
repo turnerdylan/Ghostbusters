@@ -56,7 +56,7 @@ public class SmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun)
+            if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -77,9 +77,9 @@ public class SmallGhostMovement : MonoBehaviour
         agent.acceleration = 200;
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - GetClosestPlayer(PlayerManager.Instance.players).position;
+            Vector3 dirToPlayer = transform.position - GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position;
             Vector3 newPos = transform.position + dirToPlayer;
-            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun)
+            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun)
             {
                 agent.SetDestination(newPos);
             }
@@ -112,7 +112,7 @@ public class SmallGhostMovement : MonoBehaviour
         while(currentState == SMALL_GHOST_STATE.SEEK)
         {
             agent.SetDestination(GetClosestGhost().position);
-            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).position) < minDistanceForEnemyToRun) //if player comes within in range while seeking
+            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun) //if player comes within in range while seeking
             {
                 StartCoroutine(State_Flee()); 
                 yield break;

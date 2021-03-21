@@ -51,7 +51,7 @@ public class BigGhost : MonoBehaviour
     void Update()
     {
         scareFeedbackText.text = players.Count.ToString();
-        foreach(Player player in PlayerManager.Instance.players)
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
             if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
             {
@@ -185,7 +185,7 @@ public class BigGhost : MonoBehaviour
             StartScare();
         }
         MakePressed(player._buttonPressed);
-        switch(PlayerManager.Instance.players.Length)
+        switch(PlayerManager.Instance.GetPlayerArray().Length)
         {
             case 1:
                 players.Add(player);

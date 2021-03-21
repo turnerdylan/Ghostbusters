@@ -46,8 +46,8 @@ public class ChaosManager : MonoBehaviour
 
     private void TeleportPlayers()
     {
-        var p1 = PlayerManager.Instance.players[0];
-        var p2 = PlayerManager.Instance.players[1];
+        var p1 = PlayerManager.Instance.GetPlayerArray()[0];
+        var p2 = PlayerManager.Instance.GetPlayerArray()[1];
 
         var position1 = p1.transform.position;
         var position2 = p2.transform.position;
@@ -58,12 +58,12 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator BackwardsControls()
     {
-        foreach (Player player in PlayerManager.Instance.players)
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.backwardsControls = true;
         }
         yield return new WaitForSeconds(5);
-        foreach (Player player in PlayerManager.Instance.players)
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.backwardsControls = false;
         }
@@ -71,12 +71,12 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator SuperSpeed()
     {
-        foreach (Player player in PlayerManager.Instance.players)
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player._moveSpeed = 100;
         }
         yield return new WaitForSeconds(5);
-        foreach (Player player in PlayerManager.Instance.players)
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player._moveSpeed = 25;
         }

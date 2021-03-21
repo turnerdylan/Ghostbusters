@@ -42,7 +42,7 @@ public class PeekabooGhost : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) < 10 && cantTeleportTimer < 0)
             {
                 //cantTeleportTimer = cantTeleportTimerMax;
-                //StartCoroutine(LerpFunction());
+                //StartCoroutine(LerpFunction(transform.position - new Vector3(0, 50, 0)));
                 //anim.SetTrigger("Down");
                 
                 
@@ -67,7 +67,7 @@ public class PeekabooGhost : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator LerpFunction()
+    IEnumerator LerpFunction(Vector3 goToPos)
     {
         print("test1");
         float time = 0;
@@ -75,7 +75,7 @@ public class PeekabooGhost : MonoBehaviour
 
         while (time < timeToLerp)
         {
-            gameObject.transform.position = Vector3.Lerp(transform.position, transform.position - new Vector3(0, 50, 0), time / timeToLerp);
+            gameObject.transform.position = Vector3.Lerp(transform.position, goToPos, time / timeToLerp);
 
             time += Time.deltaTime;
             yield return null;
@@ -83,10 +83,7 @@ public class PeekabooGhost : MonoBehaviour
         transform.position = transform.position - new Vector3(0, 50, 0);
     }
 
-    ////functions
-    //change locations
-    //interact, get scared out of peekaboo state
-    //summon ghost
+
     private void ChangeLocations()
     {
         int tempIndex = Random.Range(0, locations.Count);

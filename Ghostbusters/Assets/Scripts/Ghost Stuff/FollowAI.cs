@@ -29,10 +29,10 @@ public class FollowAI : MonoBehaviour
         if (rb.velocity.magnitude > 0) anim.SetBool("Run", true);
         else anim.SetBool("Run", false);
 
-        if (PlayerManager.Instance.players.Length > 0 && agent)
-            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position);
+        if (PlayerManager.Instance.GetPlayerArray().Length > 0 && agent)
+            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
 
-        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.players).gameObject.transform.position) < _attackRange)
+        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
         {
             anim.SetBool("Attack", true);
             StartCoroutine(EndAttack());

@@ -71,7 +71,7 @@ public class MediumGhost : MonoBehaviour
             _transformTimer -= Time.deltaTime;
         }
 
-        foreach(Player player in PlayerManager.Instance.players)
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
             if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
             {
@@ -180,7 +180,7 @@ public class MediumGhost : MonoBehaviour
             StartScare();
         }
         MakePressed(player._buttonPressed);
-        if(PlayerManager.Instance.players.Length > 1)
+        if(PlayerManager.Instance.GetPlayerArray().Length > 1)
         {
             if(!players.Contains(player))
             {

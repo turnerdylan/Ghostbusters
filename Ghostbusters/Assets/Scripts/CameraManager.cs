@@ -22,6 +22,8 @@ public class CameraManager : MonoBehaviour
     public float timeToLerp = 5;
     public CAMERA_POSITION cameraState;
 
+    public Color selectedColor;
+
     public List<Transform> cameraPositions = new List<Transform>();
     public List<TextMeshPro> textItems = new List<TextMeshPro>();
 
@@ -32,27 +34,41 @@ public class CameraManager : MonoBehaviour
     {
         cameraState = CAMERA_POSITION.NORMAL;
         fadeOutSprite = Camera.main.GetComponentInChildren<SpriteRenderer>();
-        StartCoroutine(LerpFunction(targetColor, timeToLerp));
-        textItems[0].color = Color.green;
+        StartCoroutine(ColorLerp(targetColor, timeToLerp));
+        textItems[0].color = selectedColor;
     }
 
     private void Update()
     {
-        if(Gamepad.current.rightShoulder.wasPressedThisFrame)
+        if(cameraState == CAMERA_POSITION.NORMAL)
         {
-            textItemIndex++;
-            if(textItemIndex == textItems.Count)
+            if (Gamepad.current.rightShoulder.wasPressedThisFrame)
             {
-                textItemIndex = 0;
+                textItemIndex++;
+                if (textItemIndex == textItems.Count)
+                {
+                    textItemIndex = 0;
+                }
+                foreach (TextMeshPro text in textItems)
+                {
+                    text.color = Color.white;
+                }
+                textItems[textItemIndex].color = selectedColor;
             }
-            foreach(TextMeshPro text in textItems)
+            else if (Gamepad.current.leftShoulder.wasPressedThisFrame)
             {
-                text.color = Color.white;
+                textItemIndex--;
+                if (textItemIndex < 0)
+                {
+                    textItemIndex = textItems.Count;
+                }
+                foreach (TextMeshPro text in textItems)
+                {
+                    text.color = Color.white;
+                }
+                textItems[textItemIndex].color = selectedColor;
             }
-            textItems[textItemIndex].color = Color.green;
         }
-
-
 
         switch (cameraState)
         {
@@ -61,17 +77,18 @@ public class CameraManager : MonoBehaviour
                 {
                     if (textItemIndex == 0)
                     {
-                        Camera.main.transform.position = cameraPositions[0].position;
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[0].position));
                         cameraState = CAMERA_POSITION.PLAYERS;
                     }
                     else if (textItemIndex == 1)
                     {
-                        Camera.main.transform.position = cameraPositions[1].position;
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[1].position));
                         cameraState = CAMERA_POSITION.MAP;
                     }
                     else if (textItemIndex == 2)
                     {
-                        Camera.main.transform.position = cameraPositions[2].position;
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position));
+                        Camera.main.transform.rotation = cameraPositions[2].rotation;
                         cameraState = CAMERA_POSITION.SETTINGS;
                     }
                 }
@@ -83,21 +100,22 @@ public class CameraManager : MonoBehaviour
             case CAMERA_POSITION.MAP:
                 if (Gamepad.current.buttonEast.wasPressedThisFrame)
                 {
-                    Camera.main.transform.position = cameraPositions[3].position;
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
                     cameraState = CAMERA_POSITION.NORMAL;
                 }
                     break;
             case CAMERA_POSITION.PLAYERS:
                 if (Gamepad.current.buttonEast.wasPressedThisFrame)
                 {
-                    Camera.main.transform.position = cameraPositions[3].position;
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
                     cameraState = CAMERA_POSITION.NORMAL;
                 }
                 break;
             case CAMERA_POSITION.SETTINGS:
                 if (Gamepad.current.buttonEast.wasPressedThisFrame)
                 {
-                    Camera.main.transform.position = cameraPositions[3].position;
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
+                    Camera.main.transform.rotation = cameraPositions[3].rotation;
                     cameraState = CAMERA_POSITION.NORMAL;
                 }
                 break;
@@ -105,26 +123,10 @@ public class CameraManager : MonoBehaviour
                 // code block
                 break;
         }
-
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-        {
-            if(textItemIndex == 0)
-            {
-                Camera.main.transform.position = cameraPositions[0].position;
-            }
-            else if (textItemIndex == 1)
-            {
-                //go to player select
-            }
-            else if (textItemIndex == 2)
-            {
-                //go to player select
-            }
-        }
     }
 
 
-    IEnumerator LerpFunction(Color endValue, float duration)
+    IEnumerator ColorLerp(Color endValue, float duration)
     {
         float time = 0;
         Color startValue = startColor;
@@ -136,5 +138,18 @@ public class CameraManager : MonoBehaviour
             yield return null;
         }
         fadeOutSprite.color = endValue;
+    }
+
+    IEnumerator LerpCameraPos(Vector3 startValue, Vector3 endValue)
+    {
+        float time = 0;
+
+        while (time < timeToLerp)
+        {
+            Camera.main.transform.position = Vector3.Lerp(startValue, endValue, time / timeToLerp);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        Camera.main.transform.position = endValue;
     }
 }

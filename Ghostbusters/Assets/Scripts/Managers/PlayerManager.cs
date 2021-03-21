@@ -27,13 +27,25 @@ public class PlayerManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        players = FindObjectsOfType<Player>();
+        for (int i = 0; i < players.Length; i++)
+        {
+            print("spawn player");
+            Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+        }
     }
     #endregion
 
-    public Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
+    Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
+    public List<GameObject> playerSkins;
+    public List<Transform> playerSpawns;
+
     private int totalScore;
     public TextMeshProUGUI scoreText;
+
+    private void Start()
+    {
+        
+    }
 
     public void SetAllPlayerControls(bool state)
     {
@@ -64,6 +76,11 @@ public class PlayerManager : MonoBehaviour
             totalScore += player.score;
         }
         scoreText.text = "Score: " + totalScore;
+    }
+
+    public Player[] GetPlayerArray()
+    {
+        return players;
     }
     
     public Transform GetClosestPlayer()
