@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Pin : MonoBehaviour
 {
-    public GameObject child;
+    GameObject child;
 
     private void Start()
     {
         child = transform.GetChild(0).gameObject;
+    }
+
+    public GameObject GetChild()
+    {
+        return child;
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 
 public class DataSelectManager : MonoBehaviour
 {
@@ -35,15 +37,13 @@ public class DataSelectManager : MonoBehaviour
     public int numberOfPlayers = 0;
     List<int> playerCharacterIndexes = new List<int>();
 
-    public static ReadOnlyArray<Gamepad> allGamepads;
+    public static event Action<InputDevice, InputDeviceChange> onDeviceChange;
+
 
 
     //level stuff
     public List<Pin> levelPins = new List<Pin>();
     public int currentLevelIndex;
-
-    //unlocked levels?
-    //current level index?
 
 
     //extra
@@ -51,12 +51,28 @@ public class DataSelectManager : MonoBehaviour
 
     void Start()
     {
+        /*InputSystem.onDeviceChange +=
+            (device, change) =>
+            {
+                switch (change)
+                {
+                    case InputDeviceChange.Added:
+                        Debug.Log("Device added: " + device);
+                        break;
+                    case InputDeviceChange.Removed:
+                        Debug.Log("Device removed: " + device);
+                        break;
+                    case InputDeviceChange.ConfigurationChanged:
+                        Debug.Log("Device configuration changed: " + device);
+                        break;
+                }
+            };*/
+
         for (int i = 0; i < players.Count; i++)
         {
             players[i].gameObject.SetActive(false);
+            players[i].imageIndex = i;
         }
-        allGamepads = Gamepad.all;
-        numberOfPlayers = allGamepads.Count;
         print(numberOfPlayers);
         UpdatePlayerPictures();
         camManager = FindObjectOfType<CameraManager>();
@@ -68,14 +84,14 @@ public class DataSelectManager : MonoBehaviour
 
         if(camManager.cameraState == CAMERA_POSITION.MAP)
         {
-            if(Gamepad.current.dpad.right.wasPressedThisFrame)
+            if(Gamepad.all[0].dpad.right.wasPressedThisFrame)
             {
                 currentLevelIndex++;
                 if (currentLevelIndex == levelPins.Count)
                 {
                     currentLevelIndex = 0;
                 }
-            } else if (Gamepad.current.dpad.left.wasPressedThisFrame)
+            } else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
             {
                 currentLevelIndex--;
                 if (currentLevelIndex <= -1)
@@ -86,9 +102,14 @@ public class DataSelectManager : MonoBehaviour
 
             foreach(Pin pin in levelPins)
             {
-                pin.child.SetActive(false);
+                pin.GetChild().SetActive(false);
             }
-            levelPins[currentLevelIndex].child.SetActive(true);
+            levelPins[currentLevelIndex].GetChild().SetActive(true);
+
+            if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(currentLevelIndex + 2);
+            }
         }
     }
 
@@ -117,7 +138,7 @@ public class DataSelectManager : MonoBehaviour
 
     public void UpdatePlayerPictures()
     {
-        for (int i = 0; i < numberOfPlayers; i++)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
             players[i].gameObject.SetActive(true);
             pluses[i].gameObject.SetActive(false);

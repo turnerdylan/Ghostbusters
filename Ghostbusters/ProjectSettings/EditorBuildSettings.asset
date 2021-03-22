@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: eb1143a520860be4aa99b0fae71935c6
+  - enabled: 1
+    path: Assets/Scenes/New Level.unity
+    guid: 38d3e3b2ebfb36748a273260f56696b3
+  - enabled: 1
+    path: Assets/Scenes/Cave level.unity
+    guid: bd00040e0a83703498740786647d1ac7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: dfc78c4e319e07941b3425d91150d2c4,
       type: 2}

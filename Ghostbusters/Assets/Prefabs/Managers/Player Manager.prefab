@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130309507718286142}
-  - component: {fileID: 1130309507718286141}
   - component: {fileID: 1130309507718286143}
   m_Layer: 0
   m_Name: Player Manager
@@ -33,50 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1130309507718286141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130309507718286140}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: -1
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Join
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5354cb88-f5c3-4c25-8a11-9b3fcedf57f5
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 9216301780522222796, guid: 148abfe0325ab1649ad301b9221c7ade,
-    type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &1130309507718286143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,15 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae53739026b95a42a777763f946da3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
   playerSkins:
-  - {fileID: 872701129058474827, guid: 645e3f2852aceb94ea03d947002dd1d8, type: 3}
-  - {fileID: 872701129058474827, guid: 4a3e1a7df95c5c244b558240f7d5434a, type: 3}
-  - {fileID: 872701129058474827, guid: 081cd4d70d56c36439cac23e3d76fd16, type: 3}
+  - {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}
   - {fileID: 7518618441905398923, guid: 788e07715a4db7645bbeeccd2bd4557a, type: 3}
+  - {fileID: 872701129058474827, guid: 645e3f2852aceb94ea03d947002dd1d8, type: 3}
+  - {fileID: 872701129058474827, guid: 081cd4d70d56c36439cac23e3d76fd16, type: 3}
   - {fileID: 3745893643764670129, guid: eda80a39494cde84ba8779875b7db073, type: 3}
   - {fileID: 872701129058474827, guid: 119a2066e52f41441b8cadbefdab9de6, type: 3}
-  - {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}
+  - {fileID: 872701129058474827, guid: 4a3e1a7df95c5c244b558240f7d5434a, type: 3}
   playerSpawns:
   - {fileID: 7807165143088717055}
   - {fileID: 8570820780579978387}

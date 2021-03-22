@@ -53,7 +53,7 @@ public class BigGhost : MonoBehaviour
         scareFeedbackText.text = players.Count.ToString();
         foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
+            if(Vector3.Distance(transform.position, player.transform.position) < player.GetScareRange())
             {
                 inRange = true;
                 break;
@@ -170,7 +170,7 @@ public class BigGhost : MonoBehaviour
         SetSprites();
         foreach(Player player in players)
         {
-            player._buttonPressed = BUTTON_PRESS.None;
+            player.SetButtonPress(BUTTON_PRESS.None);
         }
     }
     void StartScare()
@@ -184,19 +184,19 @@ public class BigGhost : MonoBehaviour
         {
             StartScare();
         }
-        MakePressed(player._buttonPressed);
+        MakePressed(player.GetButtonPressed());
         switch(PlayerManager.Instance.GetPlayerArray().Length)
         {
             case 1:
                 players.Add(player);
-                btnList.Add(player._buttonPressed);
+                btnList.Add(player.GetButtonPressed());
                 shouldAdd = true;
                 break;
             case 2:
                 if(CountInList(player)<2)
                 {
                     players.Add(player);
-                    btnList.Add(player._buttonPressed);
+                    btnList.Add(player.GetButtonPressed());
                     shouldAdd = true;
                 }
                 else
@@ -208,7 +208,7 @@ public class BigGhost : MonoBehaviour
                 if(CountInList(player)<2)
                 {
                     players.Add(player);
-                    btnList.Add(player._buttonPressed);
+                    btnList.Add(player.GetButtonPressed());
                     shouldAdd = true;
                 }
                 else
@@ -220,7 +220,7 @@ public class BigGhost : MonoBehaviour
                 if(!players.Contains(player))
                 {
                     players.Add(player);
-                    btnList.Add(player._buttonPressed);
+                    btnList.Add(player.GetButtonPressed());
                     shouldAdd = true;
                 }
                 else
@@ -235,7 +235,7 @@ public class BigGhost : MonoBehaviour
 
         if(shouldAdd)
         {
-            switch(player._buttonPressed)
+            switch(player.GetButtonPressed())
             {
                 case BUTTON_PRESS.Up:
                     btnCount[0]++;

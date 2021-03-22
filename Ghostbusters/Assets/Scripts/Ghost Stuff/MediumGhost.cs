@@ -23,7 +23,6 @@ public class MediumGhost : MonoBehaviour
     [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
     [SerializeField] private bool formable = true;
-    [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 1.0f;
     [SerializeField] private float _transformTimerMax = 1.5f;
@@ -73,7 +72,7 @@ public class MediumGhost : MonoBehaviour
 
         foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
+            if(Vector3.Distance(transform.position, player.transform.position) < player.GetScareRange())
             {
                 inRange = true;
                 break;
@@ -179,13 +178,13 @@ public class MediumGhost : MonoBehaviour
         {
             StartScare();
         }
-        MakePressed(player._buttonPressed);
+        MakePressed(player.GetButtonPressed());
         if(PlayerManager.Instance.GetPlayerArray().Length > 1)
         {
             if(!players.Contains(player))
             {
                 players.Add(player);
-                btnList.Add(player._buttonPressed);
+                btnList.Add(player.GetButtonPressed());
                 shouldAdd = true;
             }
             else
@@ -196,13 +195,13 @@ public class MediumGhost : MonoBehaviour
         else
         {
             players.Add(player);
-            btnList.Add(player._buttonPressed);
+            btnList.Add(player.GetButtonPressed());
             shouldAdd = true;
         }
 
         if(shouldAdd)
         {
-            switch(player._buttonPressed)
+            switch(player.GetButtonPressed())
             {
                 case BUTTON_PRESS.Up:
                     btnCount[0]++;
@@ -245,7 +244,7 @@ public class MediumGhost : MonoBehaviour
         SetSprites();
         foreach(Player player in players)
         {
-            player._buttonPressed = BUTTON_PRESS.None;
+            player.SetButtonPress(BUTTON_PRESS.None);
         }
     }
     void StartScare()

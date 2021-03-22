@@ -8,7 +8,7 @@ public class NodesAI : MonoBehaviour {
     private NavMeshAgent agent;
 
     //private serializables
-    [SerializeField] private Transform[] nodes;
+    [SerializeField] private Transform[] nodes = null;
     [SerializeField] private float wanderTimerMax;
 
     //private variables

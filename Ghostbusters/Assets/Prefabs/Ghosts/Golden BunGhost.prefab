@@ -10032,10 +10032,10 @@ GameObject:
   - component: {fileID: 8776785814052701566}
   - component: {fileID: 8252486359554252738}
   - component: {fileID: 8252486359554252737}
-  - component: {fileID: 8252486359554252736}
   - component: {fileID: 8252486359554252743}
   - component: {fileID: 8252486359554252742}
   - component: {fileID: 8252486359554252741}
+  - component: {fileID: 6643068414466068906}
   m_Layer: 0
   m_Name: Golden BunGhost
   m_TagString: Untagged
@@ -10090,21 +10090,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!111 &8252486359554252736
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8252486359554252740}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!195 &8252486359554252743
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10174,6 +10159,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRange: 8
+--- !u!95 &6643068414466068906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252486359554252740}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4abd91e0db38f845a5ee5a7ec8aa896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9062878070324339287
 GameObject:
   m_ObjectHideFlags: 0

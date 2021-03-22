@@ -7,7 +7,7 @@ public class PlayerSelect : MonoBehaviour
 {
     public List<Material> playerImages = new List<Material>();
     CameraManager cameraManager;
-    int imageIndex = 0;
+    public int imageIndex = 0;
 
     public int playerIndex;
 

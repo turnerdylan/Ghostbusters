@@ -55,9 +55,6 @@ public class GhostManager : MonoBehaviour
     public GameObject mediumGhostPrefab;
     public GameObject smallGhostPrefab;
 
-    [SerializeField] private float joinTogetherDistance = 2.5f;
-    //TODO add some sort of time delay for joining or animation
-
 
 
     private void Start()

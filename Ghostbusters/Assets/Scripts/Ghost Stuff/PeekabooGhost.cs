@@ -12,7 +12,7 @@ public class PeekabooGhost : MonoBehaviour
     //interaction range
     //timer for changing locations
     [SerializeField] List<Transform> locations = new List<Transform>();
-    [SerializeField] float interactionRange;
+    [SerializeField] float interactionRange = 5;
     [SerializeField] float cantTeleportTimerMax = 3f;
     float cantTeleportTimer;
     [SerializeField] float timeToLerp = 5;
@@ -20,7 +20,6 @@ public class PeekabooGhost : MonoBehaviour
     Animator anim;
     
     int currentLocationIndex;
-    bool canTeleport = false;
 
     private void Start()
     {

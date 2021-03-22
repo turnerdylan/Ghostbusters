@@ -17,9 +17,8 @@ public class SmallGhostMovement : MonoBehaviour
 
     //private serializables
     [SerializeField] private float minDistanceForEnemyToRun = 4f;
-    [SerializeField] private float wanderRadius;
+    [SerializeField] private float wanderRadius = 5;
     [SerializeField] private float timerUntilWanderMax = 2f;
-    [SerializeField] private float seekDistance = 7.5f;
 
     //private variables
     public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
@@ -56,7 +55,7 @@ public class SmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun)
+            if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -77,9 +76,9 @@ public class SmallGhostMovement : MonoBehaviour
         agent.acceleration = 200;
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position;
+            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer().position;
             Vector3 newPos = transform.position + dirToPlayer;
-            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun)
+            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
             {
                 agent.SetDestination(newPos);
             }
@@ -105,14 +104,14 @@ public class SmallGhostMovement : MonoBehaviour
             yield return null;
         }
     }
-    public IEnumerator State_Seek()
+    /*public IEnumerator State_Seek()
     {
         currentState = SMALL_GHOST_STATE.SEEK;
         //_stateText.text = "seek";
         while(currentState == SMALL_GHOST_STATE.SEEK)
         {
             agent.SetDestination(GetClosestGhost().position);
-            if(Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).position) < minDistanceForEnemyToRun) //if player comes within in range while seeking
+            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun) //if player comes within in range while seeking
             {
                 StartCoroutine(State_Flee()); 
                 yield break;
@@ -125,22 +124,7 @@ public class SmallGhostMovement : MonoBehaviour
             yield return null;
         }
     }
-    Transform GetClosestPlayer(Player[] players)
-    {
-        Transform tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (Player t in players)
-        {
-            float dist = Vector3.Distance(t.transform.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = t.transform;
-                minDist = dist;
-            }
-        }
-        return tMin;
-    }
+
     Transform GetClosestGhost()
     {
         Transform tMin = null;
@@ -159,7 +143,8 @@ public class SmallGhostMovement : MonoBehaviour
             }
         }
         return tMin;
-    }
+    }*/
+
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) 
     {
         NavMeshHit navHit;
@@ -182,9 +167,4 @@ public class SmallGhostMovement : MonoBehaviour
     {
         agent.Warp(RandomNavSphere(transform.position, 40f, 1));
     }
-
-    /*public IEnumerator RunAway(Vector3 direction)
-    {
-        ve
-    }*/
 }

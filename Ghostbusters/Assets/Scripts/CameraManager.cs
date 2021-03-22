@@ -42,7 +42,7 @@ public class CameraManager : MonoBehaviour
     {
         if(cameraState == CAMERA_POSITION.NORMAL)
         {
-            if (Gamepad.current.rightShoulder.wasPressedThisFrame)
+            if (Gamepad.all[0].rightShoulder.wasPressedThisFrame)
             {
                 textItemIndex++;
                 if (textItemIndex == textItems.Count)
@@ -55,12 +55,12 @@ public class CameraManager : MonoBehaviour
                 }
                 textItems[textItemIndex].color = selectedColor;
             }
-            else if (Gamepad.current.leftShoulder.wasPressedThisFrame)
+            else if (Gamepad.all[0].leftShoulder.wasPressedThisFrame)
             {
                 textItemIndex--;
                 if (textItemIndex < 0)
                 {
-                    textItemIndex = textItems.Count;
+                    textItemIndex = textItems.Count - 1;
                 }
                 foreach (TextMeshPro text in textItems)
                 {
@@ -73,50 +73,44 @@ public class CameraManager : MonoBehaviour
         switch (cameraState)
         {
             case CAMERA_POSITION.NORMAL:
-                if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+                if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
                 {
                     if (textItemIndex == 0)
                     {
-                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[0].position));
-                        cameraState = CAMERA_POSITION.PLAYERS;
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[0].position, CAMERA_POSITION.PLAYERS));
                     }
                     else if (textItemIndex == 1)
                     {
-                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[1].position));
-                        cameraState = CAMERA_POSITION.MAP;
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[1].position, CAMERA_POSITION.MAP));
                     }
                     else if (textItemIndex == 2)
                     {
-                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position));
+                        StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position, CAMERA_POSITION.SETTINGS));
                         Camera.main.transform.rotation = cameraPositions[2].rotation;
-                        cameraState = CAMERA_POSITION.SETTINGS;
                     }
                 }
-                else if(Gamepad.current.buttonEast.wasPressedThisFrame)
+                else if(Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
 
                 }
                 break;
             case CAMERA_POSITION.MAP:
-                if (Gamepad.current.buttonEast.wasPressedThisFrame)
+                if (Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
-                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
-                    cameraState = CAMERA_POSITION.NORMAL;
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
                 }
                     break;
             case CAMERA_POSITION.PLAYERS:
-                if (Gamepad.current.buttonEast.wasPressedThisFrame)
+                if (Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
-                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
-                    cameraState = CAMERA_POSITION.NORMAL;
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
                 }
                 break;
             case CAMERA_POSITION.SETTINGS:
-                if (Gamepad.current.buttonEast.wasPressedThisFrame)
+                if (Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
-                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position));
+                    StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
                     Camera.main.transform.rotation = cameraPositions[3].rotation;
-                    cameraState = CAMERA_POSITION.NORMAL;
                 }
                 break;
             default:
@@ -140,7 +134,7 @@ public class CameraManager : MonoBehaviour
         fadeOutSprite.color = endValue;
     }
 
-    IEnumerator LerpCameraPos(Vector3 startValue, Vector3 endValue)
+    IEnumerator LerpCameraPos(Vector3 startValue, Vector3 endValue, CAMERA_POSITION pos)
     {
         float time = 0;
 
@@ -151,5 +145,6 @@ public class CameraManager : MonoBehaviour
             yield return null;
         }
         Camera.main.transform.position = endValue;
+        cameraState = pos;
     }
 }

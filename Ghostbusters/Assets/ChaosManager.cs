@@ -60,12 +60,12 @@ public class ChaosManager : MonoBehaviour
     {
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player.backwardsControls = true;
+            player.SetBackwardsControls(true);
         }
         yield return new WaitForSeconds(5);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player.backwardsControls = false;
+            player.SetBackwardsControls(false);
         }
     }
 

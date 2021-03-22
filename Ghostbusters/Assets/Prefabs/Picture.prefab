@@ -271,14 +271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerImages:
-  - {fileID: 2100000, guid: 841042fb2e489714fbd8e5c1e684a202, type: 2}
+  - {fileID: 2100000, guid: 1e880931eecde66429f62bafa01aeff2, type: 2}
   - {fileID: 2100000, guid: 11e97a45a5e65ee468aae8d713153b4b, type: 2}
   - {fileID: 2100000, guid: be1af68ed040b164e82be24f310b6986, type: 2}
   - {fileID: 2100000, guid: e0e41a31f7fc45b4a936371a25224aa7, type: 2}
   - {fileID: 2100000, guid: aac599a2c70f2a04fba8df5027b57531, type: 2}
   - {fileID: 2100000, guid: 8ee3c98733ebea8468de37976096e395, type: 2}
   - {fileID: 2100000, guid: 6d47f298fbf4931428badcc4cdc194df, type: 2}
-  - {fileID: 2100000, guid: 1e880931eecde66429f62bafa01aeff2, type: 2}
+  imageIndex: 0
   playerIndex: 0
 --- !u!114 &705853203878466479
 MonoBehaviour:

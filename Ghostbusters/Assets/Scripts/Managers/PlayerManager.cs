@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
@@ -27,10 +28,10 @@ public class PlayerManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            print("spawn player");
-            Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+            int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
+            Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
         }
     }
     #endregion

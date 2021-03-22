@@ -17,9 +17,7 @@ public class SmallGhost : MonoBehaviour
 
     //private variables
     private int _listIndex;
-    bool _canTransform = false;
     public float _transformTimer;
-    private bool scareInitiated = false;
 
     public float fadeDuration = 12.0f;
     private Color currColor;
@@ -45,7 +43,6 @@ public class SmallGhost : MonoBehaviour
     {
         GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1, 1, 1, 0.83f);
         _timer = 0f;
-        _canTransform = true;
         _transformTimer = _transformTimerMax;
         _scareable = false;
         StartCoroutine(ScareInvincibility());

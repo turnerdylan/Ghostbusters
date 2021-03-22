@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public enum PLAYER_STATE
 {
     NORMAL,
-    WITH_BAG,
     STUNNED,
 };
 
@@ -25,41 +24,40 @@ public class Player : MonoBehaviour
 {
     //references
     private Rigidbody rb;
-    private Interactable currentInteraction;
     private Animator anim;
-    private Light spotlight;
     private PeekabooGhost peekaboo;
 
     //serializables
+    [Header("Player Movement")]
     [SerializeField] public float _moveSpeed = 10f; // wrong spot
-    [SerializeField] private float _viewAngle = 45f;
     [SerializeField] private float _rotationSpeed = 10f;
-    [SerializeField] private int _numberOfHeldGhosts;
+
+    [Header("Scaring")]
+    [SerializeField] private float _viewAngle = 45f;
+    [SerializeField] float _scareRange = 5f;
+
+    [Header("Sprites and other")]
+    public TextMeshPro heldGhostsText;
+    public GameObject redX;
+    public float _stunTime = 3f;
+    public int score;
 
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
     private Vector2 _inputMoveVector = Vector2.zero;
     private Vector3 _inputLookVector = Vector3.zero;
-    private bool canDive = true;
     private float _storedLookValue;
-    public PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
 
-    //public
-    public Transform testTransform; //delete this later
-    public float _scareRange = 5f;
-    public float _stunTime = 3f;
-    public BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
-    public Transform handTransform;
-    public int score;
-    public TextMeshPro heldGhostsText;
-    public GameObject redX;
-    bool canMove = true;
-    public bool backwardsControls = false;
+    private int _numberOfHeldGhosts;
+    private bool canDive = true;
+    private bool backwardsControls = false;
+    private PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
+    private BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
+    private bool canMove = true;
+    
 
     private void Awake()
     {
-        spotlight = GetComponentInChildren<Light>();
-        spotlight.spotAngle = _viewAngle;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         peekaboo = FindObjectOfType<PeekabooGhost>();
@@ -88,14 +86,6 @@ public class Player : MonoBehaviour
         _inputMoveVector = direction;
         if(backwardsControls)
             _inputMoveVector = direction * -1;
-    }
-
-    public void Interact()
-    {
-        if (currentInteraction.transform.name == "Ghost_Trap")
-            currentInteraction.Interact(this);
-        else
-            currentInteraction.Interact();
     }
 
     public void FlashX()
@@ -138,13 +128,6 @@ public class Player : MonoBehaviour
         _numberOfHeldGhosts = 0;
         heldGhostsText.text = _numberOfHeldGhosts.ToString();
     }
-    public void SwingBag()
-    {
-        if(currentState == PLAYER_STATE.WITH_BAG)
-        {
-            anim.SetTrigger("Catch");           
-        }
-    }
 
     public void Dive()
     {
@@ -184,22 +167,6 @@ public class Player : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
-    }
-    public void SwingBagStart()
-    {
-        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = true;
-    }
-
-    public void SwingBagEnd()
-    {
-        //Bag.Instance.GetComponent<CapsuleCollider>().isTrigger = false;
-    }
-
-    private IEnumerator ChangeSpotlightColor()
-    {
-        spotlight.color = Color.red;
-        yield return new WaitForSeconds(.5f); //change this to player scare cooldown later
-        spotlight.color = Color.white;
     }
 
     private void SetMoveDirection()
@@ -241,10 +208,28 @@ public class Player : MonoBehaviour
         return _buttonPressed;
     }
 
+    public BUTTON_PRESS GetButtonPressed()
+    {
+        return _buttonPressed;
+    }
+
     public void SetButtonPress(BUTTON_PRESS state)
     {
         _buttonPressed = state;
     }
+
+    public void SetBackwardsControls(bool state)
+    {
+        backwardsControls = state;
+    }
+
+    public float GetScareRange()
+    {
+        return _scareRange;
+    }
+
+    
+
     #endregion
 
 

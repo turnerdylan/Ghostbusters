@@ -53,8 +53,7 @@ public class Bag : MonoBehaviour
     [SerializeField] private int _numberOfHeldGhosts;
     [SerializeField] private int _maxNumberOfGhostsHeld = 4;
     public List<GameObject> caughtGhostSpritePositions = new List<GameObject>();
-    [SerializeField] Sprite emptySprite;
-    [SerializeField] Sprite ghostSprite;
+    [SerializeField] Sprite emptySprite = null;
 
     Rigidbody rb;
     BAG_STATE bagState = BAG_STATE.ON_GROUND;
@@ -98,15 +97,7 @@ public class Bag : MonoBehaviour
             // caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
             foreach(Player player in PlayerManager.Instance.GetPlayerArray())
             {
-                if(player.GetPlayerState() == PLAYER_STATE.WITH_BAG)
-                {
-                    other.gameObject.SetActive(false);
-                    _numberOfHeldGhosts++;
-                    caughtGhostSpritePositions[_numberOfHeldGhosts - 1].GetComponent<SpriteRenderer>().sprite = ghostSprite;
-                    
-                    player.score++;
-                    //PlayerManager.Instance.CalculateScore();
-                }
+               
             }
         }
     }
