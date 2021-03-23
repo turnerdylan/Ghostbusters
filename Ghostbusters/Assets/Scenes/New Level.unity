@@ -221,20 +221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2055415718907612790, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618771, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
       propertyPath: m_Name
       value: Peekaboo Parent
-      objectReference: {fileID: 0}
-    - target: {fileID: 4604214624979618771, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
@@ -244,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -4.21
       objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
@@ -290,11 +280,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7783116298669152916, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: locations.Array.size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977d819a916b9a4428497408fdeefbfa, type: 3}
@@ -1558,7 +1543,7 @@ PrefabInstance:
     - target: {fileID: 1130309507718286143, guid: ec1d3b47ca1d73948906a48968278f09,
         type: 3}
       propertyPath: testMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1d3b47ca1d73948906a48968278f09, type: 3}

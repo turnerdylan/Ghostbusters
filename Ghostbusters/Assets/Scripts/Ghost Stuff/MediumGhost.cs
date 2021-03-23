@@ -75,9 +75,9 @@ public class MediumGhost : MonoBehaviour
             _transformTimer -= Time.deltaTime;
         }
 
-        foreach(Player player in PlayerManager.Instance.players)
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
+            if(Vector3.Distance(transform.position, player.transform.position) < player.GetScareRange())
             {
                 inRange = true;
                 break;
@@ -206,7 +206,7 @@ public class MediumGhost : MonoBehaviour
 
         if(!players.Contains(player) || debugging)
         {
-            switch(player._buttonPressed)
+            switch(player.GetButtonPress())
             {
                 case BUTTON_PRESS.Up:
                     if(targetBtnCount[0] == 1 && btnCount[0] != 1)
@@ -285,7 +285,7 @@ public class MediumGhost : MonoBehaviour
         SetSprites();
         foreach(Player player in players)
         {
-            player._buttonPressed = BUTTON_PRESS.None;
+            player.SetButtonPress(BUTTON_PRESS.None);
         }
     }
     void StartScare()

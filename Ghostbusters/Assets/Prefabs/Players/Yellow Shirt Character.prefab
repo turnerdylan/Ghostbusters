@@ -6123,25 +6123,6 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6635086342476835385}
-        m_MethodName: GetBag
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f97d999d-872a-42d1-b7af-1758f874b960
-    m_ActionName: Player/GetBag[/Keyboard/k,/DualShock4GamepadHID/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6
-    m_ActionName: Player/GrabBag[/Keyboard/k,/DualShock4GamepadHID/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6635086342476835385}
         m_MethodName: Dive
         m_Mode: 0
         m_Arguments:
@@ -6170,6 +6151,21 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a78955f7-ed96-47b0-965c-c5399608cd80
     m_ActionName: Menu/Left[/DualShock4GamepadHID/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6635086342476835385}
+        m_MethodName: DepositGhosts
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 592f8f20-e1e9-4a5e-a579-9b394d8421ce
+    m_ActionName: Player/DepositGhosts[/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID/rightShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6237,6 +6233,7 @@ MonoBehaviour:
   redX: {fileID: 2732468176956180061}
   _stunTime: 1
   score: 0
+  characterSprite: {fileID: 21300000, guid: 97a0374fc2fe6dc43a139d06189bfb30, type: 3}
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

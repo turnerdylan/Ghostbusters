@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public GameObject redX;
     public float _stunTime = 3f;
     public int score;
+    public Sprite characterSprite;
 
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
@@ -204,11 +205,6 @@ public class Player : MonoBehaviour
     }
 
     public BUTTON_PRESS GetButtonPress()
-    {
-        return _buttonPressed;
-    }
-
-    public BUTTON_PRESS GetButtonPressed()
     {
         return _buttonPressed;
     }

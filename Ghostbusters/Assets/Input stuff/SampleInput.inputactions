@@ -22,14 +22,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SwingBag",
-                    "type": "Button",
-                    "id": "48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "Dive",
                     "type": "Button",
                     "id": "1d5bb0d9-ebc3-4d12-b754-46204601abc1",
@@ -38,17 +30,17 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "GetBag",
+                    "name": "UpScare",
                     "type": "Button",
-                    "id": "f97d999d-872a-42d1-b7af-1758f874b960",
+                    "id": "204b452f-1e71-49fa-a04d-d18d530a8e5c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
                 },
                 {
-                    "name": "UpScare",
+                    "name": "DepositGhosts",
                     "type": "Button",
-                    "id": "204b452f-1e71-49fa-a04d-d18d530a8e5c",
+                    "id": "592f8f20-e1e9-4a5e-a579-9b394d8421ce",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
@@ -290,39 +282,6 @@
                 },
                 {
                     "name": "",
-                    "id": "6c7bdb01-5336-4007-9d8d-e4a27f8c8f1c",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "GetBag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ce9e6e95-69d4-4799-a305-19189e3db9fd",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GetBag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac84d13a-beea-49d1-b20c-5ca3f171c2fd",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SwingBag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "eeeac0c4-ef7f-4d16-a928-122871ee36b1",
                     "path": "<Keyboard>/k",
                     "interactions": "",
@@ -340,6 +299,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d54e502e-7998-4437-8e5b-88830bd109a9",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DepositGhosts",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

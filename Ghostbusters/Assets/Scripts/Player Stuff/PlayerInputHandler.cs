@@ -26,7 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
             player.SetMoveVector(context.ReadValue<Vector2>());
     }
 
-    public void GetBag(CallbackContext context)
+    public void DepositGhosts(CallbackContext context)
     {
         if(context.performed)
         {

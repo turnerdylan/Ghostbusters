@@ -35,14 +35,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SwingBag"",
-                    ""type"": ""Button"",
-                    ""id"": ""48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
                     ""name"": ""Dive"",
                     ""type"": ""Button"",
                     ""id"": ""1d5bb0d9-ebc3-4d12-b754-46204601abc1"",
@@ -51,17 +43,17 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""GetBag"",
+                    ""name"": ""UpScare"",
                     ""type"": ""Button"",
-                    ""id"": ""f97d999d-872a-42d1-b7af-1758f874b960"",
+                    ""id"": ""204b452f-1e71-49fa-a04d-d18d530a8e5c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""UpScare"",
+                    ""name"": ""DepositGhosts"",
                     ""type"": ""Button"",
-                    ""id"": ""204b452f-1e71-49fa-a04d-d18d530a8e5c"",
+                    ""id"": ""592f8f20-e1e9-4a5e-a579-9b394d8421ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
@@ -303,39 +295,6 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6c7bdb01-5336-4007-9d8d-e4a27f8c8f1c"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""GetBag"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ce9e6e95-69d4-4799-a305-19189e3db9fd"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GetBag"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ac84d13a-beea-49d1-b20c-5ca3f171c2fd"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""SwingBag"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""eeeac0c4-ef7f-4d16-a928-122871ee36b1"",
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
@@ -353,6 +312,17 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Dive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54e502e-7998-4437-8e5b-88830bd109a9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DepositGhosts"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1137,10 +1107,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_SwingBag = m_Player.FindAction("SwingBag", throwIfNotFound: true);
         m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
-        m_Player_GetBag = m_Player.FindAction("GetBag", throwIfNotFound: true);
         m_Player_UpScare = m_Player.FindAction("UpScare", throwIfNotFound: true);
+        m_Player_DepositGhosts = m_Player.FindAction("DepositGhosts", throwIfNotFound: true);
         m_Player_DownScare = m_Player.FindAction("DownScare", throwIfNotFound: true);
         m_Player_LeftScare = m_Player.FindAction("LeftScare", throwIfNotFound: true);
         m_Player_RightScare = m_Player.FindAction("RightScare", throwIfNotFound: true);
@@ -1213,10 +1182,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_SwingBag;
     private readonly InputAction m_Player_Dive;
-    private readonly InputAction m_Player_GetBag;
     private readonly InputAction m_Player_UpScare;
+    private readonly InputAction m_Player_DepositGhosts;
     private readonly InputAction m_Player_DownScare;
     private readonly InputAction m_Player_LeftScare;
     private readonly InputAction m_Player_RightScare;
@@ -1226,10 +1194,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
         public PlayerActions(@SampleInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @SwingBag => m_Wrapper.m_Player_SwingBag;
         public InputAction @Dive => m_Wrapper.m_Player_Dive;
-        public InputAction @GetBag => m_Wrapper.m_Player_GetBag;
         public InputAction @UpScare => m_Wrapper.m_Player_UpScare;
+        public InputAction @DepositGhosts => m_Wrapper.m_Player_DepositGhosts;
         public InputAction @DownScare => m_Wrapper.m_Player_DownScare;
         public InputAction @LeftScare => m_Wrapper.m_Player_LeftScare;
         public InputAction @RightScare => m_Wrapper.m_Player_RightScare;
@@ -1248,18 +1215,15 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @SwingBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
-                @SwingBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
-                @SwingBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwingBag;
                 @Dive.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
                 @Dive.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
                 @Dive.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
-                @GetBag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
-                @GetBag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
-                @GetBag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetBag;
                 @UpScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
                 @UpScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
                 @UpScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpScare;
+                @DepositGhosts.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDepositGhosts;
+                @DepositGhosts.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDepositGhosts;
+                @DepositGhosts.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDepositGhosts;
                 @DownScare.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
                 @DownScare.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
                 @DownScare.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDownScare;
@@ -1279,18 +1243,15 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @SwingBag.started += instance.OnSwingBag;
-                @SwingBag.performed += instance.OnSwingBag;
-                @SwingBag.canceled += instance.OnSwingBag;
                 @Dive.started += instance.OnDive;
                 @Dive.performed += instance.OnDive;
                 @Dive.canceled += instance.OnDive;
-                @GetBag.started += instance.OnGetBag;
-                @GetBag.performed += instance.OnGetBag;
-                @GetBag.canceled += instance.OnGetBag;
                 @UpScare.started += instance.OnUpScare;
                 @UpScare.performed += instance.OnUpScare;
                 @UpScare.canceled += instance.OnUpScare;
+                @DepositGhosts.started += instance.OnDepositGhosts;
+                @DepositGhosts.performed += instance.OnDepositGhosts;
+                @DepositGhosts.canceled += instance.OnDepositGhosts;
                 @DownScare.started += instance.OnDownScare;
                 @DownScare.performed += instance.OnDownScare;
                 @DownScare.canceled += instance.OnDownScare;
@@ -1515,10 +1476,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnSwingBag(InputAction.CallbackContext context);
         void OnDive(InputAction.CallbackContext context);
-        void OnGetBag(InputAction.CallbackContext context);
         void OnUpScare(InputAction.CallbackContext context);
+        void OnDepositGhosts(InputAction.CallbackContext context);
         void OnDownScare(InputAction.CallbackContext context);
         void OnLeftScare(InputAction.CallbackContext context);
         void OnRightScare(InputAction.CallbackContext context);

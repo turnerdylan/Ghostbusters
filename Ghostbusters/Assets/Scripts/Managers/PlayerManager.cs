@@ -33,7 +33,8 @@ public class PlayerManager : MonoBehaviour
         {
             for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+                var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+                players.Add(currentPlayer.GetComponent<Player>());
             }
         }
         else
@@ -41,14 +42,16 @@ public class PlayerManager : MonoBehaviour
             for (int i = 0; i < Gamepad.all.Count; i++)
             {
                 int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
-                Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
+                var currentPlayer = Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
+                players.Add(currentPlayer.GetComponent<Player>());
             }
         }
     }
     #endregion
 
     [SerializeField] bool testMode = false;
-    Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
+    //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
+    List<Player> players = new List<Player>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 
@@ -86,7 +89,7 @@ public class PlayerManager : MonoBehaviour
         scoreText.text = "Score: " + totalScore;
     }
 
-    public Player[] GetPlayerArray()
+    public List<Player> GetPlayerArray()
     {
         return players;
     }

@@ -65,7 +65,7 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (SceneManager.GetActiveScene().buildIndex != 1) return;
 
         UpdatePlayerPictures();
 

@@ -100,14 +100,12 @@ public class PeekabooGhost : MonoBehaviour
 
         if(moveParticles)
         {
-            print("particle start");
             particles.GetComponent<ParticleSystem>().Play();
             startPos = locations[lastLocationIndex].position + new Vector3(0, 3.78f, 0);
             endPos = locations[currentLocationIndex].position + new Vector3(0, 3.78f, 0);
         }
         else
         {  
-            print("ghost lerp start");
             startPos = transform.position;
             if(shouldMoveDown)
             {

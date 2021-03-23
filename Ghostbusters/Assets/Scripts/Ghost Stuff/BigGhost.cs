@@ -9,7 +9,6 @@ using System;
 public class BigGhost : MonoBehaviour
 {
     //references
-    [SerializeField] private TextMeshPro scareFeedbackText = null;
     public GameObject explosivePrefab;
     public ParticleSystem hitEffect;
     public ParticleSystem explosionEffect;
@@ -29,9 +28,7 @@ public class BigGhost : MonoBehaviour
 
     //public variables
     public List<Player> players = new List<Player>();
-    //public Sprite[] sprites = new Sprite[4];
-    //public Sprite[] pressedSprites = new Sprite[4];
-    //public Sprite checkMark;
+
     public Image[] images = new Image[4];
     public GameObject buttonSequenceSprite;
     public Image timerBar;
@@ -39,7 +36,6 @@ public class BigGhost : MonoBehaviour
     private List<BUTTON_PRESS> btnList = new List<BUTTON_PRESS>();
     private bool sequenceGenerated = false;
     private bool inRange;
-    //private int arrayLength;
     public float timer = 10f; //scare timer
     private float _timer; //scare timer
     public int scaresNeeded;
@@ -54,10 +50,9 @@ public class BigGhost : MonoBehaviour
 
     void Update()
     {
-        scareFeedbackText.text = players.Count.ToString();
-        foreach(Player player in PlayerManager.Instance.players)
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < player._scareRange)
+            if(Vector3.Distance(transform.position, player.transform.position) < player.GetScareRange())
             {
                 inRange = true;
                 break;
@@ -177,7 +172,7 @@ public class BigGhost : MonoBehaviour
         SetSprites();
         foreach(Player player in players)
         {
-            player._buttonPressed = BUTTON_PRESS.None;
+            player.SetButtonPress(BUTTON_PRESS.None);
         }
     }
     void StartScare()
@@ -244,7 +239,7 @@ public class BigGhost : MonoBehaviour
         // {
         if(!players.Contains(player) || debugging)
         {
-            switch(player._buttonPressed)
+            switch(player.GetButtonPress())
             {
                 case BUTTON_PRESS.Up:
                     if(targetBtnCount[0] == 1 && btnCount[0] != 1)
