@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 18
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
@@ -76,6 +76,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
@@ -112,6 +117,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[17].m_ActionName
       value: Player/GrabBag[/Keyboard/k,/DualShock4GamepadHID/rightTrigger]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
+      value: Player/Dive[/Keyboard/k,/XInputControllerWindows/rightTrigger]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
+      value: Menu/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: Menu/Select[/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
+      value: Menu/Right[/XInputControllerWindows/dpad/right]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionName
+      value: Menu/Left[/XInputControllerWindows/dpad/left]
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
@@ -155,6 +185,12 @@ PrefabInstance:
       propertyPath: hearts.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73143d9ac3c3ff44da80eabfddbe4f77,
+        type: 3}
     - target: {fileID: 8661107302864104132, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_Mesh

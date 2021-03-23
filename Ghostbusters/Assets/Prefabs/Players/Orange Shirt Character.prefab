@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange Shirt Character
       objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db337c933640300478f6b15cbb9e8f77,
+        type: 3}
     - target: {fileID: 8661107302864104132, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_Mesh
