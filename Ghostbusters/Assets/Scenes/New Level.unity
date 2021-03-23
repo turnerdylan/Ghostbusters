@@ -221,20 +221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2055415718907612790, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618771, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
       propertyPath: m_Name
       value: Peekaboo Parent
-      objectReference: {fileID: 0}
-    - target: {fileID: 4604214624979618771, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
@@ -244,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 4604214624979618780, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
@@ -290,11 +280,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7783116298669152916, guid: 977d819a916b9a4428497408fdeefbfa,
-        type: 3}
-      propertyPath: locations.Array.size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977d819a916b9a4428497408fdeefbfa, type: 3}
@@ -1149,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 872701129058474827, guid: 4a3e1a7df95c5c244b558240f7d5434a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 872701129058474828, guid: 4a3e1a7df95c5c244b558240f7d5434a,
         type: 3}
@@ -1278,7 +1263,7 @@ PrefabInstance:
     - target: {fileID: 6010546809506764461, guid: dc71ab76cc079f54dbf01d13859e460a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6350656939146497047, guid: dc71ab76cc079f54dbf01d13859e460a,
         type: 3}
@@ -1380,16 +1365,14 @@ MonoBehaviour:
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
   players: []
-  sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  checkMark: {fileID: 0}
   images: []
   buttonSequenceSprite: {fileID: 0}
   timerBar: {fileID: 0}
   timer: 10
+  scaresNeeded: 0
+  emptySprite: {fileID: 0}
+  playerSprite: {fileID: 0}
+  debugging: 0
 --- !u!54 &1163506494
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1853,6 +1836,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff,
         type: 3}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxMediumGhosts
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: maxBigGhosts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1925615210104531387, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2119,6 +2112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BunGhost
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758813688028118157, guid: 05e4f990cd7392148befc5dbc9275914,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e4f990cd7392148befc5dbc9275914, type: 3}

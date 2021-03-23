@@ -29,10 +29,10 @@ public class BigGhost : MonoBehaviour
 
     //public variables
     public List<Player> players = new List<Player>();
-    public Sprite[] sprites = new Sprite[4];
+    //public Sprite[] sprites = new Sprite[4];
     //public Sprite[] pressedSprites = new Sprite[4];
-    public Sprite checkMark;
-    public List<Image> images = new List<Image>();
+    //public Sprite checkMark;
+    public Image[] images = new Image[4];
     public GameObject buttonSequenceSprite;
     public Image timerBar;
     private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
@@ -42,6 +42,10 @@ public class BigGhost : MonoBehaviour
     //private int arrayLength;
     public float timer = 10f; //scare timer
     private float _timer; //scare timer
+    public int scaresNeeded;
+    public Sprite emptySprite;
+    public Sprite playerSprite;
+    public bool debugging;
 
     void Start()
     {
@@ -107,7 +111,10 @@ public class BigGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        //players[players.Count].InitiateDisableTrigger(0.75f);
+        foreach(Player player in players)
+        {
+            player.InitiateDisableTrigger(0.75f);
+        }
         int spawnedGhosts = 0;
         for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
         {
@@ -130,8 +137,8 @@ public class BigGhost : MonoBehaviour
 
     private void ScareSuccess()
     {
-        ResetScare();
         SplitApart();
+        ResetScare();
         //RandomEvent();
     }
 
@@ -179,158 +186,174 @@ public class BigGhost : MonoBehaviour
     }
     public void AddPlayerScare(Player player)
     {
-        bool shouldAdd = false;
+        // bool shouldAdd = false;
         if(!scareInitiated)
         {
             StartScare();
         }
-        MakePressed(player._buttonPressed);
-        switch(PlayerManager.Instance.players.Length)
-        {
-            case 1:
-                players.Add(player);
-                btnList.Add(player._buttonPressed);
-                shouldAdd = true;
-                break;
-            case 2:
-                if(CountInList(player)<2)
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            case 3:
-                if(CountInList(player)<2)
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            case 4:
-                if(!players.Contains(player))
-                {
-                    players.Add(player);
-                    btnList.Add(player._buttonPressed);
-                    shouldAdd = true;
-                }
-                else
-                {
-                    ScareFail();
-                }
-                break;
-            default:
-                print("Invalid number of players");
-                break;
-        }
+        // MakePressed(player._buttonPressed);
+        // switch(PlayerManager.Instance.players.Length)
+        // {
+        //     case 1:
+        //         players.Add(player);
+        //         btnList.Add(player._buttonPressed);
+        //         shouldAdd = true;
+        //         break;
+        //     case 2:
+        //         if(CountInList(player)<2)
+        //         {
+        //             players.Add(player);
+        //             btnList.Add(player._buttonPressed);
+        //             shouldAdd = true;
+        //         }
+        //         else
+        //         {
+        //             ScareFail();
+        //         }
+        //         break;
+        //     case 3:
+        //         if(CountInList(player)<2)
+        //         {
+        //             players.Add(player);
+        //             btnList.Add(player._buttonPressed);
+        //             shouldAdd = true;
+        //         }
+        //         else
+        //         {
+        //             ScareFail();
+        //         }
+        //         break;
+        //     case 4:
+        //         if(!players.Contains(player))
+        //         {
+        //             players.Add(player);
+        //             btnList.Add(player._buttonPressed);
+        //             shouldAdd = true;
+        //         }
+        //         else
+        //         {
+        //             ScareFail();
+        //         }
+        //         break;
+        //     default:
+        //         print("Invalid number of players");
+        //         break;
+        // }
 
-        if(shouldAdd)
+        // if(shouldAdd)
+        // {
+        if(!players.Contains(player) || debugging)
         {
             switch(player._buttonPressed)
             {
                 case BUTTON_PRESS.Up:
-                    btnCount[0]++;
+                    if(targetBtnCount[0] == 1 && btnCount[0] != 1)
+                    {
+                        images[0].sprite = player.characterSprite;
+                        btnCount[0] = 1;
+                        players.Add(player);
+                    }
+                    else
+                    {
+                        ScareFail();
+                    }
                     break;
                 case BUTTON_PRESS.Down:
-                    btnCount[1]++;
+                    if(targetBtnCount[1] == 1 && btnCount[1] != 1)
+                    {
+                        images[1].sprite = player.characterSprite;
+                        btnCount[1] = 1;
+                        players.Add(player);
+                    }
+                    else
+                    {
+                        ScareFail();
+                    }
                     break;
                 case BUTTON_PRESS.Left:
-                    btnCount[2]++;
+                    if(targetBtnCount[2] == 1 && btnCount[2] != 1)
+                    {
+                        images[2].sprite = player.characterSprite;
+                        btnCount[2] = 1;
+                        players.Add(player);
+                    }
+                    else
+                    {
+                        ScareFail();
+                    }
                     break;
                 case BUTTON_PRESS.Right:
-                    btnCount[3]++;
+                    if(targetBtnCount[3] == 1 && btnCount[3] != 1)
+                    {
+                        images[3].sprite = player.characterSprite;
+                        btnCount[3] = 1;
+                        players.Add(player);
+                    }
+                    else
+                    {
+                        ScareFail();
+                    }
                     break;
                 default:
                     print("Invalid button state");
                     break;
             }
         }
+        // }
 
     }
 
-    void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
-    {
-        foreach(BUTTON_PRESS btnPressed in btnList)
-        {
-            switch(btnPressed)
-            {
-                case BUTTON_PRESS.Up:
-                    btnCount[0]++;
-                    break;
-                case BUTTON_PRESS.Down:
-                    btnCount[1]++;
-                    break;
-                case BUTTON_PRESS.Left:
-                    btnCount[2]++;
-                    break;
-                case BUTTON_PRESS.Right:
-                    btnCount[3]++;
-                    break;
-                default:
-                    print("Invalid button state");
-                    break;
-            }
-        }
-    }
+    // void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
+    // {
+    //     foreach(BUTTON_PRESS btnPressed in btnList)
+    //     {
+    //         switch(btnPressed)
+    //         {
+    //             case BUTTON_PRESS.Up:
+    //                 btnCount[0]++;
+    //                 break;
+    //             case BUTTON_PRESS.Down:
+    //                 btnCount[1]++;
+    //                 break;
+    //             case BUTTON_PRESS.Left:
+    //                 btnCount[2]++;
+    //                 break;
+    //             case BUTTON_PRESS.Right:
+    //                 btnCount[3]++;
+    //                 break;
+    //             default:
+    //                 print("Invalid button state");
+    //                 break;
+    //         }
+    //     }
+    // }
 
     public void GenerateSequence()
     {
-        for(int i = 0; i<4; i++)// i < players.Length
+        int i = 0;
+        while(i<scaresNeeded)
         {
-            int btn = UnityEngine.Random.Range(1,5);
-            switch(btn)
+            int num = UnityEngine.Random.Range(0,4);
+            if(targetBtnCount[num] != 1)
             {
-                case 1:
-                    targetBtnList.Add(BUTTON_PRESS.Up);
-                    break;
-                case 2:
-                    targetBtnList.Add(BUTTON_PRESS.Down);
-                    break;
-                case 3:
-                    targetBtnList.Add(BUTTON_PRESS.Left);
-                    break;
-                case 4:
-                    targetBtnList.Add(BUTTON_PRESS.Right);
-                    break;
-                default:
-                    print("Number generation outside range");
-                    break;
+                targetBtnCount[num] = 1;
+                i++;
             }
         }
         SetSprites();
-        CountElements(targetBtnCount, targetBtnList);
         sequenceGenerated = true;
     }
     void SetSprites()
     {
-        for (int i=0; i<images.Count; i++)
+        for (int i=0; i<4; i++)
         {
-            switch(targetBtnList[i])
+            if(targetBtnCount[i] == 1)
             {
-                case BUTTON_PRESS.Up:
-                images[i].sprite = sprites[0];
-                    break;
-                case BUTTON_PRESS.Down:
-                images[i].sprite = sprites[1];
-                    break;
-                case BUTTON_PRESS.Left:
-                images[i].sprite = sprites[2];
-                    break;
-                case BUTTON_PRESS.Right:
-                images[i].sprite = sprites[3];
-                    break;
-                default:
-                    print("Invalid button state");
-                    break;
+                images[i].sprite = playerSprite;
+            }
+            else
+            {
+                images[i].sprite = emptySprite;
             }
         }
     }
@@ -348,25 +371,25 @@ public class BigGhost : MonoBehaviour
         return count;
     }
 
-    void MakePressed(BUTTON_PRESS button)
-    {
-        bool pressed = false;
-        for(int i = 0; i<targetBtnList.Count; i++)
-        {
-            if(button == targetBtnList[i] && !pressed)
-            {
-                if (images[i].sprite != checkMark)
-                {
-                 images[i].sprite = checkMark;
-                    pressed = true;
-                }
-            }
-            if(pressed)
-            {
-                break;
-            }
-        }
-    }
+    // void MakePressed(BUTTON_PRESS button)
+    // {
+    //     bool pressed = false;
+    //     for(int i = 0; i<targetBtnList.Count; i++)
+    //     {
+    //         if(button == targetBtnList[i] && !pressed)
+    //         {
+    //             if (images[i].sprite != checkMark)
+    //             {
+    //              images[i].sprite = checkMark;
+    //                 pressed = true;
+    //             }
+    //         }
+    //         if(pressed)
+    //         {
+    //             break;
+    //         }
+    //     }
+    // }
 
     void RandomEvent()
     {

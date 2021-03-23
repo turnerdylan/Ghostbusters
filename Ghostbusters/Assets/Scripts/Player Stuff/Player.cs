@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     public int score;
     public TextMeshPro heldGhostsText;
     public GameObject redX;
+    public Sprite characterSprite;
     bool canMove = true;
     public bool backwardsControls = false;
 
