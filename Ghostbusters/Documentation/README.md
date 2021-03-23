@@ -34,7 +34,11 @@ This was a very insightful playtest that has helped us figure out if certain thi
 
 C - 
 
-D - 
+D - This week I spend most of my time finishing the menu for the game. We now have an intro scene, a menu scene with character select, level select, and settings. There is also the start of some sort of tutorial development but that is on pause until we finish game mechanics.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuCapture.gif" width="75%">
+
+
 
 Z - After changing up the mechanics and doing more playtesting, we realized that the level design needed to follow a more open layout concept. We dug into this idea and created a new set of level models that we have been using for our most recent playtests. Below are some images of what these more block based levels look like. Our goal is still to have a variety of levels (probably 8 or so) for the story and then one introduction/tutorial level (probably the ferry level that has been posted on here before). 
 
