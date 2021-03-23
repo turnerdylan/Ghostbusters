@@ -7,6 +7,7 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
+    //players are spawned in awake
     #region Singleton Setup and Awake
     public static PlayerManager Instance
     {
@@ -28,25 +29,31 @@ public class PlayerManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < Gamepad.all.Count; i++)
+        if(testMode)
         {
-            int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
-            Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
+                Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
+            }
         }
     }
     #endregion
 
+    [SerializeField] bool testMode = false;
     Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 
     private int totalScore;
     public TextMeshProUGUI scoreText;
-
-    private void Start()
-    {
-        
-    }
 
     public void SetAllPlayerControls(bool state)
     {
@@ -88,6 +95,8 @@ public class PlayerManager : MonoBehaviour
     {
         Transform closestPlayerTransform = null;
         float distanceToClosestPlayerTemp = Mathf.Infinity;
+
+        if (players == null) return null;
 
         foreach (Player player in players)
         {

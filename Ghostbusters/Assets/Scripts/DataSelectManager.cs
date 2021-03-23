@@ -51,22 +51,7 @@ public class DataSelectManager : MonoBehaviour
 
     void Start()
     {
-        /*InputSystem.onDeviceChange +=
-            (device, change) =>
-            {
-                switch (change)
-                {
-                    case InputDeviceChange.Added:
-                        Debug.Log("Device added: " + device);
-                        break;
-                    case InputDeviceChange.Removed:
-                        Debug.Log("Device removed: " + device);
-                        break;
-                    case InputDeviceChange.ConfigurationChanged:
-                        Debug.Log("Device configuration changed: " + device);
-                        break;
-                }
-            };*/
+        if (SceneManager.GetActiveScene().buildIndex != 1) return;
 
         for (int i = 0; i < players.Count; i++)
         {
@@ -80,6 +65,8 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         UpdatePlayerPictures();
 
         if(camManager.cameraState == CAMERA_POSITION.MAP)

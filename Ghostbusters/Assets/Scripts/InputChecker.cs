@@ -22,7 +22,7 @@ public class InputChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Gamepad.current.buttonSouth.isPressed)
+        if(Gamepad.all[0].buttonSouth.isPressed)
         {
             StartCoroutine(LerpFunction(targetColor));
 

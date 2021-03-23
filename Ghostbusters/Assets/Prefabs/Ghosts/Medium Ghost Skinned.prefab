@@ -896,10 +896,10 @@ MonoBehaviour:
     type: 3}
   explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
     type: 3}
+  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
   formable: 1
-  _scaresNeeded: 1
   _scareInputsTimerMaxTime: 0.2
   _onScareInvincibilityTime: 2
   _transformTimerMax: 1.5
@@ -957,7 +957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxTest: {fileID: 6892719444856579502}
   _attackRange: 6
 --- !u!1 &8138825041592426302
 GameObject:

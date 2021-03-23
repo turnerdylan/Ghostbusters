@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 public enum CAMERA_POSITION
 { 
@@ -88,10 +88,6 @@ public class CameraManager : MonoBehaviour
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position, CAMERA_POSITION.SETTINGS));
                         Camera.main.transform.rotation = cameraPositions[2].rotation;
                     }
-                }
-                else if(Gamepad.all[0].buttonEast.wasPressedThisFrame)
-                {
-
                 }
                 break;
             case CAMERA_POSITION.MAP:

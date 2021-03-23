@@ -79,17 +79,6 @@ public class LevelManager : MonoBehaviour
 
             if (levelTimer <= 0) EndLevel();
         }
-        else if(currentState == LEVEL_STATE.ENDED)
-        {
-            //move all of this to end level function?
-            levelTimerText.text = "00:00";
-            startText.text = "level over. Press any button to go to the next level";
-            SetUI(true);
-            PlayerManager.Instance.SetAllPlayerControls(false);
-            GhostManager.Instance.SetAllGhostControls(false);
-        }
-
-
     }
 
     public void EndLevel()
@@ -97,6 +86,10 @@ public class LevelManager : MonoBehaviour
         currentState = LEVEL_STATE.ENDED;
         //add a delay here
         Time.timeScale = 0;
+
+        SetUI(true);
+        PlayerManager.Instance.SetAllPlayerControls(false);
+        GhostManager.Instance.SetAllGhostControls(false);
     }
 
     //janky but its cool cause it will all be replaced with an animation countdown
@@ -121,6 +114,8 @@ public class LevelManager : MonoBehaviour
     private void SetUI(bool state)
     {
         startText.gameObject.SetActive(state);
+        levelTimerText.text = "00:00";
+        startText.text = "level over. Press any button to go to the next level";
     }
 
     public LEVEL_STATE GetLevelState()

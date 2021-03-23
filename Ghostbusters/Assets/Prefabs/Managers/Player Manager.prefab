@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae53739026b95a42a777763f946da3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   playerSkins:
   - {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8, type: 3}
   - {fileID: 7518618441905398923, guid: 788e07715a4db7645bbeeccd2bd4557a, type: 3}

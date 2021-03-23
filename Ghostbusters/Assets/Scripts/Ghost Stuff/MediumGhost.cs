@@ -17,6 +17,7 @@ public class MediumGhost : MonoBehaviour
     //references
     public GameObject smallGhost;
     public GameObject explosivePrefab;
+    public GameObject puffPrefab;
     Rigidbody rb;
 
     //private serializables
@@ -120,7 +121,6 @@ public class MediumGhost : MonoBehaviour
 
     private void OnEnable()
     {
-
         _scareInputsTimer = _scareInputsTimerMaxTime;
         _canTransform = true;
         _transformTimer = _transformTimerMax;
@@ -147,6 +147,7 @@ public class MediumGhost : MonoBehaviour
                 spawnedGhosts++;
             }
         }
+        Instantiate(puffPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
 
