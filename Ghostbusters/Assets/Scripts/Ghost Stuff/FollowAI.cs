@@ -9,6 +9,7 @@ public class FollowAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private Rigidbody rb;
+    public GameObject hitBox;
 
     //private serializables
     [SerializeField] private float _attackRange = 8;
@@ -37,14 +38,16 @@ public class FollowAI : MonoBehaviour
         if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
         {
             anim.SetBool("Attack", true);
+            hitBox.SetActive(true);
             StartCoroutine(EndAttack());
         }
     }
 
     public IEnumerator EndAttack()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         anim.SetBool("Attack", false);
+        hitBox.SetActive(false);
     }
 
     private void OnDisable()

@@ -6,66 +6,46 @@ using UnityEngine.UI;
 
 public class MediumGhost : MonoBehaviour
 {
-    //references
-    public GameObject explosivePrefab;
     public GameObject puffPrefab;
-    Rigidbody rb;
-
-    //private serializables
+    //private variables
+    Rigidbody rb; 
+    private int _listIndex = -1;
+    private bool scareInitiated = false;
+    private bool sequenceGenerated = false;
+    private bool inRange;
+    private float _timer; //scare timer
+    public bool debugging;
+    [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 4;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;    
-    [SerializeField] private bool formable = true;
-    [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
-    [SerializeField] private float _onScareInvincibilityTime = 1.0f;
-    [SerializeField] private float _transformTimerMax = 1.5f;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
+
+    [Header("Scaring")]
+    public int scaresNeeded;
+    public float timer = 10f; //scare timer
+    public List<Player> players = new List<Player>();
     [SerializeField] private int[] btnCount = new int[4];   
     [SerializeField] private int[] targetBtnCount = new int[4];
 
-    //private variables
-    private int _listIndex = -1;
-    private float _transformTimer;
-    private bool _canTransform = false;
-    private bool scareInitiated = false;
-    
-    
-    private float _scareInputsTimer;
-
-    //public variables
-    public List<Player> players = new List<Player>();
-
-    // public Sprite[] sprites = new Sprite[4];
-    // //public Sprite[] pressedSprites = new Sprite[4];
-    // public Sprite checkMark;
+    [Header("Sprites")]
+    public Sprite emptySprite;
+    public Sprite playerSprite;
     public Image[] images = new Image[4];
     public GameObject buttonSequenceSprite;
     public Image timerBar;
-    private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
-    private List<BUTTON_PRESS> btnList = new List<BUTTON_PRESS>();
-    private bool sequenceGenerated = false;
-    private bool inRange;
-    //private int arrayLength;
-    public float timer = 10f; //scare timer
-    private float _timer; //scare timer
-    public int scaresNeeded;
-    public Sprite emptySprite;
-    public Sprite playerSprite;
-    public bool debugging;
+
+    [Header("Effects")]
+    public GameObject explosivePrefab;
+    public ParticleSystem hitEffect;
+    public ParticleSystem explosionEffect;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        _transformTimer = _transformTimerMax;
-
         _timer = timer;
     }
 
     private void Update()
     {
-        if (_canTransform)
-        {
-            _transformTimer -= Time.deltaTime;
-        }
-
         foreach(Player player in PlayerManager.Instance.GetPlayerArray())
         {
             if(Vector3.Distance(transform.position, player.transform.position) < player.GetScareRange())
@@ -114,16 +94,6 @@ public class MediumGhost : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-
-        _scareInputsTimer = _scareInputsTimerMaxTime;
-        _canTransform = true;
-        _transformTimer = _transformTimerMax;
-        formable = false;
-        //StartCoroutine(ScareInvincibilityDelay());
-    }
-
     public void SplitApart()
     {
         foreach(Player player in players)
@@ -154,31 +124,10 @@ public class MediumGhost : MonoBehaviour
 
     public void AddPlayerScare(Player player)
     {
-        // bool shouldAdd = false;
         if(!scareInitiated)
         {
             StartScare();
         }
-        // MakePressed(player._buttonPressed);
-        // if(PlayerManager.Instance.players.Length > 1)
-        // {
-        //     if(!players.Contains(player))
-        //     {
-        //         players.Add(player);
-        //         btnList.Add(player._buttonPressed);
-        //         shouldAdd = true;
-        //     }
-        //     else
-        //     {
-        //         ScareFail();
-        //     }
-        // }
-        // else
-        // {
-        //     players.Add(player);
-        //     btnList.Add(player._buttonPressed);
-        //     shouldAdd = true;
-        // }
 
         if(!players.Contains(player) || debugging)
         {
@@ -247,6 +196,7 @@ public class MediumGhost : MonoBehaviour
     {
         ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
     void ResetScare()
@@ -254,9 +204,6 @@ public class MediumGhost : MonoBehaviour
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
-        //System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
-        //targetBtnList.Clear();
-        btnList.Clear();
         players.Clear();
         SetSprites();
         foreach(Player player in players)
