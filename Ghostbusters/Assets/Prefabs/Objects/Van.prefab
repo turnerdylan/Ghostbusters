@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7587740398428156294}
   - component: {fileID: 9118808554245090571}
   - component: {fileID: 9118808554245090564}
+  - component: {fileID: 3375876135256806858}
   m_Layer: 0
   m_Name: Van
   m_TagString: Untagged
@@ -112,6 +113,25 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 1.33, y: 2.812, z: 0}
   m_TimeToStationary: 0.5
+--- !u!95 &3375876135256806858
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236500706423427155}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b74477358d350814ebd1274c57b0dd9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9118808554994266199
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9118808554994266199}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.81, y: 2.1824288, z: 1.59}
+  m_LocalPosition: {x: 1.82, y: 2.1824288, z: 1.59}
   m_LocalScale: {x: 0.55959713, y: 0.55959713, z: 0.55959713}
   m_Children: []
   m_Father: {fileID: 8720725264464546537}
@@ -155,6 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dd60aa38127b84484140c2e844852f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionRadius: 10
-  counterText: {fileID: 0}
+  _interactionRadius: 15
+  money: {fileID: 0}
   numberOfStoredGhosts: 0

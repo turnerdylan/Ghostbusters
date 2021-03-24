@@ -251,7 +251,6 @@ public class Player : MonoBehaviour
     }
     public IEnumerator DisableTrigger(float time)
     {
-        print("trigger disabled");
         GetComponent<SphereCollider>().isTrigger = false;
         yield return new WaitForSeconds(time);
         GetComponent<SphereCollider>().isTrigger = true;

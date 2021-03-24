@@ -365,38 +365,4 @@ public class BigGhost : MonoBehaviour
         }
         return count;
     }
-
-    // void MakePressed(BUTTON_PRESS button)
-    // {
-    //     bool pressed = false;
-    //     for(int i = 0; i<targetBtnList.Count; i++)
-    //     {
-    //         if(button == targetBtnList[i] && !pressed)
-    //         {
-    //             if (images[i].sprite != checkMark)
-    //             {
-    //              images[i].sprite = checkMark;
-    //                 pressed = true;
-    //             }
-    //         }
-    //         if(pressed)
-    //         {
-    //             break;
-    //         }
-    //     }
-    // }
-
-    void RandomEvent()
-    {
-        int num = UnityEngine.Random.Range(1,2);
-        switch(num)
-        {
-            case 1:
-                GameEvents.current.LightsOff();
-                break;
-            default:
-                print("Number generation outside range");
-                break;
-        }
-    }
 }

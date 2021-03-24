@@ -12,6 +12,7 @@ public class FollowAI : MonoBehaviour
 
     //private serializables
     [SerializeField] private float _attackRange = 8;
+    [SerializeField] private float _speed = 10f;
 
     //private variables
     private Transform target;
@@ -21,6 +22,7 @@ public class FollowAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        agent.speed = _speed;
     }
 
 

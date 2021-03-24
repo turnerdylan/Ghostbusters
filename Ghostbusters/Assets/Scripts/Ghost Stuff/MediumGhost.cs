@@ -4,26 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
-public enum MEDIUM_STATE
-{
-    NORMAL,
-    RUNNING,
-};
-
-
 public class MediumGhost : MonoBehaviour
 {
     //references
-    public GameObject smallGhost;
     public GameObject explosivePrefab;
+    public GameObject puffPrefab;
     Rigidbody rb;
 
     //private serializables
     [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;    
     [SerializeField] private bool formable = true;
-    [SerializeField] private int _scaresNeeded = 1;
     [SerializeField] private float _scareInputsTimerMaxTime = 0.2f;
     [SerializeField] private float _onScareInvincibilityTime = 1.0f;
     [SerializeField] private float _transformTimerMax = 1.5f;
@@ -152,23 +143,8 @@ public class MediumGhost : MonoBehaviour
                 spawnedGhosts++;
             }
         }
+        Instantiate(puffPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
-    }
-
-    IEnumerator ScareInvincibilityDelay()
-    {
-        yield return new WaitForSeconds(_onScareInvincibilityTime);
-        formable = true;
-    }
-
-    public float GetTransformTimer()
-    {
-        return _transformTimer;
-    }
-
-    public bool CheckIfFormable()
-    {
-        return formable;
     }
 
     public void SetListIndex(int index)
@@ -293,31 +269,6 @@ public class MediumGhost : MonoBehaviour
         scareInitiated = true;
     }
 
-    // void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
-    // {
-    //     foreach(BUTTON_PRESS btnPressed in btnList)
-    //     {
-    //         switch(btnPressed)
-    //         {
-    //             case BUTTON_PRESS.Up:
-    //                 btnCount[0]++;
-    //                 break;
-    //             case BUTTON_PRESS.Down:
-    //                 btnCount[1]++;
-    //                 break;
-    //             case BUTTON_PRESS.Left:
-    //                 btnCount[2]++;
-    //                 break;
-    //             case BUTTON_PRESS.Right:
-    //                 btnCount[3]++;
-    //                 break;
-    //             default:
-    //                 print("Invalid button state");
-    //                 break;
-    //         }
-    //     }
-    // }
-
     public void GenerateSequence()
     {
         int i = 0;
@@ -347,35 +298,4 @@ public class MediumGhost : MonoBehaviour
             }
         }
     }
-    int CountInList(Player player)
-    {
-        int count = 0;
-        foreach(Player p in players)
-        {
-            if(p == player)
-            {
-                count++;
-            }
-        }
-        return count;
-    }
-    // void MakePressed(BUTTON_PRESS button)
-    // {
-    //     bool pressed = false;
-    //     for(int i = 0; i<targetBtnList.Count; i++)
-    //     {
-    //         if(button == targetBtnList[i] && !pressed)
-    //         {
-    //             if(images[i].sprite != checkMark)
-    //             {
-    //                 images[i].sprite = checkMark;
-    //                 pressed = true;
-    //             }
-    //         }
-    //         if(pressed)
-    //         {
-    //             break;
-    //         }
-    //     }
-    // }
 }
