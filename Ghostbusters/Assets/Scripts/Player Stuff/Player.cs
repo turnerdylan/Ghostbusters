@@ -275,28 +275,12 @@ public class Player : MonoBehaviour
                 anim.SetBool("ScareRight", true);
                 break;
         }
-        
-        //StartCoroutine(ChangeSpotlightColor());
 
         if (Vector3.Distance(peekaboo.transform.position, transform.position) <= peekaboo.GetInteractRange())
         {
             peekaboo.SummonGhost();
             return;
         }
-
-        // foreach(Tower tower in TowerManager.Instance.towers)
-        // {
-        //     if(Vector3.Distance(tower.transform.position, transform.position) <= _scareRange)
-        //     {
-        //         tower.LoadScare(buttonDirection);
-        //         return;
-        //     }
-        // }
-
-        // if(Vector3.Distance(TowerManager.Instance.transform.position, transform.position) <= _scareRange && buttonDirection == BUTTON_PRESS.Down)
-        // {
-        //     TowerManager.Instance.PressButton();
-        // }
 
         _buttonPressed = buttonDirection;
         for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)

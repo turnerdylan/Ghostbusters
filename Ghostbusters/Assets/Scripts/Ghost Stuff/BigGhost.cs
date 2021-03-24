@@ -7,41 +7,37 @@ using UnityEngine.UI;
 using System;
 
 public class BigGhost : MonoBehaviour
-{
-    //references
-    public GameObject explosivePrefab;
-    public ParticleSystem hitEffect;
-    public ParticleSystem explosionEffect;
-
-    //private serializables
-    [SerializeField] private int _ghostsToSpawn = 8;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
-    [SerializeField] private bool _scareable = true;
-    [SerializeField] private float _onScareInvincibilityTime = 2.5f;
-    [SerializeField] private int[] btnCount = new int[4];   
-    [SerializeField] private int[] targetBtnCount = new int[4];
-    
+{    
     //private variables
     private bool scareInitiated = false;
     private int _listIndex;
-    private float _scareInputsTimer;
-
-    //public variables
-    public List<Player> players = new List<Player>();
-
-    public Image[] images = new Image[4];
-    public GameObject buttonSequenceSprite;
-    public Image timerBar;
-    private List<BUTTON_PRESS> targetBtnList = new List<BUTTON_PRESS>();
-    private List<BUTTON_PRESS> btnList = new List<BUTTON_PRESS>();
     private bool sequenceGenerated = false;
     private bool inRange;
-    public float timer = 10f; //scare timer
     private float _timer; //scare timer
+
+    [Header("Ghost Spawning")]
+    [SerializeField] private int _ghostsToSpawn = 8;
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
+    
+    [Header("Scaring")]
     public int scaresNeeded;
+    public float timer = 10f; //scare timer
+    [SerializeField] private int[] btnCount = new int[4];   
+    [SerializeField] private int[] targetBtnCount = new int[4];
+    public List<Player> players = new List<Player>();
+    public bool debugging;
+
+    [Header("Sprites")]
     public Sprite emptySprite;
     public Sprite playerSprite;
-    public bool debugging;
+    public Image timerBar;
+    public GameObject buttonSequenceSprite;
+    public Image[] images = new Image[4];
+
+    [Header("Effects")]
+    public GameObject explosivePrefab;
+    public ParticleSystem hitEffect;
+    public ParticleSystem explosionEffect;
 
     void Start()
     {
@@ -80,29 +76,20 @@ public class BigGhost : MonoBehaviour
             {
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
                 {
-                    //fail
                     ScareFail();
                 }
                 else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
                 {
-                    //success
                     ScareSuccess();
                 }
             }
             else
             {
-                //fail
                 ScareFail();
             }
         }
     }
 
-    private void OnEnable()
-    {
-        //_scareInputsTimer = _scareInputsTimerMaxTime;
-        _scareable = false;
-        //StartCoroutine(ScareInvincibility());
-    }
 
     public void SplitApart()
     {
@@ -117,14 +104,10 @@ public class BigGhost : MonoBehaviour
             if (!GhostManager.Instance.smallGhosts[i].activeSelf)
             {
                 GhostManager.Instance.smallGhosts[i].SetActive(true);
-                // GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
                 GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }
-
-        //GhostManager.Instance.mediumGhosts[ghost1].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
-        //GhostManager.Instance.mediumGhosts[ghost2].GetComponent<MediumGhostMovement>().TriggerSeparate(transform.position);
 
         gameObject.SetActive(false);
         ChaosManager.Instance.PickRandomChaosEvent();
@@ -134,7 +117,6 @@ public class BigGhost : MonoBehaviour
     {
         SplitApart();
         ResetScare();
-        //RandomEvent();
     }
 
     private void ScareFail()
@@ -142,18 +124,6 @@ public class BigGhost : MonoBehaviour
         ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
-    }
-
-    IEnumerator ScareInvincibility()
-    {
-
-        yield return new WaitForSeconds(_onScareInvincibilityTime);
-        _scareable = true;
-    }
-
-    public bool CheckIfScarable()
-    {
-        return _scareable;
     }
 
     public void SetListIndex(int index)
@@ -165,9 +135,6 @@ public class BigGhost : MonoBehaviour
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
-        //System.Array.Clear(targetBtnCount, 0, targetBtnCount.Length);
-        //targetBtnList.Clear();
-        btnList.Clear();
         players.Clear();
         SetSprites();
         foreach(Player player in players)
@@ -181,62 +148,11 @@ public class BigGhost : MonoBehaviour
     }
     public void AddPlayerScare(Player player)
     {
-        // bool shouldAdd = false;
         if(!scareInitiated)
         {
             StartScare();
         }
-        // MakePressed(player._buttonPressed);
-        // switch(PlayerManager.Instance.players.Length)
-        // {
-        //     case 1:
-        //         players.Add(player);
-        //         btnList.Add(player._buttonPressed);
-        //         shouldAdd = true;
-        //         break;
-        //     case 2:
-        //         if(CountInList(player)<2)
-        //         {
-        //             players.Add(player);
-        //             btnList.Add(player._buttonPressed);
-        //             shouldAdd = true;
-        //         }
-        //         else
-        //         {
-        //             ScareFail();
-        //         }
-        //         break;
-        //     case 3:
-        //         if(CountInList(player)<2)
-        //         {
-        //             players.Add(player);
-        //             btnList.Add(player._buttonPressed);
-        //             shouldAdd = true;
-        //         }
-        //         else
-        //         {
-        //             ScareFail();
-        //         }
-        //         break;
-        //     case 4:
-        //         if(!players.Contains(player))
-        //         {
-        //             players.Add(player);
-        //             btnList.Add(player._buttonPressed);
-        //             shouldAdd = true;
-        //         }
-        //         else
-        //         {
-        //             ScareFail();
-        //         }
-        //         break;
-        //     default:
-        //         print("Invalid number of players");
-        //         break;
-        // }
 
-        // if(shouldAdd)
-        // {
         if(!players.Contains(player) || debugging)
         {
             switch(player.GetButtonPress())
@@ -294,34 +210,7 @@ public class BigGhost : MonoBehaviour
                     break;
             }
         }
-        // }
-
     }
-
-    // void CountElements(int[] btnCount, List<BUTTON_PRESS> btnList)
-    // {
-    //     foreach(BUTTON_PRESS btnPressed in btnList)
-    //     {
-    //         switch(btnPressed)
-    //         {
-    //             case BUTTON_PRESS.Up:
-    //                 btnCount[0]++;
-    //                 break;
-    //             case BUTTON_PRESS.Down:
-    //                 btnCount[1]++;
-    //                 break;
-    //             case BUTTON_PRESS.Left:
-    //                 btnCount[2]++;
-    //                 break;
-    //             case BUTTON_PRESS.Right:
-    //                 btnCount[3]++;
-    //                 break;
-    //             default:
-    //                 print("Invalid button state");
-    //                 break;
-    //         }
-    //     }
-    // }
 
     public void GenerateSequence()
     {
@@ -352,39 +241,6 @@ public class BigGhost : MonoBehaviour
             }
         }
     }
-    
-    int CountInList(Player player)
-    {
-        int count = 0;
-        foreach(Player p in players)
-        {
-            if(p == player)
-            {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    // void MakePressed(BUTTON_PRESS button)
-    // {
-    //     bool pressed = false;
-    //     for(int i = 0; i<targetBtnList.Count; i++)
-    //     {
-    //         if(button == targetBtnList[i] && !pressed)
-    //         {
-    //             if (images[i].sprite != checkMark)
-    //             {
-    //              images[i].sprite = checkMark;
-    //                 pressed = true;
-    //             }
-    //         }
-    //         if(pressed)
-    //         {
-    //             break;
-    //         }
-    //     }
-    // }
 
     void RandomEvent()
     {
