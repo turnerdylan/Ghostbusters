@@ -241,18 +241,4 @@ public class BigGhost : MonoBehaviour
             }
         }
     }
-
-    void RandomEvent()
-    {
-        int num = UnityEngine.Random.Range(1,2);
-        switch(num)
-        {
-            case 1:
-                GameEvents.current.LightsOff();
-                break;
-            default:
-                print("Number generation outside range");
-                break;
-        }
-    }
 }

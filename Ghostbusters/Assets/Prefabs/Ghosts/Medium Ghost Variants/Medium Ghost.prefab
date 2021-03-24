@@ -930,11 +930,10 @@ GameObject:
   - component: {fileID: 7760811846356712091}
   - component: {fileID: 7760811846356712084}
   - component: {fileID: 998846768585295663}
-  - component: {fileID: -2513423993525626586}
   - component: {fileID: 4817641454975781590}
   - component: {fileID: 7851353844062905660}
   m_Layer: 0
-  m_Name: Medium Ghost Skinned
+  m_Name: Medium Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1040,12 +1039,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
   debugging: 1
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
   scaresNeeded: 2
   timer: 3
-  players: []
+  playerScares: []
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
@@ -1063,20 +1063,6 @@ MonoBehaviour:
     type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
---- !u!114 &-2513423993525626586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760811846356712085}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b956b7aa87078954eb1d997331942aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wanderRadius: 35
-  wanderTimer: 5
 --- !u!114 &4817641454975781590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,6 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 6892719444856579502}
   _attackRange: 6
+  _speed: 10
 --- !u!1 &7862610232104489038
 GameObject:
   m_ObjectHideFlags: 0
