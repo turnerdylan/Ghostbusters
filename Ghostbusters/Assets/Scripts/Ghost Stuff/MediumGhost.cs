@@ -103,6 +103,7 @@ public class MediumGhost : MonoBehaviour
 
     public void SplitApart()
     {
+        AudioManager.Instance.Play("Pop");
         foreach(Player player in players)
         {
             player.InitiateDisableTrigger(0.75f);

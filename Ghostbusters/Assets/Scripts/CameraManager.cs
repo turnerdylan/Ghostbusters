@@ -53,6 +53,7 @@ public class CameraManager : MonoBehaviour
                 {
                     text.color = Color.white;
                 }
+                AudioManager.Instance.Play("Click");
                 textItems[textItemIndex].color = selectedColor;
             }
             else if (Gamepad.all[0].leftShoulder.wasPressedThisFrame)
@@ -66,6 +67,7 @@ public class CameraManager : MonoBehaviour
                 {
                     text.color = Color.white;
                 }
+                AudioManager.Instance.Play("Click");
                 textItems[textItemIndex].color = selectedColor;
             }
         }

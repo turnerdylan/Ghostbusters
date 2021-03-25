@@ -37,7 +37,8 @@ public class Van : MonoBehaviour
 
     public void DepositGhosts(int storedGhosts)
     {
-        print("deposit ghosts");
+        AudioManager.Instance.Play("Ding");
+        //print("deposit ghosts");
         numberOfStoredGhosts += storedGhosts;
         PlayerManager.Instance.CalculateScore();
     }

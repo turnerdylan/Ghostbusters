@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
     {
         if(canDive)
         {
+            AudioManager.Instance.Play("Dive");
             anim.SetTrigger("Dive");
             TriggerDisableMovement(0.5f);
             canDive = false;
@@ -154,7 +155,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator CantDashDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         canDive = true;
     }
 
