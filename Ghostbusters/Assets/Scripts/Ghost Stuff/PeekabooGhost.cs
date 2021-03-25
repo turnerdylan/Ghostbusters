@@ -175,8 +175,8 @@ public class PeekabooGhost : MonoBehaviour
     public void SummonGhost()
     {
 
-        //int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
-        int ghostRange = Random.Range(0, GhostManager.Instance.mediumGhosts.Count+GhostManager.Instance.bigGhosts.Count);
+        //int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.goldenGhosts);
+        int ghostRange = Random.Range(0, GhostManager.Instance.mediumGhosts.Count+GhostManager.Instance.goldenGhosts.Count);
         if(ghostRange < GhostManager.Instance.mediumGhosts.Count)
         {
             int index = Random.Range(0, GhostManager.Instance.mediumGhosts.Count);
@@ -185,9 +185,9 @@ public class PeekabooGhost : MonoBehaviour
         }
         else
         {
-            int index = Random.Range(0, GhostManager.Instance.bigGhosts.Count);
-            GhostManager.Instance.bigGhosts[index].SetActive(true);
-            GhostManager.Instance.bigGhosts[index].transform.position = transform.position;
+            int index = Random.Range(0, GhostManager.Instance.goldenGhosts.Count);
+            GhostManager.Instance.goldenGhosts[index].SetActive(true);
+            GhostManager.Instance.goldenGhosts[index].transform.position = transform.position;
         }
         ChangeLocations();
     }

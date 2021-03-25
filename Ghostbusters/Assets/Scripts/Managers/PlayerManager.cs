@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
 
         if(testMode)
         {
+            Debug.LogWarning("TEST MODE IS ON");
             for (int i = 0; i < Gamepad.all.Count; i++)
             {
                 var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
@@ -51,7 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] bool testMode = false;
     //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
-    List<Player> players = new List<Player>();
+    public List<Player> players = new List<Player>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 

@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 3863245536093139042}
   m_LocalRotation: {x: 0.029171724, y: 0.015040541, z: 0.0051483237, w: 0.99944806}
   m_LocalPosition: {x: 0.040000007, y: 5.9012003, z: 5.3253}
-  m_LocalScale: {x: 0.11652231, y: 1.5632689, z: 1.5632689}
+  m_LocalScale: {x: 0.11652231, y: 1.7511739, z: 1.5632689}
   m_Children:
   - {fileID: 3863245536523366214}
   - {fileID: 3863245535136107172}
@@ -316,16 +316,8 @@ MonoBehaviour:
     m_ActionName: Player/Look
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 48fbadbb-ca45-4ea3-b68e-f6bbd1b5b5e6
-    m_ActionName: Player/SwingBag[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 1d5bb0d9-ebc3-4d12-b754-46204601abc1
     m_ActionName: Player/Dive[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f97d999d-872a-42d1-b7af-1758f874b960
-    m_ActionName: Player/GetBag[/Keyboard/k]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 204b452f-1e71-49fa-a04d-d18d530a8e5c
@@ -431,6 +423,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a78955f7-ed96-47b0-965c-c5399608cd80
     m_ActionName: Menu/Left
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 592f8f20-e1e9-4a5e-a579-9b394d8421ce
+    m_ActionName: Player/DepositGhosts[/DualShock4GamepadHID/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Menu

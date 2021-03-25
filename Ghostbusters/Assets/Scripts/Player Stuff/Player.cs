@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
     [SerializeField] float _scareRange = 5f;
 
     [Header("Sprites and other")]
-    public TextMeshPro heldGhostsText;
     public GameObject redX;
     public float _stunTime = 3f;
     public int score;
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             _numberOfHeldGhosts++;
-            heldGhostsText.text = _numberOfHeldGhosts.ToString();
+            UIManager.Instance.UpdateHeldGhosts();
         }
     }
     public void SetMoveVector(Vector2 direction)
@@ -108,7 +107,7 @@ public class Player : MonoBehaviour
             score += _numberOfHeldGhosts;
             Van.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
-            heldGhostsText.text = _numberOfHeldGhosts.ToString();
+            UIManager.Instance.UpdateHeldGhosts();
         }        
     }
 
@@ -127,7 +126,7 @@ public class Player : MonoBehaviour
             }
         }
         _numberOfHeldGhosts = 0;
-        heldGhostsText.text = _numberOfHeldGhosts.ToString();
+        UIManager.Instance.UpdateHeldGhosts();
     }
 
     public void Dive()
@@ -224,7 +223,10 @@ public class Player : MonoBehaviour
         return _scareRange;
     }
 
-    
+    public int GetNumberOfHeldGhosts()
+    {
+        return _numberOfHeldGhosts;
+    }
 
     #endregion
 
@@ -282,19 +284,19 @@ public class Player : MonoBehaviour
         }
 
         _buttonPressed = buttonDirection;
-        for (int i = 0; i < GhostManager.Instance.maxBigGhosts; i++)
+        for (int i = 0; i < GhostManager.Instance.maxGoldenGhosts; i++)
         {
-            if(GhostManager.Instance.bigGhosts[i].activeSelf)
+            if(GhostManager.Instance.goldenGhosts[i].activeSelf)
             {
-                if (Vector3.Distance(GhostManager.Instance.bigGhosts[i].transform.position, transform.position) <= _scareRange)
+                if (Vector3.Distance(GhostManager.Instance.goldenGhosts[i].transform.position, transform.position) <= _scareRange)
                 {
 
-                    Vector3 dirToGhost = (GhostManager.Instance.bigGhosts[i].transform.position - transform.position).normalized;
+                    Vector3 dirToGhost = (GhostManager.Instance.goldenGhosts[i].transform.position - transform.position).normalized;
                     float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
 
                     if (angleBetweenPlayerandGhost < _viewAngle / 2)
                     {
-                        GhostManager.Instance.bigGhosts[i].GetComponent<BigGhost>().AddPlayerScare(this);
+                        GhostManager.Instance.goldenGhosts[i].GetComponent<GoldenGhost>().AddPlayerScare(this);
                     }
                 }
             }

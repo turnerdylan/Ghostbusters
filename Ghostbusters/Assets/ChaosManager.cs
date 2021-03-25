@@ -1,36 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ChaosManager : MonoBehaviour
 {
-    #region Singleton Setup and Awake
-    public static ChaosManager Instance
+    [SerializeField] GameObject smokeBomb;
+
+    private void Update()
     {
-        get
+        if(Keyboard.current.kKey.wasPressedThisFrame)
         {
-            return instance;
+            PickChaosEvent(0);
         }
     }
 
-    private static ChaosManager instance = null;
-
-    private void Awake()
+    public void PickChaosEvent(int eventKey)
     {
-        if (instance)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    #endregion
-
-    public void PickRandomChaosEvent()
-    {
-        int random = Random.Range(0, 3);
-        switch (random)
+        switch (eventKey)
         {
             case 0:
                 StartCoroutine(SuperSpeed());
@@ -39,21 +27,28 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(BackwardsControls());
                 break;
             case 2:
-                TeleportPlayers(); //this only teleports the first two players
+                StartCoroutine(LightsOut());
+                break;
+            case 3:
+                StartCoroutine(IcyFloor());
+                break;
+            case 4:
+                SmokeBomb();
                 break;
         }
     }
 
-    private void TeleportPlayers()
+    private IEnumerator SuperSpeed()
     {
-        var p1 = PlayerManager.Instance.GetPlayerArray()[0];
-        var p2 = PlayerManager.Instance.GetPlayerArray()[1];
-
-        var position1 = p1.transform.position;
-        var position2 = p2.transform.position;
-
-        p1.transform.position = position2;
-        p2.transform.position = position1;
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            player._moveSpeed = 100;
+        }
+        yield return new WaitForSeconds(5);
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            player._moveSpeed = 25;
+        }
     }
 
     private IEnumerator BackwardsControls()
@@ -69,16 +64,26 @@ public class ChaosManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SuperSpeed()
+    private IEnumerator LightsOut()
+    {
+        throw new NotImplementedException();
+    }
+
+    private IEnumerator IcyFloor()
     {
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player._moveSpeed = 100;
+            player.GetComponent<Rigidbody>().drag = .5f;
         }
         yield return new WaitForSeconds(5);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player._moveSpeed = 25;
+            player.GetComponent<Rigidbody>().drag = 5f;
         }
+    }
+
+    private void SmokeBomb()
+    {
+        Instantiate(smokeBomb, transform.position, Quaternion.identity);
     }
 }

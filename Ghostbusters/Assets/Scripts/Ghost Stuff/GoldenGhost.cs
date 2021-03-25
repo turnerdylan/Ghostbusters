@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class BigGhost : MonoBehaviour
+public class GoldenGhost : MonoBehaviour
 {    
     //private variables
     private bool scareInitiated = false;
@@ -26,6 +26,9 @@ public class BigGhost : MonoBehaviour
     [SerializeField] private int[] targetBtnCount = new int[4];
     public List<Player> players = new List<Player>();
     public bool debugging;
+
+    [Header("Chaos event: 0=speed, 1=controls, 2=lights, 3=ice, 4=smoke,")]
+    public int chaosEventIndex;
 
     [Header("Sprites")]
     public Sprite emptySprite;
@@ -110,7 +113,7 @@ public class BigGhost : MonoBehaviour
         }
 
         gameObject.SetActive(false);
-        ChaosManager.Instance.PickRandomChaosEvent();
+        GetComponent<ChaosManager>().PickChaosEvent(chaosEventIndex);
     }
 
     private void ScareSuccess()

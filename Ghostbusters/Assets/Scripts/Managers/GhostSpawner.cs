@@ -38,43 +38,6 @@ public class GhostSpawner : MonoBehaviour
     [SerializeField] float ghostInBetweenSpawnDelay = 2f;
     public List<Transform> ghostSpawnLocations = new List<Transform>();
 
-    public void TriggerGhostSpawns()
-    {
-        StartCoroutine(SpawnAllGhostsInWave(waves[0]));
-    }
-
-    public IEnumerator SpawnAllGhostsInWave(WaveConfiguration waveConfig)
-    {
-        for (int i = 0; i < waveConfig.enemies.Count; i++)
-        {
-
-                if (waveConfig.enemies[i] == EnemyTypes.BIG)
-                {
-                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.bigGhosts);
-                    StartCoroutine(FadeInGhost(GhostManager.Instance.bigGhosts[index]));
-                }
-                else if (waveConfig.enemies[i] == EnemyTypes.MEDIUM)
-                {
-                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.mediumGhosts);
-                    StartCoroutine(FadeInGhost(GhostManager.Instance.mediumGhosts[index]));
-                }
-                else if (waveConfig.enemies[i] == EnemyTypes.SMALL)
-                {
-                    int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.smallGhosts);
-                    StartCoroutine(FadeInGhost(GhostManager.Instance.smallGhosts[index]));
-                }
-            yield return new WaitUntil(GhostsCanSpawn);
-            yield return new WaitForSeconds(ghostInBetweenSpawnDelay);
-        }
-        yield return null;
-    }
-
-    private bool GhostsCanSpawn()
-    {
-        if (GhostManager.Instance.GetGhostScore() < ghostSpawnThreshold) return true;
-        return false;
-    }
-
     IEnumerator FadeInGhost(GameObject ghost)
     {
 
