@@ -25,7 +25,6 @@ public class InputChecker : MonoBehaviour
         if(Gamepad.all[0].buttonSouth.isPressed)
         {
             StartCoroutine(LerpFunction(targetColor));
-
         }
         if (Vector3.Distance(Camera.main.transform.position, cameraEnd.position) < .5)
         {

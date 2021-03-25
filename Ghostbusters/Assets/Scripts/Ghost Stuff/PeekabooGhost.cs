@@ -109,11 +109,13 @@ public class PeekabooGhost : MonoBehaviour
             startPos = transform.position;
             if(shouldMoveDown)
             {
+                AudioManager.Instance.Play("Peekaboo Down");
                 endPos = transform.position - Vector3.up*distanceToMove; //make endPos below current pos
                 shouldMoveDown = false;
             }
             else
             {
+                AudioManager.Instance.Play("Peekaboo Up");
                 endPos = transform.position + Vector3.up*distanceToMove; //make endPos above current pos
                 shouldMoveDown = true;
             }

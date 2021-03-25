@@ -4,9 +4,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+
+public enum MEDIUM_STATE
+{
+    NORMAL,
+    RUNNING,
+};
+
+
 public class MediumGhost : MonoBehaviour
 {
-    public GameObject puffPrefab;
     //private variables
     Rigidbody rb; 
     private int _listIndex = -1;
@@ -22,7 +29,7 @@ public class MediumGhost : MonoBehaviour
     [Header("Scaring")]
     public int scaresNeeded;
     public float timer = 10f; //scare timer
-    public List<Player> playerScares = new List<Player>();
+    public List<Player> players = new List<Player>();
     [SerializeField] private int[] btnCount = new int[4];   
     [SerializeField] private int[] targetBtnCount = new int[4];
 
@@ -77,7 +84,7 @@ public class MediumGhost : MonoBehaviour
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
                 {
                     //fail
-                    playerScares[playerScares.Count-1].FlashX(); //if wrong button is pressed or too many of one button then display an x above the last player to scare
+                    players[players.Count-1].FlashX(); //if wrong button is pressed or too many of one button then display an x above the last player to scare
                     ScareFail();
                 }
                 else if(btnCount[0] == targetBtnCount[0] && btnCount[1] == targetBtnCount[1] && btnCount[2] == targetBtnCount[2] && btnCount[3] == targetBtnCount[3])
@@ -96,7 +103,8 @@ public class MediumGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        foreach(Player player in playerScares)
+        AudioManager.Instance.Play("Pop");
+        foreach(Player player in players)
         {
             player.InitiateDisableTrigger(0.75f);
         }
@@ -113,7 +121,6 @@ public class MediumGhost : MonoBehaviour
                 spawnedGhosts++;
             }
         }
-        Instantiate(puffPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
 
@@ -129,7 +136,7 @@ public class MediumGhost : MonoBehaviour
             StartScare();
         }
 
-        if(!playerScares.Contains(player) || debugging)
+        if(!players.Contains(player) || debugging)
         {
             switch(player.GetButtonPress())
             {
@@ -138,7 +145,7 @@ public class MediumGhost : MonoBehaviour
                     {
                         images[0].sprite = player.characterSprite;
                         btnCount[0] = 1;
-                        playerScares.Add(player);
+                        players.Add(player);
                     }
                     else
                     {
@@ -150,7 +157,7 @@ public class MediumGhost : MonoBehaviour
                     {
                         images[1].sprite = player.characterSprite;
                         btnCount[1] = 1;
-                        playerScares.Add(player);
+                        players.Add(player);
                     }
                     else
                     {
@@ -162,7 +169,7 @@ public class MediumGhost : MonoBehaviour
                     {
                         images[2].sprite = player.characterSprite;
                         btnCount[2] = 1;
-                        playerScares.Add(player);
+                        players.Add(player);
                     }
                     else
                     {
@@ -174,7 +181,7 @@ public class MediumGhost : MonoBehaviour
                     {
                         images[3].sprite = player.characterSprite;
                         btnCount[3] = 1;
-                        playerScares.Add(player);
+                        players.Add(player);
                     }
                     else
                     {
@@ -204,9 +211,9 @@ public class MediumGhost : MonoBehaviour
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
-        playerScares.Clear();
+        players.Clear();
         SetSprites();
-        foreach(Player player in playerScares)
+        foreach(Player player in players)
         {
             player.SetButtonPress(BUTTON_PRESS.None);
         }

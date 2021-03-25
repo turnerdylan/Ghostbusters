@@ -28,13 +28,7 @@ public class Van : MonoBehaviour
     #endregion
 
     [SerializeField] private float _interactionRadius = 6f;
-    Animator anim;
     public int numberOfStoredGhosts = 0;
-
-    private void Start()
-    {
-        anim = GetComponentInParent<Animator>();
-    }
 
     public float GetInteractionRadius()
     {
@@ -43,7 +37,8 @@ public class Van : MonoBehaviour
 
     public void DepositGhosts(int storedGhosts)
     {
-        anim.SetTrigger("Deposit");
+        AudioManager.Instance.Play("Ding");
+        //print("deposit ghosts");
         numberOfStoredGhosts += storedGhosts;
         PlayerManager.Instance.CalculateScore();
     }

@@ -29,6 +29,7 @@ public class PlayerSelect : MonoBehaviour
     {
         if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS)
         {
+            AudioManager.Instance.Play("Click");
             print("right");
             imageIndex++;
             if(imageIndex >= playerImages.Count)
@@ -43,6 +44,7 @@ public class PlayerSelect : MonoBehaviour
     {
         if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS)
         {
+            AudioManager.Instance.Play("Click");
             print("left");
             imageIndex--;
             if (imageIndex <= -1)
