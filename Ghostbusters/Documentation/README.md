@@ -32,7 +32,14 @@ Group - We have been playtesting to get feedback on different element of the gam
 
 This was a very insightful playtest that has helped us figure out if certain things are working and how to rethink some of the moving parts in our game. More playtests and progress coming soon!
 
-C - 
+C - We took some of the feedback we received from our playtests this week to redesign some mechanics and also incorporate some more visual feedback. We've added an animation to the peekaboo ghost that has it move up and down from the ground as it moves to new locations to give it a feeling of poking its head out and peeking the player. We've also added a particle trail that indicates where the ghost is moving when it goes underground, this allows players to more easily cooperate to summon a ghost.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/peekaboo-animation.gif" width="75%">
+
+Another visual change that we implemented was to replace the big ghosts with ghosts of the same size as the medium but golden in color. The idea behind this was to avoid the confusion players were having between big and medium ghosts and to give the ghost a greater sense of importance or value so as to encourage the players to work together to scare it. We've also redone the button system to better show players which button they need to press and which buttons have already been pressed, regardless of the controller type being used. We now display a four button pattern above the ghost which imitates the four button layout on most controllers and display a silhouette icon to indicate that that button needs to be pressed. When a player succesfully presses one of the required buttons an icon of their character replaces the silhouette to indicate both that the button was pressed and who pressed it. We still have it set up so that a golden ghost(previously big ghost) requires four players and a regular ghost requires two players.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-buttons.gif" width="75%">
+
 
 D - This week I spend most of my time finishing the menu for the game. We now have an intro scene, a menu scene with character select, level select, and settings. There is also the start of some sort of tutorial development but that is on pause until we finish game mechanics.
 
