@@ -688,6 +688,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7783116298669152916, guid: 977d819a916b9a4428497408fdeefbfa,
+        type: 3}
+      propertyPath: randomGoldenWeight
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977d819a916b9a4428497408fdeefbfa, type: 3}
 --- !u!4 &118326063 stripped
@@ -12870,7 +12875,7 @@ PrefabInstance:
     - target: {fileID: 1130309507718286143, guid: ec1d3b47ca1d73948906a48968278f09,
         type: 3}
       propertyPath: testMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1d3b47ca1d73948906a48968278f09, type: 3}

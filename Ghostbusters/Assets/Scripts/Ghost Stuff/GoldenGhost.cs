@@ -39,6 +39,7 @@ public class GoldenGhost : MonoBehaviour
 
     [Header("Effects")]
     public GameObject explosivePrefab;
+    public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
     void Start()
@@ -127,6 +128,7 @@ public class GoldenGhost : MonoBehaviour
     {
         ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
     void ResetScare()
@@ -135,7 +137,7 @@ public class GoldenGhost : MonoBehaviour
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
         players.Clear();
-        //SetSprites();
+        SetSprites();
         foreach(Player player in players)
         {
             player.SetButtonPress(BUTTON_PRESS.None);
@@ -223,10 +225,10 @@ public class GoldenGhost : MonoBehaviour
                 i++;
             }
         }
-        //SetSprites();
+        SetSprites();
         sequenceGenerated = true;
     }
-    /*void SetSprites()
+    void SetSprites()
     {
         for (int i=0; i<4; i++)
         {
@@ -239,5 +241,5 @@ public class GoldenGhost : MonoBehaviour
                 images[i].sprite = emptySprite;
             }
         }
-    }*/
+    }
 }

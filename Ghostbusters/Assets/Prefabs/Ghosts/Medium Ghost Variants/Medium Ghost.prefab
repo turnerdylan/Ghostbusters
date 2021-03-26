@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 194.99997}
+  m_AnchoredPosition: {x: 0, y: 239.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2250563138539755449
@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 127.99997}
+  m_AnchoredPosition: {x: 0, y: 172}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6223926607895886027
@@ -478,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32, y: 161}
+  m_AnchoredPosition: {x: -32, y: 205.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1432919299269176766
@@ -646,7 +646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 160.99997}
+  m_AnchoredPosition: {x: 32, y: 205}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &653082434871574559
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7760811846356712085}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
@@ -1048,20 +1048,21 @@ MonoBehaviour:
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
-  playerSprite: {fileID: 21300000, guid: 8224e944c2c5ce4438d4c77ab48d3d31, type: 3}
+  playerSprite: {fileID: 21300000, guid: 5f6e614f6d085ce41b63035be122e196, type: 3}
   images:
   - {fileID: 1567252987911575735}
   - {fileID: 9214936345757269360}
   - {fileID: 6954390431095760502}
   - {fileID: 56667242366869575}
   buttonSequenceSprite: {fileID: 7862610232104489038}
-  timerBar: {fileID: 0}
-  explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
+  timerBar: {fileID: 2129577432356052538}
+  explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
     type: 3}
   hitEffect: {fileID: 198635777028098840, guid: 6fb79962b5722fb4a9958b904d7b53df,
     type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
+  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
 --- !u!114 &4817641454975781590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,8 +1088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 6892719444856579502}
-  _attackRange: 6
   _speed: 10
 --- !u!1 &7862610232104489038
 GameObject:
@@ -1115,7 +1114,7 @@ Transform:
   m_GameObject: {fileID: 7862610232104489038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -17, z: 0}
-  m_LocalScale: {x: 0.50395143, y: 0.50395143, z: 0.50395143}
+  m_LocalScale: {x: 0.74279356, y: 0.74279356, z: 0.74279356}
   m_Children:
   - {fileID: 7695490675318052299}
   - {fileID: 471277093066446402}
