@@ -8173,6 +8173,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
+      propertyPath: mediumGhostPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: goldenGhostPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
       propertyPath: maxSmallGhosts
       value: 100
       objectReference: {fileID: 0}
@@ -8193,6 +8203,18 @@ PrefabInstance:
       propertyPath: smallGhostPrefab
       value: 
       objectReference: {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff,
+        type: 3}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: mediumGhostPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7760811846356712085, guid: 8bccffe935059ad44bc5f2fbb53513eb,
+        type: 3}
+    - target: {fileID: 1925615210104531386, guid: fc907829a641741428874fa303f21e5f,
+        type: 3}
+      propertyPath: goldenGhostPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3842587979874991008, guid: 812c97f99ec697a4cbc024b92f6d66dd,
         type: 3}
     - target: {fileID: 1925615210104531387, guid: fc907829a641741428874fa303f21e5f,
         type: 3}
@@ -8326,7 +8348,7 @@ PrefabInstance:
     - target: {fileID: 1130309507718286143, guid: ec1d3b47ca1d73948906a48968278f09,
         type: 3}
       propertyPath: testMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1d3b47ca1d73948906a48968278f09, type: 3}
