@@ -23,6 +23,7 @@ public class SmallGhostMovement : MonoBehaviour
     //private variables
     public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
     private float timer;
+    public bool golden;
 
     //public variables
 
@@ -40,6 +41,8 @@ public class SmallGhostMovement : MonoBehaviour
     {
         currentState = SMALL_GHOST_STATE.WANDER;
         agent.acceleration = 8;
+        if(golden)
+            agent.speed = 5f;
         //wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
         timer = timerUntilWanderMax;
         while(currentState == SMALL_GHOST_STATE.WANDER)
@@ -66,6 +69,9 @@ public class SmallGhostMovement : MonoBehaviour
     {
         currentState = SMALL_GHOST_STATE.FLEE;
         agent.acceleration = 200;
+        if(golden)
+            agent.speed = 10;
+        
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
             Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer().position;

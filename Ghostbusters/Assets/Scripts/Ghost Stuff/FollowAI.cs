@@ -9,10 +9,10 @@ public class FollowAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private Rigidbody rb;
-    public GameObject hitBox;
+    //public GameObject hitBox;
 
     //private serializables
-    [SerializeField] private float _attackRange = 8;
+    //[SerializeField] private float _attackRange = 8;
     [SerializeField] private float _speed = 10f;
 
     //private variables
@@ -35,20 +35,20 @@ public class FollowAI : MonoBehaviour
         if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
             agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
 
-        if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
-        {
-            anim.SetBool("Attack", true);
-            //hitBox.SetActive(true);
-            StartCoroutine(EndAttack());
-        }
+        // if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
+        // {
+        //     anim.SetBool("Attack", true);
+        //     //hitBox.SetActive(true);
+        //     StartCoroutine(EndAttack());
+        // }
     }
 
-    public IEnumerator EndAttack()
-    {
-        yield return new WaitForSeconds(.5f);
-        anim.SetBool("Attack", false);
-        hitBox.SetActive(false);
-    }
+    // public IEnumerator EndAttack()
+    // {
+    //     yield return new WaitForSeconds(.5f);
+    //     anim.SetBool("Attack", false);
+    //     hitBox.SetActive(false);
+    // }
 
     private void OnDisable()
     {

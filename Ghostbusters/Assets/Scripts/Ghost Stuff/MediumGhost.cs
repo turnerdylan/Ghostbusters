@@ -43,6 +43,7 @@ public class MediumGhost : MonoBehaviour
     public GameObject explosivePrefab;
     public ParticleSystem hitEffect;
     public ParticleSystem explosionEffect;
+    public GameObject puffPrefab;
 
     private void Start()
     {
@@ -103,6 +104,7 @@ public class MediumGhost : MonoBehaviour
     public void SplitApart()
     {
         AudioManager.Instance.Play("Pop");
+        Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach(Player player in players)
         {
             player.InitiateDisableTrigger(0.75f);
