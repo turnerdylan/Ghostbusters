@@ -147,7 +147,8 @@ public class PeekabooGhost : MonoBehaviour
         int ghostRange = Random.Range(0, 100);
         if(ghostRange < randomGoldenWeight)//typically 0.8?
         {
-            int randomIndex = Random.Range(0, 5);
+            //int randomIndex = Random.Range(0, 5);
+            int randomIndex = 4;
 
             GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.mediumGhostsInScene.Add(newGhost);

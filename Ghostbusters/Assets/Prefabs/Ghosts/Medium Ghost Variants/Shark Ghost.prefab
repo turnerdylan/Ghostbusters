@@ -30,7 +30,7 @@ Transform:
   - {fileID: 1048210566889101661}
   m_Father: {fileID: 8216733145085773541}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.02691, y: -14.357473, z: 0}
 --- !u!1 &690713688735291727
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Transform:
   - {fileID: 4441487101633375837}
   m_Father: {fileID: 3421171453228638909}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.0000049018986, y: -0.000016602598, z: -17.461615}
 --- !u!1 &4000318147218498610
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ Transform:
   - {fileID: 5089072888443948258}
   m_Father: {fileID: 8216733145085773541}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.00003945428, y: 18.13483, z: -89.99999}
 --- !u!1 &4144339512113048712
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ Transform:
   - {fileID: 4850610476806726733}
   m_Father: {fileID: 3643487449332431184}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 24.477064, y: 0.000033692108, z: 0.0000022067918}
 --- !u!1 &4917605350851654104
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ Transform:
   - {fileID: 3643487449332431184}
   m_Father: {fileID: 6871201109784959682}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.911154, y: 6.022743, z: 83.977264}
 --- !u!1 &6057545653837414520
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 6057545653837414519}
   - component: {fileID: 6057545653837414518}
   - component: {fileID: 6057545653837414521}
+  - component: {fileID: 5507581905417016223}
   m_Layer: 0
   m_Name: Shark Ghost
   m_TagString: Untagged
@@ -337,6 +338,7 @@ Transform:
   m_Children:
   - {fileID: 8216733145085773541}
   - {fileID: 1923152304729662801}
+  - {fileID: 4630523436123590245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,3 +460,92 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5507581905417016223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057545653837414520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2e03c88c7572a4ab85b8d8bb1e7a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4634795569981389811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6871201109784959682}
+    m_Modifications:
+    - target: {fileID: 1753776141928924, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_Name
+      value: Shark Splash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753776141928924, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198399678132347108, guid: 2f8d0a5bd0437e0409104f45ece0e344,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198399678132347108, guid: 2f8d0a5bd0437e0409104f45ece0e344,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f8d0a5bd0437e0409104f45ece0e344, type: 3}
+--- !u!4 &4630523436123590245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4774680062850454, guid: 2f8d0a5bd0437e0409104f45ece0e344,
+    type: 3}
+  m_PrefabInstance: {fileID: 4634795569981389811}
+  m_PrefabAsset: {fileID: 0}

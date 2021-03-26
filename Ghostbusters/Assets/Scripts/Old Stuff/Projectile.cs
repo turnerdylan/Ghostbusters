@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] float speed;
     // Update is called once per frame
     void Update()
     {
-        transform.position += 5 * Vector3.back * Time.deltaTime;
+        transform.localPosition += speed * Vector3.forward * Time.deltaTime;
     }
 }
