@@ -1034,18 +1034,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7760811846356712085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
   debugging: 1
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
   scaresNeeded: 2
   timer: 3
-  playerScares: []
+  players: []
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}

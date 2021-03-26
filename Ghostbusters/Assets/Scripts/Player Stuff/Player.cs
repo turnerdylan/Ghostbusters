@@ -115,13 +115,13 @@ public class Player : MonoBehaviour
     {
         InitiateDisableTrigger(2.0f);
         int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.Count; i++)
         {
             if (spawnedGhosts >= _numberOfHeldGhosts) break;
-            if (!GhostManager.Instance.smallGhosts[i].activeSelf)
+            if (!GhostManager.Instance.smallGhostsInScene[i].activeSelf)
             {
-                GhostManager.Instance.smallGhosts[i].SetActive(true);
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * 0.5f;
+                GhostManager.Instance.smallGhostsInScene[i].SetActive(true);
+                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * 0.5f;
                 spawnedGhosts++;
             }
         }
@@ -285,40 +285,34 @@ public class Player : MonoBehaviour
         }
 
         _buttonPressed = buttonDirection;
-        for (int i = 0; i < GhostManager.Instance.maxGoldenGhosts; i++)
+
+        for (int i = 0; i < 5 * GhostManager.Instance.goldenGhostsInScene.Count; i++)
         {
-            if(GhostManager.Instance.goldenGhosts[i].activeSelf)
+            if (Vector3.Distance(GhostManager.Instance.goldenGhostsInScene[i].transform.position, transform.position) <= _scareRange)
             {
-                if (Vector3.Distance(GhostManager.Instance.goldenGhosts[i].transform.position, transform.position) <= _scareRange)
+                Vector3 dirToGhost = (GhostManager.Instance.goldenGhostsInScene[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+
+                if (angleBetweenPlayerandGhost < _viewAngle / 2)
                 {
-
-                    Vector3 dirToGhost = (GhostManager.Instance.goldenGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        GhostManager.Instance.goldenGhosts[i].GetComponent<GoldenGhost>().AddPlayerScare(this);
-                    }
+                    GhostManager.Instance.goldenGhostsInScene[i].GetComponent<GoldenGhost>().AddPlayerScare(this);
                 }
             }
         }
 
-        for (int i = 0; i < GhostManager.Instance.maxMediumGhosts; i++)
+        for (int i = 0; i < 5 * GhostManager.Instance.mediumGhostsInScene.Count; i++)
         {
-            if(GhostManager.Instance.mediumGhosts[i].activeSelf)
+            if (Vector3.Distance(GhostManager.Instance.mediumGhostsInScene[i].transform.position, gameObject.transform.position) <= _scareRange)
             {
-                if (Vector3.Distance(GhostManager.Instance.mediumGhosts[i].transform.position, gameObject.transform.position) <= _scareRange)
-                {
-                    //print("Distance");
-                    Vector3 dirToGhost = (GhostManager.Instance.mediumGhosts[i].transform.position - transform.position).normalized;
-                    float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
-                    //print(angleBetweenPlayerandGhost);
+                //print("Distance");
+                Vector3 dirToGhost = (GhostManager.Instance.mediumGhostsInScene[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                //print(angleBetweenPlayerandGhost);
 
-                    if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                    {
-                        //print("Angle");
-                        GhostManager.Instance.mediumGhosts[i].GetComponent<MediumGhost>().AddPlayerScare(this);
-                    }
+                if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                {
+                    //print("Angle");
+                    GhostManager.Instance.mediumGhostsInScene[i].GetComponent<MediumGhost>().AddPlayerScare(this);
                 }
             }
         }

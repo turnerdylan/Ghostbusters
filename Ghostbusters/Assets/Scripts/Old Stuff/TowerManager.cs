@@ -110,11 +110,11 @@ public class TowerManager : MonoBehaviour
             {
                 for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
                 {
-                    if(GhostManager.Instance.smallGhosts[i].activeSelf)
+                    if(GhostManager.Instance.smallGhostsInScene[i].activeSelf)
                     {
-                        if(Vector3.Distance(GhostManager.Instance.smallGhosts[i].transform.position, tower.transform.position) <= towerRange)
+                        if(Vector3.Distance(GhostManager.Instance.smallGhostsInScene[i].transform.position, tower.transform.position) <= towerRange)
                         {
-                            StartCoroutine(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhostMovement>().State_Frozen());
+                            StartCoroutine(GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().State_Frozen());
                         }
                     }
                 }
@@ -127,10 +127,10 @@ public class TowerManager : MonoBehaviour
         //print("Unfreeze ghosts");
         for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
         {
-            if(GhostManager.Instance.smallGhosts[i].activeSelf)
+            if(GhostManager.Instance.smallGhostsInScene[i].activeSelf)
             {
-                GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhostMovement>().agent.isStopped = false;
-                StartCoroutine(GhostManager.Instance.smallGhosts[i].GetComponent<SmallGhostMovement>().State_Wander());
+                GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().agent.isStopped = false;
+                StartCoroutine(GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().State_Wander());
             }
         }
     }

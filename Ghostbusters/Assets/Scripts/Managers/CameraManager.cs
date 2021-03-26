@@ -42,7 +42,7 @@ public class CameraManager : MonoBehaviour
     {
         if(cameraState == CAMERA_POSITION.NORMAL)
         {
-            if (Gamepad.all[0].rightShoulder.wasPressedThisFrame)
+            if (Gamepad.all[0].dpad.right.wasPressedThisFrame)
             {
                 textItemIndex++;
                 if (textItemIndex == textItems.Count)
@@ -56,7 +56,7 @@ public class CameraManager : MonoBehaviour
                 AudioManager.Instance.Play("Click");
                 textItems[textItemIndex].color = selectedColor;
             }
-            else if (Gamepad.all[0].leftShoulder.wasPressedThisFrame)
+            else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
             {
                 textItemIndex--;
                 if (textItemIndex < 0)

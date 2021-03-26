@@ -10,7 +10,6 @@ public class GoldenGhost : MonoBehaviour
 {    
     //private variables
     private bool scareInitiated = false;
-    private int _listIndex;
     private bool sequenceGenerated = false;
     private bool inRange;
     private float _timer; //scare timer
@@ -28,6 +27,7 @@ public class GoldenGhost : MonoBehaviour
     public bool debugging;
 
     [Header("Chaos event: 0=speed, 1=controls, 2=lights, 3=ice, 4=smoke,")]
+    [Range(0, 4)]
     public int chaosEventIndex;
 
     [Header("Sprites")]
@@ -39,8 +39,7 @@ public class GoldenGhost : MonoBehaviour
 
     [Header("Effects")]
     public GameObject explosivePrefab;
-    public ParticleSystem hitEffect;
-    public ParticleSystem explosionEffect;
+    public GameObject puffPrefab;
 
     void Start()
     {
@@ -97,18 +96,19 @@ public class GoldenGhost : MonoBehaviour
     public void SplitApart()
     {
         AudioManager.Instance.Play("Pop");
-        foreach(Player player in players)
+        Instantiate(puffPrefab, transform.position, Quaternion.identity);
+        foreach (Player player in players)
         {
             player.InitiateDisableTrigger(0.75f);
         }
         int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.Count; i++)
         {
             if (spawnedGhosts >= _ghostsToSpawn) break;
-            if (!GhostManager.Instance.smallGhosts[i].activeSelf)
+            if (!GhostManager.Instance.smallGhostsInScene[i].activeSelf)
             {
-                GhostManager.Instance.smallGhosts[i].SetActive(true);
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * _ghostSpawnOffset;
+                GhostManager.Instance.smallGhostsInScene[i].SetActive(true);
+                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }
@@ -127,20 +127,15 @@ public class GoldenGhost : MonoBehaviour
     {
         ResetScare();
         Instantiate(explosivePrefab, transform.position, Quaternion.identity);
-        Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
-    public void SetListIndex(int index)
-    {
-        _listIndex = index;
-    }
     void ResetScare()
     {
         scareInitiated = false;
         _timer = timer;
         System.Array.Clear(btnCount, 0, btnCount.Length);
         players.Clear();
-        SetSprites();
+        //SetSprites();
         foreach(Player player in players)
         {
             player.SetButtonPress(BUTTON_PRESS.None);
@@ -228,10 +223,10 @@ public class GoldenGhost : MonoBehaviour
                 i++;
             }
         }
-        SetSprites();
+        //SetSprites();
         sequenceGenerated = true;
     }
-    void SetSprites()
+    /*void SetSprites()
     {
         for (int i=0; i<4; i++)
         {
@@ -244,5 +239,5 @@ public class GoldenGhost : MonoBehaviour
                 images[i].sprite = emptySprite;
             }
         }
-    }
+    }*/
 }

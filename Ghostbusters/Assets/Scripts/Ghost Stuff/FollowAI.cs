@@ -38,7 +38,7 @@ public class FollowAI : MonoBehaviour
         if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
         {
             anim.SetBool("Attack", true);
-            hitBox.SetActive(true);
+            //hitBox.SetActive(true);
             StartCoroutine(EndAttack());
         }
     }

@@ -145,7 +145,7 @@ MonoBehaviour:
   targetBtnCount: 00000000000000000000000000000000
   players: []
   debugging: 0
-  chaosEventIndex: 0
+  chaosEventIndex: 2
   emptySprite: {fileID: 0}
   playerSprite: {fileID: 0}
   timerBar: {fileID: 0}
@@ -155,9 +155,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  explosivePrefab: {fileID: 0}
-  hitEffect: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosivePrefab: {fileID: 4837366424781135286, guid: 6628d2b2099d39645920e7c0a8e13373,
+    type: 3}
+  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
 --- !u!114 &8751261454735737616
 MonoBehaviour:
   m_ObjectHideFlags: 0

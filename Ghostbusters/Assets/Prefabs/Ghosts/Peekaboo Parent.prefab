@@ -102,9 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4103748472012194261}
   - component: {fileID: 7783116298669152916}
-  - component: {fileID: 2055415718907612790}
   m_Layer: 0
-  m_Name: General Ghosty
+  m_Name: Peekaboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,27 +146,9 @@ MonoBehaviour:
   cantTeleportTimerMax: 1
   timeToLerp: 0.45
   distanceToMove: 2
-  changeLocationsTime: 1
+  changeLocationsTime: 3
+  randomGoldenWeight: 80
   particles: {fileID: 8757567205982445208}
---- !u!95 &2055415718907612790
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3268842577284338423}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6567355a93b5af840b5acc8bcb8d4981, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4303629685472049452
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6848944451804982627}
   m_Layer: 0
-  m_Name: General Ghosty
+  m_Name: Visuals and Bones parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

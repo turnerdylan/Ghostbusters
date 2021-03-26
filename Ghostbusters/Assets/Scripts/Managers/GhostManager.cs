@@ -38,82 +38,26 @@ public class GhostManager : MonoBehaviour
     public GameObject smallGhostPrefab;
 
     //list of ghosts in scene
-    public List<GameObject> mediumGhosts;
-    public List<GameObject> goldenGhosts;
-    public List<GameObject> smallGhosts;
+    public List<GameObject> mediumGhostsInScene;
+    public List<GameObject> goldenGhostsInScene;
+    public List<GameObject> smallGhostsInScene;
 
-    public int maxMediumGhosts = 30;
-    public int maxGoldenGhosts = 30;
     public int maxSmallGhosts = 50;
-
-
-
-
-    private void Start()
-    {
-        //go through each type
-        for (int i = 0; i < goldenGhosts.Count; i++)
-        {
-            //spawn it in 5 times
-            for (int j = 0; j < 5; j++)
-            {
-                GameObject current = Instantiate(goldenGhostPrefabs[i], transform.position, Quaternion.identity);     //instantiate ghosts
-                goldenGhostPrefabs.Add(current);                                                                         //fill the respective array with them
-                current.gameObject.SetActive(false);                                                          //set them as inactive
-                current.GetComponent<GoldenGhost>().SetListIndex(i * 5 + j);                                                //set their list indexes
-                current.GetComponent<GoldenGhost>().GenerateSequence();
-            }
-        }
-
-        for (int i = 0; i < mediumGhosts.Count; i++)
-        {
-            //spawn it in 5 times
-            for (int j = 0; j < 5; j++)
-            {
-                GameObject current = Instantiate(mediumGhostPrefabs[i], transform.position, Quaternion.identity);     //instantiate ghosts
-                mediumGhostPrefabs.Add(current);                                                                         //fill the respective array with them
-                current.gameObject.SetActive(false);                                                          //set them as inactive
-                current.GetComponent<MediumGhost>().SetListIndex(i * 5 + j);                                                //set their list indexes
-                current.GetComponent<MediumGhost>().GenerateSequence();
-            }
-        }
-
-        for (int i = 0; i < maxSmallGhosts; i++)
-        {
-            GameObject current = Instantiate(smallGhostPrefab, transform.position, Quaternion.identity);
-            smallGhosts.Add(current);
-            current.gameObject.SetActive(false);
-            current.GetComponent<SmallGhost>().SetListIndex(i);
-        }
-    }
 
     public void SetAllGhostControls(bool state)
     {
-        foreach(GameObject ghost in goldenGhosts)
+        foreach(GameObject ghost in goldenGhostsInScene)
         {
             ghost.GetComponent<NavMeshAgent>().enabled = state;
             //TODO: disable other behaviors here too?
         }
-        foreach (GameObject ghost in mediumGhosts)
+        foreach (GameObject ghost in mediumGhostsInScene)
         {
            ghost.GetComponent<NavMeshAgent>().enabled = state;
         }
-        foreach (GameObject ghost in smallGhosts)
+        foreach (GameObject ghost in smallGhostsInScene)
         {
             ghost.GetComponent<NavMeshAgent>().enabled = state;
         }
-    }
-
-    public int GetFirstAvailableGhostIndex(List<GameObject> ghostType)
-    {
-        for(int i=0; i<ghostType.Count; i++)
-        {
-            if(!ghostType[i].activeSelf)
-            {
-                return i;
-            }
-        }
-        //print("test 2");
-        return -1;
     }
 }

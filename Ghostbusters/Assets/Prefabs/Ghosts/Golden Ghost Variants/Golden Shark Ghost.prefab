@@ -371,7 +371,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5063853149395304400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 059531075614ab9488e2d2dcdb767a54, type: 3}
   m_Name: 
@@ -384,7 +384,7 @@ MonoBehaviour:
   targetBtnCount: 00000000000000000000000000000000
   players: []
   debugging: 0
-  chaosEventIndex: 1
+  chaosEventIndex: 3
   emptySprite: {fileID: 0}
   playerSprite: {fileID: 0}
   timerBar: {fileID: 0}
@@ -395,8 +395,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   explosivePrefab: {fileID: 0}
-  hitEffect: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  puffPrefab: {fileID: 0}
 --- !u!1 &6226237697872186992
 GameObject:
   m_ObjectHideFlags: 0

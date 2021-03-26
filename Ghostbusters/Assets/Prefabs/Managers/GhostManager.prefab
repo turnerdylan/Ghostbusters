@@ -43,18 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676d4ce85a123d447bd77a5ab6028c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joinParticles: {fileID: 198791823504307442, guid: 3640199bf9dc32f4da57c37d57581f57,
-    type: 3}
-  bigGhosts: []
-  mediumGhosts: []
-  smallGhosts: []
-  maxBigGhosts: 10
-  maxMediumGhosts: 40
-  maxSmallGhosts: 100
-  bigGhostPrefab: {fileID: 7760811846356712085, guid: 812c97f99ec697a4cbc024b92f6d66dd,
-    type: 3}
-  mediumGhostPrefab: {fileID: 7760811846356712085, guid: 8bccffe935059ad44bc5f2fbb53513eb,
-    type: 3}
+  mediumGhostPrefabs:
+  - {fileID: 8417538716750821449, guid: 35b6c41642075cf4a8f801eb4d6b4f8c, type: 3}
+  - {fileID: 2854444557629553577, guid: 79f24f30c5f69b7479433a131991b244, type: 3}
+  - {fileID: 4115968392155635561, guid: 409f163930188af4586f69bdd88d58ec, type: 3}
+  - {fileID: 7760811846356712085, guid: 8bccffe935059ad44bc5f2fbb53513eb, type: 3}
+  - {fileID: 6057545653837414520, guid: 234cfd9ed2d16c74998039f04fc90354, type: 3}
+  goldenGhostPrefabs:
+  - {fileID: 984599683280960968, guid: daaa96694c025d14f9e6215ef04f20c8, type: 3}
+  - {fileID: 9021696445700972934, guid: ca69d2da689dc50469f561a1bb071148, type: 3}
+  - {fileID: 3842587979874991008, guid: 812c97f99ec697a4cbc024b92f6d66dd, type: 3}
+  - {fileID: 7549569796129139204, guid: 7fb1f362ef1f4f24a97e4991b16e05ae, type: 3}
+  - {fileID: 5063853149395304400, guid: 3fe0b0946ce7afb43bea47fbac1ebeaf, type: 3}
   smallGhostPrefab: {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff,
     type: 3}
-  joinTogetherDistance: 4
+  mediumGhostsInScene: []
+  goldenGhostsInScene: []
+  smallGhosts:
+  - {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff, type: 3}
+  maxMediumGhosts: 40
+  maxGoldenGhosts: 30
+  maxSmallGhosts: 100
+  numberOfEachGhostSpawned: 5

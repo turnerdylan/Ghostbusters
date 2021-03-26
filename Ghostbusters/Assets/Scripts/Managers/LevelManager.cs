@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
     private void SetUI(bool state)
     {
         startText.gameObject.SetActive(state);
-        levelTimerText.text = "00:00";
+        levelTimerText.text = "0:00";
         startText.text = "level over. Press any button to go to the next level";
     }
 

@@ -27,7 +27,7 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(BackwardsControls());
                 break;
             case 2:
-                StartCoroutine(LightsOut());
+                StartCoroutine(LightsOut()); //not implemented yet
                 break;
             case 3:
                 StartCoroutine(IcyFloor());
@@ -66,7 +66,8 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator LightsOut()
     {
-        throw new NotImplementedException();
+        print("not implemented yet");
+        yield return null;
     }
 
     private IEnumerator IcyFloor()

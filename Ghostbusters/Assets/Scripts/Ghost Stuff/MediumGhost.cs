@@ -15,8 +15,7 @@ public enum MEDIUM_STATE
 public class MediumGhost : MonoBehaviour
 {
     //private variables
-    Rigidbody rb; 
-    private int _listIndex = -1;
+    Rigidbody rb;
     private bool scareInitiated = false;
     private bool sequenceGenerated = false;
     private bool inRange;
@@ -110,23 +109,18 @@ public class MediumGhost : MonoBehaviour
         }
         //set 2 medium ghosts active and set their positions to this position + offset
         int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.smallGhosts.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.Count; i++)
         {
             if (spawnedGhosts >= _ghostsToSpawn) break;
-            if (!GhostManager.Instance.smallGhosts[i].activeSelf)
+            if (!GhostManager.Instance.smallGhostsInScene[i].activeSelf)
             {
-                GhostManager.Instance.smallGhosts[i].SetActive(true);
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
-                GhostManager.Instance.smallGhosts[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+                GhostManager.Instance.smallGhostsInScene[i].SetActive(true);
+                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position; //fix the math here to spawn them in separate locations
+                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
                 spawnedGhosts++;
             }
         }
         gameObject.SetActive(false);
-    }
-
-    public void SetListIndex(int index)
-    {
-        _listIndex = index;
     }
 
     public void AddPlayerScare(Player player)

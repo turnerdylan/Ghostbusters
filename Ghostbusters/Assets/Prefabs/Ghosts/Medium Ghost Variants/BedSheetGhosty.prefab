@@ -489,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8417538716750821449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -21.05, y: -3.4544435, z: -26.469997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6708625886962832278}
@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: 0}
   _attackRange: 8
   _speed: 10
 --- !u!114 &6036143215627289131
@@ -567,22 +568,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8417538716750821449}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosivePrefab: {fileID: 0}
-  puffPrefab: {fileID: 0}
+  debugging: 0
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
-  formable: 1
-  _scareInputsTimerMaxTime: 0.2
-  _onScareInvincibilityTime: 1
-  _transformTimerMax: 1.5
+  scaresNeeded: 0
+  timer: 10
+  players: []
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
-  players: []
+  emptySprite: {fileID: 0}
+  playerSprite: {fileID: 0}
   images:
   - {fileID: 0}
   - {fileID: 0}
@@ -590,11 +590,9 @@ MonoBehaviour:
   - {fileID: 0}
   buttonSequenceSprite: {fileID: 0}
   timerBar: {fileID: 0}
-  timer: 10
-  scaresNeeded: 0
-  emptySprite: {fileID: 0}
-  playerSprite: {fileID: 0}
-  debugging: 0
+  explosivePrefab: {fileID: 0}
+  hitEffect: {fileID: 0}
+  explosionEffect: {fileID: 0}
 --- !u!195 &6036143215627289132
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public class PeekabooGhost : MonoBehaviour
     [SerializeField] float timeToLerp = 2.0f;
     public float distanceToMove = 2.0f;
     public float changeLocationsTime;
+
+    [Range(0, 100)]
+    public float randomGoldenWeight = 80f;
+
     private bool isLerping;
     private bool shouldMoveDown = false;
     private Vector3 startPos;
@@ -121,43 +125,6 @@ public class PeekabooGhost : MonoBehaviour
             }
         }
     }
-
-    // private IEnumerator GoDown()
-    // {
-    //     //get some values
-    //     float timeElapsed = 0;
-    //     float timeToGoDown = 50;
-    //     Vector3 goToPosition = new Vector3(transform.position.x, transform.position.y - 5, transform.position.z);
-
-    //     while (timeElapsed < timeToGoDown)
-    //     {
-    //         transform.position = Vector3.Lerp(transform.position, goToPosition, timeElapsed / timeToGoDown);
-    //         timeElapsed += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //     yield return null;
-    // }
-
-    // IEnumerator LerpFunction()
-    // {
-    //     print("test1");
-    //     float time = 0;
-
-
-    //     while (time < timeToLerp)
-    //     {
-    //         gameObject.transform.position = Vector3.Lerp(transform.position, transform.position - new Vector3(0, 50, 0), time / timeToLerp);
-
-    //         time += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //     transform.position = transform.position - new Vector3(0, 50, 0);
-    // }
-
-    ////functions
-    //change locations
-    //interact, get scared out of peekaboo state
-    //summon ghost
     private void ChangeLocations()
     {
         lastLocationIndex = currentLocationIndex;
@@ -176,20 +143,20 @@ public class PeekabooGhost : MonoBehaviour
 
     public void SummonGhost()
     {
-
-        //int index = GhostManager.Instance.GetFirstAvailableGhostIndex(GhostManager.Instance.goldenGhosts);
-        int ghostRange = Random.Range(0, GhostManager.Instance.mediumGhosts.Count+GhostManager.Instance.goldenGhosts.Count);
-        if(ghostRange < GhostManager.Instance.mediumGhosts.Count)
+        print("scared!");
+        int ghostRange = Random.Range(0, 100);
+        if(ghostRange < randomGoldenWeight)//typically 0.8?
         {
-            int index = Random.Range(0, GhostManager.Instance.mediumGhosts.Count);
-            GhostManager.Instance.mediumGhosts[index].SetActive(true);
-            GhostManager.Instance.mediumGhosts[index].transform.position = transform.position;
+            int randomIndex = Random.Range(0, 5);
+
+            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
+            GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
         }
         else
         {
-            int index = Random.Range(0, GhostManager.Instance.goldenGhosts.Count);
-            GhostManager.Instance.goldenGhosts[index].SetActive(true);
-            GhostManager.Instance.goldenGhosts[index].transform.position = transform.position;
+            int randomIndex = Random.Range(0, 5);
+            GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
+            GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
         }
         ChangeLocations();
     }
