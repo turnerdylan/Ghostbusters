@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 7254717552493804826}
   - component: {fileID: 7599265750197748367}
   - component: {fileID: 4595142751691998299}
+  - component: {fileID: -4884416274791675975}
   m_Layer: 0
   m_Name: Golden Shark Ghost
   m_TagString: Untagged
@@ -734,12 +735,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
   currentState: 1
   golden: 1
+--- !u!114 &-4884416274791675975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5063853149395304400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6226237697872186992
 GameObject:
   m_ObjectHideFlags: 0

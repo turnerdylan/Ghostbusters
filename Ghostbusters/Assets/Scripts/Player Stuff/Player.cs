@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public enum PLAYER_STATE
 {
@@ -81,7 +82,8 @@ public class Player : MonoBehaviour
     {
         if(other.GetComponent<SmallGhost>())
         {
-            other.gameObject.SetActive(false);
+            GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
+            Destroy(other.gameObject);
             _numberOfHeldGhosts++;
             UIManager.Instance.UpdateHeldGhosts();
         }
@@ -119,17 +121,14 @@ public class Player : MonoBehaviour
     public void DropGhosts()
     {
         InitiateDisableTrigger(2.0f);
-        int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.Count; i++)
+
+        for (int i = 0; i < _numberOfHeldGhosts; i++)
         {
-            if (spawnedGhosts >= _numberOfHeldGhosts) break;
-            if (!GhostManager.Instance.smallGhostsInScene[i].activeSelf)
-            {
-                GhostManager.Instance.smallGhostsInScene[i].SetActive(true);
-                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * 0.5f;
-                spawnedGhosts++;
-            }
+            var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
+            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * 0.5f;
         }
+
+        GhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);
         _numberOfHeldGhosts = 0;
         UIManager.Instance.UpdateHeldGhosts();
     }
@@ -309,7 +308,7 @@ public class Player : MonoBehaviour
 
         _buttonPressed = buttonDirection;
 
-        for (int i = 0; i < 5 * GhostManager.Instance.goldenGhostsInScene.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.goldenGhostsInScene.Count; i++)
         {
             if (Vector3.Distance(GhostManager.Instance.goldenGhostsInScene[i].transform.position, transform.position) <= _scareRange)
             {
@@ -323,7 +322,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 5 * GhostManager.Instance.mediumGhostsInScene.Count; i++)
+        for (int i = 0; i < GhostManager.Instance.mediumGhostsInScene.Count; i++)
         {
             if (Vector3.Distance(GhostManager.Instance.mediumGhostsInScene[i].transform.position, gameObject.transform.position) <= _scareRange)
             {

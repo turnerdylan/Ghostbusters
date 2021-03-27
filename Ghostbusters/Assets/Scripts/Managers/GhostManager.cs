@@ -42,18 +42,7 @@ public class GhostManager : MonoBehaviour
     public List<GameObject> goldenGhostsInScene;
     public List<GameObject> smallGhostsInScene;
 
-    public int maxSmallGhosts = 50;
 
-    void Start()
-    {
-        for (int i = 0; i < maxSmallGhosts; i++)
-        {
-            GameObject current = Instantiate(smallGhostPrefab, transform.position, Quaternion.identity);
-            smallGhostsInScene.Add(current);
-            current.gameObject.SetActive(false);
-            current.GetComponent<SmallGhost>().SetListIndex(i);
-        }
-    }
     public void SetAllGhostControls(bool state)
     {
         foreach(GameObject ghost in goldenGhostsInScene)

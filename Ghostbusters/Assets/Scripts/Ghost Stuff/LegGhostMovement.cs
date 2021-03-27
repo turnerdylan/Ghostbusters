@@ -14,28 +14,13 @@ public enum LEG_GHOST_STATE
 public class LegGhostMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Animator anim;
-    private Rigidbody rb;
     private LEG_GHOST_STATE currentState = LEG_GHOST_STATE.FOLLOW;
-    private float timer;
-    //private variables
-    private Transform target;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
         StartCoroutine(State_Follow());
 
-    }
-
-
-    void Update()
-    {
-        if (rb.velocity.magnitude > 0) anim.SetBool("Run", true);
-        else anim.SetBool("Run", false);
-            
     }
 
     public IEnumerator State_Follow()

@@ -114,7 +114,7 @@ public class LevelManager : MonoBehaviour
     {
         startText.gameObject.SetActive(state);
         levelTimerText.text = "0:00";
-        startText.text = "level over. Press any button to go to the next level";
+        startText.text = "Level over! You and your team were able to catch " + PlayerManager.Instance.totalScore + " ghosts!";
     }
 
     public LEVEL_STATE GetLevelState()

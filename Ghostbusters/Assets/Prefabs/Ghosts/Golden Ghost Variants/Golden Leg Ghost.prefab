@@ -1044,7 +1044,8 @@ GameObject:
   - component: {fileID: 4546759436179731050}
   - component: {fileID: 920346851007629098}
   - component: {fileID: 5954460188712127611}
-  - component: {fileID: -6966258128718668263}
+  - component: {fileID: -89586747298845647}
+  - component: {fileID: 2001801208645377411}
   m_Layer: 0
   m_Name: Golden Leg Ghost
   m_TagString: Untagged
@@ -1188,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 5640452176185509151}
---- !u!114 &-6966258128718668263
+--- !u!114 &-89586747298845647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1197,15 +1198,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7549569796129139204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
+  m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  minDistanceForEnemyToRun: 10
-  wanderRadius: 35
-  timerUntilWanderMax: 5
-  currentState: 1
-  golden: 1
+--- !u!114 &2001801208645377411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549569796129139204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7591190482652990209
 GameObject:
   m_ObjectHideFlags: 0

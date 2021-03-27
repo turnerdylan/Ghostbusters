@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class GoldenGhost : MonoBehaviour
 {    
@@ -16,14 +15,14 @@ public class GoldenGhost : MonoBehaviour
 
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 8;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
+    [SerializeField] private float _ghostSpawnOffset = 0.5f;
     
     [Header("Scaring")]
     public int scaresNeeded;
     public float timer = 10f; //scare timer
-    [SerializeField] private int[] btnCount = new int[4];   
-    [SerializeField] private int[] targetBtnCount = new int[4];
-    public List<Player> players = new List<Player>();
+    private int[] btnCount = new int[4];   
+    private int[] targetBtnCount = new int[4];
+    List<Player> players = new List<Player>();
     public bool debugging;
 
     [Header("Chaos event: 0=speed, 1=controls, 2=lights, 3=ice, 4=smoke,")]
@@ -102,19 +101,14 @@ public class GoldenGhost : MonoBehaviour
         {
             player.InitiateDisableTrigger(0.75f);
         }
-        int spawnedGhosts = 0;
-        for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.Count; i++)
+        for (int i = 0; i < _ghostsToSpawn; i++)
         {
-            if (spawnedGhosts >= _ghostsToSpawn) break;
-            if (!GhostManager.Instance.smallGhostsInScene[i].activeSelf)
-            {
-                GhostManager.Instance.smallGhostsInScene[i].SetActive(true);
-                GhostManager.Instance.smallGhostsInScene[i].transform.position = this.transform.position + new Vector3(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value).normalized * _ghostSpawnOffset;
-                spawnedGhosts++;
-            }
+            var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
+            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
         }
 
-        gameObject.SetActive(false);
+        GhostManager.Instance.goldenGhostsInScene.Remove(gameObject);
+        Destroy(gameObject);
         ChaosManager.Instance.PickChaosEvent(chaosEventIndex, transform.position);
     }
 

@@ -56,7 +56,7 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 
-    private int totalScore;
+    public int totalScore;
     public TextMeshProUGUI scoreText;
 
     public void SetAllPlayerControls(bool state)
@@ -87,7 +87,7 @@ public class PlayerManager : MonoBehaviour
         {
             totalScore += player.score;
         }
-        scoreText.text = "Score: " + totalScore;
+        scoreText.text = totalScore.ToString();
     }
 
     public List<Player> GetPlayerArray()

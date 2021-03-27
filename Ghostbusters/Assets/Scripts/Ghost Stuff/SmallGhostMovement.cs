@@ -13,7 +13,7 @@ public enum SMALL_GHOST_STATE
 public class SmallGhostMovement : MonoBehaviour
 {
     //references
-    public NavMeshAgent agent;
+    NavMeshAgent agent;
 
     //private serializables
     [SerializeField] private float minDistanceForEnemyToRun = 4f;

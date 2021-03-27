@@ -43,7 +43,7 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(BackwardsControls());
                 break;
             case 2:
-                StartCoroutine(LightsOut()); //not implemented yet
+                StartCoroutine(Invisibility()); //not implemented yet
                 break;
             case 3:
                 StartCoroutine(IcyFloor());
@@ -80,10 +80,17 @@ public class ChaosManager : MonoBehaviour
         }
     }
 
-    private IEnumerator LightsOut()
+    private IEnumerator Invisibility()
     {
-        print("not implemented yet");
-        yield return null;
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+        }
+        yield return new WaitForSeconds(chaosEventTime);
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        }
     }
 
     private IEnumerator IcyFloor()

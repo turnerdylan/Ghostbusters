@@ -104,7 +104,7 @@ public class TowerManager : MonoBehaviour
 
     public void FreezeGhosts()
     {
-        foreach(Tower tower in towers)
+        /*foreach(Tower tower in towers)
         {
             if(tower.scareLoaded)
             {
@@ -119,20 +119,20 @@ public class TowerManager : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 
     private void UnFreezeGhosts()
     {
         //print("Unfreeze ghosts");
-        for (int i = 0; i < GhostManager.Instance.maxSmallGhosts; i++)
+        /*for (int i = 0; i < GhostManager.Instance.smallGhostsInScene.; i++)
         {
             if(GhostManager.Instance.smallGhostsInScene[i].activeSelf)
             {
-                GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().agent.isStopped = false;
+                //GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().agent.isStopped = false;
                 StartCoroutine(GhostManager.Instance.smallGhostsInScene[i].GetComponent<SmallGhostMovement>().State_Wander());
             }
-        }
+        }*/
     }
 
         

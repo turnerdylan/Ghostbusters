@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 4483959658421143145}
   - component: {fileID: 2742514773708765551}
   - component: {fileID: 5931667757710786156}
+  - component: {fileID: -6373623198362236571}
   m_Layer: 0
   m_Name: Golden Bunny Ghost
   m_TagString: Untagged
@@ -1169,12 +1170,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
   currentState: 1
   golden: 1
+--- !u!114 &-6373623198362236571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021696445700972934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9211452004029658869
 GameObject:
   m_ObjectHideFlags: 0

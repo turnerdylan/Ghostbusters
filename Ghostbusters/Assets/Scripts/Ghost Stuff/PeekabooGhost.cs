@@ -20,7 +20,7 @@ public class PeekabooGhost : MonoBehaviour
     public float changeLocationsTime;
 
     [Range(0, 100)]
-    public float randomGoldenWeight = 80f;
+    public float chanceToSpawnGolden = 80f;
 
     private bool isLerping;
     private bool shouldMoveDown = false;
@@ -142,20 +142,19 @@ public class PeekabooGhost : MonoBehaviour
     {
         print("scared!");
         int ghostRange = Random.Range(0, 100);
-        if(ghostRange < randomGoldenWeight)//typically 0.8?
+        if(ghostRange > chanceToSpawnGolden)//typically 0.8?
         {
-            //int randomIndex = Random.Range(0, 5);
-            int randomIndex = 0;
+            int randomIndex = Random.Range(0, 5);
+            //int randomIndex = 0;
 
-            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[0], transform.position, Quaternion.identity);
+            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
             newGhost.GetComponent<MediumGhost>().GenerateSequence();
         }
         else
         {
-            //int randomIndex = Random.Range(0, 5);
-
-            int randomIndex = 4;
+            int randomIndex = Random.Range(0, 5);
+            //int randomIndex = 0;
             GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
             newGhost.GetComponent<GoldenGhost>().GenerateSequence();
