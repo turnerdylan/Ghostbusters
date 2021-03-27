@@ -691,10 +691,7 @@ MonoBehaviour:
   _ghostSpawnOffset: 0.5
   scaresNeeded: 4
   timer: 3
-  btnCount: 00000000000000000000000000000000
-  targetBtnCount: 00000000000000000000000000000000
-  players: []
-  debugging: 1
+  debugging: 0
   chaosEventIndex: 3
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
   playerSprite: {fileID: 21300000, guid: 5f6e614f6d085ce41b63035be122e196, type: 3}
@@ -752,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 8
 --- !u!1 &6226237697872186992
 GameObject:
   m_ObjectHideFlags: 0
