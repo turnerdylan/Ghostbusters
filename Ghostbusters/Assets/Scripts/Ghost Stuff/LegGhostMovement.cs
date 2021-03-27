@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FollowAI : MonoBehaviour
+
+public enum LEG_GHOST_STATE
 {
-    //references
+    FOLLOW,
+    WANDER,
+    ATTACK
+
+};
+public class LegGhostMovement : MonoBehaviour
+{
     private NavMeshAgent agent;
     private Animator anim;
     private Rigidbody rb;
-    //public GameObject hitBox;
-
-    //private serializables
-    //[SerializeField] private float _attackRange = 8;
-
-
+    private LEG_GHOST_STATE currentState = LEG_GHOST_STATE.FOLLOW;
+    private float timer;
     //private variables
     private Transform target;
 
@@ -23,6 +26,8 @@ public class FollowAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        StartCoroutine(State_Follow());
+
     }
 
 
@@ -30,32 +35,29 @@ public class FollowAI : MonoBehaviour
     {
         if (rb.velocity.magnitude > 0) anim.SetBool("Run", true);
         else anim.SetBool("Run", false);
-
-        if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
-            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
-
-        // if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
-        // {
-        //     anim.SetBool("Attack", true);
-        //     //hitBox.SetActive(true);
-        //     StartCoroutine(EndAttack());
-        // }
+            
     }
 
-    // public IEnumerator EndAttack()
-    // {
-    //     yield return new WaitForSeconds(.5f);
-    //     anim.SetBool("Attack", false);
-    //     hitBox.SetActive(false);
-    // }
-
-    private void OnDisable()
+    public IEnumerator State_Follow()
     {
-        if(agent)
+        currentState = LEG_GHOST_STATE.FOLLOW;
+        agent.isStopped = false;
+        while(currentState == LEG_GHOST_STATE.FOLLOW)
         {
-            agent.speed = 5;
+            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
+            yield return null;
         }
-        
+    }
+
+    public IEnumerator State_Attack()
+    {
+        currentState = LEG_GHOST_STATE.ATTACK;
+
+        while(currentState == LEG_GHOST_STATE.ATTACK)
+        {
+            agent.isStopped = true;
+            yield return null;
+        }
     }
 
     Transform GetClosestPlayer(List<Player> players)
@@ -84,5 +86,22 @@ public class FollowAI : MonoBehaviour
         }
         if (closestPlayerTransform == null) return closestPlayerTransform;
         return closestPlayerTransform;
+    }
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) 
+    {
+        NavMeshHit navHit;
+        NavMeshHit navEdge;
+        
+        do
+        {
+            Vector3 randDirection = Random.insideUnitSphere * dist;
+            randDirection += origin;
+            NavMesh.SamplePosition (randDirection, out navHit, dist, layermask);
+            NavMesh.FindClosestEdge(navHit.position, out navEdge, 1);
+        }while(navHit.position == navEdge.position);
+
+        //Debug.DrawRay(navHit.position, Vector3.up, Color.green, 5, true);
+ 
+        return navHit.position;
     }
 }

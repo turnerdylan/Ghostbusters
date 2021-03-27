@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
     private PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
     private BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
     private bool canMove = true;
+    private String[] ahSounds = new String[] {"Ah1", "Ah2", "Ah3", "Ah4"};
+    private String[] wahSounds = new String[] {"Wah1", "Wah2", "Wah3", "Wah4"};
+    private String[] heySounds = new String[] {"Hey1", "Hey2", "Hey3", "Hey4"};
+    private String[] booSounds = new String[] {"Boo1", "Boo2", "Boo3", "Boo4"};
     
 
     private void Awake()
@@ -258,6 +262,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         GetComponent<SphereCollider>().isTrigger = true;
     }
+    void PlayRandomScare(String[] sounds) => AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
     public void Scare(BUTTON_PRESS buttonDirection)
     {
         if (currentState != PLAYER_STATE.NORMAL) return;
@@ -266,15 +271,19 @@ public class Player : MonoBehaviour
         {
             case BUTTON_PRESS.Up:
                 anim.SetBool("ScareUp", true);
+                PlayRandomScare(wahSounds);
                 break;
             case BUTTON_PRESS.Down:
                 anim.SetBool("ScareDown", true);
+                PlayRandomScare(ahSounds);
                 break;
             case BUTTON_PRESS.Left:
                 anim.SetBool("ScareLeft", true);
+                PlayRandomScare(booSounds);
                 break;
             case BUTTON_PRESS.Right:
                 anim.SetBool("ScareRight", true);
+                PlayRandomScare(heySounds);
                 break;
         }
 
