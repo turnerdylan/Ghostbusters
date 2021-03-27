@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Dive
     clip: {fileID: 8300000, guid: cc477a87721df1744a0f5e446e36efb0, type: 3}
-    volume: 0.3
+    volume: 0.198
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -70,109 +70,109 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Peekaboo Down
     clip: {fileID: 8300000, guid: c2b185733b9a43f4a87c70b1c9a0c424, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Peekaboo Up
     clip: {fileID: 8300000, guid: 36f9b16ece1e69b4c9db043344c4a93f, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Ah1
     clip: {fileID: 8300000, guid: 208fe39932ef4e043b9969edbeed5f33, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Ah2
     clip: {fileID: 8300000, guid: 42a2a91a69f9e5a4abfa1a3fe31773d1, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Ah3
     clip: {fileID: 8300000, guid: 5e77dc55763c5054f8560aa032a69838, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Ah4
     clip: {fileID: 8300000, guid: b90a1df31e1e46246ad6499e49675328, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Boo1
     clip: {fileID: 8300000, guid: 8a23662be68c80045900f96f71260420, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Boo2
     clip: {fileID: 8300000, guid: 255ff5a7a7a23a041b5e0671c3a382a1, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Boo3
     clip: {fileID: 8300000, guid: d1f73ab8f4cf28f4ea21dd3f88683f37, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Boo4
     clip: {fileID: 8300000, guid: 4b2da3bd33544be4da500c349a055bb7, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hey1
     clip: {fileID: 8300000, guid: 26c14fe8df0a4774faf8690f3833f687, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hey2
     clip: {fileID: 8300000, guid: 97baa7e558768c04e943ec5a20e47d3c, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hey3
     clip: {fileID: 8300000, guid: d76d9902b9c18204ca6f7aa8ddb06be1, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hey4
     clip: {fileID: 8300000, guid: f33b1f7fa21f0174da6cc3b71c26c4c8, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Wah1
     clip: {fileID: 8300000, guid: 836b7e4f9bc78df40b013cb741b4e92a, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Wah2
     clip: {fileID: 8300000, guid: a4148d3bb16949640967ff2c2d27dd71, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Wah3
     clip: {fileID: 8300000, guid: 745ea94fb1d88414b82719b85229b86f, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Wah4
     clip: {fileID: 8300000, guid: d087df65afb08844e821ab431a92f5d3, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}

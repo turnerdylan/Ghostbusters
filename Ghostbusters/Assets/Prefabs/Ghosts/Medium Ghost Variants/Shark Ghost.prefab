@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 6057545653837414521}
   - component: {fileID: 5507581905417016223}
   - component: {fileID: -8186798941074713468}
+  - component: {fileID: 699114532133976696}
   m_Layer: 0
   m_Name: Shark Ghost
   m_TagString: Untagged
@@ -777,22 +778,24 @@ MonoBehaviour:
   debugging: 0
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
-  scaresNeeded: 0
+  scaresNeeded: 2
   timer: 10
   players: []
   btnCount: 00000000000000000000000000000000
   targetBtnCount: 00000000000000000000000000000000
-  emptySprite: {fileID: 0}
-  playerSprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
+  playerSprite: {fileID: 21300000, guid: 5f6e614f6d085ce41b63035be122e196, type: 3}
   images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  buttonSequenceSprite: {fileID: 0}
-  timerBar: {fileID: 0}
-  explosivePrefab: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  - {fileID: 2474670588639362077}
+  - {fileID: 4707557624095328171}
+  - {fileID: 7578393033672409780}
+  - {fileID: 8435122289789440577}
+  buttonSequenceSprite: {fileID: 1453017176708644404}
+  timerBar: {fileID: 1681493476871087750}
+  explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
+    type: 3}
+  explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
+    type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
 --- !u!195 &6057545653837414521
 NavMeshAgent:
@@ -843,6 +846,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 8
+--- !u!114 &699114532133976696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057545653837414520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7baf539d092d614e8cda9739ed85df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1453017176708644404}
 --- !u!1 &6777826214956616483
 GameObject:
   m_ObjectHideFlags: 0
