@@ -59,9 +59,4 @@ MonoBehaviour:
     type: 3}
   mediumGhostsInScene: []
   goldenGhostsInScene: []
-  smallGhosts:
-  - {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff, type: 3}
-  maxMediumGhosts: 40
-  maxGoldenGhosts: 30
-  maxSmallGhosts: 100
-  numberOfEachGhostSpawned: 5
+  smallGhostsInScene: []
