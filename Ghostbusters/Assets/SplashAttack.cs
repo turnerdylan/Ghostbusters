@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class SplashAttack : MonoBehaviour
 {
+    public float _attackRange = 8;
+    public float _splashRange = 8;
+    private Animator anim;
+    private bool canAttack = true;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < _attackRange && canAttack)
+        {
+            anim.SetTrigger("Attack");
+            canAttack = false;
+        }
+    }
 
     public void TriggerSplashAttack()
     {
-        foreach(Player player in PlayerManager.Instance.players)
+        foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < 6)
+            if (Vector3.Distance(transform.position, player.transform.position) < _splashRange)
             {
                 player.TriggerStun();
             }
         }
+        canAttack = true;
     }
+
+    
 }

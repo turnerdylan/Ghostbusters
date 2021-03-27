@@ -699,7 +699,6 @@ GameObject:
   - component: {fileID: 3842587979874991022}
   - component: {fileID: 3842587979874991009}
   - component: {fileID: 5582752610518688971}
-  - component: {fileID: 2346032652744893777}
   - component: {fileID: -3125554680765043164}
   m_Layer: 0
   m_Name: Golden Ghost
@@ -844,19 +843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 724000520358607567}
---- !u!114 &2346032652744893777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3842587979874991008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf1546c43cb7f44aad0255e253362e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeBomb: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
 --- !u!114 &-3125554680765043164
 MonoBehaviour:
   m_ObjectHideFlags: 0

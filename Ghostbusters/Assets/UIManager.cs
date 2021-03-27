@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            UIElements[i].heldGhostsValue.text = PlayerManager.Instance.players[i].GetNumberOfHeldGhosts().ToString();
+            UIElements[i].heldGhostsValue.text = PlayerManager.Instance.GetPlayerArray()[i].GetNumberOfHeldGhosts().ToString();
         }
     }
 }

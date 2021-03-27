@@ -6,17 +6,33 @@ using UnityEngine.InputSystem;
 
 public class ChaosManager : MonoBehaviour
 {
-    [SerializeField] GameObject smokeBomb;
-
-    private void Update()
+    #region Singleton Setup and Awake
+    public static ChaosManager Instance
     {
-        if(Keyboard.current.kKey.wasPressedThisFrame)
+        get
         {
-            PickChaosEvent(0);
+            return instance;
         }
     }
 
-    public void PickChaosEvent(int eventKey)
+    private static ChaosManager instance = null;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    #endregion
+
+    [SerializeField] GameObject smokeBomb;
+    [SerializeField] float chaosEventTime = 5f;
+
+    public void PickChaosEvent(int eventKey, Vector3 pos)
     {
         switch (eventKey)
         {
@@ -33,7 +49,7 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(IcyFloor());
                 break;
             case 4:
-                SmokeBomb();
+                SmokeBomb(pos);
                 break;
         }
     }
@@ -44,7 +60,7 @@ public class ChaosManager : MonoBehaviour
         {
             player._moveSpeed = 100;
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(chaosEventTime);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player._moveSpeed = 25;
@@ -57,7 +73,7 @@ public class ChaosManager : MonoBehaviour
         {
             player.SetBackwardsControls(true);
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(chaosEventTime);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.SetBackwardsControls(false);
@@ -74,17 +90,19 @@ public class ChaosManager : MonoBehaviour
     {
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player.GetComponent<Rigidbody>().drag = .5f;
+            player.SetIcy(true);
+            player.GetComponent<Rigidbody>().drag = 0;
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(chaosEventTime);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
-            player.GetComponent<Rigidbody>().drag = 5f;
+            player.SetIcy(false);
+            player.GetComponent<Rigidbody>().drag = 5;
         }
     }
 
-    private void SmokeBomb()
+    private void SmokeBomb(Vector3 smokePosition)
     {
-        Instantiate(smokeBomb, transform.position, Quaternion.identity);
+        Instantiate(smokeBomb, smokePosition, Quaternion.identity);
     }
 }

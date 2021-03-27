@@ -15,7 +15,6 @@ public enum MEDIUM_STATE
 public class MediumGhost : MonoBehaviour
 {
     //private variables
-    Rigidbody rb;
     private bool scareInitiated = false;
     private bool sequenceGenerated = false;
     private bool inRange;
@@ -41,13 +40,11 @@ public class MediumGhost : MonoBehaviour
 
     [Header("Effects")]
     public GameObject explosivePrefab;
-    public ParticleSystem hitEffect;
     public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         _timer = timer;
     }
 

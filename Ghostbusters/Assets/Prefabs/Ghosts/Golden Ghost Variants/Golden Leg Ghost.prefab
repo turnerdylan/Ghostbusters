@@ -1043,7 +1043,6 @@ GameObject:
   - component: {fileID: 4000657814060991561}
   - component: {fileID: 4546759436179731050}
   - component: {fileID: 920346851007629098}
-  - component: {fileID: 4777123133663003480}
   - component: {fileID: 5954460188712127611}
   - component: {fileID: -6966258128718668263}
   m_Layer: 0
@@ -1176,19 +1175,6 @@ MonoBehaviour:
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
---- !u!114 &4777123133663003480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7549569796129139204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf1546c43cb7f44aad0255e253362e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeBomb: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
 --- !u!114 &5954460188712127611
 MonoBehaviour:
   m_ObjectHideFlags: 0

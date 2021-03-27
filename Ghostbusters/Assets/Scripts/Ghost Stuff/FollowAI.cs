@@ -9,14 +9,9 @@ public class FollowAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private Rigidbody rb;
-    //public GameObject hitBox;
 
     //private serializables
-    //[SerializeField] private float _attackRange = 8;
     [SerializeField] private float _speed = 10f;
-
-    //private variables
-    private Transform target;
 
     void Start()
     {
@@ -33,57 +28,7 @@ public class FollowAI : MonoBehaviour
         else anim.SetBool("Run", false);
 
         if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
-            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
+            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer().position);
 
-        // if (Vector3.Distance(transform.position, GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position) < _attackRange)
-        // {
-        //     anim.SetBool("Attack", true);
-        //     //hitBox.SetActive(true);
-        //     StartCoroutine(EndAttack());
-        // }
-    }
-
-    // public IEnumerator EndAttack()
-    // {
-    //     yield return new WaitForSeconds(.5f);
-    //     anim.SetBool("Attack", false);
-    //     hitBox.SetActive(false);
-    // }
-
-    private void OnDisable()
-    {
-        if(agent)
-        {
-            agent.speed = 5;
-        }
-        
-    }
-
-Transform GetClosestPlayer(List<Player> players)
-    {
-        if (PlayerManager.Instance.CheckIfAllPlayersAreStunned())
-        {
-            agent.ResetPath();
-            return null;
-        }
-
-        Transform closestPlayerTransform = null;
-        float distanceToClosestPlayerTemp = Mathf.Infinity;
-
-        foreach (Player player in players)
-        {
-            if(player.GetPlayerState() != PLAYER_STATE.STUNNED)
-            {
-                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
-                if (currentCheckDistance < distanceToClosestPlayerTemp)
-                {
-                    closestPlayerTransform = player.transform;
-                    distanceToClosestPlayerTemp = currentCheckDistance;
-                }
-            }
-            
-        }
-        if (closestPlayerTransform == null) return closestPlayerTransform;
-        return closestPlayerTransform;
     }
 }

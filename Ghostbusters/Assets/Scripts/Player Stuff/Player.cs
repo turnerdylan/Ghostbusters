@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     private Vector2 _inputMoveVector = Vector2.zero;
     private Vector3 _inputLookVector = Vector3.zero;
     private float _storedLookValue;
+    private bool icy = false;
 
     private int _numberOfHeldGhosts;
     private bool canDive = true;
@@ -177,7 +178,15 @@ public class Player : MonoBehaviour
           anim.SetBool("Walk", true);
             _moveDirection = _inputMoveVector * _moveSpeed;
             //rb.MovePosition(transform.position + new Vector3(moveDirection.x, 0, moveDirection.y));
-            rb.velocity = new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y);
+
+            if(icy)
+            {
+                rb.AddForce(new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y));
+            }
+            else
+            {
+                rb.velocity = new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y);
+            }
         }
         else{
           anim.SetBool("Walk", false);
@@ -219,6 +228,11 @@ public class Player : MonoBehaviour
         backwardsControls = state;
     }
 
+    public void SetIcy(bool state)
+    {
+        icy = state;
+    }
+
     public float GetScareRange()
     {
         return _scareRange;
@@ -239,12 +253,12 @@ public class Player : MonoBehaviour
 
     public IEnumerator StunPlayer(float stunTime)
     {
-        DepositGhosts();
+        DropGhosts();
         anim.SetTrigger("Stunned");
-        GetComponent<PlayerInputHandler>().enabled = false;
+        _moveSpeed = 0;
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
-        GetComponent<PlayerInputHandler>().enabled = true;
+        _moveSpeed = 25;
         currentState = PLAYER_STATE.NORMAL;
     }
 

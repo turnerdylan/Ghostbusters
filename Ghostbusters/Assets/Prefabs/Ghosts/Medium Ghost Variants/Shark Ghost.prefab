@@ -403,8 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
-  _attackRange: 8
   _speed: 10
 --- !u!114 &6057545653837414518
 MonoBehaviour:
@@ -413,7 +411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6057545653837414520}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
@@ -438,6 +436,7 @@ MonoBehaviour:
   explosivePrefab: {fileID: 0}
   hitEffect: {fileID: 0}
   explosionEffect: {fileID: 0}
+  puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
 --- !u!195 &6057545653837414521
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -448,7 +447,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -472,6 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2e03c88c7572a4ab85b8d8bb1e7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackRange: 8
+  _splashRange: 8
 --- !u!1001 &4634795569981389811
 PrefabInstance:
   m_ObjectHideFlags: 0

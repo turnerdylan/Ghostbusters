@@ -115,7 +115,7 @@ public class GoldenGhost : MonoBehaviour
         }
 
         gameObject.SetActive(false);
-        GetComponent<ChaosManager>().PickChaosEvent(chaosEventIndex);
+        ChaosManager.Instance.PickChaosEvent(chaosEventIndex, transform.position);
     }
 
     private void ScareSuccess()

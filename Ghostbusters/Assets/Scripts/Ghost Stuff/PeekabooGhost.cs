@@ -28,17 +28,14 @@ public class PeekabooGhost : MonoBehaviour
     private Vector3 endPos;
     private float timeStartedLerping;
     public GameObject particles;
-    Animator anim;
     
     int currentLocationIndex;
-    bool canTeleport = false;
     private bool moveParticles;
     private int lastLocationIndex;
 
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
         currentLocationIndex = Random.Range(0, locations.Count);
         transform.position = locations[currentLocationIndex].position;
         cantTeleportTimer = cantTeleportTimerMax;
@@ -148,7 +145,7 @@ public class PeekabooGhost : MonoBehaviour
         if(ghostRange < randomGoldenWeight)//typically 0.8?
         {
             //int randomIndex = Random.Range(0, 5);
-            int randomIndex = 4;
+            int randomIndex = 0;
 
             GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
@@ -156,7 +153,9 @@ public class PeekabooGhost : MonoBehaviour
         }
         else
         {
-            int randomIndex = Random.Range(0, 5);
+            //int randomIndex = Random.Range(0, 5);
+
+            int randomIndex = 4;
             GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
             newGhost.GetComponent<GoldenGhost>().GenerateSequence();

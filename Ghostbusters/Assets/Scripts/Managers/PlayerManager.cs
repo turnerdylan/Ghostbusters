@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] bool testMode = false;
     //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
-    public List<Player> players = new List<Player>();
+    [SerializeField] private List<Player> players = new List<Player>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 
@@ -113,9 +113,7 @@ public class PlayerManager : MonoBehaviour
                     distanceToClosestPlayerTemp = currentCheckDistance;
                 }
             }
-
         }
-        if (closestPlayerTransform == null) return closestPlayerTransform;
         return closestPlayerTransform;
     }
 }

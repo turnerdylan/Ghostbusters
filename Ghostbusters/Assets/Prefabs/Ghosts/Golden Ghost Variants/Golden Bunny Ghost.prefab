@@ -1013,7 +1013,6 @@ GameObject:
   - component: {fileID: 9021696445700972938}
   - component: {fileID: 9021696445700972935}
   - component: {fileID: 4483959658421143145}
-  - component: {fileID: 918795362272998209}
   - component: {fileID: 2742514773708765551}
   - component: {fileID: 5931667757710786156}
   m_Layer: 0
@@ -1031,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9021696445700972934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.358425, y: 5.5665402, z: -4.678261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2473038887769926776}
@@ -1145,19 +1144,6 @@ MonoBehaviour:
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
---- !u!114 &918795362272998209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9021696445700972934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf1546c43cb7f44aad0255e253362e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeBomb: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
 --- !u!114 &2742514773708765551
 MonoBehaviour:
   m_ObjectHideFlags: 0
