@@ -18,7 +18,6 @@ public class FollowAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        agent.speed = _speed;
     }
 
 
@@ -29,6 +28,5 @@ public class FollowAI : MonoBehaviour
 
         if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
             agent.SetDestination(PlayerManager.Instance.GetClosestPlayer().position);
-
     }
 }

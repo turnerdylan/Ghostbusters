@@ -147,7 +147,7 @@ public class PeekabooGhost : MonoBehaviour
             //int randomIndex = Random.Range(0, 5);
             int randomIndex = 0;
 
-            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
+            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[0], transform.position, Quaternion.identity);
             GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
             newGhost.GetComponent<MediumGhost>().GenerateSequence();
         }

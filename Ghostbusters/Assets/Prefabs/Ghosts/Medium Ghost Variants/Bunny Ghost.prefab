@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 2854444557629553575}
   - component: {fileID: 2854444557629553576}
   - component: {fileID: 989604402042137253}
+  - component: {fileID: 7285844173778120089}
   m_Layer: 0
   m_Name: Bunny Ghost
   m_TagString: Untagged
@@ -439,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
 --- !u!114 &2854444557629553575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +511,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 4415506545137500265}
+--- !u!114 &7285844173778120089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854444557629553577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81b9aff97c9436408f7f949dfe96075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 7592638429352371569, guid: 671200c3072de9e4298a175003ad4f07,
+    type: 3}
+  attackTimer: 5
+  force: 1000
 --- !u!1 &3272214951978296805
 GameObject:
   m_ObjectHideFlags: 0
