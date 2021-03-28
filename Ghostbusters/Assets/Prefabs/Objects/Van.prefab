@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8720725264464546537}
   - component: {fileID: 5668315563984684364}
   - component: {fileID: 7587740398428156294}
-  - component: {fileID: 9118808554245090571}
   - component: {fileID: 9118808554245090564}
   - component: {fileID: 3375876135256806858}
-  m_Layer: 0
+  - component: {fileID: 4622839448478463129}
+  m_Layer: 11
   m_Name: Van
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &9118808554245090571
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236500706423427155}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5325963853482324189, guid: e4b23eb50ed72c74db8c0564dea9e215, type: 3}
 --- !u!208 &9118808554245090564
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -132,6 +118,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &4622839448478463129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236500706423427155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.177085, y: 5.6064243, z: 4.8907385}
+  m_Center: {x: 1.3300948, y: 2.8117433, z: 0}
 --- !u!1 &9118808554994266199
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9118808554994266198}
   - component: {fileID: 9118808554994266201}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Van interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,5 +175,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionRadius: 15
-  money: {fileID: 0}
   numberOfStoredGhosts: 0

@@ -25,17 +25,15 @@ public class SprayAttack : MonoBehaviour
        _attackTimer -= Time.deltaTime;
         if(_attackTimer < 0 && !attacking)
         {
-            Debug.Log(transform.forward);
             attacking = true;
             StartCoroutine(GetComponent<LegGhostMovement>().State_Attack());
+            anim.SetTrigger("Attack");
             StartCoroutine(EndAttack());
         }
     }    
     
     public IEnumerator EndAttack()
     {
-        //yield return new WaitForSeconds(1.0f);
-        anim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.5f);
         Spray();
         yield return new WaitForSeconds(1.0f);
