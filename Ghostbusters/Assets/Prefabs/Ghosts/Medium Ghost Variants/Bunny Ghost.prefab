@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
 --- !u!114 &2854444557629553575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,8 +471,6 @@ MonoBehaviour:
   buttonSequenceSprite: {fileID: 4415506545137500265}
   timerBar: {fileID: 174912508798626846}
   explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
-    type: 3}
-  hitEffect: {fileID: 198635777028098840, guid: 6fb79962b5722fb4a9958b904d7b53df,
     type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
@@ -945,7 +944,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: a3671a6c4e80d45448e4048ac0ecaef2, type: 3}
+  - {fileID: 2100000, guid: 86f01d93f6223fd429d1e7d8fbdd2c41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

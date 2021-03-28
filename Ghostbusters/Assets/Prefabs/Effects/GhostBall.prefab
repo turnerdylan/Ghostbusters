@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 199911259714252772}
   - component: {fileID: 8445630066965083358}
   - component: {fileID: -7066495408835482981}
+  - component: {fileID: 8499590506671106878}
+  - component: {fileID: 455966622504672117}
+  - component: {fileID: 1047234821431929046}
   m_Layer: 0
   m_Name: GhostBall
   m_TagString: Untagged
@@ -27,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884747205189362}
-  m_LocalRotation: {x: -0, y: -0.99826217, z: -0, w: 0.05892906}
-  m_LocalPosition: {x: 0, y: 0, z: -0.78}
-  m_LocalScale: {x: 2.2743, y: 2.2743, z: 2.2743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3825541649248502467}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -173.24301, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198598745608626540
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4638,7 +4641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884747205189362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60047a4ab0e9db445ae43f5e96ad900e, type: 3}
   m_Name: 
@@ -4651,12 +4654,53 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884747205189362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74bd74be103524b4c94a7d84b74a44fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &8499590506671106878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884747205189362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cb1860866c246418abd4d341fa50f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &455966622504672117
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884747205189362}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!135 &1047234821431929046
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884747205189362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39660445
+  m_Center: {x: 0, y: -0.00020587444, z: 0.0009819567}
 --- !u!1 &5831115228990663330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,7 +4712,6 @@ GameObject:
   - component: {fileID: 3825541649248502467}
   - component: {fileID: 3960508267357765583}
   - component: {fileID: 1778896863727734217}
-  - component: {fileID: 4941025573296744142}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -4737,16 +4780,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4941025573296744142
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5831115228990663330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

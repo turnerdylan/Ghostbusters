@@ -80,7 +80,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 5073b7dc6e59d2f4c91ca1e925b175c5, type: 3}
+  - {fileID: 2100000, guid: 86f01d93f6223fd429d1e7d8fbdd2c41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,7 +434,6 @@ MonoBehaviour:
   buttonSequenceSprite: {fileID: 0}
   timerBar: {fileID: 0}
   explosivePrefab: {fileID: 0}
-  hitEffect: {fileID: 0}
   explosionEffect: {fileID: 0}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
 --- !u!195 &6057545653837414521

@@ -899,8 +899,6 @@ MonoBehaviour:
   timerBar: {fileID: 9156331026895596521}
   explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
     type: 3}
-  hitEffect: {fileID: 198635777028098840, guid: 6fb79962b5722fb4a9958b904d7b53df,
-    type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
@@ -943,8 +941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c586063571a3c4fba1699729c4c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 25
-  timerUntilWanderMax: 5
 --- !u!1 &4624075349880122912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1095,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: d65557515e27f7b4ba83b04600504944, type: 3}
+  - {fileID: 2100000, guid: 86f01d93f6223fd429d1e7d8fbdd2c41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

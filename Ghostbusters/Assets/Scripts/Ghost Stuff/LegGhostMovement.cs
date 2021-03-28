@@ -17,9 +17,6 @@ public class LegGhostMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
     private LEG_GHOST_STATE currentState = LEG_GHOST_STATE.FOLLOW;
-    private float timer;
-    //private variables
-    private Transform target;
 
     void Start()
     {
@@ -44,7 +41,7 @@ public class LegGhostMovement : MonoBehaviour
         agent.isStopped = false;
         while(currentState == LEG_GHOST_STATE.FOLLOW)
         {
-            agent.SetDestination(GetClosestPlayer(PlayerManager.Instance.GetPlayerArray()).gameObject.transform.position);
+            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer().transform.position);
             yield return null;
         }
     }
@@ -60,33 +57,6 @@ public class LegGhostMovement : MonoBehaviour
         }
     }
 
-    Transform GetClosestPlayer(List<Player> players)
-    {
-        if (PlayerManager.Instance.CheckIfAllPlayersAreStunned())
-        {
-            agent.ResetPath();
-            return null;
-        }
-
-        Transform closestPlayerTransform = null;
-        float distanceToClosestPlayerTemp = Mathf.Infinity;
-
-        foreach (Player player in players)
-        {
-            if(player.GetPlayerState() != PLAYER_STATE.STUNNED)
-            {
-                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
-                if (currentCheckDistance < distanceToClosestPlayerTemp)
-                {
-                    closestPlayerTransform = player.transform;
-                    distanceToClosestPlayerTemp = currentCheckDistance;
-                }
-            }
-            
-        }
-        if (closestPlayerTransform == null) return closestPlayerTransform;
-        return closestPlayerTransform;
-    }
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) 
     {
         NavMeshHit navHit;
