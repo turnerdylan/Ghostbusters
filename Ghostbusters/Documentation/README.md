@@ -28,7 +28,7 @@ Z - This week turned into a huge work week for the development of both the ghost
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level3-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level4-NightMode.JPG" width="50%">
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level5-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level6-NightMode.JPG" width="50%">
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level7-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level8-NightMode.JPG" width="50%">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Menu-NightMode.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Menu-NightMode.JPG" width="75%">
 
 - - -
 
