@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
     private Vector2 _inputMoveVector = Vector2.zero;
-    private Vector3 _inputLookVector = Vector3.zero;
     private float _storedLookValue;
     private bool icy = false;
 

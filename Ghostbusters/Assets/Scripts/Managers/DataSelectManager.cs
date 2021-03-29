@@ -73,6 +73,7 @@ public class DataSelectManager : MonoBehaviour
         {
             if(Gamepad.all[0].dpad.right.wasPressedThisFrame)
             {
+                AudioManager.Instance.Play("Click");
                 currentLevelIndex++;
                 if (currentLevelIndex == levelPins.Count)
                 {
@@ -80,6 +81,7 @@ public class DataSelectManager : MonoBehaviour
                 }
             } else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
             {
+                AudioManager.Instance.Play("Click");
                 currentLevelIndex--;
                 if (currentLevelIndex <= -1)
                 {
