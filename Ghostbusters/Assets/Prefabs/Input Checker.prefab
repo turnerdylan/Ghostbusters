@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc4a82210b5e9b43bb7b94737a68908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraEnd: {x: 0, y: 0, z: 0}
-  timeToLerp: 4
+  cameraEnd: {fileID: 0}
+  timeToLerp: 200
