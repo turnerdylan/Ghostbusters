@@ -258,7 +258,7 @@ public class Player : MonoBehaviour
     {
         DropGhosts();
         anim.SetTrigger("Stunned");
-        _moveSpeed = 0;
+        TriggerDisableMovement(1.0f);
         currentState = PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
         _moveSpeed = 25;
