@@ -24,11 +24,11 @@ D -
 
 Z - This week turned into a huge work week for the development of both the ghost mechanics and the visual presentation of the game. We will probably end up with ~7-8 levels over all and each of those have been filled out with custom assets, nighttime lighting and some basic post-processing effects. Below are some images of the levels as they currently look. These levels may be adjusted slightly over the coming weeks to fix any bugs and allow the players to traverse the area without getting caught on things. 
 
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Ferry-NightMode.JPG" width="50"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level2-NightMode.JPG" width="50">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level3-NightMode.JPG" width="50"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level4-NightMode.JPG" width="50">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level5-NightMode.JPG" width="50"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level6-NightMode.JPG" width="50">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level7-NightMode.JPG" width="50"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level8-NightMode.JPG" width="50">
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Menu-NightMode.JPG" width="50">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Ferry-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level2-NightMode.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level3-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level4-NightMode.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level5-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level6-NightMode.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level7-NightMode.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Level8-NightMode.JPG" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Menu-NightMode.JPG" width="50%">
 
 - - -
 
