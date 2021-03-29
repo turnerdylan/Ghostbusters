@@ -931,8 +931,8 @@ GameObject:
   - component: {fileID: 7760811846356712084}
   - component: {fileID: 998846768585295663}
   - component: {fileID: 4817641454975781590}
-  - component: {fileID: 7851353844062905660}
-  - component: {fileID: -7439732804125203142}
+  - component: {fileID: 772659879054345677}
+  - component: {fileID: 5794458391285788448}
   m_Layer: 0
   m_Name: Medium Ghost
   m_TagString: Untagged
@@ -1000,7 +1000,7 @@ NavMeshAgent:
   m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916e55bdb2eae7946a0f0a03aaae2f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugging: 0
+  debugging: 1
   _ghostsToSpawn: 4
   _ghostSpawnOffset: 0.5
   scaresNeeded: 2
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7862610232104489038}
---- !u!114 &7851353844062905660
+--- !u!114 &772659879054345677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1084,11 +1084,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7760811846356712085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 05c586063571a3c4fba1699729c4c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
---- !u!114 &-7439732804125203142
+--- !u!114 &5794458391285788448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1097,10 +1096,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7760811846356712085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de5905736d8920448878acf9b3b64a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 8
+  ghostBall: {fileID: 1884747205189362, guid: 1b85934f3ab9f88409e04178ece71a05, type: 3}
+  attackTimer: 5
+  force: 1000
+  numProjectiles: 5
+  sprayAngle: 90
+  projectileLifetime: 10
 --- !u!1 &7862610232104489038
 GameObject:
   m_ObjectHideFlags: 0
