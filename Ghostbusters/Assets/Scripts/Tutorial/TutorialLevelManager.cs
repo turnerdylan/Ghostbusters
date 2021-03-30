@@ -49,10 +49,12 @@ public class TutorialLevelManager : MonoBehaviour
     //UI stuff
     public TextMeshProUGUI startText;
     public TextMeshProUGUI levelTimerText;
+    public string levelMusic;
 
 
     private void Start()
     {
+        AudioManager.Instance.Play(levelMusic);
         levelTimer = levelMaxTime;
         //Time.timeScale = 0;
         //StartCoroutine(StartCountdown());
@@ -83,6 +85,7 @@ public class TutorialLevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        AudioManager.Instance.Stop(levelMusic);
         currentState = LEVEL_STATE.ENDED;
         //add a delay here
         Time.timeScale = 0;

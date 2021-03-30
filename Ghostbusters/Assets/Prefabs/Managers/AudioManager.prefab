@@ -188,7 +188,7 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Day to Day
+  - name: Day To Day
     clip: {fileID: 8300000, guid: 3a5a6f5fcf0746646b3de6264768ac10, type: 3}
     volume: 0.5
     pitch: 1
@@ -232,6 +232,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Wonky Donk
     clip: {fileID: 8300000, guid: dcfe0f26709875d47b9d1f39f5d35822, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Easy Going
+    clip: {fileID: 8300000, guid: 6ee5d623eb9692f41ab3a2e4b9629c00, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Quirky Moments
+    clip: {fileID: 8300000, guid: 5502a96f295027d4e86f8aab6faca4aa, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1

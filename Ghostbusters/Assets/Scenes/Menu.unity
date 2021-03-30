@@ -4317,6 +4317,7 @@ MonoBehaviour:
   - {fileID: 564327115}
   - {fileID: 1420579750}
   currentLevelIndex: 0
+  levelMusic: Easy Going
 --- !u!4 &1774895466
 Transform:
   m_ObjectHideFlags: 0

@@ -2998,7 +2998,7 @@ MonoBehaviour:
   - {fileID: 1516578423}
   - {fileID: 1962758664}
   peekabooGhost: {fileID: 4604214624883124111}
-  stepOneTime: 5
+  stepOneTime: 7.5
   arrowSprite: {fileID: 55588116}
 --- !u!4 &1209717132
 Transform:
@@ -5567,6 +5567,7 @@ MonoBehaviour:
   startCountdownTimer: 3
   startText: {fileID: 0}
   levelTimerText: {fileID: 0}
+  levelMusic: Crafty Critters
 --- !u!4 &105620081765955806
 Transform:
   m_ObjectHideFlags: 0
@@ -17235,6 +17236,8 @@ MonoBehaviour:
   players:
   - {fileID: 6422634014796888070}
   - {fileID: 8557320318734598943}
+  - {fileID: 6412033726671015725}
+  - {fileID: 8974730508876451955}
   playerSkins: []
   playerSpawns: []
   totalScore: 0
@@ -29650,7 +29653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6412033726671015725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32790,7 +32793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8974730508876451955
 MonoBehaviour:
   m_ObjectHideFlags: 0

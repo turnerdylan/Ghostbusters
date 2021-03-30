@@ -46,6 +46,7 @@ public class DataSelectManager : MonoBehaviour
     //level stuff
     public List<Pin> levelPins = new List<Pin>();
     public int currentLevelIndex;
+    public string levelMusic;
 
 
     //extra
@@ -54,6 +55,8 @@ public class DataSelectManager : MonoBehaviour
     void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex != 1) return;
+
+        AudioManager.Instance.Play(levelMusic);
 
         for (int i = 0; i < players.Count; i++)
         {
@@ -98,6 +101,7 @@ public class DataSelectManager : MonoBehaviour
 
             if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
             {
+                AudioManager.Instance.Stop(levelMusic);
                 SceneManager.LoadScene(currentLevelIndex + 2);
             }
         }

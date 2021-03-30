@@ -9,12 +9,14 @@ public class InputChecker : MonoBehaviour
     Transform cameraStart;
     public Transform cameraEnd;
     public float timeToLerp = 4;
+    public string levelMusic;
     SpriteRenderer fadeOutSprite;
     Color targetColor = new Color(0, 0, 0, 255);
 
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.Play(levelMusic);
         cameraStart = Camera.main.transform;
         fadeOutSprite = Camera.main.GetComponentInChildren<SpriteRenderer>();
     }
@@ -37,6 +39,7 @@ public class InputChecker : MonoBehaviour
     {
         float time = 0;
         Color startValue = fadeOutSprite.color;
+        AudioManager.Instance.Stop(levelMusic);
 
         while (time < timeToLerp)
         {

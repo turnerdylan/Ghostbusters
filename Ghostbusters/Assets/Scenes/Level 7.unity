@@ -1057,6 +1057,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 373189000}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &373189016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7974935792709722167, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 373189000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &373189017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5331418359013192392, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 373189000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &381258035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,6 +2933,26 @@ PrefabInstance:
       propertyPath: pauseUIElements.Array.data[2]
       value: 
       objectReference: {fileID: 373189008}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endLevelText
+      value: 
+      objectReference: {fileID: 373189016}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: scoreGoalText
+      value: 
+      objectReference: {fileID: 373189017}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: scoreGoal
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelMusic
+      value: Rabbit Run
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &1056150695 stripped

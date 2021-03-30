@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI endLevelText;
     public TextMeshProUGUI scoreGoalText;
     public float scoreGoal;
-    public Sound levelMusic;
+    public string levelMusic;
 
 
     private void Start()
@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
         scoreGoalText.text = "Goal: " + scoreGoal.ToString();
         SetPauseUI(false);
         BeginLevel();
-        AudioManager.Instance.Play(levelMusic.name);
+        AudioManager.Instance.Play(levelMusic);
     }
 
     private void Update()
@@ -191,7 +191,7 @@ public class LevelManager : MonoBehaviour
         endLevelUI.SetActive(true);
         endLevelUIElements[endLevelUIIndex].color = Color.green;
 
-        AudioManager.Instance.Stop(levelMusic.name);
+        AudioManager.Instance.Stop(levelMusic);
 
         PlayerManager.Instance.SetAllPlayerControls(false);
         GhostManager.Instance.SetAllGhostControls(false);
