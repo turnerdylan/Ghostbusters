@@ -26898,6 +26898,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4939104815303280170, guid: 0e302129c244b7a4cb88fab42ddd000c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939104815625846997, guid: 0e302129c244b7a4cb88fab42ddd000c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e302129c244b7a4cb88fab42ddd000c, type: 3}
 --- !u!4 &4948316855337954714
@@ -28476,6 +28486,7 @@ MonoBehaviour:
   _stunTime: 1
   score: 0
   characterSprite: {fileID: 21300000, guid: 6c84b75704e49ce4199afe7923bc1dd2, type: 3}
+  _numberOfHeldGhosts: 0
 --- !u!114 &6412033726671015726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28807,6 +28818,7 @@ MonoBehaviour:
   _stunTime: 1
   score: 0
   characterSprite: {fileID: 21300000, guid: 97a0374fc2fe6dc43a139d06189bfb30, type: 3}
+  _numberOfHeldGhosts: 0
 --- !u!114 &6422634014796888071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31213,6 +31225,7 @@ MonoBehaviour:
   _stunTime: 1
   score: 0
   characterSprite: {fileID: 21300000, guid: ec623dc39b9385847b7efc1eb83e1f0b, type: 3}
+  _numberOfHeldGhosts: 0
 --- !u!114 &8557320318734598944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31573,6 +31586,7 @@ MonoBehaviour:
   _stunTime: 1
   score: 0
   characterSprite: {fileID: 21300000, guid: 73143d9ac3c3ff44da80eabfddbe4f77, type: 3}
+  _numberOfHeldGhosts: 0
 --- !u!95 &8974730508876451956
 Animator:
   serializedVersion: 3
@@ -31826,6 +31840,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7f2c5d84-44a7-4412-8b43-d1f5ec588e20
     m_ActionName: Menu/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c58cda4-2d0a-4d2b-b82b-d4fb54f234c5
+    m_ActionName: Player/Pause[/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9881f653-d406-4581-b1c1-4c00c93a645b
+    m_ActionName: Player/UpUI[/XInputControllerWindows/dpad/up,/XInputControllerWindows/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d0f58ee-bb2e-4d9c-9478-e487a2ea3f6d
+    m_ActionName: Player/DownUI[/XInputControllerWindows/dpad/down,/XInputControllerWindows/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14d31097-9528-4a25-80dc-f5af36bf0b12
+    m_ActionName: Player/SelectUI[/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
