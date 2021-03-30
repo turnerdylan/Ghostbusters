@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandler : MonoBehaviour
@@ -39,6 +39,58 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.performed)
         {
             player.Dive();
+        }
+    }
+
+    public void OnPause(CallbackContext context)
+    {
+        if(context.performed && LevelManager.Instance.GetLevelState() == LEVEL_STATE.STARTED)
+        {
+            LevelManager.Instance.Pause();
+        }
+    }
+
+    public void OnUpUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
+            {
+                LevelManager.Instance.ChangePauseUIIndex(-1);
+            }
+            else if(LevelManager.Instance.GetLevelState() == LEVEL_STATE.ENDED)
+            {
+                LevelManager.Instance.ChangeEndUIIndex(-1);
+            }
+        }
+    }
+
+    public void OnDownUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
+            {
+                LevelManager.Instance.ChangePauseUIIndex(1);
+            }
+            if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.ENDED)
+            {
+                LevelManager.Instance.ChangeEndUIIndex(1);
+            }
+        }
+    }
+
+    public void SelectUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
+            {
+                LevelManager.Instance.SelectPauseUI();
+            } else if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.ENDED)
+            {
+                LevelManager.Instance.SelectEndUI();
+            }
         }
     }
 

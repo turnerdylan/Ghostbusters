@@ -33,6 +33,8 @@ public class DataSelectManager : MonoBehaviour
 
     //player stuff
     public List<PlayerSelect> players = new List<PlayerSelect>();
+    public List<int> playerIndexes = new List<int>();
+
     public List<SpriteRenderer> pluses = new List<SpriteRenderer>();
     public int numberOfPlayers = 0;
     List<int> playerCharacterIndexes = new List<int>();
@@ -56,9 +58,8 @@ public class DataSelectManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].gameObject.SetActive(false);
-            players[i].imageIndex = i;
         }
-        print(numberOfPlayers);
+        numberOfPlayers = Gamepad.all.Count;
         UpdatePlayerPictures();
         camManager = FindObjectOfType<CameraManager>();
     }
@@ -124,6 +125,15 @@ public class DataSelectManager : MonoBehaviour
             }
         };
     }*/
+
+    public void UpdatePlayerData()
+    {
+        playerIndexes.Clear();
+        for (int i = 0; i < players.Count; i++)
+        {
+            playerIndexes.Add(players[i].imageIndex);
+        }
+    }
 
     public void UpdatePlayerPictures()
     {

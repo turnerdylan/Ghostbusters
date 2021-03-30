@@ -27,9 +27,8 @@ public class PlayerManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
 
-        if(testMode)
+        if (testMode)
         {
             Debug.LogWarning("TEST MODE IS ON");
             for (int i = 0; i < Gamepad.all.Count; i++)
@@ -42,7 +41,7 @@ public class PlayerManager : MonoBehaviour
         {
             for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
+                int playerskin = DataSelectManager.Instance.playerIndexes[i];//this is the info for what skin they picked
                 var currentPlayer = Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
                 players.Add(currentPlayer.GetComponent<Player>());
             }
@@ -50,7 +49,7 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] bool testMode = false;
+    public bool testMode = false;
     //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
     [SerializeField] private List<Player> players = new List<Player>();
     public List<GameObject> playerSkins;

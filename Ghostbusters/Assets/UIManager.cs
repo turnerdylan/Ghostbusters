@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
@@ -41,13 +40,17 @@ public class UIManager : MonoBehaviour
             UIElements[i].gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < Gamepad.all.Count; i++)
+        if(!PlayerManager.Instance.testMode)
         {
-            UIElements[i].gameObject.SetActive(true);
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                UIElements[i].gameObject.SetActive(true);
 
-            int playerSpriteIndex = DataSelectManager.Instance.players[i].imageIndex;
-            UIElements[i].playerImage.sprite = playerImages[playerSpriteIndex];
+                int playerSpriteIndex = DataSelectManager.Instance.playerIndexes[i];
+                UIElements[i].playerImage.sprite = playerImages[playerSpriteIndex];
+            }
         }
+        
     }
 
     // Update is called once per frame
