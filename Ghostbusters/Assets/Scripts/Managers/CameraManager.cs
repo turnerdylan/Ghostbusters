@@ -82,6 +82,7 @@ public class CameraManager : MonoBehaviour
                     }
                     else if (textItemIndex == 1)
                     {
+                        DataSelectManager.Instance.UpdatePlayerData();
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[1].position, CAMERA_POSITION.MAP));
                     }
                     else if (textItemIndex == 2)

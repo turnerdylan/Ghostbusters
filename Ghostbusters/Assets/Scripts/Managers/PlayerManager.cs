@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
     #endregion
-    [SerializeField] bool testMode = false;
+    public bool testMode = false;
     //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
     [SerializeField] private List<Player> players = new List<Player>();
     public List<GameObject> playerSkins;

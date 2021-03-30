@@ -38,24 +38,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105620081567462700}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d3a4dda4b2b2c4fbc846dd98d6985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMaxTime: 3
+  levelMaxTime: 150
   startCountdownTimer: 5
   pauseUI: {fileID: 0}
-  pauseUIElements:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  pauseUIElements: []
   pauseUIIndex: 0
   endLevelUI: {fileID: 0}
-  endLevelUIElements:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  endLevelUIElements: []
   endLevelUIIndex: 0
   startText: {fileID: 0}
   levelTimerText: {fileID: 0}

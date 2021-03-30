@@ -46,6 +46,6 @@ public class Van : MonoBehaviour
         AudioManager.Instance.Play("Ding");
         anim.SetTrigger("Deposit");
         numberOfStoredGhosts += storedGhosts;
-        TutorialPlayerManager.Instance.CalculateScore();
+        PlayerManager.Instance.CalculateScore();
     }
 }
