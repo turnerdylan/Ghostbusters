@@ -58,6 +58,7 @@ public class TutorialPlayerManager : MonoBehaviour
     public int totalScore;
     public TextMeshProUGUI scoreText;
     public TutorialPeekaboo peekaboo;
+    private bool initiatedStep;
 
     void Update()
     {
@@ -66,9 +67,10 @@ public class TutorialPlayerManager : MonoBehaviour
         {
             count += player._numberOfHeldGhosts;
         }
-        if(count == 6) 
+        if(count == 6 && !initiatedStep) 
         {
-            TutorialManager.Instance.TriggerWaitForSplit();
+            initiatedStep = true;
+            TutorialManager.Instance.TriggerWait(0.35f);
         }
     }
     public void SetAllPlayerControls(bool state)
@@ -100,6 +102,10 @@ public class TutorialPlayerManager : MonoBehaviour
             totalScore += player.score;
         }
         scoreText.text = totalScore.ToString();
+        if(totalScore >= 6)
+        {
+            TutorialManager.Instance.TriggerWait(0.6f);
+        }
     }
 
     public List<TutorialPlayer> GetPlayerArray()

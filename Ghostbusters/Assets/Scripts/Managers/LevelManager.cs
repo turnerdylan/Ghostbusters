@@ -55,6 +55,10 @@ public class LevelManager : MonoBehaviour
     //UI stuff
     public TextMeshProUGUI startText;
     public TextMeshProUGUI levelTimerText;
+    public TextMeshProUGUI endLevelText;
+    public TextMeshProUGUI scoreGoalText;
+    public float scoreGoal;
+    public Sound levelMusic;
 
 
     private void Start()
@@ -63,8 +67,10 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         //StartCoroutine(StartCountdown());
         endLevelUI.SetActive(false);
+        scoreGoalText.text = "Goal: " + scoreGoal.ToString();
         SetPauseUI(false);
         BeginLevel();
+        AudioManager.Instance.Play(levelMusic.name);
     }
 
     private void Update()
@@ -173,9 +179,19 @@ public class LevelManager : MonoBehaviour
         currentState = LEVEL_STATE.ENDED;
         //add a delay here
         Time.timeScale = 0;
-
+        if(PlayerManager.Instance.totalScore >= scoreGoal)
+        {
+            endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+        }
+        else
+        {
+            endLevelText.text = "Level Failed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+        }
+        
         endLevelUI.SetActive(true);
         endLevelUIElements[endLevelUIIndex].color = Color.green;
+
+        AudioManager.Instance.Stop(levelMusic.name);
 
         PlayerManager.Instance.SetAllPlayerControls(false);
         GhostManager.Instance.SetAllGhostControls(false);

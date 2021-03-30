@@ -112,7 +112,7 @@ public class TutorialGhost : MonoBehaviour
             var newSmallGhost = Instantiate(TutorialGhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
             newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
         }
-        TutorialManager.Instance.TriggerWaitForSplit();
+        TutorialManager.Instance.TriggerWait(0.35f);
         TutorialGhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);
         Destroy(this.gameObject);
     }

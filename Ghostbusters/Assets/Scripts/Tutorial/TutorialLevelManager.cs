@@ -88,7 +88,7 @@ public class TutorialLevelManager : MonoBehaviour
         Time.timeScale = 0;
 
         SetUI(true);
-        PlayerManager.Instance.SetAllPlayerControls(false);
+        TutorialPlayerManager.Instance.SetAllPlayerControls(false);
         TutorialGhostManager.Instance.SetAllGhostControls(false);
     }
 
@@ -105,7 +105,7 @@ public class TutorialLevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
         currentState = LEVEL_STATE.STARTED;
-        PlayerManager.Instance.SetAllPlayerControls(true);
+        TutorialPlayerManager.Instance.SetAllPlayerControls(true);
         TutorialGhostManager.Instance.SetAllGhostControls(true);
         print("Started level!");
     }

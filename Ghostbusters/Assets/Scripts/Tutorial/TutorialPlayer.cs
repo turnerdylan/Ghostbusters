@@ -108,10 +108,10 @@ public class TutorialPlayer : MonoBehaviour
 
     public void DepositGhosts()
     {
-        if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
+        if(Vector3.Distance(transform.position, TutorialVan.Instance.transform.position) < TutorialVan.Instance.GetInteractionRadius())
         {
             score += _numberOfHeldGhosts;
-            Van.Instance.DepositGhosts(_numberOfHeldGhosts);
+            TutorialVan.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
             TutorialUIManager.Instance.UpdateHeldGhosts();
         }        
