@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeekabooGhost : MonoBehaviour
+public class TutorialPeekaboo : MonoBehaviour
 {
     ////references
     //3 ghosts sizes?
@@ -32,11 +32,13 @@ public class PeekabooGhost : MonoBehaviour
     int currentLocationIndex;
     private bool moveParticles;
     private int lastLocationIndex;
+    private bool canSummon = true;
 
 
     private void Start()
     {
-        currentLocationIndex = Random.Range(0, locations.Count);
+        chanceToSpawnGolden = 0;
+        currentLocationIndex = 0;
         transform.position = locations[currentLocationIndex].position;
         cantTeleportTimer = cantTeleportTimerMax;
         particles.GetComponent<ParticleSystem>().Stop();
@@ -45,7 +47,7 @@ public class PeekabooGhost : MonoBehaviour
 
     void FixedUpdate()
     {
-        var target = PlayerManager.Instance.GetClosestPlayer();
+        var target = TutorialPlayerManager.Instance.GetClosestPlayer();
         if(target)
         {
             Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
@@ -86,7 +88,7 @@ public class PeekabooGhost : MonoBehaviour
             cantTeleportTimer -= Time.deltaTime;
             if(target)
             {
-                if (Vector3.Distance(transform.position, target.position) < 25 && cantTeleportTimer < 0)
+                if (Vector3.Distance(transform.position, target.position) < 15 && cantTeleportTimer < 0)
                 {
                     StartLerping();
                 }
@@ -140,26 +142,31 @@ public class PeekabooGhost : MonoBehaviour
 
     public void SummonGhost()
     {
-        print("scared!");
-        int ghostRange = Random.Range(0, 100);
-        if(ghostRange > chanceToSpawnGolden)//typically 0.8?
+        if(canSummon)
         {
-            int randomIndex = Random.Range(0, 5);
-            //int randomIndex = 3;
+            canSummon = false;
+            int ghostRange = Random.Range(0, 100);
+            if(ghostRange > chanceToSpawnGolden)//typically 0.8?
+            {
+                //int randomIndex = Random.Range(0, 5);
+                int randomIndex = 0;
 
-            GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
-            GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
-            newGhost.GetComponent<MediumGhost>().GenerateSequence();
+                GameObject newGhost = Instantiate(TutorialGhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
+                TutorialGhostManager.Instance.mediumGhostsInScene.Add(newGhost);
+                newGhost.GetComponent<TutorialGhost>().GenerateSequence();
+            }
+            else
+            {
+                int randomIndex = Random.Range(0, 5);
+                //int randomIndex = 0;
+                GameObject newGhost = Instantiate(TutorialGhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
+                TutorialGhostManager.Instance.goldenGhostsInScene.Add(newGhost);
+                newGhost.GetComponent<GoldenGhost>().GenerateSequence();
+            }
+            TutorialManager.Instance.TriggerWaitForSummon();
+            //gameObject.transform.parent.gameObject.SetActive(false);
+            //ChangeLocations();
         }
-        else
-        {
-            int randomIndex = Random.Range(0, 5);
-            //int randomIndex = 0;
-            GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
-            GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
-            newGhost.GetComponent<GoldenGhost>().GenerateSequence();
-        }
-        ChangeLocations();
     }
 
     public float GetInteractRange()
