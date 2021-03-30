@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class PlayerManager : MonoBehaviour
+public class TutorialPlayerManager : MonoBehaviour
 {
     //players are spawned in awake
     #region Singleton Setup and Awake
-    public static PlayerManager Instance
+    public static TutorialPlayerManager Instance
     {
         get
         {
@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private static PlayerManager instance = null;
+    private static TutorialPlayerManager instance = null;
 
     private void Awake()
     {
@@ -27,39 +27,53 @@ public class PlayerManager : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        if (testMode)
-        {
-            Debug.LogWarning("TEST MODE IS ON");
-            for (int i = 0; i < Gamepad.all.Count; i++)
-            {
-                var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
-                players.Add(currentPlayer.GetComponent<Player>());
-            }
-        }
-        else
-        {
-            for (int i = 0; i < Gamepad.all.Count; i++)
-            {
-                int playerskin = DataSelectManager.Instance.playerIndexes[i];//this is the info for what skin they picked
-                var currentPlayer = Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
-                players.Add(currentPlayer.GetComponent<Player>());
-            }
-        }
+        // if(testMode)
+        // {
+        //     Debug.LogWarning("TEST MODE IS ON");
+        //     for (int i = 0; i < Gamepad.all.Count; i++)
+        //     {
+        //         var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+        //         players.Add(currentPlayer.GetComponent<TutorialPlayer>());
+        //     }
+        // }
+        // else
+        // {
+        //     for (int i = 0; i < Gamepad.all.Count; i++)
+        //     {
+        //         int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
+        //         var currentPlayer = Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
+        //         players.Add(currentPlayer.GetComponent<TutorialPlayer>());
+        //     }
+        // }
     }
     #endregion
     [SerializeField] bool testMode = false;
     //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
-    [SerializeField] private List<Player> players = new List<Player>();
+    public List<TutorialPlayer> players = new List<TutorialPlayer>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
 
     public int totalScore;
     public TextMeshProUGUI scoreText;
+    public TutorialPeekaboo peekaboo;
 
+    void Update()
+    {
+        int count = 0;
+        foreach(TutorialPlayer player in players)
+        {
+            count += player._numberOfHeldGhosts;
+        }
+        if(count == 6) 
+        {
+            TutorialManager.Instance.TriggerWaitForSplit();
+        }
+    }
     public void SetAllPlayerControls(bool state)
     {
-        foreach(Player player in players)
+        foreach(TutorialPlayer player in players)
         {
             player.enabled = state;
         }
@@ -67,9 +81,9 @@ public class PlayerManager : MonoBehaviour
 
     public bool CheckIfAllPlayersAreStunned()
     {
-        foreach(Player player in players)
+        foreach(TutorialPlayer player in players)
         {
-            if(player.GetPlayerState() != PLAYER_STATE.STUNNED || player == null)
+            if(player.GetPlayerState() != TUTORIAL_PLAYER_STATE.STUNNED || player == null)
             {
                 return false;
             }
@@ -81,14 +95,14 @@ public class PlayerManager : MonoBehaviour
     public void CalculateScore()
     {
         totalScore = 0;
-        foreach(Player player in players)
+        foreach(TutorialPlayer player in players)
         {
             totalScore += player.score;
         }
         scoreText.text = totalScore.ToString();
     }
 
-    public List<Player> GetPlayerArray()
+    public List<TutorialPlayer> GetPlayerArray()
     {
         return players;
     }
@@ -100,9 +114,9 @@ public class PlayerManager : MonoBehaviour
 
         if (players == null) return null;
 
-        foreach (Player player in players)
+        foreach (TutorialPlayer player in players)
         {
-            if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            if (player.GetPlayerState() != TUTORIAL_PLAYER_STATE.STUNNED)
             {
                 float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
                 if (currentCheckDistance < distanceToClosestPlayerTemp)

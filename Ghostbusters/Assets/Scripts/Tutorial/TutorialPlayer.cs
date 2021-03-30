@@ -7,13 +7,13 @@ using UnityEditor;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-public enum PLAYER_STATE
+public enum TUTORIAL_PLAYER_STATE
 {
     NORMAL,
     STUNNED,
 };
 
-public enum BUTTON_PRESS
+public enum TUTORIAL_BUTTON_PRESS
 {
     None,
     Up,
@@ -21,12 +21,12 @@ public enum BUTTON_PRESS
     Left,
     Right
 }
-public class Player : MonoBehaviour
+public class TutorialPlayer : MonoBehaviour
 {
     //references
     private Rigidbody rb;
     private Animator anim;
-    private PeekabooGhost peekaboo;
+    private TutorialPeekaboo peekaboo;
 
     //serializables
     [Header("Player Movement")]
@@ -49,11 +49,11 @@ public class Player : MonoBehaviour
     private float _storedLookValue;
     private bool icy = false;
 
-    private int _numberOfHeldGhosts;
+    public int _numberOfHeldGhosts;
     private bool canDive = true;
     private bool backwardsControls = false;
-    private PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
-    private BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
+    private TUTORIAL_PLAYER_STATE currentState = TUTORIAL_PLAYER_STATE.NORMAL;
+    private TUTORIAL_BUTTON_PRESS _buttonPressed = TUTORIAL_BUTTON_PRESS.None;
     private bool canMove = true;
     private String[] ahSounds = new String[] {"Ah1", "Ah2", "Ah3", "Ah4"};
     private String[] wahSounds = new String[] {"Wah1", "Wah2", "Wah3", "Wah4"};
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        peekaboo = FindObjectOfType<PeekabooGhost>();
+        peekaboo = TutorialPlayerManager.Instance.peekaboo;
     }
 
     private void FixedUpdate()
@@ -79,12 +79,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) //on a capture
     {
-        if(other.GetComponent<SmallGhost>())
+        if(other.GetComponent<TutorialSmallGhost>())
         {
-            GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
+            TutorialGhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
             _numberOfHeldGhosts++;
-            UIManager.Instance.UpdateHeldGhosts();
+            TutorialUIManager.Instance.UpdateHeldGhosts();
         }
     }
     public void SetMoveVector(Vector2 direction)
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
             score += _numberOfHeldGhosts;
             Van.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
-            UIManager.Instance.UpdateHeldGhosts();
+            TutorialUIManager.Instance.UpdateHeldGhosts();
         }        
     }
 
@@ -123,13 +123,13 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < _numberOfHeldGhosts; i++)
         {
-            var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
+            var newSmallGhost = Instantiate(TutorialGhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
             newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * 0.5f;
         }
 
-        GhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);
+        TutorialGhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);
         _numberOfHeldGhosts = 0;
-        UIManager.Instance.UpdateHeldGhosts();
+        TutorialUIManager.Instance.UpdateHeldGhosts();
     }
 
     public void Dive()
@@ -210,17 +210,17 @@ public class Player : MonoBehaviour
     }
 
     #region Getters & Setters
-    public PLAYER_STATE GetPlayerState()
+    public TUTORIAL_PLAYER_STATE GetPlayerState()
     {
         return currentState;
     }
 
-    public BUTTON_PRESS GetButtonPress()
+    public TUTORIAL_BUTTON_PRESS GetButtonPress()
     {
         return _buttonPressed;
     }
 
-    public void SetButtonPress(BUTTON_PRESS state)
+    public void SetButtonPress(TUTORIAL_BUTTON_PRESS state)
     {
         _buttonPressed = state;
     }
@@ -258,10 +258,10 @@ public class Player : MonoBehaviour
         DropGhosts();
         anim.SetTrigger("Stunned");
         TriggerDisableMovement(1.0f);
-        currentState = PLAYER_STATE.STUNNED;
+        currentState = TUTORIAL_PLAYER_STATE.STUNNED;
         yield return new WaitForSeconds(stunTime);
         _moveSpeed = 25;
-        currentState = PLAYER_STATE.NORMAL;
+        currentState = TUTORIAL_PLAYER_STATE.NORMAL;
     }
 
     public void InitiateDisableTrigger(float time)
@@ -275,25 +275,25 @@ public class Player : MonoBehaviour
         GetComponent<SphereCollider>().isTrigger = true;
     }
     void PlayRandomScare(String[] sounds) => AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
-    public void Scare(BUTTON_PRESS buttonDirection)
+    public void Scare(TUTORIAL_BUTTON_PRESS buttonDirection)
     {
-        if (currentState != PLAYER_STATE.NORMAL) return;
+        if (currentState != TUTORIAL_PLAYER_STATE.NORMAL) return;
 
         switch (buttonDirection)
         {
-            case BUTTON_PRESS.Up:
+            case TUTORIAL_BUTTON_PRESS.Up:
                 anim.SetBool("ScareUp", true);
                 PlayRandomScare(wahSounds);
                 break;
-            case BUTTON_PRESS.Down:
+            case TUTORIAL_BUTTON_PRESS.Down:
                 anim.SetBool("ScareDown", true);
                 PlayRandomScare(ahSounds);
                 break;
-            case BUTTON_PRESS.Left:
+            case TUTORIAL_BUTTON_PRESS.Left:
                 anim.SetBool("ScareLeft", true);
                 PlayRandomScare(booSounds);
                 break;
-            case BUTTON_PRESS.Right:
+            case TUTORIAL_BUTTON_PRESS.Right:
                 anim.SetBool("ScareRight", true);
                 PlayRandomScare(heySounds);
                 break;
@@ -309,33 +309,33 @@ public class Player : MonoBehaviour
 
         _buttonPressed = buttonDirection;
 
-        for (int i = 0; i < GhostManager.Instance.goldenGhostsInScene.Count; i++)
-        {
-            if (Vector3.Distance(GhostManager.Instance.goldenGhostsInScene[i].transform.position, transform.position) <= _scareRange)
-            {
-                Vector3 dirToGhost = (GhostManager.Instance.goldenGhostsInScene[i].transform.position - transform.position).normalized;
-                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+        // for (int i = 0; i < TutorialGhostManager.Instance.goldenGhostsInScene.Count; i++)
+        // {
+        //     if (Vector3.Distance(TutorialGhostManager.Instance.goldenGhostsInScene[i].transform.position, transform.position) <= _scareRange)
+        //     {
+        //         Vector3 dirToGhost = (TutorialGhostManager.Instance.goldenGhostsInScene[i].transform.position - transform.position).normalized;
+        //         float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
 
-                if (angleBetweenPlayerandGhost < _viewAngle / 2)
-                {
-                    GhostManager.Instance.goldenGhostsInScene[i].GetComponent<GoldenGhost>().AddPlayerScare(this);
-                }
-            }
-        }
+        //         if (angleBetweenPlayerandGhost < _viewAngle / 2)
+        //         {
+        //             TutorialGhostManager.Instance.goldenGhostsInScene[i].GetComponent<GoldenGhost>().AddPlayerScare(this);
+        //         }
+        //     }
+        // }
 
-        for (int i = 0; i < GhostManager.Instance.mediumGhostsInScene.Count; i++)
+        for (int i = 0; i < TutorialGhostManager.Instance.mediumGhostsInScene.Count; i++)
         {
-            if (Vector3.Distance(GhostManager.Instance.mediumGhostsInScene[i].transform.position, gameObject.transform.position) <= _scareRange)
+            if (Vector3.Distance(TutorialGhostManager.Instance.mediumGhostsInScene[i].transform.position, gameObject.transform.position) <= _scareRange)
             {
                 //print("Distance");
-                Vector3 dirToGhost = (GhostManager.Instance.mediumGhostsInScene[i].transform.position - transform.position).normalized;
+                Vector3 dirToGhost = (TutorialGhostManager.Instance.mediumGhostsInScene[i].transform.position - transform.position).normalized;
                 float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
                 //print(angleBetweenPlayerandGhost);
 
                 if (angleBetweenPlayerandGhost < _viewAngle / 2)
                 {
                     //print("Angle");
-                    GhostManager.Instance.mediumGhostsInScene[i].GetComponent<MediumGhost>().AddPlayerScare(this);
+                    TutorialGhostManager.Instance.mediumGhostsInScene[i].GetComponent<TutorialGhost>().AddPlayerScare(this);
                 }
             }
         }

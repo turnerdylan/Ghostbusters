@@ -1,0 +1,114 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class TutorialManager : MonoBehaviour
+{
+    #region Singleton Setup and Awake
+    public static TutorialManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
+    private static TutorialManager instance = null;
+
+    private void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    #endregion
+    public List<GameObject> stepText = new List<GameObject>();
+    public GameObject peekabooGhost;
+    public float stepOneTime = 15f;
+    public GameObject arrowSprite;
+    private float stepOneTimer;
+    private int stepNum = 0;
+    private bool stepTextInProgress;
+    bool stepOneInProgress, stepThree;
+    void Start()
+    {
+        stepOneTimer = stepOneTime;
+        StartNextStep(stepText[stepNum]);
+    }
+
+    void Update()
+    {
+        if(stepTextInProgress)
+        {
+            if(Gamepad.all[0].buttonSouth.isPressed)
+            {
+                EndStep(stepText[stepNum]);
+                stepNum++;
+            }
+        }
+        if(stepOneInProgress)
+        {
+            stepOneTimer -= Time.deltaTime;
+            if(stepOneTimer < 0)
+            {
+                stepOneInProgress = false;
+                peekabooGhost.SetActive(true);
+                StartCoroutine(WaitForLerp());
+            }
+        }
+    }
+
+    void PauseGame() => Time.timeScale = 0;
+    void UnPauseGame() => Time.timeScale = 1;
+    void StartNextStep(GameObject stepText)
+    {
+        stepTextInProgress = true;
+        PauseGame();
+        stepText.SetActive(true);
+    }
+
+    void EndStep(GameObject stepText)
+    {
+        if(stepNum == 0) stepOneInProgress = true;
+        if(stepNum == 1) arrowSprite.SetActive(false);
+
+        stepTextInProgress = false;
+        UnPauseGame();
+        stepText.SetActive(false);
+    }
+
+    public IEnumerator WaitForLerp()
+    {
+        yield return new WaitForSeconds(0.5f);
+        arrowSprite.SetActive(true);
+        StartNextStep(stepText[stepNum]);
+    }
+
+    public void TriggerWaitForSummon()
+    {
+        StartCoroutine(WaitForSummon());
+    }
+    public IEnumerator WaitForSummon()
+    {
+        peekabooGhost.SetActive(false);
+        yield return new WaitForSeconds(0.35f);
+        StartNextStep(stepText[stepNum]);
+    }
+
+    public void TriggerWaitForSplit()
+    {
+        StartCoroutine(WaitForSplit());
+    }
+
+    IEnumerator WaitForSplit()
+    {
+        yield return new WaitForSeconds(0.35f);
+        StartNextStep(stepText[stepNum]);
+    }
+
+}
