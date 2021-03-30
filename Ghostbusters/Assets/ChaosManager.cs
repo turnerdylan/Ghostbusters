@@ -25,7 +25,6 @@ public class ChaosManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 

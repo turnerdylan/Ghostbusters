@@ -28,7 +28,6 @@ public class GhostManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 

@@ -34,49 +34,48 @@ public class CameraManager : MonoBehaviour
     {
         cameraState = CAMERA_POSITION.NORMAL;
         fadeOutSprite = Camera.main.GetComponentInChildren<SpriteRenderer>();
-        StartCoroutine(ColorLerp(targetColor, timeToLerp));
+        //StartCoroutine(ColorLerp(targetColor, timeToLerp));
         textItems[0].color = selectedColor;
     }
 
     private void Update()
     {
-        if(cameraState == CAMERA_POSITION.NORMAL)
-        {
-            if (Gamepad.all[0].dpad.right.wasPressedThisFrame)
-            {
-                textItemIndex++;
-                if (textItemIndex == textItems.Count)
-                {
-                    textItemIndex = 0;
-                }
-                foreach (TextMeshPro text in textItems)
-                {
-                    text.color = Color.white;
-                }
-                AudioManager.Instance.Play("Click");
-                textItems[textItemIndex].color = selectedColor;
-            }
-            else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
-            {
-                textItemIndex--;
-                if (textItemIndex < 0)
-                {
-                    textItemIndex = textItems.Count - 1;
-                }
-                foreach (TextMeshPro text in textItems)
-                {
-                    text.color = Color.white;
-                }
-                AudioManager.Instance.Play("Click");
-                textItems[textItemIndex].color = selectedColor;
-            }
-        }
 
         switch (cameraState)
         {
             case CAMERA_POSITION.NORMAL:
+                if (Gamepad.all[0].dpad.right.wasPressedThisFrame)
+                {
+                    textItemIndex++;
+                    if (textItemIndex == textItems.Count)
+                    {
+                        textItemIndex = 0;
+                    }
+                    foreach (TextMeshPro text in textItems)
+                    {
+                        text.color = Color.white;
+                    }
+                    AudioManager.Instance.Play("Click");
+                    textItems[textItemIndex].color = selectedColor;
+                }
+                else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
+                {
+                    textItemIndex--;
+                    if (textItemIndex < 0)
+                    {
+                        textItemIndex = textItems.Count - 1;
+                    }
+                    foreach (TextMeshPro text in textItems)
+                    {
+                        text.color = Color.white;
+                    }
+                    AudioManager.Instance.Play("Click");
+                    textItems[textItemIndex].color = selectedColor;
+                }
+
                 if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
                 {
+                    
                     if (textItemIndex == 0)
                     {
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[0].position, CAMERA_POSITION.PLAYERS));
@@ -102,6 +101,7 @@ public class CameraManager : MonoBehaviour
                 if (Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
                     StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
+                    DataSelectManager.Instance.UpdatePlayerData();
                 }
                 break;
             case CAMERA_POSITION.SETTINGS:
@@ -118,7 +118,7 @@ public class CameraManager : MonoBehaviour
     }
 
 
-    IEnumerator ColorLerp(Color endValue, float duration)
+    /*IEnumerator ColorLerp(Color endValue, float duration)
     {
         float time = 0;
         Color startValue = startColor;
@@ -130,7 +130,7 @@ public class CameraManager : MonoBehaviour
             yield return null;
         }
         fadeOutSprite.color = endValue;
-    }
+    }*/
 
     IEnumerator LerpCameraPos(Vector3 startValue, Vector3 endValue, CAMERA_POSITION pos)
     {
