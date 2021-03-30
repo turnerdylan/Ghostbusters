@@ -146,8 +146,8 @@ MonoBehaviour:
   cantTeleportTimerMax: 1
   timeToLerp: 0.45
   distanceToMove: 2
-  changeLocationsTime: 1
-  chanceToSpawnGolden: 0
+  changeLocationsTime: 2
+  chanceToSpawnGolden: 25
   particles: {fileID: 8757567205982445208}
 --- !u!1 &4303629685472049452
 GameObject:
