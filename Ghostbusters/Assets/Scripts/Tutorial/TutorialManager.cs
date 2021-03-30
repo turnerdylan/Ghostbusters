@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -49,6 +50,11 @@ public class TutorialManager : MonoBehaviour
             {
                 EndStep(stepText[stepNum]);
                 stepNum++;
+                if(stepNum > 5 && stepNum < 9)
+                    TriggerWait(0.2f);
+                if(stepNum == 9)
+                    SceneManager.LoadScene(1);
+    
             }
         }
         if(stepOneInProgress)
@@ -65,21 +71,21 @@ public class TutorialManager : MonoBehaviour
 
     void PauseGame() => Time.timeScale = 0;
     void UnPauseGame() => Time.timeScale = 1;
-    void StartNextStep(GameObject stepText)
+    void StartNextStep(GameObject text)
     {
         stepTextInProgress = true;
         PauseGame();
-        stepText.SetActive(true);
+        text.SetActive(true);
     }
 
-    void EndStep(GameObject stepText)
+    void EndStep(GameObject text)
     {
         if(stepNum == 0) stepOneInProgress = true;
         if(stepNum == 1) arrowSprite.SetActive(false);
 
         stepTextInProgress = false;
         UnPauseGame();
-        stepText.SetActive(false);
+        text.SetActive(false);
     }
 
     public IEnumerator WaitForLerp()
@@ -100,14 +106,14 @@ public class TutorialManager : MonoBehaviour
         StartNextStep(stepText[stepNum]);
     }
 
-    public void TriggerWaitForSplit()
+    public void TriggerWait(float time)
     {
-        StartCoroutine(WaitForSplit());
+        StartCoroutine(Wait(time));
     }
 
-    IEnumerator WaitForSplit()
+    IEnumerator Wait(float time)
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(time);
         StartNextStep(stepText[stepNum]);
     }
 

@@ -182,3 +182,57 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Crafty Critters
+    clip: {fileID: 8300000, guid: e86531c33bc240249b7b0283e9a5eea2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Day to Day
+    clip: {fileID: 8300000, guid: 3a5a6f5fcf0746646b3de6264768ac10, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Fun Fair
+    clip: {fileID: 8300000, guid: 335dda74987cc8d41a8be68f6e5db012, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Mouse Trap
+    clip: {fileID: 8300000, guid: bf0ab9dcc50763346877a9ac5fe62516, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Mr Badger
+    clip: {fileID: 8300000, guid: 107dc650697f6a346aab999d7763b71a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: On The Prowl
+    clip: {fileID: 8300000, guid: 4f80c1e223e884946a0887ba24173e3a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Rabbit Run
+    clip: {fileID: 8300000, guid: 5815dca6bb457b54f99e733a9eb4b015, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Sneaky Steps
+    clip: {fileID: 8300000, guid: 2461fae301b6ac04ea962db2589a57cd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Wonky Donk
+    clip: {fileID: 8300000, guid: dcfe0f26709875d47b9d1f39f5d35822, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

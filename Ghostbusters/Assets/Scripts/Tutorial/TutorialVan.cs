@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Van : MonoBehaviour
+public class TutorialVan : MonoBehaviour
 {
     #region Singleton Setup and Awake
-    public static Van Instance
+    public static TutorialVan Instance
     {
         get
         {
@@ -14,7 +14,7 @@ public class Van : MonoBehaviour
         }
     }
 
-    private static Van instance = null;
+    private static TutorialVan instance = null;
 
     private void Awake()
     {
@@ -46,6 +46,6 @@ public class Van : MonoBehaviour
         AudioManager.Instance.Play("Ding");
         anim.SetTrigger("Deposit");
         numberOfStoredGhosts += storedGhosts;
-        PlayerManager.Instance.CalculateScore();
+        TutorialPlayerManager.Instance.CalculateScore();
     }
 }
