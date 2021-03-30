@@ -85,7 +85,6 @@ public class TutorialLevelManager : MonoBehaviour
 
     public void EndLevel()
     {
-        AudioManager.Instance.Stop(levelMusic);
         currentState = LEVEL_STATE.ENDED;
         //add a delay here
         Time.timeScale = 0;

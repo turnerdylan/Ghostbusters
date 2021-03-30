@@ -53,8 +53,11 @@ public class TutorialManager : MonoBehaviour
                 if(stepNum > 5 && stepNum < 9)
                     TriggerWait(0.2f);
                 if(stepNum == 9)
-                    SceneManager.LoadScene(1);
-    
+                {
+                    AudioManager.Instance.Stop(TutorialLevelManager.Instance.levelMusic);
+                    SceneManager.LoadScene(2);
+                    //Destroy(DataSelectManager.Instance.gameObject);
+                }   
             }
         }
         if(stepOneInProgress)

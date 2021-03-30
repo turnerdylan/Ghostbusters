@@ -54,7 +54,7 @@ public class DataSelectManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1) return;
+        if (SceneManager.GetActiveScene().buildIndex != 2) return;
 
         AudioManager.Instance.Play(levelMusic);
 
@@ -69,7 +69,7 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1) return;
+        if (SceneManager.GetActiveScene().buildIndex != 2) return;
 
         UpdatePlayerPictures();
 
@@ -141,6 +141,7 @@ public class DataSelectManager : MonoBehaviour
 
     public void UpdatePlayerPictures()
     {
+        Debug.Log(Gamepad.all.Count);
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             players[i].gameObject.SetActive(true);
