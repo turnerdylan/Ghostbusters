@@ -45,6 +45,7 @@ public class TutorialGhost : MonoBehaviour
 
     private void Start()
     {
+        if(TutorialPlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
         _timer = timer;
     }
 

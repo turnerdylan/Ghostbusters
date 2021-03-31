@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.SceneManagement;
 
 public class TutorialInputHandler : MonoBehaviour
 {
@@ -41,7 +42,49 @@ public class TutorialInputHandler : MonoBehaviour
             player.Dive();
         }
     }
+    public void OnPause(CallbackContext context)
+    {
+        if(context.performed && TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.STARTED)
+        {
+            TutorialLevelManager.Instance.Pause();
+        }
+    }
 
+    public void OnUpUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
+            {
+                TutorialLevelManager.Instance.ChangePauseUIIndex(-1);
+            }
+        }
+    }
+
+    public void OnDownUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
+            {
+                TutorialLevelManager.Instance.ChangePauseUIIndex(1);
+            }
+        }
+    }
+
+    public void SelectUI(CallbackContext context)
+    {
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
+            {
+                TutorialLevelManager.Instance.SelectPauseUI();
+            } else if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.ENDED)
+            {
+                TutorialLevelManager.Instance.SelectEndUI();
+            }
+        }
+    }
 
     public void UpScare(CallbackContext context)
     {

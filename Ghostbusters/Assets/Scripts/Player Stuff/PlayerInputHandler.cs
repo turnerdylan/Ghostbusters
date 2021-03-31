@@ -52,7 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnUpUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
         {
             if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
             {
@@ -67,7 +67,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDownUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
         {
             if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
             {
@@ -82,7 +82,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void SelectUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
         {
             if (LevelManager.Instance.GetLevelState() == LEVEL_STATE.PAUSED)
             {

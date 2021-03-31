@@ -45,6 +45,7 @@ public class MediumGhost : MonoBehaviour
 
     private void Start()
     {
+        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
         _timer = timer;
     }
 

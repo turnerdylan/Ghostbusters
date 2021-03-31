@@ -29,15 +29,11 @@ public class TutorialPlayerManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // if(testMode)
-        // {
-        //     Debug.LogWarning("TEST MODE IS ON");
-        //     for (int i = 0; i < Gamepad.all.Count; i++)
-        //     {
-        //         var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
-        //         players.Add(currentPlayer.GetComponent<TutorialPlayer>());
-        //     }
-        // }
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
+            players.Add(currentPlayer.GetComponent<TutorialPlayer>());
+        }
         // else
         // {
         //     for (int i = 0; i < Gamepad.all.Count; i++)

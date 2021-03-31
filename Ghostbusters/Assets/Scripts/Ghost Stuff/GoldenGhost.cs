@@ -43,6 +43,7 @@ public class GoldenGhost : MonoBehaviour
 
     void Start()
     {
+        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
         _timer = timer;
     }
 
