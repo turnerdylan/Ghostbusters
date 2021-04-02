@@ -18,7 +18,12 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ### Weekly Updates:
 
-C - 
+C - As we approached the 100% mark for our game we wanted to include a tutorial that teaches players how to play the game without having to explain it to them ourselves. For our tutorial we set up a scene using our ferry level and put together a step by step process that shows the player the basic controls and gameloop. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/tutorial.gif" width="75%">
+
+Additionally this week we finished the remaining ghost attacks to implement including the punch attack, ranged projectile attack, and the spray projectile attack.
+
 
 D - This week we did a lot of work finishing all the functional and aesthetic portions of our project. Zayna spent time updating all the lighting while I added a menu object to be able to navigate between screens and levels. After lots of bug fixing we were able to get everything working and we we're able to play our fully functional game!
 
