@@ -24,6 +24,8 @@ C - As we approached the 100% mark for our game we wanted to include a tutorial 
 
 Additionally this week we finished the remaining ghost attacks to implement including the punch attack, ranged projectile attack, and the spray projectile attack.
 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/punch-attack.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ranged-attack.gif" width="30%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/spray-attack.gif" width="30%">
+
 
 D - This week we did a lot of work finishing all the functional and aesthetic portions of our project. Zayna spent time updating all the lighting while I added a menu object to be able to navigate between screens and levels. After lots of bug fixing we were able to get everything working and we we're able to play our fully functional game!
 
