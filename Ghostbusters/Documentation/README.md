@@ -20,7 +20,10 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 C - 
 
-D - 
+D - This week we did a lot of work finishing all the functional and aesthetic portions of our project. Zayna spent time updating all the lighting while I added a menu object to be able to navigate between screens and levels. After lots of bug fixing we were able to get everything working and we we're able to play our fully functional game!
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Pause%20Level.png" width="33%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/End%20Level.png">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/MenuFinished.png" width="33%">
 
 Z - This week turned into a huge work week for the development of both the ghost mechanics and the visual presentation of the game. We will probably end up with ~7-8 levels over all and each of those have been filled out with custom assets, nighttime lighting and some basic post-processing effects. Below are some images of the levels as they currently look. These levels may be adjusted slightly over the coming weeks to fix any bugs and allow the players to traverse the area without getting caught on things. 
 
