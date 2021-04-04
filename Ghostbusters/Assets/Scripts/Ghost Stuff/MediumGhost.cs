@@ -19,13 +19,13 @@ public class MediumGhost : MonoBehaviour
     private bool sequenceGenerated = false;
     private bool inRange;
     private float _timer; //scare timer
-    public bool debugging;
+    [SerializeField] private bool debugging;
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;  
 
     [Header("Scaring")]
-    public int scaresNeeded;
+    [SerializeField] private int scaresNeeded;
     public float timer = 10f; //scare timer
     public List<Player> players = new List<Player>();
     [SerializeField] private int[] btnCount = new int[4];   
@@ -45,7 +45,25 @@ public class MediumGhost : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
+        switch(PlayerManager.Instance.GetPlayerArray().Count)
+        {
+            case 1:
+                scaresNeeded = 1;
+                break;
+            case 2:
+                scaresNeeded = 1;
+                break;
+            case 3:
+                scaresNeeded = 2;
+                break;
+            case 4:
+                scaresNeeded = 2;
+                break;
+            default:
+                Debug.Log("Invalid player array size");
+                break;
+        }
+        GenerateSequence();
         _timer = timer;
     }
 

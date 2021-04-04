@@ -23,7 +23,7 @@ public class GoldenGhost : MonoBehaviour
     private int[] btnCount = new int[4];   
     private int[] targetBtnCount = new int[4];
     List<Player> players = new List<Player>();
-    public bool debugging;
+    private bool debugging;
 
     [Header("Chaos event: 0=speed, 1=controls, 2=lights, 3=ice, 4=smoke,")]
     [Range(0, 4)]
@@ -43,7 +43,26 @@ public class GoldenGhost : MonoBehaviour
 
     void Start()
     {
-        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
+        switch(PlayerManager.Instance.GetPlayerArray().Count)
+        {
+            case 1:
+                scaresNeeded = 2;
+                debugging = true;
+                break;
+            case 2:
+                scaresNeeded = 2;
+                break;
+            case 3:
+                scaresNeeded = 3;
+                break;
+            case 4:
+                scaresNeeded = 4;
+                break;
+            default:
+                Debug.Log("Invalid player array size");
+                break;
+        }
+        GenerateSequence();
         _timer = timer;
     }
 

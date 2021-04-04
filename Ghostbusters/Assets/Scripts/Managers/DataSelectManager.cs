@@ -141,7 +141,6 @@ public class DataSelectManager : MonoBehaviour
 
     public void UpdatePlayerPictures()
     {
-        Debug.Log(Gamepad.all.Count);
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             players[i].gameObject.SetActive(true);

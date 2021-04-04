@@ -30,7 +30,6 @@ public class InputChecker : MonoBehaviour
         }
         if (Vector3.Distance(Camera.main.transform.position, cameraEnd.position) < .5)
         {
-            print("1");
             SceneManager.LoadScene(1);
         }
     }

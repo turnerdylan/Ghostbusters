@@ -11811,7 +11811,7 @@ GameObject:
   - component: {fileID: 4334100709931587305}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11980,13 +11980,28 @@ GameObject:
   - component: {fileID: 8560426425098943395}
   - component: {fileID: 8644316292135148662}
   - component: {fileID: 7734682849008589060}
+  - component: {fileID: 8322531919358133441}
   m_Layer: 0
   m_Name: Border
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!64 &8322531919358133441
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322531919358133440}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8565546730901328957, guid: 3fdc0d70b42fb344cb2a046100a3d36d, type: 3}
 --- !u!1 &8548923000060007794
 GameObject:
   m_ObjectHideFlags: 0
@@ -11998,13 +12013,28 @@ GameObject:
   - component: {fileID: 4156878813053549952}
   - component: {fileID: 4882086716899506179}
   - component: {fileID: 5447331666949098138}
+  - component: {fileID: 8548923000060007795}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8548923000060007795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548923000060007794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1453043773871479701, guid: 9258e717238d3be4aa8ca43f59dd53da, type: 3}
 --- !u!4 &8560426425098943395
 Transform:
   m_ObjectHideFlags: 0

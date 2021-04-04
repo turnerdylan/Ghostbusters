@@ -523,10 +523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81b9aff97c9436408f7f949dfe96075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7592638429352371569, guid: 671200c3072de9e4298a175003ad4f07,
-    type: 3}
+  projectile: {fileID: 1884747205189362, guid: 832c5acb0d751a64db2c2fba43d6b0ea, type: 3}
   attackTimer: 5
-  force: 1000
+  force: 1400
 --- !u!114 &6481475434821060172
 MonoBehaviour:
   m_ObjectHideFlags: 0

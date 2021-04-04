@@ -6474,7 +6474,7 @@ GameObject:
   - component: {fileID: 1305037034665228704}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6551,13 +6551,28 @@ GameObject:
   - component: {fileID: 8560426426026932564}
   - component: {fileID: 8644316291181993601}
   - component: {fileID: 7734682848340646899}
+  - component: {fileID: 8322531919503885880}
   m_Layer: 0
   m_Name: Border
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!64 &8322531919503885880
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322531919503885879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8565546730901328957, guid: 17a2d9725dc3d0746a8467dc9b7353d9, type: 3}
 --- !u!4 &8560426426026932564
 Transform:
   m_ObjectHideFlags: 0

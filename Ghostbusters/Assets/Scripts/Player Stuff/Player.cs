@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
     {
         if(other.GetComponent<SmallGhost>())
         {
+            AudioManager.Instance.Play("Small Pop");
             GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
             _numberOfHeldGhosts++;

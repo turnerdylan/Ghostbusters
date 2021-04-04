@@ -15,7 +15,6 @@ public class Explosive : MonoBehaviour
 
     void Explode()
     {
-        Debug.Log("boom");
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius, layer);
         foreach (Collider hit in colliders)

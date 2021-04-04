@@ -28,7 +28,7 @@ public class TutorialGhostManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     #endregion
 

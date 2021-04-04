@@ -5743,13 +5743,27 @@ GameObject:
   - component: {fileID: 4156878814544537695}
   - component: {fileID: 4882086718088670684}
   - component: {fileID: 5447331667903356741}
+  - component: {fileID: 8548923001551126702}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8548923001551126702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548923001551126701}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 199.99998, y: 0, z: 199.99998}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8560426426556411516
 Transform:
   m_ObjectHideFlags: 0

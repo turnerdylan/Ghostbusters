@@ -25,7 +25,7 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     #endregion
     public List<GameObject> stepText = new List<GameObject>();

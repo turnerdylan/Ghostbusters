@@ -12980,10 +12980,24 @@ GameObject:
   - component: {fileID: 3605872238744495853}
   - component: {fileID: 5222551534563959662}
   - component: {fileID: 4621359220335661559}
+  - component: {fileID: 9014362432387665440}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &9014362432387665440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014362432387665439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7208049, y: 0.060228173, z: 1.7208049}
+  m_Center: {x: -0.043020133, y: -0.038718108, z: 0.068832226}

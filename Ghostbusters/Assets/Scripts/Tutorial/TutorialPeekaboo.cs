@@ -153,7 +153,6 @@ public class TutorialPeekaboo : MonoBehaviour
 
                 GameObject newGhost = Instantiate(TutorialGhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
                 TutorialGhostManager.Instance.mediumGhostsInScene.Add(newGhost);
-                newGhost.GetComponent<TutorialGhost>().GenerateSequence();
             }
             else
             {
