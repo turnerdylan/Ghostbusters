@@ -3,7 +3,7 @@
 </p>
 
 
-Spooked! is a multiplayer couch co-op game focused on teamwork and emergent player experiences where you and your team of amateur ghost hunters have to figure out how to scare some pesky ghosts off a haunted island. 
+Spooked! is a multiplayer couch co-op game focused on teamwork and emergent player experiences where you and your team of amateur ghost hunters travel to a haunted island to catch some pesky ghosts.
 
 
 Our process documentation for this project can be found [here](https://github.com/turnerdylan/Ghostbusters/tree/master/Ghostbusters/Documentation)
