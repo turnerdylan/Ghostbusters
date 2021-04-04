@@ -45,6 +45,8 @@ public class TutorialGhost : MonoBehaviour
 
     private void Start()
     {
+        debugging = true;
+        GenerateSequence();
         switch(PlayerManager.Instance.GetPlayerArray().Count)
         {
             case 1:
@@ -63,7 +65,6 @@ public class TutorialGhost : MonoBehaviour
                 Debug.Log("Invalid player array size");
                 break;
         }
-        GenerateSequence();
         _timer = timer;
     }
 
