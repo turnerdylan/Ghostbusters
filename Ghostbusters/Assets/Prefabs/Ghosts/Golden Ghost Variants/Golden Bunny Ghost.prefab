@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4622747362123915084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EarEnd.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +30,80 @@ Transform:
   m_Father: {fileID: 9105066051214870804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &484352316745655248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647369376184522754}
+  - component: {fileID: 8156955564142637963}
+  - component: {fileID: 3673964750753419500}
+  m_Layer: 10
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1647369376184522754
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484352316745655248}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2856854, y: 1.2856854, z: 1.2856854}
+  m_Children: []
+  m_Father: {fileID: 9046912963792790190}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 161.30002}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8156955564142637963
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484352316745655248}
+  m_CullTransparentMesh: 0
+--- !u!114 &3673964750753419500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484352316745655248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &774407942002554717
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1211403075090753076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117905448957191734}
   - component: {fileID: 6071128468991591324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BunnyGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6206343313094367788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ear.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2602061244119504533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ear.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5441106510700907087}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7647847682078458051}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6755100165957313827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EarEnd.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9046912963792790190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +413,7 @@ Transform:
   - {fileID: 1382241028141630087}
   - {fileID: 3576032349185244503}
   - {fileID: 7454043835259381561}
-  - {fileID: 7321975262088384693}
+  - {fileID: 1647369376184522754}
   m_Father: {fileID: 1464727941267153493}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108513690355752868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EarEnd.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +459,7 @@ GameObject:
   - component: {fileID: 5962625350974546753}
   - component: {fileID: 8934864323307378195}
   - component: {fileID: 8474775629942579153}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2473038887769926776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BunGhostFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +566,7 @@ GameObject:
   - component: {fileID: 3576032349185244503}
   - component: {fileID: 6658726286553576797}
   - component: {fileID: 284560895581627596}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1871431266068533771}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Butt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2344354910531322539}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +702,7 @@ GameObject:
   - component: {fileID: 1382241028141630087}
   - component: {fileID: 555001155557855829}
   - component: {fileID: 2313170136292538117}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8819036640442315237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +808,7 @@ GameObject:
   - component: {fileID: 7315724756970252234}
   - component: {fileID: 9184478576700478699}
   - component: {fileID: 8312437603125120035}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6852861967345630686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tail_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +936,7 @@ GameObject:
   - component: {fileID: 7454043835259381561}
   - component: {fileID: 7665312014233540041}
   - component: {fileID: 7188768541159389960}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,80 +999,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &7747377539315049655
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7321975262088384693}
-  - component: {fileID: 6665694788248717868}
-  - component: {fileID: 8083693630793651791}
-  m_Layer: 0
-  m_Name: Timer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &7321975262088384693
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747377539315049655}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.164641}
-  m_LocalScale: {x: -0.17364001, y: 0.17364, z: 0.17364001}
-  m_Children: []
-  m_Father: {fileID: 9046912963792790190}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 79}
-  m_SizeDelta: {x: 905.13715, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6665694788248717868
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747377539315049655}
-  m_CullTransparentMesh: 0
---- !u!114 &8083693630793651791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747377539315049655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &9021696445700972934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 2742514773708765551}
   - component: {fileID: 5931667757710786156}
   - component: {fileID: -6373623198362236571}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Golden Bunny Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,19 +1126,16 @@ MonoBehaviour:
   _ghostSpawnOffset: 0.5
   scaresNeeded: 4
   timer: 3
-  debugging: 0
   chaosEventIndex: 1
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
   playerSprite: {fileID: 21300000, guid: 5f6e614f6d085ce41b63035be122e196, type: 3}
-  timerBar: {fileID: 8083693630793651791}
+  timerBar: {fileID: 3673964750753419500}
   buttonSequenceSprite: {fileID: 2805638390531749114}
   images:
   - {fileID: 8474775629942579153}
   - {fileID: 2313170136292538117}
   - {fileID: 284560895581627596}
   - {fileID: 7188768541159389960}
-  explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
-    type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
@@ -1194,7 +1191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9105066051214870804}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EarEnd.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

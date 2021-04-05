@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9089649889096777294}
   - component: {fileID: 680461169090237258}
   - component: {fileID: 2453608570117363647}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4541588561903192815}
   - component: {fileID: -2463623773617413357}
   - component: {fileID: -1692392783886122630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Golden Bedsheet Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,19 +202,16 @@ MonoBehaviour:
   _ghostSpawnOffset: 0.5
   scaresNeeded: 4
   timer: 3
-  debugging: 0
   chaosEventIndex: 2
   emptySprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
   playerSprite: {fileID: 21300000, guid: 5f6e614f6d085ce41b63035be122e196, type: 3}
-  timerBar: {fileID: 1434325347822834840}
+  timerBar: {fileID: 4701724046697986982}
   buttonSequenceSprite: {fileID: 3150125356120477054}
   images:
   - {fileID: 7400886545098761127}
   - {fileID: 7175625319782587900}
   - {fileID: 3130967117949424491}
   - {fileID: 2453608570117363647}
-  explosivePrefab: {fileID: 4837366424781135286, guid: 4e14fa6ba79013c4da476994a6946a77,
-    type: 3}
   explosionEffect: {fileID: 198694502634222740, guid: b3d8264aa7d2d824a8a503e45291ddf4,
     type: 3}
   puffPrefab: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb, type: 3}
@@ -270,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7685113690303900492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2507447924106034667}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +329,7 @@ GameObject:
   - component: {fileID: 9008321152464621949}
   - component: {fileID: 2719694462685059711}
   - component: {fileID: 3130967117949424491}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2269958571427597671}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pelvis_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +433,7 @@ GameObject:
   - component: {fileID: 3769609134048019468}
   - component: {fileID: 672874207430824578}
   - component: {fileID: 7400886545098761127}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,80 +496,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2674662613287014611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 831826679540932052}
-  - component: {fileID: 7172045891603351063}
-  - component: {fileID: 1434325347822834840}
-  m_Layer: 0
-  m_Name: Timer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &831826679540932052
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2674662613287014611}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.164641}
-  m_LocalScale: {x: -0.17364001, y: 0.17364, z: 0.17364001}
-  m_Children: []
-  m_Father: {fileID: 3904373202056435887}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 79}
-  m_SizeDelta: {x: 905.13715, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7172045891603351063
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2674662613287014611}
-  m_CullTransparentMesh: 0
---- !u!114 &1434325347822834840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2674662613287014611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0626b924325d1c34cafa6b22297f4e4f, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3039337028112645290
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2621879346490709527}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BedSheetGhostFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3904373202056435887}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +562,7 @@ Transform:
   - {fileID: 4266052360687179166}
   - {fileID: 9008321152464621949}
   - {fileID: 9089649889096777294}
-  - {fileID: 831826679540932052}
+  - {fileID: 3428174554978875194}
   m_Father: {fileID: 5517385815119468792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -652,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5920275128921988815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7353055977453982146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791149641562378990}
   - component: {fileID: 8488798840133488834}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BedSheetGhosty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7149743067001075627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +755,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973379944960143840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +789,7 @@ GameObject:
   - component: {fileID: 8678240595802337202}
   - component: {fileID: 8499912060960352482}
   - component: {fileID: 2673546306753831581}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +887,7 @@ GameObject:
   - component: {fileID: 4266052360687179166}
   - component: {fileID: 4102243282845395462}
   - component: {fileID: 7175625319782587900}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6869255852241672729}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5046983004180025934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1367205523255881385}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tail_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4185745975826975227}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,3 +1073,77 @@ Transform:
   m_Father: {fileID: 2621879346490709527}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.7188293, y: 23.120436, z: -86.6399}
+--- !u!1 &8012311855355277023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3428174554978875194}
+  - component: {fileID: 6179178547442973335}
+  - component: {fileID: 4701724046697986982}
+  m_Layer: 10
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3428174554978875194
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012311855355277023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.28776, y: 1.28776, z: 1.28776}
+  m_Children: []
+  m_Father: {fileID: 3904373202056435887}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000061035156, y: 161.3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6179178547442973335
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012311855355277023}
+  m_CullTransparentMesh: 0
+--- !u!114 &4701724046697986982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012311855355277023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f5dbd0458b6799547936c9994b1241bc, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

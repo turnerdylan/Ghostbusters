@@ -2113,7 +2113,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266251801}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -2507,7 +2507,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287939455}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -4137,6 +4137,7 @@ GameObject:
   - component: {fileID: 541698128}
   - component: {fileID: 541698130}
   - component: {fileID: 541698129}
+  - component: {fileID: 541698131}
   m_Layer: 0
   m_Name: Lamp String Lights-Lights
   m_TagString: Untagged
@@ -4205,6 +4206,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541698127}
   m_Mesh: {fileID: -6492391401449564222, guid: 914cbc75473f9b641b9d27b9b8518d9d, type: 3}
+--- !u!65 &541698131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541698127}
+  m_Material: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3307486, y: 1.9403086, z: 13.822414}
+  m_Center: {x: -0.0000038146973, y: 6.1141157, z: -7.494905}
 --- !u!1001 &552626186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4723,7 +4737,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599288556}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -6832,6 +6846,7 @@ GameObject:
   - component: {fileID: 944620508}
   - component: {fileID: 944620510}
   - component: {fileID: 944620509}
+  - component: {fileID: 944620511}
   m_Layer: 0
   m_Name: Lamp String Lights-Lights
   m_TagString: Untagged
@@ -6900,6 +6915,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944620507}
   m_Mesh: {fileID: -6492391401449564222, guid: 914cbc75473f9b641b9d27b9b8518d9d, type: 3}
+--- !u!65 &944620511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944620507}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3307486, y: 1.9403086, z: 13.822414}
+  m_Center: {x: 0, y: 6.1141157, z: -7.494909}
 --- !u!1 &973472776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6911,6 +6939,7 @@ GameObject:
   - component: {fileID: 973472777}
   - component: {fileID: 973472779}
   - component: {fileID: 973472778}
+  - component: {fileID: 973472780}
   m_Layer: 0
   m_Name: Lamp String Lights-Lights
   m_TagString: Untagged
@@ -6979,6 +7008,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973472776}
   m_Mesh: {fileID: -6492391401449564222, guid: 914cbc75473f9b641b9d27b9b8518d9d, type: 3}
+--- !u!65 &973472780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973472776}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3307486, y: 1.9403086, z: 13.822414}
+  m_Center: {x: -0.0000038146973, y: 6.1141157, z: -7.494905}
 --- !u!1 &988915297
 GameObject:
   m_ObjectHideFlags: 0
@@ -8889,11 +8931,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 342341413562397399, guid: 598be686bad32bb42a2943db0f91f142,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
     - target: {fileID: 342341413562397402, guid: 598be686bad32bb42a2943db0f91f142,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -99.4
       objectReference: {fileID: 0}
+    - target: {fileID: 342341413723186459, guid: 598be686bad32bb42a2943db0f91f142,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
+    - target: {fileID: 342341413816108911, guid: 598be686bad32bb42a2943db0f91f142,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
+    - target: {fileID: 342341414736881223, guid: 598be686bad32bb42a2943db0f91f142,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
     - target: {fileID: 342341414736881226, guid: 598be686bad32bb42a2943db0f91f142,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -10724,7 +10790,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631182279}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -11530,6 +11596,7 @@ GameObject:
   - component: {fileID: 1679410299}
   - component: {fileID: 1679410301}
   - component: {fileID: 1679410300}
+  - component: {fileID: 1679410302}
   m_Layer: 0
   m_Name: Lamp String Lights-Lights
   m_TagString: Untagged
@@ -11598,6 +11665,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679410298}
   m_Mesh: {fileID: -6492391401449564222, guid: 914cbc75473f9b641b9d27b9b8518d9d, type: 3}
+--- !u!65 &1679410302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679410298}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3307486, y: 1.9403086, z: 13.822414}
+  m_Center: {x: 0, y: 6.1141157, z: -7.494909}
 --- !u!1 &1718017070
 GameObject:
   m_ObjectHideFlags: 0
@@ -14139,7 +14219,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132941942}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -14296,7 +14376,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62533353698195252}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -14453,7 +14533,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800442303542676485}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -15079,7 +15159,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3738091302036539841}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -15319,7 +15399,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4757313233708010100}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -15451,6 +15531,7 @@ GameObject:
   - component: {fileID: 4634177072622769843}
   - component: {fileID: 7067130717869523871}
   - component: {fileID: 2033173147596886489}
+  - component: {fileID: 5545571057668552491}
   m_Layer: 0
   m_Name: Lamp String Lights-Lights
   m_TagString: Untagged
@@ -15458,6 +15539,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &5545571057668552491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545571057668552490}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3307486, y: 1.9403086, z: 13.822414}
+  m_Center: {x: 0, y: 6.1141157, z: -7.494909}
 --- !u!4 &5579758452618841833
 Transform:
   m_ObjectHideFlags: 0
@@ -15583,7 +15677,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5883830484602669642}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -15891,7 +15985,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419130916171495046}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -15990,7 +16084,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8847929815978065552}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

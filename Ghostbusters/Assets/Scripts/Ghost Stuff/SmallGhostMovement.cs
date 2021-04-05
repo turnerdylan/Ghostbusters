@@ -24,6 +24,8 @@ public class SmallGhostMovement : MonoBehaviour
     public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
     private float timer;
     public bool golden;
+    private float startSpeed;
+    private bool boost;
 
     //public variables
 
@@ -35,6 +37,11 @@ public class SmallGhostMovement : MonoBehaviour
     void OnEnable()
     {
         StartCoroutine(State_Flee());
+        if(!golden)
+        {
+            startSpeed = agent.speed;
+            StartCoroutine(SpeedBoost());
+        }
     }
 
     public IEnumerator State_Wander()
@@ -68,7 +75,7 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Flee()
     {
         currentState = SMALL_GHOST_STATE.FLEE;
-        agent.acceleration = 200;
+        agent.acceleration = 2000;
         if(golden)
             agent.speed = 10;
         
@@ -110,5 +117,12 @@ public class SmallGhostMovement : MonoBehaviour
         //Debug.DrawRay(navHit.position, Vector3.up, Color.green, 5, true);
  
         return navHit.position;
+    }
+
+    IEnumerator SpeedBoost()
+    {
+        agent.speed = 30;
+        yield return new WaitForSeconds(1.0f);
+        agent.speed = startSpeed;
     }
 }

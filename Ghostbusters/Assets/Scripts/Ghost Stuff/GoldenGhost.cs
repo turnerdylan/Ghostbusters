@@ -38,7 +38,7 @@ public class GoldenGhost : MonoBehaviour
     public Image[] images = new Image[4];
 
     [Header("Effects")]
-    public GameObject explosivePrefab;
+    private float explosionForce = 7500;
     public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
@@ -146,7 +146,7 @@ public class GoldenGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Blowback();
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
@@ -259,6 +259,19 @@ public class GoldenGhost : MonoBehaviour
             {
                 images[i].sprite = emptySprite;
             }
+        }
+    }
+    void Blowback()
+    {
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) <= player.GetScareRange())
+            {
+                Vector3 direction = new Vector3(player.transform.position.x - transform.position.x, 0, player.transform.position.z - transform.position.z).normalized;
+                player.TriggerDisableMovement(0.35f);
+                player.GetComponent<Rigidbody>().AddForce(direction*explosionForce);
+            }
+
         }
     }
 }

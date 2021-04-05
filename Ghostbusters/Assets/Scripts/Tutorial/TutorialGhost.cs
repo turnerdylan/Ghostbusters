@@ -39,7 +39,7 @@ public class TutorialGhost : MonoBehaviour
     public Image timerBar;
 
     [Header("Effects")]
-    public GameObject explosivePrefab;
+    private float explosionForce = 7500;
     public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
@@ -95,7 +95,7 @@ public class TutorialGhost : MonoBehaviour
         if(scareInitiated)
         {
             _timer -= Time.deltaTime;
-            //timerBar.fillAmount = _timer/timer;
+            timerBar.fillAmount = _timer/timer;
             if(_timer > 0)
             {
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
@@ -210,7 +210,7 @@ public class TutorialGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Blowback();
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
@@ -260,6 +260,19 @@ public class TutorialGhost : MonoBehaviour
             {
                 images[i].sprite = emptySprite;
             }
+        }
+    }
+    void Blowback()
+    {
+        foreach(TutorialPlayer player in TutorialPlayerManager.Instance.GetPlayerArray())
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) <= player.GetScareRange())
+            {
+                Vector3 direction = new Vector3(player.transform.position.x - transform.position.x, 0, player.transform.position.z - transform.position.z).normalized;
+                player.TriggerDisableMovement(0.35f);
+                player.GetComponent<Rigidbody>().AddForce(direction*explosionForce);
+            }
+
         }
     }
 }

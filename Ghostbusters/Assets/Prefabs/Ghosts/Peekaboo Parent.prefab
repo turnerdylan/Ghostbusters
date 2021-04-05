@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518579433589188232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1185231940053128559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1750877922681543581}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4103748472012194261}
   - component: {fileID: 7783116298669152916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Peekaboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2425552412006574294}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7623975703870707726}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214624731030645}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Location (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214624754975973}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Transforms Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214624848806480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Location (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214624979618780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Peekaboo Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214625010182045}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214625235411057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Location (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604214625421882229}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Location (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200243496218072614}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6348424983505243393}
   - component: {fileID: 5294746897096915218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: General Ghosty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3662136409944105664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GeneralGhost-Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6848944451804982627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visuals and Bones parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6180279507310201293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 222246083639055171}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5385218917884066538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2232253762622313214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6607646431535332082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2729167297768785809}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 1671709401335994, guid: 56fa4afa74303b247b222f8fc249a634, type: 3}
       propertyPath: m_Name
       value: PeekabooTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671709401335994, guid: 56fa4afa74303b247b222f8fc249a634, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4377849573615722, guid: 56fa4afa74303b247b222f8fc249a634, type: 3}
       propertyPath: m_LocalPosition.x
