@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
         return players;
     }
     
-    public Transform GetClosestPlayer()
+    public Transform GetClosestPlayer(Transform ghost)
     {
         Transform closestPlayerTransform = null;
         float distanceToClosestPlayerTemp = Mathf.Infinity;
@@ -104,7 +104,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
             {
-                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
+                float currentCheckDistance = Vector3.Distance(player.transform.position, ghost.position);
                 if (currentCheckDistance < distanceToClosestPlayerTemp)
                 {
                     closestPlayerTransform = player.transform;
@@ -113,5 +113,27 @@ public class PlayerManager : MonoBehaviour
             }
         }
         return closestPlayerTransform;
+    }
+
+    public Transform GetFurthestPlayer(Transform ghost)
+    {
+        Transform furthestPlayerTransform = null;
+        float distanceToFurthestPlayerTemp = 0;
+
+        if (players == null) return null;
+
+        foreach (Player player in players)
+        {
+            if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            {
+                float currentCheckDistance = Vector3.Distance(player.transform.position, ghost.position);
+                if (currentCheckDistance > distanceToFurthestPlayerTemp)
+                {
+                    furthestPlayerTransform = player.transform;
+                    distanceToFurthestPlayerTemp = currentCheckDistance;
+                }
+            }
+        }
+        return furthestPlayerTransform;
     }
 }

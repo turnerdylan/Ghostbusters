@@ -5,11 +5,9 @@ using UnityEngine.AI;
 
 public class FollowAI : MonoBehaviour
 {
+    public bool furthest;
     //references
     private NavMeshAgent agent;
-
-    //private serializables
-    [SerializeField] private float _speed = 10f;
 
     void Start()
     {
@@ -19,7 +17,9 @@ public class FollowAI : MonoBehaviour
 
     void Update()
     {
-        if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
-            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer().position);
+        if (PlayerManager.Instance.GetPlayerArray().Count > 0 && agent && furthest)
+            agent.SetDestination(PlayerManager.Instance.GetFurthestPlayer(transform).position);
+        else if(PlayerManager.Instance.GetPlayerArray().Count > 0 && agent)
+            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer(transform).position);
     }
 }

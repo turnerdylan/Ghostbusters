@@ -16,7 +16,7 @@ public class SplashAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < _attackRange && canAttack)
+        if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < _attackRange && canAttack)
         {
             anim.SetTrigger("Attack");
             canAttack = false;

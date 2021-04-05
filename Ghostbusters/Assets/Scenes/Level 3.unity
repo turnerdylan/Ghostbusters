@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 2
+    minRegionArea: 0
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.5
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -9832,10 +9832,20 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -5476443299669383664, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -5235157169452362596, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -5235157169452362596, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5151734134616558402, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
@@ -9846,6 +9856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -4589963570131676440, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4574587914334898569, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
@@ -9887,25 +9902,50 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5944865820370720806, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6203394772577868414, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203394772577868414, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6920325839064634913, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6920325839064634913, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6966767099347884612, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966767099347884612, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076929107260417492, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8076929107260417492, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8414933829461047386, guid: 493fb38bfbfef614fa77b6aa5050b4b8,
         type: 3}
@@ -11411,6 +11451,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1590035487}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1590035489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7967406107226375713, guid: 0e5e560c29888d34e82847538973f066,
+    type: 3}
+  m_PrefabInstance: {fileID: 1590035487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1590035490
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590035489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.240847
+  m_Center: {x: 0.012014391, y: 1.9502586, z: 0.053158466}
 --- !u!1001 &1591272781
 PrefabInstance:
   m_ObjectHideFlags: 0

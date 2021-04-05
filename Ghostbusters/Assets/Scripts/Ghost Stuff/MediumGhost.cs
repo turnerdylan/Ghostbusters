@@ -23,6 +23,7 @@ public class MediumGhost : MonoBehaviour
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;  
+    private float ghostSpawnRadius = 3.0f;
 
     [Header("Scaring")]
     [SerializeField] private int scaresNeeded;
@@ -123,13 +124,22 @@ public class MediumGhost : MonoBehaviour
         Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach(Player player in players)
         {
-            player.InitiateDisableTrigger(0.75f);
+            player.InitiateDisableTrigger(1.5f);
         }
         //set 2 medium ghosts active and set their positions to this position + offset
+        // for (int i = 0; i < _ghostsToSpawn; i++)
+        // {
+        //     var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
+        //     newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+        // }
         for (int i = 0; i < _ghostsToSpawn; i++)
         {
             var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
-            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+            float theta = i * 2 * Mathf.PI / _ghostsToSpawn;
+            float x = Mathf.Sin(theta)*ghostSpawnRadius;
+            float z = Mathf.Cos(theta)*ghostSpawnRadius;
+        
+            newSmallGhost.transform.position = transform.position + new Vector3(x, 0, z); 
         }
 
         GhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);

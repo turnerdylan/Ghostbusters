@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a8366e4bcd8ec40b59e4fab1bbcb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  furthest: 1
 --- !u!114 &2854444557629553575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1884747205189362, guid: 832c5acb0d751a64db2c2fba43d6b0ea, type: 3}
   attackTimer: 5
-  force: 1400
+  force: 2300
 --- !u!114 &6481475434821060172
 MonoBehaviour:
   m_ObjectHideFlags: 0

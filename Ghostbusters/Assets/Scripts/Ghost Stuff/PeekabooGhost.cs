@@ -45,7 +45,7 @@ public class PeekabooGhost : MonoBehaviour
 
     void FixedUpdate()
     {
-        var target = PlayerManager.Instance.GetClosestPlayer();
+        var target = PlayerManager.Instance.GetClosestPlayer(transform);
         if(target)
         {
             Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);

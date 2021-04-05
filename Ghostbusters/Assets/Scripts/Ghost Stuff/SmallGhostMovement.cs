@@ -56,7 +56,7 @@ public class SmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -74,9 +74,9 @@ public class SmallGhostMovement : MonoBehaviour
         
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer().position;
+            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer(transform).position;
             Vector3 newPos = transform.position + dirToPlayer;
-            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 agent.SetDestination(newPos);
             }
@@ -90,15 +90,6 @@ public class SmallGhostMovement : MonoBehaviour
                     yield break;
                 }
             }
-            yield return null;
-        }
-    }
-    public IEnumerator State_Frozen()
-    {
-        currentState = SMALL_GHOST_STATE.FROZEN;
-        while(currentState == SMALL_GHOST_STATE.FROZEN)
-        {
-            agent.isStopped = true;
             yield return null;
         }
     }
@@ -119,10 +110,5 @@ public class SmallGhostMovement : MonoBehaviour
         //Debug.DrawRay(navHit.position, Vector3.up, Color.green, 5, true);
  
         return navHit.position;
-    }
-
-    private void Teleport() //might need to change to IEnumerator to add delay
-    {
-        agent.Warp(RandomNavSphere(transform.position, 40f, 1));
     }
 }
