@@ -45,7 +45,7 @@ public class PeekabooGhost : MonoBehaviour
 
     void FixedUpdate()
     {
-        var target = PlayerManager.Instance.GetClosestPlayer();
+        var target = PlayerManager.Instance.GetClosestPlayer(transform);
         if(target)
         {
             Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
@@ -140,16 +140,14 @@ public class PeekabooGhost : MonoBehaviour
 
     public void SummonGhost()
     {
-        print("scared!");
         int ghostRange = Random.Range(0, 100);
         if(ghostRange > chanceToSpawnGolden)//typically 0.8?
         {
             int randomIndex = Random.Range(0, 5);
-            //int randomIndex = 3;
+            //int randomIndex = 1;
 
             GameObject newGhost = Instantiate(GhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.mediumGhostsInScene.Add(newGhost);
-            newGhost.GetComponent<MediumGhost>().GenerateSequence();
         }
         else
         {
@@ -157,7 +155,6 @@ public class PeekabooGhost : MonoBehaviour
             //int randomIndex = 0;
             GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
-            newGhost.GetComponent<GoldenGhost>().GenerateSequence();
         }
         ChangeLocations();
     }

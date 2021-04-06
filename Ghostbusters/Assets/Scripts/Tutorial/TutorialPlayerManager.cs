@@ -27,26 +27,17 @@ public class TutorialPlayerManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             var currentPlayer = Instantiate(playerSkins[i], playerSpawns[i].position, Quaternion.identity);
             players.Add(currentPlayer.GetComponent<TutorialPlayer>());
         }
-        // else
-        // {
-        //     for (int i = 0; i < Gamepad.all.Count; i++)
-        //     {
-        //         int playerskin = DataSelectManager.Instance.players[i].imageIndex;//this is the info for what skin they picked
-        //         var currentPlayer = Instantiate(playerSkins[playerskin], playerSpawns[i].position, Quaternion.identity);
-        //         players.Add(currentPlayer.GetComponent<TutorialPlayer>());
-        //     }
-        // }
+
     }
     #endregion
     [SerializeField] bool testMode = false;
-    //Player[] players = new Player[4];      //maybe get the number of players from somewhere else??
     public List<TutorialPlayer> players = new List<TutorialPlayer>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;

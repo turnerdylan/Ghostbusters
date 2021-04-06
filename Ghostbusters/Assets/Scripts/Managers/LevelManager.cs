@@ -232,7 +232,6 @@ public class LevelManager : MonoBehaviour
         currentState = LEVEL_STATE.STARTED;
         PlayerManager.Instance.SetAllPlayerControls(true);
         GhostManager.Instance.SetAllGhostControls(true);
-        print("Started level!");
     }
 
     public LEVEL_STATE GetLevelState()

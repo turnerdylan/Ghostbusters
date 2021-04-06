@@ -29,7 +29,7 @@ public class LegGhostMovement : MonoBehaviour
         agent.isStopped = false;
         while(currentState == LEG_GHOST_STATE.FOLLOW)
         {
-            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer().transform.position);
+            agent.SetDestination(PlayerManager.Instance.GetClosestPlayer(transform).position);
             yield return null;
         }
     }

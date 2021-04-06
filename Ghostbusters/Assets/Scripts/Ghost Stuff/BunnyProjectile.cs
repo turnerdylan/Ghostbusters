@@ -10,7 +10,6 @@ public class BunnyProjectile : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            print("ground hit");
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
             foreach(Player player in PlayerManager.Instance.GetPlayerArray())
             {

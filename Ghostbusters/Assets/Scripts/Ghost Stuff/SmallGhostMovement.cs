@@ -24,6 +24,8 @@ public class SmallGhostMovement : MonoBehaviour
     public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
     private float timer;
     public bool golden;
+    private float startSpeed;
+    private bool boost;
 
     //public variables
 
@@ -35,6 +37,11 @@ public class SmallGhostMovement : MonoBehaviour
     void OnEnable()
     {
         StartCoroutine(State_Flee());
+        if(!golden)
+        {
+            startSpeed = agent.speed;
+            StartCoroutine(SpeedBoost());
+        }
     }
 
     public IEnumerator State_Wander()
@@ -56,7 +63,7 @@ public class SmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -68,15 +75,15 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Flee()
     {
         currentState = SMALL_GHOST_STATE.FLEE;
-        agent.acceleration = 200;
+        agent.acceleration = 2000;
         if(golden)
             agent.speed = 10;
         
         while(currentState == SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer().position;
+            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer(transform).position;
             Vector3 newPos = transform.position + dirToPlayer;
-            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 agent.SetDestination(newPos);
             }
@@ -90,15 +97,6 @@ public class SmallGhostMovement : MonoBehaviour
                     yield break;
                 }
             }
-            yield return null;
-        }
-    }
-    public IEnumerator State_Frozen()
-    {
-        currentState = SMALL_GHOST_STATE.FROZEN;
-        while(currentState == SMALL_GHOST_STATE.FROZEN)
-        {
-            agent.isStopped = true;
             yield return null;
         }
     }
@@ -121,8 +119,10 @@ public class SmallGhostMovement : MonoBehaviour
         return navHit.position;
     }
 
-    private void Teleport() //might need to change to IEnumerator to add delay
+    IEnumerator SpeedBoost()
     {
-        agent.Warp(RandomNavSphere(transform.position, 40f, 1));
+        agent.speed = 30;
+        yield return new WaitForSeconds(1.0f);
+        agent.speed = startSpeed;
     }
 }

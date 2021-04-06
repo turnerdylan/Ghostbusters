@@ -79,10 +79,11 @@ public class TutorialInputHandler : MonoBehaviour
             if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
             {
                 TutorialLevelManager.Instance.SelectPauseUI();
-            } else if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.ENDED)
-            {
-                TutorialLevelManager.Instance.SelectEndUI();
-            }
+            } 
+            // else if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.ENDED)
+            // {
+            //     TutorialLevelManager.Instance.SelectEndUI();
+            // }
         }
     }
 

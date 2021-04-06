@@ -19,13 +19,14 @@ public class MediumGhost : MonoBehaviour
     private bool sequenceGenerated = false;
     private bool inRange;
     private float _timer; //scare timer
-    public bool debugging;
+    [SerializeField] private bool debugging;
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 4;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;  
+    private float ghostSpawnRadius = 3.0f;
 
     [Header("Scaring")]
-    public int scaresNeeded;
+    [SerializeField] private int scaresNeeded;
     public float timer = 10f; //scare timer
     public List<Player> players = new List<Player>();
     [SerializeField] private int[] btnCount = new int[4];   
@@ -39,13 +40,31 @@ public class MediumGhost : MonoBehaviour
     public Image timerBar;
 
     [Header("Effects")]
-    public GameObject explosivePrefab;
+    private float explosionForce = 7500;
     public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
     private void Start()
     {
-        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
+        switch(PlayerManager.Instance.GetPlayerArray().Count)
+        {
+            case 1:
+                scaresNeeded = 1;
+                break;
+            case 2:
+                scaresNeeded = 1;
+                break;
+            case 3:
+                scaresNeeded = 2;
+                break;
+            case 4:
+                scaresNeeded = 2;
+                break;
+            default:
+                Debug.Log("Invalid player array size");
+                break;
+        }
+        GenerateSequence();
         _timer = timer;
     }
 
@@ -76,7 +95,7 @@ public class MediumGhost : MonoBehaviour
         if(scareInitiated)
         {
             _timer -= Time.deltaTime;
-            //timerBar.fillAmount = _timer/timer;
+            timerBar.fillAmount = _timer/timer;
             if(_timer > 0)
             {
                 if(btnCount[0] > targetBtnCount[0] || btnCount[1] > targetBtnCount[1] || btnCount[2] > targetBtnCount[2] || btnCount[3] > targetBtnCount[3])
@@ -105,13 +124,22 @@ public class MediumGhost : MonoBehaviour
         Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach(Player player in players)
         {
-            player.InitiateDisableTrigger(0.75f);
+            player.InitiateDisableTrigger(1.5f);
         }
         //set 2 medium ghosts active and set their positions to this position + offset
+        // for (int i = 0; i < _ghostsToSpawn; i++)
+        // {
+        //     var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
+        //     newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+        // }
         for (int i = 0; i < _ghostsToSpawn; i++)
         {
             var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
-            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+            float theta = i * 2 * Mathf.PI / _ghostsToSpawn;
+            float x = Mathf.Sin(theta)*ghostSpawnRadius;
+            float z = Mathf.Cos(theta)*ghostSpawnRadius;
+        
+            newSmallGhost.transform.position = transform.position + new Vector3(x, 0, z); 
         }
 
         GhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);
@@ -138,6 +166,7 @@ public class MediumGhost : MonoBehaviour
                     }
                     else
                     {
+                        player.FlashX();
                         ScareFail();
                     }
                     break;
@@ -150,6 +179,7 @@ public class MediumGhost : MonoBehaviour
                     }
                     else
                     {
+                        player.FlashX();
                         ScareFail();
                     }
                     break;
@@ -162,6 +192,7 @@ public class MediumGhost : MonoBehaviour
                     }
                     else
                     {
+                        player.FlashX();
                         ScareFail();
                     }
                     break;
@@ -174,6 +205,7 @@ public class MediumGhost : MonoBehaviour
                     }
                     else
                     {
+                        player.FlashX();
                         ScareFail();
                     }
                     break;
@@ -191,7 +223,7 @@ public class MediumGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Blowback();
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
@@ -239,6 +271,20 @@ public class MediumGhost : MonoBehaviour
             {
                 images[i].sprite = emptySprite;
             }
+        }
+    }
+
+    void Blowback()
+    {
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) <= player.GetScareRange())
+            {
+                Vector3 direction = new Vector3(player.transform.position.x - transform.position.x, 0, player.transform.position.z - transform.position.z).normalized;
+                player.TriggerDisableMovement(0.35f);
+                player.GetComponent<Rigidbody>().AddForce(direction*explosionForce);
+            }
+
         }
     }
 }

@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     private PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
     private BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
     private bool canMove = true;
+    private float ghostSpawnRadius = 3.0f;
     private String[] ahSounds = new String[] {"Ah1", "Ah2", "Ah3", "Ah4"};
     private String[] wahSounds = new String[] {"Wah1", "Wah2", "Wah3", "Wah4"};
     private String[] heySounds = new String[] {"Hey1", "Hey2", "Hey3", "Hey4"};
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
     {
         if(other.GetComponent<SmallGhost>())
         {
+            AudioManager.Instance.Play("Small Pop");
             GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
             _numberOfHeldGhosts++;
@@ -124,7 +126,11 @@ public class Player : MonoBehaviour
         for (int i = 0; i < _numberOfHeldGhosts; i++)
         {
             var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
-            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * 0.5f;
+            float theta = i * 2 * Mathf.PI / _numberOfHeldGhosts;
+            float x = Mathf.Sin(theta)*ghostSpawnRadius;
+            float z = Mathf.Cos(theta)*ghostSpawnRadius;
+        
+            newSmallGhost.transform.position = transform.position + new Vector3(x, 0, z); 
         }
 
         GhostManager.Instance.mediumGhostsInScene.Remove(this.gameObject);

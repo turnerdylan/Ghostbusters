@@ -152,28 +152,28 @@ public class TutorialLevelManager : MonoBehaviour
                 Time.timeScale = 1;
                 SceneManager.LoadScene(2);
                 AudioManager.Instance.Stop(levelMusic);
-                Destroy(DataSelectManager.Instance.gameObject);
+                //Destroy(DataSelectManager.Instance.gameObject);
                 break;
         }
     }
 
-    public void SelectEndUI()
-    {
-        // switch (endLevelUIIndex)
-        // {
-        //     case 0:
-        //         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //         break;
-        //     case 1:
-        //         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //         break;
-        //     case 2:
-        //         Time.timeScale = 1;
-        //         SceneManager.LoadScene(1);
-        //         Destroy(DataSelectManager.Instance.gameObject);
-        //         break;
-        // }
-    }
+    // public void SelectEndUI()
+    // {
+    //     switch (endLevelUIIndex)
+    //     {
+    //         case 0:
+    //             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //             break;
+    //         case 1:
+    //             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //             break;
+    //         case 2:
+    //             Time.timeScale = 1;
+    //             SceneManager.LoadScene(1);
+    //             Destroy(DataSelectManager.Instance.gameObject);
+    //             break;
+    //     }
+    // }
 
     // public void EndLevel()
     // {
@@ -231,7 +231,6 @@ public class TutorialLevelManager : MonoBehaviour
         currentState = TUTORIAL_LEVEL_STATE.STARTED;
         TutorialPlayerManager.Instance.SetAllPlayerControls(true);
         TutorialGhostManager.Instance.SetAllGhostControls(true);
-        print("Started level!");
     }
 
     public TUTORIAL_LEVEL_STATE GetLevelState()

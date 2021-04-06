@@ -16,6 +16,7 @@ public class GoldenGhost : MonoBehaviour
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 8;
     [SerializeField] private float _ghostSpawnOffset = 0.5f;
+    private float ghostSpawnRadius = 3.0f;
     
     [Header("Scaring")]
     public int scaresNeeded;
@@ -23,7 +24,7 @@ public class GoldenGhost : MonoBehaviour
     private int[] btnCount = new int[4];   
     private int[] targetBtnCount = new int[4];
     List<Player> players = new List<Player>();
-    public bool debugging;
+    private bool debugging;
 
     [Header("Chaos event: 0=speed, 1=controls, 2=lights, 3=ice, 4=smoke,")]
     [Range(0, 4)]
@@ -37,13 +38,32 @@ public class GoldenGhost : MonoBehaviour
     public Image[] images = new Image[4];
 
     [Header("Effects")]
-    public GameObject explosivePrefab;
+    private float explosionForce = 7500;
     public ParticleSystem explosionEffect;
     public GameObject puffPrefab;
 
     void Start()
     {
-        if(PlayerManager.Instance.GetPlayerArray().Count < 4) debugging = true;
+        switch(PlayerManager.Instance.GetPlayerArray().Count)
+        {
+            case 1:
+                scaresNeeded = 2;
+                debugging = true;
+                break;
+            case 2:
+                scaresNeeded = 2;
+                break;
+            case 3:
+                scaresNeeded = 3;
+                break;
+            case 4:
+                scaresNeeded = 4;
+                break;
+            default:
+                Debug.Log("Invalid player array size");
+                break;
+        }
+        GenerateSequence();
         _timer = timer;
     }
 
@@ -100,12 +120,16 @@ public class GoldenGhost : MonoBehaviour
         Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach (Player player in players)
         {
-            player.InitiateDisableTrigger(0.75f);
+            player.InitiateDisableTrigger(1.5f);
         }
         for (int i = 0; i < _ghostsToSpawn; i++)
         {
             var newSmallGhost = Instantiate(GhostManager.Instance.smallGhostPrefab, transform.position, Quaternion.identity);
-            newSmallGhost.transform.position = transform.position + new Vector3(Random.value, Random.value, Random.value).normalized * _ghostSpawnOffset;
+            float theta = i * 2 * Mathf.PI / _ghostsToSpawn;
+            float x = Mathf.Sin(theta)*ghostSpawnRadius;
+            float z = Mathf.Cos(theta)*ghostSpawnRadius;
+        
+            newSmallGhost.transform.position = transform.position + new Vector3(x, 0, z); 
         }
 
         GhostManager.Instance.goldenGhostsInScene.Remove(gameObject);
@@ -122,7 +146,7 @@ public class GoldenGhost : MonoBehaviour
     private void ScareFail()
     {
         ResetScare();
-        Instantiate(explosivePrefab, transform.position, Quaternion.identity);
+        Blowback();
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
@@ -235,6 +259,19 @@ public class GoldenGhost : MonoBehaviour
             {
                 images[i].sprite = emptySprite;
             }
+        }
+    }
+    void Blowback()
+    {
+        foreach(Player player in PlayerManager.Instance.GetPlayerArray())
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) <= player.GetScareRange())
+            {
+                Vector3 direction = new Vector3(player.transform.position.x - transform.position.x, 0, player.transform.position.z - transform.position.z).normalized;
+                player.TriggerDisableMovement(0.35f);
+                player.GetComponent<Rigidbody>().AddForce(direction*explosionForce);
+            }
+
         }
     }
 }

@@ -49,7 +49,7 @@ public class TutorialPlayer : MonoBehaviour
     private float _storedLookValue;
     private bool icy = false;
 
-    public int _numberOfHeldGhosts;
+    [HideInInspector] public int _numberOfHeldGhosts;
     private bool canDive = true;
     private bool backwardsControls = false;
     private TUTORIAL_PLAYER_STATE currentState = TUTORIAL_PLAYER_STATE.NORMAL;

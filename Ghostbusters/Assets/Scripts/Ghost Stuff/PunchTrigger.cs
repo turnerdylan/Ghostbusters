@@ -9,7 +9,6 @@ public class PunchTrigger : MonoBehaviour
         if(other.GetComponent<Player>())
         {
             other.GetComponent<Player>().DropGhosts();
-            Debug.Log("Punch hit");
         }
     }
 }
