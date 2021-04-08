@@ -7,7 +7,7 @@ public enum SMALL_GHOST_STATE
 {
     WANDER, //default
     FLEE, //when player is close
-    SEEK, //when ghost is close
+    BOOST, //when ghost is spawned
     FROZEN
 };
 public class SmallGhostMovement : MonoBehaviour
@@ -21,11 +21,9 @@ public class SmallGhostMovement : MonoBehaviour
     [SerializeField] private float timerUntilWanderMax = 2f;
 
     //private variables
-    public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
+    public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.BOOST;
     private float timer;
-    public bool golden;
     private float startSpeed;
-    private bool boost;
 
     //public variables
 
@@ -37,19 +35,13 @@ public class SmallGhostMovement : MonoBehaviour
     void OnEnable()
     {
         StartCoroutine(State_Flee());
-        if(!golden)
-        {
-            startSpeed = agent.speed;
-            StartCoroutine(SpeedBoost());
-        }
     }
 
     public IEnumerator State_Wander()
     {
         currentState = SMALL_GHOST_STATE.WANDER;
-        agent.acceleration = 8;
-        if(golden)
-            agent.speed = 5f;
+        agent.speed = 6.5f;
+        agent.acceleration = 8f;
         //wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
         timer = timerUntilWanderMax;
         while(currentState == SMALL_GHOST_STATE.WANDER)
@@ -75,11 +67,40 @@ public class SmallGhostMovement : MonoBehaviour
     public IEnumerator State_Flee()
     {
         currentState = SMALL_GHOST_STATE.FLEE;
-        agent.acceleration = 2000;
-        if(golden)
-            agent.speed = 10;
+
+        agent.speed = 15;
+        agent.acceleration = 200;
         
         while(currentState == SMALL_GHOST_STATE.FLEE)
+        {
+            Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer(transform).position;
+            Vector3 newPos = transform.position + dirToPlayer;
+            if(Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
+            {
+                agent.SetDestination(newPos);
+            }
+            else
+            {
+                NavMeshPath path = new NavMeshPath();
+                agent.CalculatePath(newPos, path);
+                if(agent.destination == transform.position || path.status == NavMeshPathStatus.PathPartial)
+                {
+                    StartCoroutine(State_Wander());
+                    yield break;
+                }
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator State_Boost()
+    {
+        currentState = SMALL_GHOST_STATE.BOOST;
+
+        agent.speed = 300;
+        agent.acceleration = 20000;
+        
+        while(currentState == SMALL_GHOST_STATE.BOOST)
         {
             Vector3 dirToPlayer = transform.position - PlayerManager.Instance.GetClosestPlayer(transform).position;
             Vector3 newPos = transform.position + dirToPlayer;
@@ -119,10 +140,4 @@ public class SmallGhostMovement : MonoBehaviour
         return navHit.position;
     }
 
-    IEnumerator SpeedBoost()
-    {
-        agent.speed = 30;
-        yield return new WaitForSeconds(1.0f);
-        agent.speed = startSpeed;
-    }
 }

@@ -484,8 +484,7 @@ MonoBehaviour:
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
-  currentState: 1
-  golden: 0
+  currentState: 2
 --- !u!1 &8138825041592426302
 GameObject:
   m_ObjectHideFlags: 0
