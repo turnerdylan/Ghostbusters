@@ -699,8 +699,8 @@ GameObject:
   - component: {fileID: 3842587979874991022}
   - component: {fileID: 3842587979874991009}
   - component: {fileID: 5582752610518688971}
-  - component: {fileID: -3125554680765043164}
   - component: {fileID: 6087127847610246830}
+  - component: {fileID: 6254925702444551747}
   m_Layer: 10
   m_Name: Golden Ghost
   m_TagString: Untagged
@@ -838,23 +838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 724000520358607567}
---- !u!114 &-3125554680765043164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3842587979874991008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistanceForEnemyToRun: 10
-  wanderRadius: 35
-  timerUntilWanderMax: 5
-  currentState: 1
-  golden: 1
 --- !u!114 &6087127847610246830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +851,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 8
+--- !u!114 &6254925702444551747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842587979874991008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de150376c9f54c479c53129793f9e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceForEnemyToRun: 12
+  wanderRadius: 40
+  timerUntilWanderMax: 5
+  currentState: 1
 --- !u!1 &4323831883281373879
 GameObject:
   m_ObjectHideFlags: 0

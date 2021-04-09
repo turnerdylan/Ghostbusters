@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 3080368319617992621}
   - component: {fileID: -3277698276043905173}
   - component: {fileID: 4541588561903192815}
-  - component: {fileID: -2463623773617413357}
   - component: {fileID: -1692392783886122630}
+  - component: {fileID: 2962869270165372928}
   m_Layer: 10
   m_Name: Golden Bedsheet Ghost
   m_TagString: Untagged
@@ -228,23 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 3150125356120477054}
---- !u!114 &-2463623773617413357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984599683280960968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2369c5a7a4506c3478bfa19a45f5f47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistanceForEnemyToRun: 10
-  wanderRadius: 35
-  timerUntilWanderMax: 5
-  currentState: 1
-  golden: 1
 --- !u!114 &-1692392783886122630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +241,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 8
+--- !u!114 &2962869270165372928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984599683280960968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de150376c9f54c479c53129793f9e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceForEnemyToRun: 12
+  wanderRadius: 40
+  timerUntilWanderMax: 5
+  currentState: 1
 --- !u!1 &1007500439567451389
 GameObject:
   m_ObjectHideFlags: 0
