@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -64,5 +65,12 @@ public class PlayerSelect : MonoBehaviour
     public void UpdateTextures()
     {
         mesh.material = playerImages[imageIndex];
+        OnPlayerImageChanged();
+    }
+
+    private void OnPlayerImageChanged()
+    {
+        print("player image changed");
+        //playerprefs.setplayerint
     }
 }
