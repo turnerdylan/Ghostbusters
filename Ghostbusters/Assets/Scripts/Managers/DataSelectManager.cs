@@ -21,7 +21,6 @@ public class DataSelectManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (instance)
         {
             DestroyImmediate(gameObject);
@@ -31,8 +30,6 @@ public class DataSelectManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     #endregion
-
-
 
     //player stuff
     public List<PlayerSelect> players = new List<PlayerSelect>();
@@ -48,8 +45,7 @@ public class DataSelectManager : MonoBehaviour
 
     //level stuff
     public List<Pin> levelPins = new List<Pin>();
-    public int furthestUnlockedLevel = 1;
-    public int currentLevelIndex = 1;
+    public int currentLevelIndex;
     public string levelMusic;
 
 
@@ -66,17 +62,6 @@ public class DataSelectManager : MonoBehaviour
         {
             players[i].gameObject.SetActive(false);
         }
-
-        for (int i = 0; i < levelPins.Count; i++)
-        {
-            levelPins[]
-        }
-
-        for (int i=0; i < furthestUnlockedLevel; i++)
-        {
-            levelPins
-        }
-
         numberOfPlayers = Gamepad.all.Count;
         UpdatePlayerPictures();
         camManager = FindObjectOfType<CameraManager>();
@@ -161,15 +146,5 @@ public class DataSelectManager : MonoBehaviour
             players[i].gameObject.SetActive(true);
             pluses[i].gameObject.SetActive(false);
         }
-    }
-
-    public void LoadPreferences()
-    {
-        //load levels unlocked
-        //load level high scores
-        //load settings data?
-        //load player pictures
-
-        //level pins.manager.setlevel pins!
     }
 }
