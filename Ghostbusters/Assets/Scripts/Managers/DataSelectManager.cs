@@ -67,15 +67,15 @@ public class DataSelectManager : MonoBehaviour
             players[i].gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < levelPins.Count; i++)
-        {
-            levelPins[]
-        }
+        // for (int i = 0; i < levelPins.Count; i++)
+        // {
+        //     levelPins[]
+        // }
 
-        for (int i=0; i < furthestUnlockedLevel; i++)
-        {
-            levelPins
-        }
+        // for (int i=0; i < furthestUnlockedLevel; i++)
+        // {
+        //     levelPins
+        // }
 
         numberOfPlayers = Gamepad.all.Count;
         UpdatePlayerPictures();
