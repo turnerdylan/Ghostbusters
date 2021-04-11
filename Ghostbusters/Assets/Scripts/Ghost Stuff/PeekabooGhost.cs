@@ -28,6 +28,7 @@ public class PeekabooGhost : MonoBehaviour
     private Vector3 endPos;
     private float timeStartedLerping;
     public GameObject particles;
+    public GameObject spawnParticles;
     
     int currentLocationIndex;
     private bool moveParticles;
@@ -156,6 +157,7 @@ public class PeekabooGhost : MonoBehaviour
             GameObject newGhost = Instantiate(GhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
             GhostManager.Instance.goldenGhostsInScene.Add(newGhost);
         }
+        Instantiate(spawnParticles, transform.position, Quaternion.identity);
         ChangeLocations();
     }
 

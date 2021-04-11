@@ -27,7 +27,9 @@ public class CameraManager : MonoBehaviour
     public List<Transform> cameraPositions = new List<Transform>();
     public List<TextMeshPro> textItems = new List<TextMeshPro>();
 
-    public int textItemIndex = 0; // 0 is players, 1 is map, 2 is settings
+    public int textItemIndex = 0; // 0 is players, 1 is map, 2 is exit, 3 is credits, 4 is settings
+
+    public GameObject credits;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,8 @@ public class CameraManager : MonoBehaviour
         switch (cameraState)
         {
             case CAMERA_POSITION.NORMAL:
+
+                //sets text green when you press button
                 if (Gamepad.all[0].dpad.right.wasPressedThisFrame)
                 {
                     textItemIndex++;
@@ -87,9 +91,22 @@ public class CameraManager : MonoBehaviour
                     }
                     else if (textItemIndex == 2)
                     {
+                        print("quit game");
+                        Application.Quit();
+                    }
+                    else if (textItemIndex == 3)
+                    {
+                        credits.gameObject.SetActive(true);
+                        print("access credits");
+                    }
+                    else if (textItemIndex == 4)
+                    {
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position, CAMERA_POSITION.SETTINGS));
                         Camera.main.transform.rotation = cameraPositions[2].rotation;
                     }
+                } else if(Gamepad.all[0].buttonEast.wasPressedThisFrame)
+                {
+                    credits.gameObject.SetActive(false);
                 }
                 break;
             case CAMERA_POSITION.MAP:
@@ -143,7 +160,7 @@ public class CameraManager : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        Camera.main.transform.position = endValue;
         cameraState = pos;
+        Camera.main.transform.position = endValue;
     }
 }

@@ -33,11 +33,20 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        foreach (Sound sound in sounds)
+        {
+            sound.source.volume = volume;
+        }
     }
     #endregion
 
+    [Range(0,1)]
+    public float volume;
+
     public void Play(string name)
     {
+
         Sound s = Array.Find(sounds, sound => sound.name == name); //looks for sound in sound array with name
         if(s == null)
         {

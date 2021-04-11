@@ -149,6 +149,8 @@ MonoBehaviour:
   changeLocationsTime: 2
   chanceToSpawnGolden: 25
   particles: {fileID: 8757567205982445208}
+  spawnParticles: {fileID: 1995849929743194, guid: 26f962d1c27c42f43a025a3678e3ba8a,
+    type: 3}
 --- !u!1 &4303629685472049452
 GameObject:
   m_ObjectHideFlags: 0

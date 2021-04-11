@@ -46,10 +46,25 @@ MonoBehaviour:
   levelMaxTime: 150
   startCountdownTimer: 5
   pauseUI: {fileID: 0}
-  pauseUIElements: []
+  pauseUIElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pauseUIIndex: 0
   endLevelUI: {fileID: 0}
-  endLevelUIElements: []
+  endLevelUIElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   endLevelUIIndex: 0
   startText: {fileID: 0}
   levelTimerText: {fileID: 0}
+  endLevelText: {fileID: 0}
+  scoreGoalText: {fileID: 0}
+  endUIPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scoreGoal: 20
+  levelMusic: Day To Day

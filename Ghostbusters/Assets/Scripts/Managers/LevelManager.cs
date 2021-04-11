@@ -57,6 +57,7 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI levelTimerText;
     public TextMeshProUGUI endLevelText;
     public TextMeshProUGUI scoreGoalText;
+    public List<GameObject> endUIPositions = new List<GameObject>();
     public float scoreGoal;
     public string levelMusic;
 
@@ -184,6 +185,8 @@ public class LevelManager : MonoBehaviour
         if(PlayerManager.Instance.totalScore >= scoreGoal)
         {
             endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+            DataSelectManager.Instance.IncrementLevel();
+            
         }
         else
         {
@@ -193,10 +196,20 @@ public class LevelManager : MonoBehaviour
         endLevelUI.SetActive(true);
         endLevelUIElements[endLevelUIIndex].color = Color.green;
 
+        DisplayCharacterScores();
+
         AudioManager.Instance.Stop(levelMusic);
 
         PlayerManager.Instance.SetAllPlayerControls(false);
         GhostManager.Instance.SetAllGhostControls(false);
+    }
+
+    private void DisplayCharacterScores()
+    {
+        for(int i=0; i < UIManager.Instance.UIElements.Count; i++)
+        {
+            UIManager.Instance.UIElements[i].transform.position = endUIPositions[i].transform.position;
+        }
     }
 
     public void ChangeEndUIIndex(int increment)

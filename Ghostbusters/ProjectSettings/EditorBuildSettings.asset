@@ -15,25 +15,25 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: eb1143a520860be4aa99b0fae71935c6
   - enabled: 1
-    path: Assets/Scenes/Level 2 - Park.unity
+    path: Assets/Scenes/Level 2.unity
     guid: 38d3e3b2ebfb36748a273260f56696b3
   - enabled: 1
-    path: Assets/Scenes/Level 3 - Forest.unity
+    path: Assets/Scenes/Level 3.unity
     guid: a1f8f5de95c756748ad9f46b1fa5a22b
   - enabled: 1
-    path: Assets/Scenes/Level 4 - River.unity
+    path: Assets/Scenes/Level 4.unity
     guid: e35ecbbd3bb8c82489375491195e0334
   - enabled: 1
-    path: Assets/Scenes/Level 5 - Diner.unity
+    path: Assets/Scenes/Level 5.unity
     guid: 2ec282d1a9faacd4b9bce8b6a8d40a18
   - enabled: 1
-    path: Assets/Scenes/Level 6 - Cave.unity
+    path: Assets/Scenes/Level 6.unity
     guid: 3c37f099bb2d0574b9bab0bbe847917f
   - enabled: 1
-    path: Assets/Scenes/Level 7 - Store.unity
+    path: Assets/Scenes/Level 7.unity
     guid: 5eadda26e00a08b45bbd181623e3fef3
   - enabled: 1
-    path: Assets/Scenes/Level 8 - Square.unity
+    path: Assets/Scenes/Level 8.unity
     guid: b0779c2a5a9106447befa50a5e335a43
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: dfc78c4e319e07941b3425d91150d2c4,
