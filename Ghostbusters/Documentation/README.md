@@ -50,7 +50,7 @@ Additionally this week we finished the remaining ghost attacks to implement incl
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/punch-attack.gif" width="33%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/ranged-attack.gif" width="33%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/spray-attack.gif" width="33%">
 
 
-D - This week we did a lot of work finishing all the functional and aesthetic portions of our project. Zayna spent time updating all the lighting while I added a menu object to be able to navigate between screens and levels. After lots of bug fixing we were able to get everything working and we we're able to play our fully functional game!
+D - This week we did a lot of work finishing all the functional and aesthetic portions of our project. I added a menu object to be able to navigate between screens and levels. After lots of bug fixing we were able to get everything working and we we're able to play our fully functional game!
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Pause%20Level.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/End%20Level.png" width="50%">
 
