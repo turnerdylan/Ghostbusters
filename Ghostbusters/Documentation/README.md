@@ -7,7 +7,30 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
-## 3/30/26/2021 - Week 10
+## 4/122021 - Week 13 I think 
+### Goals:
+- C - Ghost Updates, Nav Meshes and Making Things Work
+
+- D - Saving Data and Stuff
+
+- Z - Level Polish
+
+
+### Weekly Updates:
+
+C - 
+
+D - 
+
+Z - We spent some time this week recording new player and ghost sounds that are both more consistent per character and much more fun. The other main task involved adding ground textures to each level. The spaces feel much more cohesive now, below are a couple of before and after images for comparison. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Park-Flat.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Park-Texture.JPG" width="50%">
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Forest-Flat.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Forest-Texture.JPG" width="50%">
+
+- - -
+
+## 3/30/26/2021 - Week 11? Tutorials and Levels are things games need
 ### Goals:
 - C - Ghost behavior & attack updates
 
@@ -41,7 +64,7 @@ Z - This week turned into a huge work week for the development of both the ghost
 
 - - -
 
-## 3/23/26/2021 - Week 10
+## 3/23/26/2021 - Week 10 Ghoats? Ghsts and Ghoosts!
 ### Goals:
 - C - Ghost behavior updates
 
