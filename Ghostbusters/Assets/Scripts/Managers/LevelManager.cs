@@ -135,6 +135,7 @@ public class LevelManager : MonoBehaviour
 
     private void SetPauseUI(bool state)
     {
+        GhostManager.Instance.SetGhostUI(!state);
         pauseUI.SetActive(state);
         pauseUIElements[pauseUIIndex].color = Color.green;
     }
@@ -180,6 +181,7 @@ public class LevelManager : MonoBehaviour
     public void EndLevel()
     {
         currentState = LEVEL_STATE.ENDED;
+        GhostManager.Instance.DestroyAllGhosts();
         //add a delay here
         Time.timeScale = 0;
         if(PlayerManager.Instance.totalScore >= scoreGoal)

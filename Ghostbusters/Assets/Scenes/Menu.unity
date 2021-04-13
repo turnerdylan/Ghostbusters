@@ -5174,7 +5174,6 @@ MonoBehaviour:
   - {fileID: 1665547702}
   - {fileID: 1192659377}
   - {fileID: 1733721821}
-  numberOfPlayers: 0
   levelPins:
   - {fileID: 19252406}
   - {fileID: 15548558}
@@ -5184,7 +5183,7 @@ MonoBehaviour:
   - {fileID: 1016304695}
   - {fileID: 564327115}
   - {fileID: 1420579750}
-  furthestUnlockedLevel: 2
+  furthestUnlockedLevel: 8
   currentLevelIndex: 0
   levelMusic: Easy Going
 --- !u!4 &1774895466
