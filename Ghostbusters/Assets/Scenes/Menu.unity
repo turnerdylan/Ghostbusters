@@ -5184,7 +5184,7 @@ MonoBehaviour:
   - {fileID: 1016304695}
   - {fileID: 564327115}
   - {fileID: 1420579750}
-  furthestUnlockedLevel: 4
+  furthestUnlockedLevel: 2
   currentLevelIndex: 0
   levelMusic: Easy Going
 --- !u!4 &1774895466

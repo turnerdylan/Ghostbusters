@@ -30,7 +30,7 @@ public class DataSelectManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadPreferences();
+        //LoadPreferences();
     }
     #endregion
 
@@ -39,7 +39,6 @@ public class DataSelectManager : MonoBehaviour
     public List<int> playerIndexes = new List<int>();
 
     public List<SpriteRenderer> pluses = new List<SpriteRenderer>();
-    public int numberOfPlayers = 0;
 
 
     //level stuff
@@ -54,7 +53,7 @@ public class DataSelectManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 2) return;
+        if (SceneManager.GetActiveScene().name != "Menu") return;
 
         AudioManager.Instance.Play(levelMusic);
 
@@ -76,8 +75,6 @@ public class DataSelectManager : MonoBehaviour
             levelPins[i].gameObject.SetActive(true);
         }
         SetCurrentLevelPinTextActive();
-
-        numberOfPlayers = Gamepad.all.Count;
         ActivatePlayerPictures();
         camManager = FindObjectOfType<CameraManager>();
         PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
@@ -85,7 +82,7 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 2) return;
+        if (SceneManager.GetActiveScene().name != "Menu") return;
 
         ActivatePlayerPictures();
 
