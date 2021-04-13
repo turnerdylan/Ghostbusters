@@ -28,6 +28,8 @@ Z - We spent some time this week recording new player and ghost sounds that are 
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Forest-Flat.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Forest-Texture.JPG" width="50%">
 
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Diner-Flat.JPG" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Diner-Texture.JPG" width="50%">
+
 - - -
 
 ## 3/30/26/2021 - Week 11? Tutorials and Levels are things games need
