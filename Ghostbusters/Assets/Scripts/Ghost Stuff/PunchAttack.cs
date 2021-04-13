@@ -6,7 +6,7 @@ public class PunchAttack : MonoBehaviour
 {
     public GameObject hand;
     private Animator anim;
-    [SerializeField] private float attackTimer;
+    [SerializeField] private float attackTimerMax;
     private float _attackTimer;
     private bool attacking;
 
@@ -14,7 +14,7 @@ public class PunchAttack : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        _attackTimer = attackTimer;
+        _attackTimer = attackTimerMax;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PunchAttack : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         //anim.SetBool("Attack", false);
         hand.SetActive(false);
-        _attackTimer = attackTimer;
+        _attackTimer = attackTimerMax;
         attacking = false;
         StartCoroutine(GetComponent<LegGhostMovement>().State_Follow());
     }

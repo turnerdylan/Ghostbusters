@@ -22,7 +22,6 @@ public class MediumGhost : MonoBehaviour
     [SerializeField] private bool debugging;
     [Header("Ghost Spawning")]
     [SerializeField] private int _ghostsToSpawn = 4;
-    [SerializeField] private float _ghostSpawnOffset = 0.5f;  
     private float ghostSpawnRadius = 3.0f;
 
     [Header("Scaring")]

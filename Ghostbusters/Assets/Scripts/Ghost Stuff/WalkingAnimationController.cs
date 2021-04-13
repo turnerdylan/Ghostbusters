@@ -6,7 +6,6 @@ public class WalkingAnimationController : MonoBehaviour
 {
     Rigidbody rb;
     Animator anim;
-    [SerializeField] float attackRange = 8;
 
     // Start is called before the first frame update
     void Start()

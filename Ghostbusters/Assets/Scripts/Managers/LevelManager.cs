@@ -45,11 +45,11 @@ public class LevelManager : MonoBehaviour
     //countdown timer
     [SerializeField] private float startCountdownTimer = 3;
     [SerializeField] private GameObject pauseUI;
-    [SerializeField] private List<TextMeshProUGUI> pauseUIElements;
+    [SerializeField] private List<TextMeshProUGUI> pauseUIElements = null;
     public int pauseUIIndex = 0;
 
     [SerializeField] private GameObject endLevelUI;
-    [SerializeField] private List<TextMeshProUGUI> endLevelUIElements;
+    [SerializeField] private List<TextMeshProUGUI> endLevelUIElements = null;
     public int endLevelUIIndex = 0;
 
     //UI stuff

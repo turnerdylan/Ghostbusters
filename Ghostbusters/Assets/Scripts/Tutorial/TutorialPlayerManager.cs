@@ -37,7 +37,6 @@ public class TutorialPlayerManager : MonoBehaviour
 
     }
     #endregion
-    [SerializeField] bool testMode = false;
     public List<TutorialPlayer> players = new List<TutorialPlayer>();
     public List<GameObject> playerSkins;
     public List<Transform> playerSpawns;
