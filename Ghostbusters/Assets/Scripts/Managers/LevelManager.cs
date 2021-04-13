@@ -151,7 +151,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case 2:
                 Time.timeScale = 1;
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene("Menu");
                 AudioManager.Instance.Stop(levelMusic);
                 Destroy(DataSelectManager.Instance.gameObject);
                 break;
@@ -170,7 +170,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case 2:
                 Time.timeScale = 1;
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene("Menu");
                 AudioManager.Instance.Stop(levelMusic);
                 Destroy(DataSelectManager.Instance.gameObject);
                 break;
