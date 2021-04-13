@@ -10659,6 +10659,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -900840116002235059, guid: a9a306ec01feb7948b92cda4e9993ddb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -402202718866979842, guid: a9a306ec01feb7948b92cda4e9993ddb,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -14158,7 +14163,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: ab39d7fc491984e449aa34f96267e975, type: 3}
+  - {fileID: -876546973899608171, guid: 069e200f390318341b391ab8d0686817, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
