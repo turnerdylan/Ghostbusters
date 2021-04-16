@@ -7,3 +7,5 @@ Spooked! is a multiplayer couch co-op game focused on teamwork and emergent play
 
 
 Our process documentation for this project can be found [here](https://github.com/turnerdylan/Ghostbusters/tree/master/Ghostbusters/Documentation)
+
+Check out our [itch page](https://zspacesheikh.itch.io/spooked)
