@@ -1670,6 +1670,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7353863262090120038, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8942525122173470397, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -5482,6 +5487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977397965406533789, guid: 2e656cadbd8fb2c47967fc9e7f028619,
+        type: 3}
+      propertyPath: volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e656cadbd8fb2c47967fc9e7f028619, type: 3}
