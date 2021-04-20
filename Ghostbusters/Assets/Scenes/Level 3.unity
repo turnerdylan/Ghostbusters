@@ -6599,6 +6599,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1964350835}
+    - target: {fileID: 1130309507718286143, guid: ec1d3b47ca1d73948906a48968278f09,
+        type: 3}
+      propertyPath: testMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6525221054822754268, guid: ec1d3b47ca1d73948906a48968278f09,
         type: 3}
       propertyPath: m_LocalPosition.z
