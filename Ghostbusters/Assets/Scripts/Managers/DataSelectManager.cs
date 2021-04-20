@@ -44,7 +44,6 @@ public class DataSelectManager : MonoBehaviour
     //level stuff
     public List<Pin> levelPins = new List<Pin>();
     public int furthestUnlockedLevel = 2;
-    public int currentLevelIndex = 1;
     public string levelMusic;
 
 
@@ -74,7 +73,6 @@ public class DataSelectManager : MonoBehaviour
         {
             levelPins[i].gameObject.SetActive(true);
         }
-        SetCurrentLevelPinTextActive();
         ActivatePlayerPictures();
         camManager = FindObjectOfType<CameraManager>();
         PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
@@ -88,47 +86,12 @@ public class DataSelectManager : MonoBehaviour
 
         if(camManager.cameraState == CAMERA_POSITION.MAP)
         {
-            if(Gamepad.all[0].dpad.right.wasPressedThisFrame)
-            {
-                
-                currentLevelIndex++;
-                if (currentLevelIndex >= furthestUnlockedLevel)
-                {
-                    currentLevelIndex = furthestUnlockedLevel - 1;
-                }
-                else
-                {
-                    AudioManager.Instance.Play("Click");
-                }
-
-            } else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
-            {
-                
-                currentLevelIndex--;
-                if (currentLevelIndex <= -1)
-                {
-                    currentLevelIndex = 0;
-                }
-                else
-                {
-                    AudioManager.Instance.Play("Click");
-                }
-            }
-
-            SetAllPinTextInactive();
-            SetCurrentLevelPinTextActive();
-
             if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
             {
                 AudioManager.Instance.Stop(levelMusic);
-                SceneManager.LoadScene(currentLevelIndex + 2);
+                SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
             }
         }
-    }
-
-    private void SetCurrentLevelPinTextActive()
-    {
-        levelPins[currentLevelIndex].GetChild().SetActive(true);
     }
 
     public void SetAllPinTextInactive()
@@ -138,29 +101,6 @@ public class DataSelectManager : MonoBehaviour
             pin.GetChild().SetActive(false);
         }
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        InputSystem.onDeviceChange +=
-        (device, change) =>
-        {
-            switch (change)
-            {
-                case InputDeviceChange.Added:
-                    numberOfPlayers++;
-                    UpdatePlayerPictures();
-                    break;
-                case InputDeviceChange.Removed:
-                    numberOfPlayers--;
-                    UpdatePlayerPictures();
-                    break;
-                default:
-                    // See InputDeviceChange reference for other event types.
-                    break;
-            }
-        };
-    }*/
 
     public void UpdatePlayerData()
     {

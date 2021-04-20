@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public float _stunTime = 3f;
     public int score;
     public Sprite characterSprite;
+    public GameObject smallGhostFX;
 
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour
         if(other.GetComponent<SmallGhost>())
         {
             AudioManager.Instance.Play("Small Pop");
+            Instantiate(smallGhostFX, transform.position, Quaternion.identity);
             GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
             _numberOfHeldGhosts++;

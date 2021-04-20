@@ -6168,6 +6168,8 @@ MonoBehaviour:
   _stunTime: 1
   score: 0
   characterSprite: {fileID: 21300000, guid: 97a0374fc2fe6dc43a139d06189bfb30, type: 3}
+  smallGhostFX: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb,
+    type: 3}
 --- !u!95 &6635086342476835360
 Animator:
   serializedVersion: 3

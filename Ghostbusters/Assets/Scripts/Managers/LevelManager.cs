@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum LEVEL_STATE
 {
@@ -60,6 +61,7 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> endUIPositions = new List<GameObject>();
     public float scoreGoal;
     public string levelMusic;
+    public Slider levelTimerBar;
 
 
     private void Start()
@@ -88,6 +90,7 @@ public class LevelManager : MonoBehaviour
             //if (GhostManager.Instance.CalculateGhostScore() <= 0) EndLevel();
 
             levelTimer -= Time.deltaTime;
+            levelTimerBar.value = levelTimer / levelMaxTime;
             var ts = TimeSpan.FromSeconds(levelTimer);
             levelTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
 

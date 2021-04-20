@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8926469001739799493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.036723, y: -1.008, z: 0}
+  m_LocalPosition: {x: -0.87, y: -1.008, z: 0}
   m_LocalScale: {x: 2.120916, y: 2.120916, z: 2.120916}
   m_Children:
   - {fileID: 9101660137676088880}
@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 9101660138859991164}
   - component: {fileID: 9101660138859991165}
   - component: {fileID: 19252406}
+  - component: {fileID: 4441331718491266543}
   m_Layer: 0
   m_Name: Location Pin
   m_TagString: Untagged
@@ -311,3 +312,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811ce7b63f202214488254ad6daa7f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4441331718491266543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101660138859991162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fbf90342b58ce4294c5cb311f9ef56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  northNav: {fileID: 0}
+  southNav: {fileID: 0}
+  eastNav: {fileID: 0}
+  westNav: {fileID: 0}

@@ -47,59 +47,31 @@ public class CameraManager : MonoBehaviour
         {
             case CAMERA_POSITION.NORMAL:
 
-                //sets text green when you press button
-                if (Gamepad.all[0].dpad.right.wasPressedThisFrame)
-                {
-                    textItemIndex++;
-                    if (textItemIndex == textItems.Count)
-                    {
-                        textItemIndex = 0;
-                    }
-                    foreach (TextMeshPro text in textItems)
-                    {
-                        text.color = Color.white;
-                    }
-                    AudioManager.Instance.Play("Click");
-                    textItems[textItemIndex].color = selectedColor;
-                }
-                else if (Gamepad.all[0].dpad.left.wasPressedThisFrame)
-                {
-                    textItemIndex--;
-                    if (textItemIndex < 0)
-                    {
-                        textItemIndex = textItems.Count - 1;
-                    }
-                    foreach (TextMeshPro text in textItems)
-                    {
-                        text.color = Color.white;
-                    }
-                    AudioManager.Instance.Play("Click");
-                    textItems[textItemIndex].color = selectedColor;
-                }
-
                 if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
                 {
-                    
-                    if (textItemIndex == 0)
+                    //0 is players, 1 is map, 2 is quit, 3 is credits, 4 is settings
+                    if (NavigationManager.Instance.currentSelection.index == 0)
                     {
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[0].position, CAMERA_POSITION.PLAYERS));
                     }
-                    else if (textItemIndex == 1)
+                    else if (NavigationManager.Instance.currentSelection.index == 1)
                     {
                         DataSelectManager.Instance.UpdatePlayerData();
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[1].position, CAMERA_POSITION.MAP));
+                        DataSelectManager.Instance.levelPins[0].GetChild().SetActive(true);
+                        NavigationManager.Instance.currentSelection = DataSelectManager.Instance.levelPins[0].GetComponent<NavigationNode>();
                     }
-                    else if (textItemIndex == 2)
+                    else if (NavigationManager.Instance.currentSelection.index == 2)
                     {
                         print("quit game");
                         Application.Quit();
                     }
-                    else if (textItemIndex == 3)
+                    else if (NavigationManager.Instance.currentSelection.index == 3)
                     {
                         credits.gameObject.SetActive(true);
                         print("access credits");
                     }
-                    else if (textItemIndex == 4)
+                    else if (NavigationManager.Instance.currentSelection.index == 4)
                     {
                         StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[2].position, CAMERA_POSITION.SETTINGS));
                         Camera.main.transform.rotation = cameraPositions[2].rotation;
@@ -110,9 +82,12 @@ public class CameraManager : MonoBehaviour
                 }
                 break;
             case CAMERA_POSITION.MAP:
+
                 if (Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
                     StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
+                    DataSelectManager.Instance.SetAllPinTextInactive();
+                    NavigationManager.Instance.currentSelection = textItems[1].GetComponent<NavigationNode>();
                 }
                     break;
             case CAMERA_POSITION.PLAYERS:
@@ -135,20 +110,13 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-
-    /*IEnumerator ColorLerp(Color endValue, float duration)
+    public void MakeAllTextWhite()
     {
-        float time = 0;
-        Color startValue = startColor;
-
-        while (time < duration)
+        foreach (TextMeshPro text in textItems)
         {
-            fadeOutSprite.color = Color.Lerp(startValue, endValue, time / duration);
-            time += Time.deltaTime;
-            yield return null;
+            text.color = Color.white;
         }
-        fadeOutSprite.color = endValue;
-    }*/
+    }
 
     IEnumerator LerpCameraPos(Vector3 startValue, Vector3 endValue, CAMERA_POSITION pos)
     {
