@@ -10,6 +10,7 @@ public class SmallGhost : MonoBehaviour
     [SerializeField] private float _transformTimerMax = 1.5f;
     [SerializeField] private bool _scareable = true;
     [SerializeField] private float _onScareInvincibilityTime = 1.0f;
+    [SerializeField] public int pointValue = 1;
 
     public List<Player> players = new List<Player>();
     public float timer = 30f; //scare timer

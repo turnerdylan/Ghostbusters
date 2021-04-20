@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
             Instantiate(smallGhostFX, transform.position, Quaternion.identity);
             GhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
-            _numberOfHeldGhosts++;
+            _numberOfHeldGhosts += other.GetComponent<SmallGhost>().pointValue;
             UIManager.Instance.UpdateHeldGhosts();
         }
     }

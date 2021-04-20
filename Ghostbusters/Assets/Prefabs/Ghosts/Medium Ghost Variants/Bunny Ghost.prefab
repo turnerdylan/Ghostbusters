@@ -382,7 +382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugging: 0
   _ghostsToSpawn: 4
-  _ghostSpawnOffset: 0.5
   scaresNeeded: 2
   timer: 3
   players: []
@@ -448,8 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1884747205189362, guid: 832c5acb0d751a64db2c2fba43d6b0ea, type: 3}
-  attackTimer: 5
-  force: 2300
+  attackTimer: 2
+  force: 1500
 --- !u!114 &6481475434821060172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadad8da8126e72469e2541d64546829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 8
 --- !u!1 &3272214951978296805
 GameObject:
   m_ObjectHideFlags: 0

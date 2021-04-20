@@ -466,6 +466,7 @@ MonoBehaviour:
   _transformTimerMax: 1.5
   _scareable: 1
   _onScareInvincibilityTime: 1
+  pointValue: 2
   players: []
   timer: 25
   _transformTimer: 0
