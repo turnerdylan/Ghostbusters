@@ -42,7 +42,7 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(BackwardsControls());
                 break;
             case 2:
-                StartCoroutine(Invisibility()); //not implemented yet
+                StartCoroutine(Invisibility());
                 break;
             case 3:
                 StartCoroutine(IcyFloor());
@@ -84,11 +84,13 @@ public class ChaosManager : MonoBehaviour
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            player.GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
         yield return new WaitForSeconds(chaosEventTime);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+            player.GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
     }
 

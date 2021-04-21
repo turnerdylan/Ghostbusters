@@ -933,7 +933,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""Menu"",
+            ""name"": ""Player Select"",
             ""id"": ""0d6087ce-a7ec-4a39-a398-36521a96dcd1"",
             ""actions"": [
                 {
@@ -948,6 +948,14 @@ public class @SampleInput : IInputActionCollection, IDisposable
                     ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""df94b1b8-c86a-4baa-8b2d-960eb8dd2b96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""8db00f7f-7f16-43b3-885a-2dfd7f78938b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
@@ -1126,12 +1134,45 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a2ceb52d-d440-4848-ae4d-db8452fbc7e8"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""1a3b3844-a7c2-4b22-b646-35233e2a69da"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cf44885-c92e-48c2-8a80-960485673c82"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ed43f98-1358-4615-b1bd-ecf752202047"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1227,12 +1268,13 @@ public class @SampleInput : IInputActionCollection, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
-        m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
-        m_Menu_Right = m_Menu.FindAction("Right", throwIfNotFound: true);
-        m_Menu_Left = m_Menu.FindAction("Left", throwIfNotFound: true);
+        // Player Select
+        m_PlayerSelect = asset.FindActionMap("Player Select", throwIfNotFound: true);
+        m_PlayerSelect_Move = m_PlayerSelect.FindAction("Move", throwIfNotFound: true);
+        m_PlayerSelect_Select = m_PlayerSelect.FindAction("Select", throwIfNotFound: true);
+        m_PlayerSelect_Back = m_PlayerSelect.FindAction("Back", throwIfNotFound: true);
+        m_PlayerSelect_Right = m_PlayerSelect.FindAction("Right", throwIfNotFound: true);
+        m_PlayerSelect_Left = m_PlayerSelect.FindAction("Left", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1505,44 +1547,49 @@ public class @SampleInput : IInputActionCollection, IDisposable
     }
     public UIActions @UI => new UIActions(this);
 
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_Move;
-    private readonly InputAction m_Menu_Select;
-    private readonly InputAction m_Menu_Right;
-    private readonly InputAction m_Menu_Left;
-    public struct MenuActions
+    // Player Select
+    private readonly InputActionMap m_PlayerSelect;
+    private IPlayerSelectActions m_PlayerSelectActionsCallbackInterface;
+    private readonly InputAction m_PlayerSelect_Move;
+    private readonly InputAction m_PlayerSelect_Select;
+    private readonly InputAction m_PlayerSelect_Back;
+    private readonly InputAction m_PlayerSelect_Right;
+    private readonly InputAction m_PlayerSelect_Left;
+    public struct PlayerSelectActions
     {
         private @SampleInput m_Wrapper;
-        public MenuActions(@SampleInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Menu_Move;
-        public InputAction @Select => m_Wrapper.m_Menu_Select;
-        public InputAction @Right => m_Wrapper.m_Menu_Right;
-        public InputAction @Left => m_Wrapper.m_Menu_Left;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public PlayerSelectActions(@SampleInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_PlayerSelect_Move;
+        public InputAction @Select => m_Wrapper.m_PlayerSelect_Select;
+        public InputAction @Back => m_Wrapper.m_PlayerSelect_Back;
+        public InputAction @Right => m_Wrapper.m_PlayerSelect_Right;
+        public InputAction @Left => m_Wrapper.m_PlayerSelect_Left;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerSelect; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
+        public static implicit operator InputActionMap(PlayerSelectActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerSelectActions instance)
         {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerSelectActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
-                @Select.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
-                @Select.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
-                @Select.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSelect;
-                @Right.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnRight;
-                @Right.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnRight;
-                @Right.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnRight;
-                @Left.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeft;
-                @Left.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeft;
-                @Left.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeft;
+                @Move.started -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnMove;
+                @Select.started -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnSelect;
+                @Back.started -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnBack;
+                @Right.started -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnRight;
+                @Right.performed -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnRight;
+                @Right.canceled -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnRight;
+                @Left.started -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnLeft;
+                @Left.performed -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnLeft;
+                @Left.canceled -= m_Wrapper.m_PlayerSelectActionsCallbackInterface.OnLeft;
             }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerSelectActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -1551,6 +1598,9 @@ public class @SampleInput : IInputActionCollection, IDisposable
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
                 @Right.started += instance.OnRight;
                 @Right.performed += instance.OnRight;
                 @Right.canceled += instance.OnRight;
@@ -1560,7 +1610,7 @@ public class @SampleInput : IInputActionCollection, IDisposable
             }
         }
     }
-    public MenuActions @Menu => new MenuActions(this);
+    public PlayerSelectActions @PlayerSelect => new PlayerSelectActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1634,10 +1684,11 @@ public class @SampleInput : IInputActionCollection, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
     }
-    public interface IMenuActions
+    public interface IPlayerSelectActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
     }

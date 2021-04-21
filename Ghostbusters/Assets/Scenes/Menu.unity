@@ -1434,6 +1434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Picture (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: playerIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861f0625dcea59c42ab8ffe80d89211c, type: 3}
 --- !u!4 &458830323 stripped
@@ -2972,6 +2977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Picture (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: playerIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861f0625dcea59c42ab8ffe80d89211c, type: 3}
 --- !u!4 &943683866 stripped
@@ -4334,6 +4344,11 @@ PrefabInstance:
     - target: {fileID: 3863245536093139042, guid: 861f0625dcea59c42ab8ffe80d89211c,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7059,6 +7074,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 864327148}
     m_Modifications:
+    - target: {fileID: 705853203878466479, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705853203878466479, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[26].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 705853203878466479, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player Select
+      objectReference: {fileID: 0}
     - target: {fileID: 3863245536093139038, guid: 861f0625dcea59c42ab8ffe80d89211c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7113,11 +7143,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863245536093139038, guid: 861f0625dcea59c42ab8ffe80d89211c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 3863245536093139042, guid: 861f0625dcea59c42ab8ffe80d89211c,
         type: 3}

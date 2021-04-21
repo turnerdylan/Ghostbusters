@@ -7,6 +7,7 @@ public class PunchAttack : MonoBehaviour
     public GameObject hand;
     private Animator anim;
     [SerializeField] private float attackTimerMax;
+    [SerializeField] private float attackRange = 15;
     private float _attackTimer;
     private bool attacking;
 
@@ -21,7 +22,7 @@ public class PunchAttack : MonoBehaviour
     void Update()
     {
         _attackTimer -= Time.deltaTime;
-        if(_attackTimer < 0 && !attacking)
+        if(_attackTimer < 0 && !attacking && Vector3.Distance(PlayerManager.Instance.GetClosestPlayer(transform).position, transform.position) < attackRange)
         {
             attacking = true;
             StartCoroutine(GetComponent<LegGhostMovement>().State_Attack());

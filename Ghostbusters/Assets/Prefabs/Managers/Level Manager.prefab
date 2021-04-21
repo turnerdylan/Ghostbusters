@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMaxTime: 150
-  startCountdownTimer: 5
+  startCountdownTimer: 3
   pauseUI: {fileID: 0}
   pauseUIElements:
   - {fileID: 0}
@@ -68,3 +68,4 @@ MonoBehaviour:
   - {fileID: 0}
   scoreGoal: 20
   levelMusic: Day To Day
+  levelTimerBar: {fileID: 0}

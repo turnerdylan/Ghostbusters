@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 3863245536093139042}
   m_LocalRotation: {x: 0.029171724, y: 0.015040541, z: 0.0051483237, w: 0.99944806}
   m_LocalPosition: {x: 0.040000007, y: 5.9012003, z: 5.3253}
-  m_LocalScale: {x: 0.11652231, y: 1.7511739, z: 1.5632689}
+  m_LocalScale: {x: 0.001, y: 1.7511739, z: 1.5632689}
   m_Children:
   - {fileID: 3863245536523366214}
   - {fileID: 3863245535136107172}
@@ -380,12 +380,12 @@ MonoBehaviour:
     m_ActionName: Menu/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 7312181326275114153}
+        m_MethodName: OnSelect
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -427,9 +427,40 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 592f8f20-e1e9-4a5e-a579-9b394d8421ce
     m_ActionName: Player/DepositGhosts[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c58cda4-2d0a-4d2b-b82b-d4fb54f234c5
+    m_ActionName: Player/Pause[/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9881f653-d406-4581-b1c1-4c00c93a645b
+    m_ActionName: Player/UpUI[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d0f58ee-bb2e-4d9c-9478-e487a2ea3f6d
+    m_ActionName: Player/DownUI[/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14d31097-9528-4a25-80dc-f5af36bf0b12
+    m_ActionName: Player/SelectUI[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7312181326275114153}
+        m_MethodName: OnBack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8db00f7f-7f16-43b3-885a-2dfd7f78938b
+    m_ActionName: Player Select/Back[/DualShock4GamepadHID/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Menu
+  m_DefaultActionMap: 0d6087ce-a7ec-4a39-a398-36521a96dcd1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &3863245536523366217

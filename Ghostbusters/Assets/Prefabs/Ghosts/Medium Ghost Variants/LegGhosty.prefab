@@ -683,7 +683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3912887624778182390}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.7650602, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7650602, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7385732793954007550}
@@ -926,7 +926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 6152369583775266710}
-  attackTimerMax: 0
+  attackTimerMax: 3
+  attackRange: 15
 --- !u!114 &-8237077983489016521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,8 +1305,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5386721, y: 1.3005055, z: 1.942831}
+  m_Center: {x: 0.05053148, y: -0.2618374, z: 0.086872384}
 --- !u!114 &8947348965575105397
 MonoBehaviour:
   m_ObjectHideFlags: 0

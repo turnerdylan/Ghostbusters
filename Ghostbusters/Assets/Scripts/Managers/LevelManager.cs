@@ -68,11 +68,10 @@ public class LevelManager : MonoBehaviour
     {
         levelTimer = levelMaxTime;
         Time.timeScale = 0;
-        //StartCoroutine(StartCountdown());
+        StartCoroutine(StartCountdown());
         endLevelUI.SetActive(false);
         scoreGoalText.text = "Goal: " + scoreGoal.ToString();
         SetPauseUI(false);
-        BeginLevel();
         AudioManager.Instance.Play(levelMusic);
     }
 
@@ -242,7 +241,7 @@ public class LevelManager : MonoBehaviour
         BeginLevel();
     }
 
-    private void BeginLevel()
+    public void BeginLevel()
     {
         Time.timeScale = 1;
         currentState = LEVEL_STATE.STARTED;
