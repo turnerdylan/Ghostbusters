@@ -88,12 +88,5 @@ public class PlayerSelect : MonoBehaviour
     public void UpdateTextures()
     {
         mesh.material = playerImages[imageIndex];
-        OnPlayerImageChanged();
-    }
-
-    private void OnPlayerImageChanged()
-    {
-        print("player image changed");
-        //playerprefs.setplayerint
     }
 }

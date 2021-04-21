@@ -58,4 +58,29 @@ public class GhostManager : MonoBehaviour
             ghost.GetComponent<NavMeshAgent>().enabled = state;
         }
     }
+
+    public void DestroyAllGhosts()
+    {
+        foreach(GameObject ghost in mediumGhostsInScene)
+        {
+            Destroy(ghost);
+        }
+        foreach (GameObject ghost in goldenGhostsInScene)
+        {
+            Destroy(ghost);
+        }
+    }
+
+    public void SetGhostUI(bool state)
+    {
+        foreach (GameObject ghost in mediumGhostsInScene)
+        {
+            ghost.GetComponentInChildren<Canvas>().enabled = state;
+        }
+        foreach (GameObject ghost in goldenGhostsInScene)
+        {
+            ghost.GetComponentInChildren<Canvas>().enabled = state;
+        }
+    }
+
 }

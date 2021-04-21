@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smokeBomb: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
-  chaosEventTime: 5
+  chaosEventTime: 8

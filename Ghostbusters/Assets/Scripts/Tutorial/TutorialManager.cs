@@ -55,7 +55,8 @@ public class TutorialManager : MonoBehaviour
                 if(stepNum == 9)
                 {
                     AudioManager.Instance.Stop(TutorialLevelManager.Instance.levelMusic);
-                    SceneManager.LoadScene(2);
+                    PlayerPrefs.SetInt("TutorialComplete", 1);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                     //Destroy(DataSelectManager.Instance.gameObject);
                 }   
             }
