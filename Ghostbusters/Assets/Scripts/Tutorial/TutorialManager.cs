@@ -35,10 +35,12 @@ public class TutorialManager : MonoBehaviour
     private float stepOneTimer;
     private int stepNum = 0;
     private bool stepTextInProgress;
+    private bool canPress = true;
     bool stepOneInProgress, stepThree;
     void Start()
     {
         stepOneTimer = stepOneTime;
+        TriggerDelayContinue();
         StartNextStep(stepText[stepNum]);
     }
 
@@ -46,12 +48,15 @@ public class TutorialManager : MonoBehaviour
     {
         if(stepTextInProgress)
         {
-            if(Gamepad.all[0].buttonSouth.isPressed)
+            if(Gamepad.all[0].buttonSouth.isPressed && canPress)
             {
                 EndStep(stepText[stepNum]);
                 stepNum++;
                 if(stepNum > 5 && stepNum < 9)
-                    TriggerWait(0.2f);
+                {
+                    StartNextStep(stepText[stepNum]);
+                    TriggerDelayContinue();
+                }
                 if(stepNum == 9)
                 {
                     AudioManager.Instance.Stop(TutorialLevelManager.Instance.levelMusic);
@@ -107,6 +112,7 @@ public class TutorialManager : MonoBehaviour
     {
         peekabooGhost.SetActive(false);
         yield return new WaitForSeconds(0.35f);
+        TriggerDelayContinue();
         StartNextStep(stepText[stepNum]);
     }
 
@@ -118,7 +124,19 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
+        TriggerDelayContinue();
         StartNextStep(stepText[stepNum]);
+    }
+
+    public void TriggerDelayContinue()
+    {
+        StartCoroutine(DelayContinue());
+    }
+    IEnumerator DelayContinue()
+    {
+        canPress = false;
+        yield return new WaitForSecondsRealtime(2.0f);
+        canPress = true;
     }
 
 }

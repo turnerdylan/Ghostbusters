@@ -57,10 +57,10 @@ public class Player : MonoBehaviour
     private BUTTON_PRESS _buttonPressed = BUTTON_PRESS.None;
     private bool canMove = true;
     private float ghostSpawnRadius = 3.0f;
-    private String[] ahSounds = new String[] {"Ah1", "Ah2", "Ah3", "Ah4"};
-    private String[] wahSounds = new String[] {"Wah1", "Wah2", "Wah3", "Wah4"};
-    private String[] heySounds = new String[] {"Hey1", "Hey2", "Hey3", "Hey4"};
-    private String[] booSounds = new String[] {"Boo1", "Boo2", "Boo3", "Boo4"};
+    public String[] ahSounds = new String[4];
+    public String[] booSounds = new String[4];
+    public String[] heySounds = new String[4];
+    public String[] oooSounds = new String[4];
     
 
     private void Awake()
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
         {
             case BUTTON_PRESS.Up:
                 anim.SetBool("ScareUp", true);
-                PlayRandomScare(wahSounds);
+                PlayRandomScare(oooSounds);
                 break;
             case BUTTON_PRESS.Down:
                 anim.SetBool("ScareDown", true);

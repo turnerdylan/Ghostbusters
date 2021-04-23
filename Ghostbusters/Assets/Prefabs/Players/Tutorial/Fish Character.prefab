@@ -6053,6 +6053,26 @@ MonoBehaviour:
   score: 0
   characterSprite: {fileID: 21300000, guid: 6c84b75704e49ce4199afe7923bc1dd2, type: 3}
   _numberOfHeldGhosts: 0
+  ahSounds:
+  - FishAh1
+  - FishAh2
+  - FishAh3
+  - FishAh4
+  booSounds:
+  - FishBoo1
+  - FishBoo1
+  - FishBoo1
+  - FishBoo1
+  heySounds:
+  - FishHey1
+  - FishHey2
+  - FishHey3
+  - FishHey4
+  oooSounds:
+  - FishOoo1
+  - FishOoo2
+  - FishOoo3
+  - FishOoo3
 --- !u!1 &6809473405163930170
 GameObject:
   m_ObjectHideFlags: 0

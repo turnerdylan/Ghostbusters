@@ -74,114 +74,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Peekaboo Up
-    clip: {fileID: 8300000, guid: 36f9b16ece1e69b4c9db043344c4a93f, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ah1
-    clip: {fileID: 8300000, guid: 208fe39932ef4e043b9969edbeed5f33, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ah2
-    clip: {fileID: 8300000, guid: 42a2a91a69f9e5a4abfa1a3fe31773d1, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ah3
-    clip: {fileID: 8300000, guid: 5e77dc55763c5054f8560aa032a69838, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ah4
-    clip: {fileID: 8300000, guid: b90a1df31e1e46246ad6499e49675328, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Boo1
-    clip: {fileID: 8300000, guid: 8a23662be68c80045900f96f71260420, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Boo2
-    clip: {fileID: 8300000, guid: 255ff5a7a7a23a041b5e0671c3a382a1, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Boo3
-    clip: {fileID: 8300000, guid: d1f73ab8f4cf28f4ea21dd3f88683f37, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Boo4
-    clip: {fileID: 8300000, guid: 4b2da3bd33544be4da500c349a055bb7, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Hey1
-    clip: {fileID: 8300000, guid: 26c14fe8df0a4774faf8690f3833f687, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Hey2
-    clip: {fileID: 8300000, guid: 97baa7e558768c04e943ec5a20e47d3c, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Hey3
-    clip: {fileID: 8300000, guid: d76d9902b9c18204ca6f7aa8ddb06be1, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Hey4
-    clip: {fileID: 8300000, guid: f33b1f7fa21f0174da6cc3b71c26c4c8, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Wah1
-    clip: {fileID: 8300000, guid: 836b7e4f9bc78df40b013cb741b4e92a, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Wah2
-    clip: {fileID: 8300000, guid: a4148d3bb16949640967ff2c2d27dd71, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Wah3
-    clip: {fileID: 8300000, guid: 745ea94fb1d88414b82719b85229b86f, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Wah4
-    clip: {fileID: 8300000, guid: d087df65afb08844e821ab431a92f5d3, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ding
-    clip: {fileID: 8300000, guid: d71968704a2c43a42851bdad709de060, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Crafty Critters
     clip: {fileID: 8300000, guid: e86531c33bc240249b7b0283e9a5eea2, type: 3}
     volume: 0.5
@@ -190,6 +82,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Day To Day
     clip: {fileID: 8300000, guid: 3a5a6f5fcf0746646b3de6264768ac10, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Easy Going
+    clip: {fileID: 8300000, guid: 6ee5d623eb9692f41ab3a2e4b9629c00, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
@@ -218,6 +116,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Quirky Moments
+    clip: {fileID: 8300000, guid: 5502a96f295027d4e86f8aab6faca4aa, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Rabbit Run
     clip: {fileID: 8300000, guid: 5815dca6bb457b54f99e733a9eb4b015, type: 3}
     volume: 0.5
@@ -236,21 +140,742 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Easy Going
-    clip: {fileID: 8300000, guid: 6ee5d623eb9692f41ab3a2e4b9629c00, type: 3}
-    volume: 0.5
+  - name: Ding
+    clip: {fileID: 8300000, guid: d71968704a2c43a42851bdad709de060, type: 3}
+    volume: 0.3
     pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Quirky Moments
-    clip: {fileID: 8300000, guid: 5502a96f295027d4e86f8aab6faca4aa, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: Small Pop
     clip: {fileID: 8300000, guid: 9bef390a0c8d4174790c8ee8df7c8ba0, type: 3}
-    volume: 0.4
+    volume: 0.3
     pitch: 1.75
     loop: 0
     source: {fileID: 0}
+  - name: Ghost1
+    clip: {fileID: 8300000, guid: bcce892758c81cd409c934cf2862f8dd, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost2
+    clip: {fileID: 8300000, guid: e9bb810fa8a0f36459698fcd7425648f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost3
+    clip: {fileID: 8300000, guid: 156e02e67f1f87c4cadceadc4eec8457, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost4
+    clip: {fileID: 8300000, guid: a68b38248beecb848a2539637da38808, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost5
+    clip: {fileID: 8300000, guid: ac2343e9b5d4fc54281a5d7eb2a4ae3f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost6
+    clip: {fileID: 8300000, guid: 2828712dbaac4fa44b0aab23a8cd3909, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost7
+    clip: {fileID: 8300000, guid: 2cb82f324494bb94a9ba2bd81c8473ae, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost8
+    clip: {fileID: 8300000, guid: 76b161b69c6394e4bb74eb1a72ad9081, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost9
+    clip: {fileID: 8300000, guid: 7e879303b97484e4db52afab6727f047, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost10
+    clip: {fileID: 8300000, guid: 74c0a4c5d7dbe954f99489f6c4bdc113, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost11
+    clip: {fileID: 8300000, guid: 99648ffa27cd65644b138698070f66fe, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost12
+    clip: {fileID: 8300000, guid: ed2bc55b35c2fc348822753d2daa6708, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost13
+    clip: {fileID: 8300000, guid: ed1fd26e71acc414f86d3822eb4625ac, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost14
+    clip: {fileID: 8300000, guid: 154d60e9113b0604288080739251ef44, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost15
+    clip: {fileID: 8300000, guid: eb7c09f27a4fdc347b37cb43d9cfd9b8, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost16
+    clip: {fileID: 8300000, guid: c5934ea2a01246b478192d4da24a5437, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost17
+    clip: {fileID: 8300000, guid: 2f438614ce6000642b2469ecb3389834, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost18
+    clip: {fileID: 8300000, guid: 17fb802f67d25d9489632f79c23e5765, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost19
+    clip: {fileID: 8300000, guid: 8b082bfc43026414492da789b80a9674, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost20
+    clip: {fileID: 8300000, guid: 45a5b0e04d5a51a459cf0c6cec9bfba5, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost21
+    clip: {fileID: 8300000, guid: e0577b3fc5974e04886d84f40c350255, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost22
+    clip: {fileID: 8300000, guid: 147d182d9759cb248946d57b75efc274, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost23
+    clip: {fileID: 8300000, guid: 14fd1e8fcb464d248a7c9f4887aa9a96, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost24
+    clip: {fileID: 8300000, guid: 26f53e8ad84efe044aa0de7d13065a3b, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ghost25
+    clip: {fileID: 8300000, guid: db60727ac7399154db8d001bbaaa0e2a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdAh1
+    clip: {fileID: 8300000, guid: 482d613b9d37a924c96e3c450573b9b4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdAh2
+    clip: {fileID: 8300000, guid: 9d4452266a333bc44b0f2242a436c6a0, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdAh3
+    clip: {fileID: 8300000, guid: b7c2c7701528f7e4883bd083f248dfa9, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdAh4
+    clip: {fileID: 8300000, guid: 51c5946b3373a0c4ab88bf8287f0e9fe, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdBoo1
+    clip: {fileID: 8300000, guid: 375609724466dc643bfc04a56ac24ea5, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdBoo2
+    clip: {fileID: 8300000, guid: 97263acc4994bba4da0949c2bf53f74e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdBoo3
+    clip: {fileID: 8300000, guid: edf3be859f97b494bb11734397b003e1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdBoo4
+    clip: {fileID: 8300000, guid: 6d59db3b0ad425c459e3b692ba7e87c6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdHey1
+    clip: {fileID: 8300000, guid: e3f9eb4888bd7704a902edb1f14582b2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdHey2
+    clip: {fileID: 8300000, guid: 5e4101b236929934889863b50afc8224, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdHey3
+    clip: {fileID: 8300000, guid: c2e21f6a91230f64fb712d81ba7392b2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdHey4
+    clip: {fileID: 8300000, guid: fc3c4d8ba1b4ee147b11276a1a16c791, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdOoo1
+    clip: {fileID: 8300000, guid: 11b5954392bacf24596e98da0b643a90, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdOoo2
+    clip: {fileID: 8300000, guid: fc35900e753a5ea4492019ad22d35a37, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdOoo3
+    clip: {fileID: 8300000, guid: b83c35261483cfe44af3d59f032ed1ef, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BirdOoo4
+    clip: {fileID: 8300000, guid: 81ae39afec021f9489bbd662d2e12dae, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedAh1
+    clip: {fileID: 8300000, guid: ea4a0b8e0f9d2d14d8e6c2bd4e45e827, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedAh2
+    clip: {fileID: 8300000, guid: ba6f84e85741cb24a9db9295cb52b07e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedAh3
+    clip: {fileID: 8300000, guid: fd8f1219fd51c874f91a1095ae72bbdd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedAh4
+    clip: {fileID: 8300000, guid: a416d617f319d9e4c91fd06bb0d2707a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedBoo1
+    clip: {fileID: 8300000, guid: 30698555bda534042bacdc8d8699b4be, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedBoo2
+    clip: {fileID: 8300000, guid: 55fbd3e27f9c7ef47935a711ae888207, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedBoo3
+    clip: {fileID: 8300000, guid: fa84e7fb43b91784c9ff526e993c6293, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedBoo4
+    clip: {fileID: 8300000, guid: e7fb5f0de688fcc4e987d975442fe86e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedHey1
+    clip: {fileID: 8300000, guid: 39be2cefaf9d73e498a71b962d84b715, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedHey2
+    clip: {fileID: 8300000, guid: d2c52d379c0801548b88bead7819da55, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedHey3
+    clip: {fileID: 8300000, guid: 2410f9d849069bb43900d5ea0e947c88, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedHey4
+    clip: {fileID: 8300000, guid: 12168cc0c7ad5954987b255a57eda6cf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedOoo1
+    clip: {fileID: 8300000, guid: 34c5e16516dc4244bb6ed6895e24e544, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedOoo2
+    clip: {fileID: 8300000, guid: e35f0d8dd44aa5c4f8ce9fa6706511e7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedOoo3
+    clip: {fileID: 8300000, guid: 006d8e21bc2d0f94fb58facf3f614e01, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RedOoo4
+    clip: {fileID: 8300000, guid: dc5c3937d60a8fe41a33d78e8d5815c3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowAh1
+    clip: {fileID: 8300000, guid: 1c60e680d7d0dba4daad4e40b30f7c26, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowAh2
+    clip: {fileID: 8300000, guid: 4e19ea9e135edc441b91b7b1b78c4cc3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowAh3
+    clip: {fileID: 8300000, guid: bebb93a19e5a2ce4da63e119b46b2e96, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowAh4
+    clip: {fileID: 8300000, guid: 17c3949c4577b2d48b1ed6d552d4bd9d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowBoo1
+    clip: {fileID: 8300000, guid: 20ded9f73d23d424a891d24faa321f11, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowBoo2
+    clip: {fileID: 8300000, guid: 0c4315090909c6349a316b6a33d3fb60, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowBoo3
+    clip: {fileID: 8300000, guid: d555c49cf4b430b4eb83613fd54d0081, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowBoo4
+    clip: {fileID: 8300000, guid: 44970371caf04ba4e83446f10c05d7d3, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowHey1
+    clip: {fileID: 8300000, guid: 2f30f13c1c84dde4fa6485e5879d0799, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowHey2
+    clip: {fileID: 8300000, guid: a0099fc473ca29941b5546cfe01239f2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowHey3
+    clip: {fileID: 8300000, guid: 54711df32f50c2b45a07026f062c87ce, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowHey4
+    clip: {fileID: 8300000, guid: 27445fe6367e73d418c8943e2db60f9c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowOoo1
+    clip: {fileID: 8300000, guid: 4ce521376b0ace743887874b136a14d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowOoo2
+    clip: {fileID: 8300000, guid: c234c07383d70a541a1f949d0b15708d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowOoo3
+    clip: {fileID: 8300000, guid: d4384f612a0462944ac0800d689976d4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: YellowOoo4
+    clip: {fileID: 8300000, guid: 39db9e523bf640e4eb00f385cff60ce8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeAh1
+    clip: {fileID: 8300000, guid: 62c0bc4af73b7da48aafe55c40222b93, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeAh2
+    clip: {fileID: 8300000, guid: 917487c05815163469c333b45d82b091, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeAh3
+    clip: {fileID: 8300000, guid: e62b7b22a5909aa4ab7f56f648672cda, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeAh4
+    clip: {fileID: 8300000, guid: 31b1a6ac9d99e0244b87fd3165ae4e7b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeBoo1
+    clip: {fileID: 8300000, guid: 4a2e81fc0b1446d4493cf6205f40c320, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeBoo2
+    clip: {fileID: 8300000, guid: 8d946413eae6b0b4d9a376d8151884cb, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeBoo3
+    clip: {fileID: 8300000, guid: 16f1218c23d7d5340804a0b42a2df6da, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeBoo4
+    clip: {fileID: 8300000, guid: 44dbe2c7eccf9994a908809301025d00, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeHey1
+    clip: {fileID: 8300000, guid: a547fc0a881f10f4a9f2cc82a5b11c79, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeHey2
+    clip: {fileID: 8300000, guid: 0cf73412171360d4086e8aeea15b6184, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeHey3
+    clip: {fileID: 8300000, guid: 3d11e9039b636df479cd34da7553bc4d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeHey4
+    clip: {fileID: 8300000, guid: b6e5d7dd1913eed4e973e2bba66f3cae, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeOoo1
+    clip: {fileID: 8300000, guid: 0df69ea45e0451343b01bd10d4dd996f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeOoo2
+    clip: {fileID: 8300000, guid: baa45a328ade36f43847f4607e6b5134, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeOoo3
+    clip: {fileID: 8300000, guid: 5ef701171f8de764993e5cafd9449d13, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OrangeOoo4
+    clip: {fileID: 8300000, guid: dfbd347b699a6424e8e60b29fdf524e5, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsAh1
+    clip: {fileID: 8300000, guid: 348d0d32209b8564aa178fb491cc81d8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsAh2
+    clip: {fileID: 8300000, guid: 5b7494560b2c4a74198de667341f0cac, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsAh3
+    clip: {fileID: 8300000, guid: 88460ba19c9a0a14881e2d15b947ca2d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsAh4
+    clip: {fileID: 8300000, guid: 678db7228090bb84bb94b1c297565acf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsBoo1
+    clip: {fileID: 8300000, guid: 12ccf126ddab4a94dab6ec9f1839eeab, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsBoo2
+    clip: {fileID: 8300000, guid: 511e7fadcdfc8da4c8bc62aaada65515, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsBoo3
+    clip: {fileID: 8300000, guid: f4927db72fb086b40af4c0fd96e2ec60, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsBoo4
+    clip: {fileID: 8300000, guid: aa1afea28e027b0479dd72171d821d6f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsHey1
+    clip: {fileID: 8300000, guid: 07c4207bf61c12b4e8bc452ef24e502c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsHey2
+    clip: {fileID: 8300000, guid: 602b42141cb3db743999dc3a4c9a0e28, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsHey3
+    clip: {fileID: 8300000, guid: 27c081b49dca4ee4ea238fb80e77f943, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsHey4
+    clip: {fileID: 8300000, guid: 3f87d4e33c2ebe44f9a0a23770585911, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsOoo1
+    clip: {fileID: 8300000, guid: 3d19ccafae9287549b4cbae8846d87d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsOoo2
+    clip: {fileID: 8300000, guid: 938138daa4ecf47448cab7446b6fd762, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsOoo3
+    clip: {fileID: 8300000, guid: 6a950c2322dbc4542aa539abc7cce521, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SweetsOoo4
+    clip: {fileID: 8300000, guid: 30508be9f378e81469c8a90f431e0e1f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiAh1
+    clip: {fileID: 8300000, guid: 55947a90ea498ad4ba4d973d6880352a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiAh2
+    clip: {fileID: 8300000, guid: 56eeb8a730709bc4cad01d6b7d71969b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiAh3
+    clip: {fileID: 8300000, guid: c2f04966cff28b441a82432663b76071, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiAh4
+    clip: {fileID: 8300000, guid: 43cdbe8925665c2448c88530018a7b54, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiBoo1
+    clip: {fileID: 8300000, guid: a7c43565d2fa30745b96b5189a5edcac, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiBoo2
+    clip: {fileID: 8300000, guid: 6184ab40bac13fd4b983a92f290d4c27, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiBoo3
+    clip: {fileID: 8300000, guid: a4be74f3a98768d459714f2cceb192e2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiBoo4
+    clip: {fileID: 8300000, guid: 812a4896c253ae2498a192d15bea1e7f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiHey1
+    clip: {fileID: 8300000, guid: 41d57bd075244034eb5da0287f836c00, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiHey2
+    clip: {fileID: 8300000, guid: 3c81041d87fe6b34ca2bc37ab34dc0b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiHey3
+    clip: {fileID: 8300000, guid: 5f22bc12ce00be34a8a3d96ae668511d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiHey4
+    clip: {fileID: 8300000, guid: b262ca551ee3dff4a84258c244d9ebd6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiOoo1
+    clip: {fileID: 8300000, guid: 64200d471ebcd2a468a379fbed989900, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiOoo2
+    clip: {fileID: 8300000, guid: 9afd75b9f719458419eb04d6df95585d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiOoo3
+    clip: {fileID: 8300000, guid: 2724ebdf267cca14e8b6a11ca6e2f002, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoboiOoo4
+    clip: {fileID: 8300000, guid: c8cb7c6dc525190488be136075a18b87, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  volume: 0

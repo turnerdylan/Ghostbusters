@@ -55,10 +55,10 @@ public class TutorialPlayer : MonoBehaviour
     private TUTORIAL_PLAYER_STATE currentState = TUTORIAL_PLAYER_STATE.NORMAL;
     private TUTORIAL_BUTTON_PRESS _buttonPressed = TUTORIAL_BUTTON_PRESS.None;
     private bool canMove = true;
-    private String[] ahSounds = new String[] {"Ah1", "Ah2", "Ah3", "Ah4"};
-    private String[] wahSounds = new String[] {"Wah1", "Wah2", "Wah3", "Wah4"};
-    private String[] heySounds = new String[] {"Hey1", "Hey2", "Hey3", "Hey4"};
-    private String[] booSounds = new String[] {"Boo1", "Boo2", "Boo3", "Boo4"};
+    public String[] ahSounds = new String[4];
+    public String[] booSounds = new String[4];
+    public String[] heySounds = new String[4];
+    public String[] oooSounds = new String[4];
     
 
     private void Awake()
@@ -283,7 +283,7 @@ public class TutorialPlayer : MonoBehaviour
         {
             case TUTORIAL_BUTTON_PRESS.Up:
                 anim.SetBool("ScareUp", true);
-                PlayRandomScare(wahSounds);
+                PlayRandomScare(oooSounds);
                 break;
             case TUTORIAL_BUTTON_PRESS.Down:
                 anim.SetBool("ScareDown", true);

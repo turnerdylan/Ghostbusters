@@ -150,6 +150,86 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 929b47ba921226945990de393cf483a5,
         type: 3}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: ahSounds.Array.data[0]
+      value: RoboiAh1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: ahSounds.Array.data[1]
+      value: RoboiAh2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: ahSounds.Array.data[2]
+      value: RoboiAh3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: ahSounds.Array.data[3]
+      value: RoboiAh4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: booSounds.Array.data[0]
+      value: RoboiBoo1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: booSounds.Array.data[1]
+      value: RoboiBoo2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: booSounds.Array.data[2]
+      value: RoboiBoo3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: booSounds.Array.data[3]
+      value: RoboiBoo4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: heySounds.Array.data[0]
+      value: RoboiHey1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: heySounds.Array.data[1]
+      value: RoboiHey2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: heySounds.Array.data[2]
+      value: RoboiHey3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: heySounds.Array.data[3]
+      value: RoboiHey4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: oooSounds.Array.data[0]
+      value: RoboiOoo1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: oooSounds.Array.data[1]
+      value: RoboiOoo2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: oooSounds.Array.data[2]
+      value: RoboiOoo3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154425335734983823, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: oooSounds.Array.data[3]
+      value: RoboiOoo4
+      objectReference: {fileID: 0}
     - target: {fileID: 8661107302864104132, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_Mesh
