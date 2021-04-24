@@ -1664,6 +1664,11 @@ PrefabInstance:
       propertyPath: endUIPositions.Array.data[3]
       value: 
       objectReference: {fileID: 8942525121842448732}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelTimerBar
+      value: 
+      objectReference: {fileID: 8942525121842448736}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &204951025 stripped
@@ -13975,3 +13980,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8942525121842448717}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8942525121842448736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7806516688066846041, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8942525121842448717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

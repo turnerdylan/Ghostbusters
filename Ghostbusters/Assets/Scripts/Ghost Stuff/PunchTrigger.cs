@@ -8,7 +8,7 @@ public class PunchTrigger : MonoBehaviour
     {
         if(other.GetComponent<Player>())
         {
-            other.GetComponent<Player>().DropGhosts();
+            other.GetComponent<Player>().TriggerStun();
         }
     }
 }

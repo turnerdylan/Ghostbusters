@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
     private float _storedLookValue;
     private bool icy = false;
 
+    public int numberOfGhostsDeposited = 0;
+
     private int _numberOfHeldGhosts;
     private bool canDive = true;
     private bool backwardsControls = false;
@@ -115,6 +117,7 @@ public class Player : MonoBehaviour
         if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
         {
             score += _numberOfHeldGhosts;
+            numberOfGhostsDeposited += _numberOfHeldGhosts;
             Van.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
             UIManager.Instance.UpdateHeldGhosts();

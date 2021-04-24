@@ -9,7 +9,7 @@ public class SprayProjectile : MonoBehaviour
     {
         if(other.GetComponent<Player>())
         {
-            other.GetComponent<Player>().DropGhosts();
+            other.GetComponent<Player>().TriggerStun();
             Destroy(this.gameObject);
         }
     }
