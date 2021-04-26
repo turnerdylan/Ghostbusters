@@ -15,6 +15,7 @@ public class PlayerSelect : MonoBehaviour
     private float cursorMoveSpeed;
     private MeshRenderer mesh;
     private bool selected = false;
+    private bool canClick = true;
 
     private Color common;
 
@@ -30,7 +31,7 @@ public class PlayerSelect : MonoBehaviour
 
     public void OnRight(CallbackContext context)
     {
-        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected)
+        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected && canClick)
         {
             AudioManager.Instance.Play("Click");
             imageIndex++;
@@ -38,15 +39,29 @@ public class PlayerSelect : MonoBehaviour
             {
                 imageIndex = 0;
             }
-
+            //Trigger();
 
             UpdateTextures();
         }
     }
 
+    private void Trigger()
+    {
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        canClick = false;
+        print("hey");
+        yield return new WaitForSeconds(0.2f);
+        print("yo");
+        canClick = true;
+    }
+
     public void OnLeft(CallbackContext context)
     {
-        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected)
+        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected && canClick)
         {
             AudioManager.Instance.Play("Click");
             imageIndex--;
@@ -54,6 +69,8 @@ public class PlayerSelect : MonoBehaviour
             {
                 imageIndex = playerImages.Count - 1;
             }
+            //Trigger();
+
             UpdateTextures();
         }
     }

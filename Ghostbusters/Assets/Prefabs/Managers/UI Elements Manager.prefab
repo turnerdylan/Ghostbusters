@@ -56,3 +56,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc91433b194812d4cbc9851e38579022, type: 3}
   - {fileID: 21300000, guid: 929b47ba921226945990de393cf483a5, type: 3}
   - {fileID: 21300000, guid: ec623dc39b9385847b7efc1eb83e1f0b, type: 3}
+  stars:
+  - {fileID: 21300000, guid: df349facd2ee8074dbed2c4f1bcbacd0, type: 3}
+  - {fileID: 21300000, guid: 99dc3125ef501ec449efa7acd29fab9b, type: 3}
+  - {fileID: 21300000, guid: e4249ea69a479884aaca6b5a179c68fe, type: 3}
+  - {fileID: 21300000, guid: ab6305d2633e1144f8563eefb945e10e, type: 3}
+  chaosIcons:
+  - {fileID: 21300000, guid: 6dbcd32e74602d24ca2a51a8f25e66e3, type: 3}
+  - {fileID: 21300000, guid: 382e5c2ab17c9c84ca18cec5c2bde790, type: 3}
+  - {fileID: 21300000, guid: 95ca0da12325adf49aa9a11a6c32b22e, type: 3}
+  - {fileID: 21300000, guid: e05ea771b80b25e4c94dab208a7ab84a, type: 3}
+  - {fileID: 21300000, guid: 9030c0e0b389c7c4c99ae724aa8a4280, type: 3}

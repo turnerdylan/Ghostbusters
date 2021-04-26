@@ -45,3 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokeBomb: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
   chaosEventTime: 8
+  chaosSprites:
+  - {fileID: 21300000, guid: 6dbcd32e74602d24ca2a51a8f25e66e3, type: 3}
+  - {fileID: 21300000, guid: 382e5c2ab17c9c84ca18cec5c2bde790, type: 3}
+  - {fileID: 21300000, guid: 95ca0da12325adf49aa9a11a6c32b22e, type: 3}
+  - {fileID: 21300000, guid: e05ea771b80b25e4c94dab208a7ab84a, type: 3}
+  - {fileID: 21300000, guid: 9030c0e0b389c7c4c99ae724aa8a4280, type: 3}
+  chaosEventUI: {fileID: 0}

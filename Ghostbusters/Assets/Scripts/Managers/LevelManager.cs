@@ -58,8 +58,14 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI levelTimerText;
     public TextMeshProUGUI endLevelText;
     public TextMeshProUGUI scoreGoalText;
+    public GameObject stars;
     public List<GameObject> endUIPositions = new List<GameObject>();
-    public float scoreGoal;
+    
+    [Header("Scores")]
+    public float oneStarGoal;
+    public float twoStarGoal;
+    public float threeStarGoal;
+
     public string levelMusic;
     public Slider levelTimerBar;
 
@@ -70,7 +76,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         StartCoroutine(StartCountdown());
         endLevelUI.SetActive(false);
-        scoreGoalText.text = "Goal: " + scoreGoal.ToString();
+        scoreGoalText.text = "Goal: " + oneStarGoal.ToString();
         SetPauseUI(false);
         AudioManager.Instance.Play(levelMusic);
     }
@@ -186,15 +192,28 @@ public class LevelManager : MonoBehaviour
         GhostManager.Instance.DestroyAllGhosts();
         //add a delay here
         Time.timeScale = 0;
-        if(PlayerManager.Instance.totalScore >= scoreGoal)
+        if(PlayerManager.Instance.totalScore >= oneStarGoal)
         {
             endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
             DataSelectManager.Instance.IncrementLevel();
-            
+            if(PlayerManager.Instance.totalScore >= threeStarGoal)
+            {
+                stars.GetComponent<Image>().sprite = UIManager.Instance.stars[3];
+            }
+            else if(PlayerManager.Instance.totalScore >= twoStarGoal)
+            {
+                stars.GetComponent<Image>().sprite = UIManager.Instance.stars[2];
+            }
+            else
+            {
+                //print one star
+                stars.GetComponent<Image>().sprite = UIManager.Instance.stars[1];
+            }
         }
         else
         {
             endLevelText.text = "Level Failed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+            stars.GetComponent<Image>().sprite = UIManager.Instance.stars[0];
         }
         
         endLevelUI.SetActive(true);

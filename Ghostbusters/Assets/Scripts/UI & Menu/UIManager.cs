@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
 
     public List<UIElement> UIElements = new List<UIElement>();
     public List<Sprite> playerImages = new List<Sprite>();
+    public List<Sprite> stars = new List<Sprite>();
     // yellow, orange, bird, fish, red, robot, candy
 
     // Start is called before the first frame update

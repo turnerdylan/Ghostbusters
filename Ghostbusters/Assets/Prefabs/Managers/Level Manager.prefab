@@ -61,11 +61,14 @@ MonoBehaviour:
   levelTimerText: {fileID: 0}
   endLevelText: {fileID: 0}
   scoreGoalText: {fileID: 0}
+  stars: {fileID: 0}
   endUIPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  scoreGoal: 20
+  oneStarGoal: 3
+  twoStarGoal: 7
+  threeStarGoal: 10
   levelMusic: Day To Day
   levelTimerBar: {fileID: 0}

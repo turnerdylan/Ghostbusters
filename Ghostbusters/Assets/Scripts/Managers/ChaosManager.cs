@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ChaosManager : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class ChaosManager : MonoBehaviour
 
     [SerializeField] GameObject smokeBomb;
     [SerializeField] float chaosEventTime = 5f;
+    //backwards, invis, slippery, smoke, speed
+    [SerializeField] List<Sprite> chaosSprites = new List<Sprite>();
+    [SerializeField] GameObject chaosEventUI;
 
     public void PickChaosEvent(int eventKey, Vector3 pos)
     {
@@ -48,18 +52,23 @@ public class ChaosManager : MonoBehaviour
                 StartCoroutine(IcyFloor());
                 break;
             case 4:
-                SmokeBomb(pos);
+                StartCoroutine(SmokeBomb(pos));
                 break;
         }
     }
 
     private IEnumerator SuperSpeed()
     {
+        chaosEventUI.SetActive(true);
+        //chaosEventUI.GetComponent<Image>().sprite = chaosSprites[4]. sprite;
+        chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player._moveSpeed = 100;
         }
         yield return new WaitForSeconds(chaosEventTime);
+        chaosEventUI.GetComponent<Image>().sprite = null;
+        chaosEventUI.SetActive(false);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player._moveSpeed = 25;
@@ -68,11 +77,16 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator BackwardsControls()
     {
+        chaosEventUI.SetActive(true);
+        chaosEventUI.GetComponent<Image>().sprite = chaosSprites[0];
+        chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.SetBackwardsControls(true);
         }
         yield return new WaitForSeconds(chaosEventTime);
+        chaosEventUI.GetComponent<Image>().sprite = null;
+        chaosEventUI.SetActive(false);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.SetBackwardsControls(false);
@@ -81,12 +95,18 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator Invisibility()
     {
+        chaosEventUI.SetActive(true);
+        chaosEventUI.GetComponent<Image>().sprite = chaosSprites[1];
+        chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             player.GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
         yield return new WaitForSeconds(chaosEventTime);
+
+        chaosEventUI.GetComponent<Image>().sprite = null;
+        chaosEventUI.SetActive(false);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
@@ -96,12 +116,18 @@ public class ChaosManager : MonoBehaviour
 
     private IEnumerator IcyFloor()
     {
+        chaosEventUI.SetActive(true);
+        chaosEventUI.GetComponent<Image>().sprite = chaosSprites[2];
+        chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.SetIcy(true);
             player.GetComponent<Rigidbody>().drag = 0;
         }
         yield return new WaitForSeconds(chaosEventTime);
+
+        chaosEventUI.GetComponent<Image>().sprite = null;
+        chaosEventUI.SetActive(false);
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
             player.SetIcy(false);
@@ -109,8 +135,14 @@ public class ChaosManager : MonoBehaviour
         }
     }
 
-    private void SmokeBomb(Vector3 smokePosition)
+    private IEnumerator SmokeBomb(Vector3 smokePosition)
     {
+        chaosEventUI.SetActive(true);
+        chaosEventUI.GetComponent<Image>().sprite = chaosSprites[3];
+        chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         Instantiate(smokeBomb, smokePosition, Quaternion.identity);
+        yield return new WaitForSeconds(chaosEventTime);
+        chaosEventUI.GetComponent<Image>().sprite = null;
+        chaosEventUI.SetActive(false);
     }
 }

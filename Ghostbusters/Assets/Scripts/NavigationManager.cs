@@ -38,7 +38,7 @@ public class NavigationManager : MonoBehaviour
     {
         cameraManager = FindObjectOfType<CameraManager>();
         currentSelection = cameraManager.textItems[0].GetComponent<NavigationNode>();
-        currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+        //currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
     }
 
     private void Update()
@@ -72,6 +72,7 @@ public class NavigationManager : MonoBehaviour
                 if (Gamepad.all[i].dpad.right.wasPressedThisFrame || Gamepad.all[i].leftStick.right.wasPressedThisFrame)
                 {
                     GoEast(1);
+                    print("test");
                 }
                 else if (Gamepad.all[i].dpad.up.wasPressedThisFrame || Gamepad.all[i].leftStick.up.wasPressedThisFrame)
                 {

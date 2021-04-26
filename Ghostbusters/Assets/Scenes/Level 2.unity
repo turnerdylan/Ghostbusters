@@ -1646,6 +1646,11 @@ PrefabInstance:
       objectReference: {fileID: 8942525121842448731}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
+      propertyPath: stars
+      value: 
+      objectReference: {fileID: 521020604}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
       propertyPath: endUIPositions.Array.data[0]
       value: 
       objectReference: {fileID: 8942525121842448735}
@@ -3770,6 +3775,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1900863276326196844, guid: 0583c39237c299949843c21f8ac2be0b,
     type: 3}
   m_PrefabInstance: {fileID: 488659404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &521020604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1041565625549550303, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8942525121842448717}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &546896489
 PrefabInstance:
@@ -5986,6 +5997,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaos Events Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7310111228823428682, guid: 53d27336a9436c343908173d0b8a034e,
+        type: 3}
+      propertyPath: chaosEventUI
+      value: 
+      objectReference: {fileID: 1475359326}
     - target: {fileID: 7310111228823428683, guid: 53d27336a9436c343908173d0b8a034e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8840,6 +8856,12 @@ CapsuleCollider:
   m_Height: 14.644407
   m_Direction: 1
   m_Center: {x: 0.031039875, y: 6.526468, z: 0.075593315}
+--- !u!1 &1475359326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5856133065218784516, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8942525121842448717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1493432269
 PrefabInstance:
   m_ObjectHideFlags: 0
