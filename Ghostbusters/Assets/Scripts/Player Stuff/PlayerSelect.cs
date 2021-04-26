@@ -14,8 +14,8 @@ public class PlayerSelect : MonoBehaviour
     private Vector3 inputVector;
     private float cursorMoveSpeed;
     private MeshRenderer mesh;
-    private bool selected = false;
     private bool canClick = true;
+    public bool selected = false;
 
     private Color common;
 
@@ -34,12 +34,21 @@ public class PlayerSelect : MonoBehaviour
         if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected && canClick)
         {
             AudioManager.Instance.Play("Click");
-            imageIndex++;
-            if(imageIndex >= playerImages.Count)
+
+            int tempIndex = imageIndex;
+
+            while(DataSelectManager.Instance.playersSelected[tempIndex] == true)
             {
-                imageIndex = 0;
+                tempIndex++;
+                if(tempIndex >= 7)
+                {
+                    tempIndex = 0;
+                }
             }
-            //Trigger();
+            DataSelectManager.Instance.playersSelected[imageIndex] = false;
+            DataSelectManager.Instance.playersSelected[tempIndex] = true;
+
+            imageIndex = tempIndex;
 
             UpdateTextures();
         }
@@ -86,24 +95,39 @@ public class PlayerSelect : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.green;
 
             selected = true;
+
+            if(DataSelectManager.Instance.CheckIfAllPlayersAreReady())
+            {
+                cameraManager.ExitPlayerSelect();
+            }
         }
     }
 
     public void OnBack(CallbackContext context)
     {
-        if(context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && selected)
+        if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && selected)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
-            transform.GetChild(1).gameObject.SetActive(true);
-            GetComponent<MeshRenderer>().material.color = common;
-            selected = false;
+            Unready();
         }
     }*/
+
+    public void Unready()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
+        GetComponent<MeshRenderer>().material.color = common;
+        selected = false;
+    }
 
 
 
     public void UpdateTextures()
     {
         mesh.material = playerImages[imageIndex];
+    }
+
+    public void SetTexture(int index)
+    {
+        mesh.material = playerImages[index];
     }
 }

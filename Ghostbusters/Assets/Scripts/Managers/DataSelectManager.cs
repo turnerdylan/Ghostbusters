@@ -36,6 +36,7 @@ public class DataSelectManager : MonoBehaviour
 
     //player stuff
     public List<PlayerSelect> players = new List<PlayerSelect>();
+    public bool[] playersSelected = new bool[7];
     public List<int> playerIndexes = new List<int>();
 
     public List<SpriteRenderer> pluses = new List<SpriteRenderer>();
@@ -56,6 +57,21 @@ public class DataSelectManager : MonoBehaviour
 
         AudioManager.Instance.Play(levelMusic);
 
+        PlayerAndLevelSetup();
+
+        for (int i = 0; i < 4; i++)
+        {
+            players[i].SetTexture(i);
+            playersSelected[i] = true;
+        }
+
+        ActivatePlayerPictures();
+        camManager = FindObjectOfType<CameraManager>();
+        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+    }
+
+    private void PlayerAndLevelSetup()
+    {
         //set players pics inactive
         for (int i = 0; i < players.Count; i++)
         {
@@ -69,13 +85,10 @@ public class DataSelectManager : MonoBehaviour
         }
 
         //set unlocked levels active
-        for (int i=0; i < furthestUnlockedLevel; i++)
+        for (int i = 0; i < furthestUnlockedLevel; i++)
         {
             levelPins[i].gameObject.SetActive(true);
         }
-        ActivatePlayerPictures();
-        camManager = FindObjectOfType<CameraManager>();
-        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
     }
 
     private void Update()
@@ -91,6 +104,26 @@ public class DataSelectManager : MonoBehaviour
                 AudioManager.Instance.Stop(levelMusic);
                 SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
             }
+        }
+    }
+
+    public bool CheckIfAllPlayersAreReady()
+    {
+        for(int i=0; i< Gamepad.all.Count; i++)
+        {
+            if (true)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void MakeAllPlayersNotReady()
+    {
+        foreach(PlayerSelect player in players)
+        {
+            player.Unready();
         }
     }
 
