@@ -116,6 +116,11 @@ public class Player : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
         {
+            if(_numberOfHeldGhosts == 0)
+            {
+                AudioManager.Instance.Play("Van No Ghosts");
+                return;
+            }
             score += _numberOfHeldGhosts;
             numberOfGhostsDeposited += _numberOfHeldGhosts;
             Van.Instance.DepositGhosts(_numberOfHeldGhosts);

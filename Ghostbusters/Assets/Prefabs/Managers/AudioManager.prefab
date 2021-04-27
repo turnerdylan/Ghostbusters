@@ -878,4 +878,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  volume: 0
+  - name: Van No Ghosts
+    clip: {fileID: 8300000, guid: a89cda39f13c4f5458b81d60d67b0cbd, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  volume: 0.1
