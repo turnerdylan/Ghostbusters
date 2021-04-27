@@ -4759,6 +4759,21 @@ PrefabInstance:
       propertyPath: stars
       value: 
       objectReference: {fileID: 1964350848}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: oneStarGoal
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: twoStarGoal
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: threeStarGoal
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &528699342 stripped
@@ -12117,7 +12132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627795240}
   m_LocalRotation: {x: 0.5269557, y: 0, z: 0, w: 0.84989274}
-  m_LocalPosition: {x: -0.7, y: 68.6, z: -43.6}
+  m_LocalPosition: {x: -0.7, y: 60.7, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

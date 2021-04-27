@@ -3086,6 +3086,21 @@ PrefabInstance:
       propertyPath: stars
       value: 
       objectReference: {fileID: 373189018}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: oneStarGoal
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: twoStarGoal
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: threeStarGoal
+      value: 48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &1056150695 stripped
