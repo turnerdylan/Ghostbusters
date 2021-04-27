@@ -10,4 +10,4 @@ Our process documentation for this project can be found [here](https://github.co
 
 Check out our [itch page](https://zspacesheikh.itch.io/spooked)
 
-Watch our gameplay trailer [here](https://vimeo.com/539164859)
+Watch our gameplay trailer [here](https://vimeo.com/542287767)
