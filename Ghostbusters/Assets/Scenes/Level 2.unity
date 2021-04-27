@@ -3794,11 +3794,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Van Parent
       objectReference: {fileID: 0}
-    - target: {fileID: 831120463373892911, guid: f89eebc61017c0e40a40f0724dbc1cea,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 831120463373892946, guid: f89eebc61017c0e40a40f0724dbc1cea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3853,22 +3848,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571110278524313841, guid: f89eebc61017c0e40a40f0724dbc1cea,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999724933560024871, guid: f89eebc61017c0e40a40f0724dbc1cea,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
-        type: 2}
-    - target: {fileID: 5686406950443124278, guid: f89eebc61017c0e40a40f0724dbc1cea,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89eebc61017c0e40a40f0724dbc1cea, type: 3}
@@ -8496,11 +8475,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4977397965406533789, guid: 2e656cadbd8fb2c47967fc9e7f028619,
-        type: 3}
-      propertyPath: volume
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e656cadbd8fb2c47967fc9e7f028619, type: 3}
 --- !u!4 &1396011857 stripped
@@ -12583,36 +12557,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &1372289457105475082
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1747547636564053168}
-  m_Layer: 0
-  m_Name: Ground-Hedges
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1747547636564053168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372289457105475082}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1925615210020117517
 PrefabInstance:
   m_ObjectHideFlags: 0
