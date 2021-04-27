@@ -16,6 +16,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 721480789776531739, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3898752419712482049, guid: af8b2fdc4dfa7e645937dde33dfdc13d,
+        type: 3}
     - target: {fileID: 2533945145798071635, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_Color.r
@@ -89,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
@@ -356,6 +362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[25].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635086342476835363, guid: 5913e5518553b424b96ce659fe9ae8a8,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[26].m_ActionName
+      value: Player Select/Back
       objectReference: {fileID: 0}
     - target: {fileID: 6635086342476835366, guid: 5913e5518553b424b96ce659fe9ae8a8,
         type: 3}
