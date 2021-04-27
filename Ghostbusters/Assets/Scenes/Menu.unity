@@ -7198,7 +7198,7 @@ MonoBehaviour:
   - {fileID: 1016304695}
   - {fileID: 564327115}
   - {fileID: 1420579750}
-  furthestUnlockedLevel: 7
+  furthestUnlockedLevel: 8
   levelMusic: Easy Going
   camManager: {fileID: 1482788720}
 --- !u!4 &1774895466
