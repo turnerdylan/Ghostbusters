@@ -150,7 +150,7 @@ public class TutorialLevelManager : MonoBehaviour
                 break;
             case 2:
                 Time.timeScale = 1;
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(1);
                 AudioManager.Instance.Stop(levelMusic);
                 //Destroy(DataSelectManager.Instance.gameObject);
                 break;

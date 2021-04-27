@@ -107,17 +107,17 @@ public class DataSelectManager : MonoBehaviour
         }
     }
 
-    public bool CheckIfAllPlayersAreReady()
-    {
-        for(int i=0; i< Gamepad.all.Count; i++)
-        {
-            if (true)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    // public bool CheckIfAllPlayersAreReady()
+    // {
+    //     for(int i=0; i< Gamepad.all.Count; i++)
+    //     {
+    //         if (true)
+    //         {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
 
     public void MakeAllPlayersNotReady()
     {

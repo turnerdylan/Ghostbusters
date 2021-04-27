@@ -4724,6 +4724,16 @@ PrefabInstance:
       propertyPath: levelMusic
       value: Mouse Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelTimerBar
+      value: 
+      objectReference: {fileID: 1964350847}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: stars
+      value: 
+      objectReference: {fileID: 1964350848}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &528699342 stripped
@@ -14943,6 +14953,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1964350847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7806516688066846041, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1964350848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1041565625549550303, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1976034565
 PrefabInstance:
   m_ObjectHideFlags: 0

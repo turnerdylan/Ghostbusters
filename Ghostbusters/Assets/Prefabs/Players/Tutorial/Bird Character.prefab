@@ -5612,6 +5612,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 14d31097-9528-4a25-80dc-f5af36bf0b12
     m_ActionName: Player/SelectUI[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8db00f7f-7f16-43b3-885a-2dfd7f78938b
+    m_ActionName: Player Select/Back[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
