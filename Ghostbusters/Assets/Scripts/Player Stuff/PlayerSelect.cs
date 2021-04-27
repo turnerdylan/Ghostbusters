@@ -73,12 +73,20 @@ public class PlayerSelect : MonoBehaviour
         if (context.performed && cameraManager.cameraState == CAMERA_POSITION.PLAYERS && !selected && canClick)
         {
             AudioManager.Instance.Play("Click");
-            imageIndex--;
-            if (imageIndex <= -1)
+            int tempIndex = imageIndex;
+
+            while (DataSelectManager.Instance.playersSelected[tempIndex] == true)
             {
-                imageIndex = playerImages.Count - 1;
+                tempIndex--;
+                if (tempIndex <= -1)
+                {
+                    tempIndex = 6;
+                }
             }
-            //Trigger();
+            DataSelectManager.Instance.playersSelected[imageIndex] = false;
+            DataSelectManager.Instance.playersSelected[tempIndex] = true;
+
+            imageIndex = tempIndex;
 
             UpdateTextures();
         }

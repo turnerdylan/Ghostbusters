@@ -59,7 +59,7 @@ public class DataSelectManager : MonoBehaviour
 
         PlayerAndLevelSetup();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
             players[i].SetTexture(i);
             playersSelected[i] = true;

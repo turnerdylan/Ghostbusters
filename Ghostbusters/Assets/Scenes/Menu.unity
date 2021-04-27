@@ -1602,6 +1602,11 @@ PrefabInstance:
       propertyPath: playerIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: imageIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861f0625dcea59c42ab8ffe80d89211c, type: 3}
 --- !u!4 &458830323 stripped
@@ -3457,6 +3462,11 @@ PrefabInstance:
     - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
         type: 3}
       propertyPath: playerIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: imageIndex
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5406,6 +5416,11 @@ PrefabInstance:
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7312181326275114153, guid: 861f0625dcea59c42ab8ffe80d89211c,
+        type: 3}
+      propertyPath: imageIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861f0625dcea59c42ab8ffe80d89211c, type: 3}
 --- !u!4 &1450259796 stripped
@@ -7167,6 +7182,7 @@ MonoBehaviour:
   - {fileID: 824438230}
   - {fileID: 1411059844}
   - {fileID: 1615809413}
+  playersSelected: 00000000000000
   playerIndexes: 
   pluses:
   - {fileID: 1945281509}
