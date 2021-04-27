@@ -52,7 +52,7 @@ public class TutorialInputHandler : MonoBehaviour
 
     public void OnUpUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
         {
             if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
             {
@@ -63,7 +63,7 @@ public class TutorialInputHandler : MonoBehaviour
 
     public void OnDownUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
         {
             if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
             {
@@ -74,7 +74,7 @@ public class TutorialInputHandler : MonoBehaviour
 
     public void SelectUI(CallbackContext context)
     {
-        if (context.performed && SceneManager.GetActiveScene().buildIndex != 2)
+        if (context.performed && SceneManager.GetActiveScene().buildIndex != 1)
         {
             if (TutorialLevelManager.Instance.GetLevelState() == TUTORIAL_LEVEL_STATE.PAUSED)
             {

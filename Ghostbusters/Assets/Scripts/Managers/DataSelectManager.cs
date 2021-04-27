@@ -108,7 +108,6 @@ public class DataSelectManager : MonoBehaviour
                     SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
                 }
             }
-
             
         }
     }

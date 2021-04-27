@@ -5073,6 +5073,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &688961026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1041565625549550303, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &688961027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7806516688066846041, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &741906790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7936,6 +7954,16 @@ PrefabInstance:
       propertyPath: levelMusic
       value: On The Prowl
       objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: stars
+      value: 
+      objectReference: {fileID: 688961026}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelTimerBar
+      value: 
+      objectReference: {fileID: 688961027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &1336709510 stripped
@@ -12417,7 +12445,7 @@ Transform:
   m_LocalScale: {x: 87.5, y: 87.5, z: 87.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &543450651939552870
 Transform:
