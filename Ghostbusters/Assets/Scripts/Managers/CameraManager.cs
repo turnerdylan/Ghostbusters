@@ -32,7 +32,7 @@ public class CameraManager : MonoBehaviour
     public GameObject credits;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cameraState = CAMERA_POSITION.NORMAL;
         fadeOutSprite = Camera.main.GetComponentInChildren<SpriteRenderer>();

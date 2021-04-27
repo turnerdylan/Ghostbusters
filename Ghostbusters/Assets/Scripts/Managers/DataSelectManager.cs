@@ -49,7 +49,7 @@ public class DataSelectManager : MonoBehaviour
 
 
     //extra
-    CameraManager camManager;
+    [SerializeField] CameraManager camManager;
 
     void Start()
     {
@@ -66,8 +66,8 @@ public class DataSelectManager : MonoBehaviour
         }
 
         ActivatePlayerPictures();
-        camManager = FindObjectOfType<CameraManager>();
-        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+        //camManager = FindObjectOfType<CameraManager>();
+        //PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
     }
 
     private void PlayerAndLevelSetup()
@@ -93,30 +93,24 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Menu") return;
+        //if (SceneManager.GetActiveScene().name != "Menu") return;
 
         ActivatePlayerPictures();
 
         if(camManager.cameraState == CAMERA_POSITION.MAP)
         {
-            if (Gamepad.all[0].buttonSouth.wasPressedThisFrame)
+            foreach(Gamepad gamepad in Gamepad.all)
             {
-                AudioManager.Instance.Stop(levelMusic);
-                SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
+                if (gamepad.buttonSouth.wasPressedThisFrame)
+                {
+                    AudioManager.Instance.Play("Click");
+                    AudioManager.Instance.Stop(levelMusic);
+                    SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
+                }
             }
-        }
-    }
 
-    public bool CheckIfAllPlayersAreReady()
-    {
-        for(int i=0; i< Gamepad.all.Count; i++)
-        {
-            if (true)
-            {
-                return false;
-            }
+            
         }
-        return true;
     }
 
     public void MakeAllPlayersNotReady()
@@ -141,7 +135,7 @@ public class DataSelectManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             playerIndexes.Add(players[i].imageIndex);
-            PlayerPrefs.SetInt("Player" + i, playerIndexes[i]);
+            //PlayerPrefs.SetInt("Player" + i, playerIndexes[i]);
         }
         //save these in player prefs
     }
@@ -180,14 +174,14 @@ public class DataSelectManager : MonoBehaviour
     public void IncrementLevel()
     {
         furthestUnlockedLevel++;
-        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
-        furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
+        //PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+        //furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
     }
 
     public void LoadPreferences()
     {
         //load levels unlocked
-        furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
+        /*furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
 
         //load level high scores
         //load settings data?
@@ -196,6 +190,6 @@ public class DataSelectManager : MonoBehaviour
         for(int i=0; i< players.Count; i++)
         {
             players[i].imageIndex = PlayerPrefs.GetInt("Player" + i);
-        }
+        }*/
     }
 }

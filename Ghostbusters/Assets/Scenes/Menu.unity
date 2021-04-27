@@ -7200,6 +7200,7 @@ MonoBehaviour:
   - {fileID: 1420579750}
   furthestUnlockedLevel: 7
   levelMusic: Easy Going
+  camManager: {fileID: 1482788720}
 --- !u!4 &1774895466
 Transform:
   m_ObjectHideFlags: 0
