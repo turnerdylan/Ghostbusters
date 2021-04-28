@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public int score;
     public Sprite characterSprite;
     public GameObject smallGhostFX;
+    public PhysicMaterial frictionlessMat;
 
     //private variables
     private Vector3 _moveDirection = Vector3.zero;
@@ -164,7 +165,7 @@ public class Player : MonoBehaviour
     {
         // float speedModifier = 2;
         // _moveSpeed *= speedModifier;
-        rb.AddForce(transform.forward*3000);
+        rb.AddForce(transform.forward*2000);
         //yield return new WaitForSeconds(0.2f);
         // _moveSpeed /= speedModifier;
         StartCoroutine(CantDashDelay());
@@ -199,10 +200,12 @@ public class Player : MonoBehaviour
 
             if(icy)
             {
-                rb.AddForce(new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y));
+                gameObject.GetComponent<CapsuleCollider>().material = frictionlessMat;
+                rb.AddForce(new Vector3(_moveDirection.x, 0, _moveDirection.y));
             }
             else
             {
+                gameObject.GetComponent<CapsuleCollider>().material = null;
                 rb.velocity = new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y);
             }
         }

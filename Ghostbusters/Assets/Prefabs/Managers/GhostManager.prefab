@@ -57,6 +57,8 @@ MonoBehaviour:
   - {fileID: 5063853149395304400, guid: 3fe0b0946ce7afb43bea47fbac1ebeaf, type: 3}
   smallGhostPrefab: {fileID: 7760811846356712085, guid: 334c5afc39b0ac9448030620093de0ff,
     type: 3}
+  smallGoldenGhostPrefab: {fileID: 7760811846356712085, guid: 01d8661b7e73df94caa2523de3ec42a8,
+    type: 3}
   mediumGhostsInScene: []
   goldenGhostsInScene: []
   smallGhostsInScene: []

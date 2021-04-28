@@ -5091,6 +5091,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &688961028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5856133065218784516, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &741906790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9583,6 +9589,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaos Events Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7310111228823428682, guid: 53d27336a9436c343908173d0b8a034e,
+        type: 3}
+      propertyPath: chaosEventUI
+      value: 
+      objectReference: {fileID: 688961028}
     - target: {fileID: 7310111228823428683, guid: 53d27336a9436c343908173d0b8a034e,
         type: 3}
       propertyPath: m_LocalPosition.x

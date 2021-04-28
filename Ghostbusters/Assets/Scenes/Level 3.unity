@@ -6006,6 +6006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaos Events Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7310111228823428682, guid: 53d27336a9436c343908173d0b8a034e,
+        type: 3}
+      propertyPath: chaosEventUI
+      value: 
+      objectReference: {fileID: 1964350849}
     - target: {fileID: 7310111228823428683, guid: 53d27336a9436c343908173d0b8a034e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15048,6 +15053,12 @@ MonoBehaviour:
 --- !u!1 &1964350848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1041565625549550303, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1964350849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5856133065218784516, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
     type: 3}
   m_PrefabInstance: {fileID: 1964350833}
   m_PrefabAsset: {fileID: 0}

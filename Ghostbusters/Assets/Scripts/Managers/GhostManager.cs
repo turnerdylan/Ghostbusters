@@ -35,6 +35,7 @@ public class GhostManager : MonoBehaviour
     public List<GameObject> mediumGhostPrefabs;
     public List<GameObject> goldenGhostPrefabs;
     public GameObject smallGhostPrefab;
+    public GameObject smallGoldenGhostPrefab;
 
     //list of ghosts in scene
     public List<GameObject> mediumGhostsInScene;

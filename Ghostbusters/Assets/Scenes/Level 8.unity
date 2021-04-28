@@ -805,6 +805,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaos Events Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7310111228823428682, guid: 53d27336a9436c343908173d0b8a034e,
+        type: 3}
+      propertyPath: chaosEventUI
+      value: 
+      objectReference: {fileID: 390294585}
     - target: {fileID: 7310111228823428683, guid: 53d27336a9436c343908173d0b8a034e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2084,6 +2089,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &390294585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5856133065218784516, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 390294565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &429969535
 GameObject:
   m_ObjectHideFlags: 0
@@ -8259,6 +8270,7 @@ GameObject:
   - component: {fileID: 6675935813872264523}
   - component: {fileID: 7713095877872921326}
   - component: {fileID: 5543540385792777764}
+  - component: {fileID: 6336108292814307314}
   m_Layer: 0
   m_Name: Ground-Town
   m_TagString: Untagged
@@ -8266,6 +8278,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6336108292814307314
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336108292814307313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: dfe3629c29dc29846b8aec6b7918cd8c, type: 3}
 --- !u!4 &6675935813872264523
 Transform:
   m_ObjectHideFlags: 0
