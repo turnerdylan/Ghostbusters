@@ -123,7 +123,7 @@ public class GoldenGhost : MonoBehaviour
         }
         for (int i = 0; i < _ghostsToSpawn; i++)
         {
-            var newSmallGhost = Instantiate(GhostManager.Instance.smallGoldGhostPrefab, transform.position, Quaternion.identity);
+            var newSmallGhost = Instantiate(GhostManager.Instance.smallGoldenGhostPrefab, transform.position, Quaternion.identity);
             float theta = i * 2 * Mathf.PI / _ghostsToSpawn;
             float x = Mathf.Sin(theta)*ghostSpawnRadius;
             float z = Mathf.Cos(theta)*ghostSpawnRadius;
