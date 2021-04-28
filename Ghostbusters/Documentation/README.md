@@ -1,4 +1,4 @@
-<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-logo-b.png" width="50%">
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-logo-blue.png" width="50%">
 
 # Documentation
 All the goings-ons for the wackiest CTD Capstone Game ever!
