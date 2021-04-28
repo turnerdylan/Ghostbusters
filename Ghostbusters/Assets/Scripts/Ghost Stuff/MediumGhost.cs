@@ -16,7 +16,6 @@ public class MediumGhost : MonoBehaviour
 {
     //private variables
     private bool scareInitiated = false;
-    private bool sequenceGenerated = false;
     private bool inRange;
     private float _timer; //scare timer
     [SerializeField] private bool debugging;
@@ -256,7 +255,6 @@ public class MediumGhost : MonoBehaviour
             }
         }
         SetSprites();
-        sequenceGenerated = true;
     }
     void SetSprites()
     {

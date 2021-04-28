@@ -30,7 +30,8 @@ public class DataSelectManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //LoadPreferences();
+        LoadPreferences();
+        //ClearAllPreferences()
     }
     #endregion
 
@@ -61,13 +62,12 @@ public class DataSelectManager : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            players[i].SetTexture(i);
+            players[i].SetTexture(PlayerPrefs.GetInt("Player" + i));
             playersSelected[i] = true;
         }
 
         ActivatePlayerPictures();
-        //camManager = FindObjectOfType<CameraManager>();
-        //PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
     }
 
     private void PlayerAndLevelSetup()
@@ -93,7 +93,7 @@ public class DataSelectManager : MonoBehaviour
 
     private void Update()
     {
-        //if (SceneManager.GetActiveScene().name != "Menu") return;
+        if (SceneManager.GetActiveScene().name != "Menu") return;
 
         ActivatePlayerPictures();
 
@@ -108,7 +108,6 @@ public class DataSelectManager : MonoBehaviour
                     SceneManager.LoadScene(NavigationManager.Instance.currentSelection.index + 2);
                 }
             }
-            
         }
     }
 
@@ -173,22 +172,30 @@ public class DataSelectManager : MonoBehaviour
     public void IncrementLevel()
     {
         furthestUnlockedLevel++;
-        //PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
-        //furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
+        PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+        furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
     }
 
     public void LoadPreferences()
     {
         //load levels unlocked
-        /*furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
+        furthestUnlockedLevel = PlayerPrefs.GetInt("FurthestLevel");
 
         //load level high scores
-        //load settings data?
+        for(int i=0; i<furthestUnlockedLevel; i++)
+        {
+            levelPins[i].starCount = PlayerPrefs.GetInt("Level" + i + "Score");
+        }
 
         //load player pictures
-        for(int i=0; i< players.Count; i++)
+        /*for(int i=0; i< players.Count; i++)
         {
             players[i].imageIndex = PlayerPrefs.GetInt("Player" + i);
         }*/
+    }
+
+    public void ClearAllPreferences()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

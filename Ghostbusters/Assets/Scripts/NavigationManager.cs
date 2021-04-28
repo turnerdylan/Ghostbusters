@@ -94,7 +94,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoNorth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.northNav != null)
+        if (NavigationManager.Instance.currentSelection.northNav != null && NavigationManager.Instance.currentSelection.northNav.gameObject.activeSelf)
         {
             currentSelection = currentSelection.northNav;
             AudioManager.Instance.Play("Click");
@@ -114,7 +114,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoSouth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.southNav != null)
+        if (NavigationManager.Instance.currentSelection.southNav != null && NavigationManager.Instance.currentSelection.southNav.gameObject.activeSelf)
         {
             currentSelection = currentSelection.southNav;
             AudioManager.Instance.Play("Click");
@@ -134,7 +134,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoEast(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.eastNav != null)
+        if (NavigationManager.Instance.currentSelection.eastNav != null && NavigationManager.Instance.currentSelection.eastNav.gameObject.activeSelf)
         {
             currentSelection = currentSelection.eastNav;
             AudioManager.Instance.Play("Click");
@@ -154,7 +154,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoWest(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.westNav != null)
+        if (NavigationManager.Instance.currentSelection.westNav != null && NavigationManager.Instance.currentSelection.westNav.gameObject.activeSelf)
         {
             currentSelection = currentSelection.westNav;
             AudioManager.Instance.Play("Click");

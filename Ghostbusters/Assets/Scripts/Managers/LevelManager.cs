@@ -192,22 +192,43 @@ public class LevelManager : MonoBehaviour
         GhostManager.Instance.DestroyAllGhosts();
         //add a delay here
         Time.timeScale = 0;
-        if(PlayerManager.Instance.totalScore >= oneStarGoal)
+
+        int buildIndexOffset = SceneManager.GetActiveScene().buildIndex - 2;
+
+        if (PlayerManager.Instance.totalScore >= oneStarGoal)
         {
             endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
-            DataSelectManager.Instance.IncrementLevel();
+            
+            if(SceneManager.GetActiveScene().buildIndex - 1 == DataSelectManager.Instance.furthestUnlockedLevel)
+            {
+                DataSelectManager.Instance.IncrementLevel();
+            }
+            
             if(PlayerManager.Instance.totalScore >= threeStarGoal)
             {
                 stars.GetComponent<Image>().sprite = UIManager.Instance.stars[3];
+                DataSelectManager.Instance.levelPins[buildIndexOffset].starCount = 3;
+                PlayerPrefs.SetInt("Level" + buildIndexOffset + "Score", 3);
             }
             else if(PlayerManager.Instance.totalScore >= twoStarGoal)
             {
                 stars.GetComponent<Image>().sprite = UIManager.Instance.stars[2];
+
+                if(DataSelectManager.Instance.levelPins[buildIndexOffset].starCount <= 2)
+                {
+                    DataSelectManager.Instance.levelPins[buildIndexOffset].starCount = 2;
+                    PlayerPrefs.SetInt("Level" + buildIndexOffset + "Score", 2);
+                }
             }
             else
             {
                 //print one star
                 stars.GetComponent<Image>().sprite = UIManager.Instance.stars[1];
+                if (DataSelectManager.Instance.levelPins[buildIndexOffset].starCount <= 1)
+                {
+                    DataSelectManager.Instance.levelPins[buildIndexOffset].starCount = 1;
+                    PlayerPrefs.SetInt("Level" + buildIndexOffset + "Score", 1);
+                }
             }
         }
         else

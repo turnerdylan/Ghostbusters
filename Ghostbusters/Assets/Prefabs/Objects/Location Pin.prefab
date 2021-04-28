@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8179228784520094836}
   - component: {fileID: 6989267112994748461}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,6 +394,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811ce7b63f202214488254ad6daa7f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stars:
+  - {fileID: 21300000, guid: df349facd2ee8074dbed2c4f1bcbacd0, type: 3}
+  - {fileID: 21300000, guid: 99dc3125ef501ec449efa7acd29fab9b, type: 3}
+  - {fileID: 21300000, guid: e4249ea69a479884aaca6b5a179c68fe, type: 3}
+  - {fileID: 21300000, guid: ab6305d2633e1144f8563eefb945e10e, type: 3}
+  starCount: 0
+  starUI: {fileID: 284814257724366564}
 --- !u!114 &4441331718491266543
 MonoBehaviour:
   m_ObjectHideFlags: 0
