@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-logo-b.png" width="75%">
+  <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/Spooked-logo-blue.png" width="75%">
 </p>
 
 
