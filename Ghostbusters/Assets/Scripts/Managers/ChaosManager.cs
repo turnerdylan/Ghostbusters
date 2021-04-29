@@ -60,7 +60,7 @@ public class ChaosManager : MonoBehaviour
     private IEnumerator SuperSpeed()
     {
         chaosEventUI.SetActive(true);
-        //chaosEventUI.GetComponent<Image>().sprite = chaosSprites[4]. sprite;
+        chaosEventUI.GetComponent<Image>().sprite = chaosSprites[4];
         chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
         foreach (Player player in PlayerManager.Instance.GetPlayerArray())
         {
