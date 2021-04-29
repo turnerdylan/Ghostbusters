@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
-public enum TUTORIAL_SMALL_GHOST_STATE
+public enum TUTORIAL_GOLDEN_GHOST_STATE
 {
     WANDER, //default
     FLEE, //when player is close
-    SEEK, //when ghost is close
+    BOOST, //when ghost is spawned
     FROZEN
 };
-public class TutorialSmallGhostMovement : MonoBehaviour
+public class TutorialGoldenGhostMovement : MonoBehaviour
 {
     //references
     NavMeshAgent agent;
 
     //private serializables
-    [SerializeField] private float minDistanceForEnemyToRun = 4f;
-    [SerializeField] private float wanderRadius = 5;
-    [SerializeField] private float timerUntilWanderMax = 2f;
+    [SerializeField] private float minDistanceForEnemyToRun = 12f;
+    [SerializeField] private float wanderRadius = 8;
+    [SerializeField] private float timerUntilWanderMax = 5f;
 
     //private variables
-    public TUTORIAL_SMALL_GHOST_STATE currentState = TUTORIAL_SMALL_GHOST_STATE.FLEE;
+    public TUTORIAL_GOLDEN_GHOST_STATE currentState = TUTORIAL_GOLDEN_GHOST_STATE.FLEE;
     private float timer;
-    public bool golden;
+    private float startSpeed;
 
     //public variables
 
@@ -39,13 +39,12 @@ public class TutorialSmallGhostMovement : MonoBehaviour
 
     public IEnumerator State_Wander()
     {
-        currentState = TUTORIAL_SMALL_GHOST_STATE.WANDER;
-        agent.acceleration = 8;
-        if(golden)
-            agent.speed = 5f;
+        currentState = TUTORIAL_GOLDEN_GHOST_STATE.WANDER;
+        agent.speed = 5f;
+        agent.acceleration = 8f;
         //wanderTimer = Random.Range(wanderTimer - 1, wanderTimer + 1);
         timer = timerUntilWanderMax;
-        while(currentState == TUTORIAL_SMALL_GHOST_STATE.WANDER)
+        while(currentState == TUTORIAL_GOLDEN_GHOST_STATE.WANDER)
         {
             timer += Time.deltaTime;
             if (timer >= timerUntilWanderMax || agent.destination == transform.position) 
@@ -67,12 +66,12 @@ public class TutorialSmallGhostMovement : MonoBehaviour
 
     public IEnumerator State_Flee()
     {
-        currentState = TUTORIAL_SMALL_GHOST_STATE.FLEE;
+        currentState = TUTORIAL_GOLDEN_GHOST_STATE.FLEE;
+
+        agent.speed = 7.5f;
         agent.acceleration = 200;
-        if(golden)
-            agent.speed = 10;
         
-        while(currentState == TUTORIAL_SMALL_GHOST_STATE.FLEE)
+        while(currentState == TUTORIAL_GOLDEN_GHOST_STATE.FLEE)
         {
             Vector3 dirToPlayer = transform.position - TutorialPlayerManager.Instance.GetClosestPlayer(transform).position;
             Vector3 newPos = transform.position + dirToPlayer;
@@ -90,15 +89,6 @@ public class TutorialSmallGhostMovement : MonoBehaviour
                     yield break;
                 }
             }
-            yield return null;
-        }
-    }
-    public IEnumerator State_Frozen()
-    {
-        currentState = TUTORIAL_SMALL_GHOST_STATE.FROZEN;
-        while(currentState == TUTORIAL_SMALL_GHOST_STATE.FROZEN)
-        {
-            agent.isStopped = true;
             yield return null;
         }
     }
@@ -121,8 +111,4 @@ public class TutorialSmallGhostMovement : MonoBehaviour
         return navHit.position;
     }
 
-    private void Teleport() //might need to change to IEnumerator to add delay
-    {
-        agent.Warp(RandomNavSphere(transform.position, 40f, 1));
-    }
 }

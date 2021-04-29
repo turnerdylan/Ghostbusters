@@ -33,11 +33,12 @@ public class TutorialPeekaboo : MonoBehaviour
     private bool moveParticles;
     private int lastLocationIndex;
     private bool canSummon = true;
+    public bool peekabooOne = true;
 
 
-    private void Start()
+    private void OnEnable()
     {
-        chanceToSpawnGolden = 0;
+        canSummon = true;
         currentLocationIndex = 0;
         transform.position = locations[currentLocationIndex].position;
         cantTeleportTimer = cantTeleportTimerMax;
@@ -47,7 +48,7 @@ public class TutorialPeekaboo : MonoBehaviour
 
     void FixedUpdate()
     {
-        var target = TutorialPlayerManager.Instance.GetClosestPlayer();
+        var target = TutorialPlayerManager.Instance.GetClosestPlayer(transform);
         if(target)
         {
             Vector3 targetPostition = new Vector3(target.position.x, transform.position.y, target.position.z);
@@ -145,24 +146,26 @@ public class TutorialPeekaboo : MonoBehaviour
         if(canSummon)
         {
             canSummon = false;
-            int ghostRange = Random.Range(0, 100);
-            if(ghostRange > chanceToSpawnGolden)//typically 0.8?
+            //int ghostRange = Random.Range(0, 100);
+            if(peekabooOne)//typically 0.8?
             {
                 //int randomIndex = Random.Range(0, 5);
                 int randomIndex = 0;
 
                 GameObject newGhost = Instantiate(TutorialGhostManager.Instance.mediumGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
                 TutorialGhostManager.Instance.mediumGhostsInScene.Add(newGhost);
+                TutorialManager.Instance.TriggerWait(0.35f);
+                TutorialManager.Instance.peekabooGhost.SetActive(false);
             }
             else
             {
-                int randomIndex = Random.Range(0, 5);
-                //int randomIndex = 0;
+                //int randomIndex = Random.Range(0, 5);
+                int randomIndex = 0;
                 GameObject newGhost = Instantiate(TutorialGhostManager.Instance.goldenGhostPrefabs[randomIndex], transform.position, Quaternion.identity);
                 TutorialGhostManager.Instance.goldenGhostsInScene.Add(newGhost);
-                newGhost.GetComponent<GoldenGhost>().GenerateSequence();
+                TutorialManager.Instance.TriggerWait(0.35f);
+                TutorialManager.Instance.peekabooGhost.SetActive(false);
             }
-            TutorialManager.Instance.TriggerWaitForSummon();
             //gameObject.transform.parent.gameObject.SetActive(false);
             //ChangeLocations();
         }
@@ -179,8 +182,5 @@ public class TutorialPeekaboo : MonoBehaviour
         moveParticles = false;
         StartLerping();
     }
-
-
-
 
 }

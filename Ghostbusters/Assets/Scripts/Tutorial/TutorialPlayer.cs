@@ -81,9 +81,10 @@ public class TutorialPlayer : MonoBehaviour
     {
         if(other.GetComponent<TutorialSmallGhost>())
         {
+            AudioManager.Instance.Play("Small Pop");
             TutorialGhostManager.Instance.smallGhostsInScene.Remove(other.gameObject);
             Destroy(other.gameObject);
-            _numberOfHeldGhosts++;
+            _numberOfHeldGhosts += other.GetComponent<TutorialSmallGhost>().pointValue;
             TutorialUIManager.Instance.UpdateHeldGhosts();
         }
     }
@@ -274,7 +275,10 @@ public class TutorialPlayer : MonoBehaviour
         yield return new WaitForSeconds(time);
         GetComponent<SphereCollider>().isTrigger = true;
     }
-    void PlayRandomScare(String[] sounds) => AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+    void PlayRandomScare(String[] sounds)
+    {
+        if(Time.timeScale != 0.0f) AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+    }
     public void Scare(TUTORIAL_BUTTON_PRESS buttonDirection)
     {
         if (currentState != TUTORIAL_PLAYER_STATE.NORMAL) return;
@@ -336,6 +340,22 @@ public class TutorialPlayer : MonoBehaviour
                 {
                     //print("Angle");
                     TutorialGhostManager.Instance.mediumGhostsInScene[i].GetComponent<TutorialGhost>().AddPlayerScare(this);
+                }
+            }
+        }
+        for (int i = 0; i < TutorialGhostManager.Instance.goldenGhostsInScene.Count; i++)
+        {
+            if (Vector3.Distance(TutorialGhostManager.Instance.goldenGhostsInScene[i].transform.position, gameObject.transform.position) <= _scareRange)
+            {
+                //print("Distance");
+                Vector3 dirToGhost = (TutorialGhostManager.Instance.goldenGhostsInScene[i].transform.position - transform.position).normalized;
+                float angleBetweenPlayerandGhost = Vector3.Angle(transform.forward, dirToGhost);
+                //print(angleBetweenPlayerandGhost);
+
+                if (angleBetweenPlayerandGhost < _viewAngle / 2)
+                {
+                    //print("Angle");
+                    TutorialGhostManager.Instance.goldenGhostsInScene[i].GetComponent<TutorialGoldenGhost>().AddPlayerScare(this);
                 }
             }
         }

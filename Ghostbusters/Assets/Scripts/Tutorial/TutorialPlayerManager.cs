@@ -88,9 +88,14 @@ public class TutorialPlayerManager : MonoBehaviour
             totalScore += player.score;
         }
         scoreText.text = totalScore.ToString();
-        if(totalScore >= 6)
+        if(totalScore == 6)
         {
-            TutorialManager.Instance.TriggerWait(0.6f);
+            TutorialManager.Instance.peekabooGhost.SetActive(true);
+            TutorialManager.Instance.peekabooGhost.GetComponentInChildren<TutorialPeekaboo>().peekabooOne = false;
+        }
+        if(totalScore == 18)
+        {
+            TutorialManager.Instance.TriggerWait(0.35f);
         }
     }
 
@@ -99,7 +104,7 @@ public class TutorialPlayerManager : MonoBehaviour
         return players;
     }
     
-    public Transform GetClosestPlayer()
+    public Transform GetClosestPlayer(Transform target)
     {
         Transform closestPlayerTransform = null;
         float distanceToClosestPlayerTemp = Mathf.Infinity;
@@ -110,7 +115,7 @@ public class TutorialPlayerManager : MonoBehaviour
         {
             if (player.GetPlayerState() != TUTORIAL_PLAYER_STATE.STUNNED)
             {
-                float currentCheckDistance = Vector3.Distance(player.transform.position, transform.position);
+                float currentCheckDistance = Vector3.Distance(player.transform.position, target.position);
                 if (currentCheckDistance < distanceToClosestPlayerTemp)
                 {
                     closestPlayerTransform = player.transform;

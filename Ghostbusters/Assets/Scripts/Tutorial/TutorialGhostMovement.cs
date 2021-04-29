@@ -29,7 +29,7 @@ public class TutorialGhostMovement : MonoBehaviour
         agent.isStopped = false;
         while(currentState == TUTORIAL_GHOST_STATE.FOLLOW)
         {
-            agent.SetDestination(TutorialPlayerManager.Instance.GetClosestPlayer().transform.position);
+            agent.SetDestination(TutorialPlayerManager.Instance.GetClosestPlayer(transform).transform.position);
             yield return null;
         }
     }

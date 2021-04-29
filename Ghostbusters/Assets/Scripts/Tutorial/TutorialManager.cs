@@ -25,23 +25,18 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         instance = this;
-        //DontDestroyOnLoad(gameObject);
     }
     #endregion
     public List<GameObject> stepText = new List<GameObject>();
     public GameObject peekabooGhost;
+    public GameObject blur;
     public float stepOneTime = 15f;
-    public GameObject arrowSprite;
-    private float stepOneTimer;
     private int stepNum = 0;
     private bool stepTextInProgress;
     private bool canPress = true;
-    bool stepOneInProgress, stepThree;
     void Start()
     {
-        stepOneTimer = stepOneTime;
-        TriggerDelayContinue();
-        StartNextStep(stepText[stepNum]);
+        StartStep();
     }
 
     void Update()
@@ -50,70 +45,47 @@ public class TutorialManager : MonoBehaviour
         {
             if(Gamepad.all[0].buttonSouth.isPressed && canPress)
             {
-                EndStep(stepText[stepNum]);
-                stepNum++;
-                if(stepNum > 5 && stepNum < 9)
-                {
-                    StartNextStep(stepText[stepNum]);
-                    TriggerDelayContinue();
-                }
-                if(stepNum == 9)
-                {
-                    AudioManager.Instance.Stop(TutorialLevelManager.Instance.levelMusic);
-                    PlayerPrefs.SetInt("TutorialComplete", 1);
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-                    //Destroy(DataSelectManager.Instance.gameObject);
-                }   
-            }
-        }
-        if(stepOneInProgress)
-        {
-            stepOneTimer -= Time.deltaTime;
-            if(stepOneTimer < 0)
-            {
-                stepOneInProgress = false;
-                peekabooGhost.SetActive(true);
-                StartCoroutine(WaitForLerp());
+                EndStep();  
             }
         }
     }
 
     void PauseGame() => Time.timeScale = 0;
     void UnPauseGame() => Time.timeScale = 1;
-    void StartNextStep(GameObject text)
+    void StartStep()
     {
+        TriggerDelayContinue();
         stepTextInProgress = true;
         PauseGame();
-        text.SetActive(true);
+        blur.SetActive(true);
+        stepText[stepNum].SetActive(true);
     }
 
-    void EndStep(GameObject text)
+    void EndStep()
     {
-        if(stepNum == 0) stepOneInProgress = true;
-        if(stepNum == 1) arrowSprite.SetActive(false);
+        switch(stepNum)
+        {
+            case 0:
+                TriggerWait(stepOneTime);
+                break;
+            case 1:
+                peekabooGhost.SetActive(true);
+                break;
+            case 7:
+                TriggerWait(0.0f);
+                break;
+            case 8:
+                AudioManager.Instance.Stop(TutorialLevelManager.Instance.levelMusic);
+                PlayerPrefs.SetInt("TutorialComplete", 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                break;
+        }
 
         stepTextInProgress = false;
+        stepText[stepNum].SetActive(false);
+        blur.SetActive(false);
+        stepNum++;
         UnPauseGame();
-        text.SetActive(false);
-    }
-
-    public IEnumerator WaitForLerp()
-    {
-        yield return new WaitForSeconds(0.5f);
-        arrowSprite.SetActive(true);
-        StartNextStep(stepText[stepNum]);
-    }
-
-    public void TriggerWaitForSummon()
-    {
-        StartCoroutine(WaitForSummon());
-    }
-    public IEnumerator WaitForSummon()
-    {
-        peekabooGhost.SetActive(false);
-        yield return new WaitForSeconds(0.35f);
-        TriggerDelayContinue();
-        StartNextStep(stepText[stepNum]);
     }
 
     public void TriggerWait(float time)
@@ -124,8 +96,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
-        TriggerDelayContinue();
-        StartNextStep(stepText[stepNum]);
+        StartStep();
     }
 
     public void TriggerDelayContinue()
@@ -135,7 +106,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator DelayContinue()
     {
         canPress = false;
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         canPress = true;
     }
 
