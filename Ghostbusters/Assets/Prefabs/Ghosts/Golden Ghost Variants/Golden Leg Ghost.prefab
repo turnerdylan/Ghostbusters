@@ -594,7 +594,7 @@ Transform:
   m_GameObject: {fileID: 5640452176185509151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -40, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 5530343201922699592}
   - {fileID: 7693763610960346786}
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059531075614ab9488e2d2dcdb767a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ghostsToSpawn: 10
+  _ghostsToSpawn: 5
   scaresNeeded: 4
   timer: 3
   chaosEventIndex: 0
