@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6213202626420905282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2187971298360419738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2862083112642959057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3424632887732590627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4091003919203019716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885746478713178845}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7225854315820349374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2382115738473881522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8451096295804434342}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387039292820332047}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7651813865187067009}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 7760811846356712084}
   - component: {fileID: -336517905449058462}
   - component: {fileID: 1038077007321225001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Small Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,6 +465,7 @@ MonoBehaviour:
   _transformTimerMax: 1.5
   _scareable: 1
   _onScareInvincibilityTime: 1
+  pointValue: 1
   players: []
   timer: 25
   _transformTimer: 0
@@ -484,7 +485,7 @@ MonoBehaviour:
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
-  currentState: 2
+  currentState: 1
 --- !u!1 &8138825041592426302
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947711907929108364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GeneralGhost-Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7489017513035956301}
   - component: {fileID: 8542993266447725662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: General Ghosty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6636071726002117482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +653,7 @@ GameObject:
   - component: {fileID: 4252509892137882759}
   - component: {fileID: 4969216122789545366}
   - component: {fileID: 2999275645110098588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ public class SmallGhostMovement : MonoBehaviour
     [SerializeField] private float timerUntilWanderMax = 2f;
 
     //private variables
-    public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.BOOST;
+    public SMALL_GHOST_STATE currentState = SMALL_GHOST_STATE.FLEE;
     private float timer;
     private float startSpeed;
 

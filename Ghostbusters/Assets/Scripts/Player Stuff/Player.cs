@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
     {
         // float speedModifier = 2;
         // _moveSpeed *= speedModifier;
-        rb.AddForce(transform.forward*2000);
+        rb.AddForce(transform.forward*1650);
         //yield return new WaitForSeconds(0.2f);
         // _moveSpeed /= speedModifier;
         StartCoroutine(CantDashDelay());
