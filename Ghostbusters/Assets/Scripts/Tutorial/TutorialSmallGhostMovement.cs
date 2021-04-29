@@ -56,7 +56,7 @@ public class TutorialSmallGhostMovement : MonoBehaviour
                 timer = 0;
             }
 
-            if (Vector3.Distance(transform.position, TutorialPlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if (Vector3.Distance(transform.position, TutorialPlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 StartCoroutine(State_Flee());
                 yield break;
@@ -74,9 +74,9 @@ public class TutorialSmallGhostMovement : MonoBehaviour
         
         while(currentState == TUTORIAL_SMALL_GHOST_STATE.FLEE)
         {
-            Vector3 dirToPlayer = transform.position - TutorialPlayerManager.Instance.GetClosestPlayer().position;
+            Vector3 dirToPlayer = transform.position - TutorialPlayerManager.Instance.GetClosestPlayer(transform).position;
             Vector3 newPos = transform.position + dirToPlayer;
-            if(Vector3.Distance(transform.position, TutorialPlayerManager.Instance.GetClosestPlayer().position) < minDistanceForEnemyToRun)
+            if(Vector3.Distance(transform.position, TutorialPlayerManager.Instance.GetClosestPlayer(transform).position) < minDistanceForEnemyToRun)
             {
                 agent.SetDestination(newPos);
             }

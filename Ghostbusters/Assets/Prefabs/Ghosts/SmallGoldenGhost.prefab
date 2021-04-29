@@ -468,7 +468,7 @@ MonoBehaviour:
   _onScareInvincibilityTime: 1
   pointValue: 2
   players: []
-  timer: 25
+  timer: 25000
   _transformTimer: 0
   fadeDuration: 16
 --- !u!114 &1038077007321225001
@@ -486,7 +486,7 @@ MonoBehaviour:
   minDistanceForEnemyToRun: 10
   wanderRadius: 35
   timerUntilWanderMax: 5
-  currentState: 2
+  currentState: 1
 --- !u!1 &8138825041592426302
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarToLines
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078607891381410921, guid: 6821d0ac781ef4d4c980e00afdd7826c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1078607891381410926, guid: 6821d0ac781ef4d4c980e00afdd7826c,
         type: 3}

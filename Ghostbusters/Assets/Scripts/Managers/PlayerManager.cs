@@ -102,15 +102,15 @@ public class PlayerManager : MonoBehaviour
 
         foreach (Player player in players)
         {
-            if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
-            {
+            //if (player.GetPlayerState() != PLAYER_STATE.STUNNED)
+            //{
                 float currentCheckDistance = Vector3.Distance(player.transform.position, ghost.position);
                 if (currentCheckDistance < distanceToClosestPlayerTemp)
                 {
                     closestPlayerTransform = player.transform;
                     distanceToClosestPlayerTemp = currentCheckDistance;
                 }
-            }
+            //}
         }
         return closestPlayerTransform;
     }
