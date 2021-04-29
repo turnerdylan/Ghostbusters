@@ -22,7 +22,7 @@ C - For the final stretch of our project we've been working a lot on knocking ou
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_1.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_2.png" width="50%">
 
-D - 
+D - This last week we spent the week just fixing a lot of the bugs and polishing most of our assets. I implemented a small save system that tracks your data and keep track of what levels you've unlocked, as well as your high scores per level. I also added and updated a lot more UI elements.
 
 Z - We spent some time this week recording new player and ghost sounds that are both more consistent per character and much more fun. The other main task involved adding ground textures to each level. The spaces feel much more cohesive now, below are a couple of before and after images for comparison. 
 
