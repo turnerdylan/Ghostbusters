@@ -18,7 +18,9 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 ### Weekly Updates:
 
-C - 
+C - For the final stretch of our project we've been working a lot on knocking out the many bugs and little changes that needed to be implemented. Additionally we have redone the tutorial to include golden ghosts and also improved the visuals and text.
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_1.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_2.png" width="50%">
 
 D - 
 
