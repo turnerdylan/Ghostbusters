@@ -1694,6 +1694,11 @@ PrefabInstance:
       propertyPath: threeStarGoal
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelMaxTime
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &204951025 stripped

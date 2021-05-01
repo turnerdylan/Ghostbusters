@@ -4666,16 +4666,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: endLevelUIElements.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
-      propertyPath: pauseUIElements.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 1964350844}
@@ -4726,11 +4716,6 @@ PrefabInstance:
       objectReference: {fileID: 1964350834}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
       propertyPath: endLevelText
       value: 
       objectReference: {fileID: 1964350845}
@@ -4741,39 +4726,34 @@ PrefabInstance:
       objectReference: {fileID: 1964350846}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: scoreGoal
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
-      propertyPath: levelMusic
-      value: Mouse Trap
-      objectReference: {fileID: 0}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
-      propertyPath: levelTimerBar
-      value: 
-      objectReference: {fileID: 1964350847}
-    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
-        type: 3}
       propertyPath: stars
       value: 
       objectReference: {fileID: 1964350848}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: oneStarGoal
-      value: 20
-      objectReference: {fileID: 0}
+      propertyPath: endUIPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1964350853}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: twoStarGoal
-      value: 30
-      objectReference: {fileID: 0}
+      propertyPath: endUIPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1964350852}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
-      propertyPath: threeStarGoal
-      value: 40
-      objectReference: {fileID: 0}
+      propertyPath: endUIPositions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1964350851}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endUIPositions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1964350850}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: levelTimerBar
+      value: 
+      objectReference: {fileID: 1964350847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &528699342 stripped
@@ -15074,6 +15054,30 @@ GameObject:
 --- !u!1 &1964350849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5856133065218784516, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1964350850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1009188367, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1964350851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 700235894, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1964350852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799060793, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964350833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1964350853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 611028601519992343, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
     type: 3}
   m_PrefabInstance: {fileID: 1964350833}
   m_PrefabAsset: {fileID: 0}

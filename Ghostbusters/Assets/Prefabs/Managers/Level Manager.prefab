@@ -67,8 +67,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  oneStarGoal: 3
-  twoStarGoal: 7
-  threeStarGoal: 10
-  levelMusic: Day To Day
+  oneStarGoal: 20
+  twoStarGoal: 30
+  threeStarGoal: 40
+  levelMusic: Mouse Trap
   levelTimerBar: {fileID: 0}

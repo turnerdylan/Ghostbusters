@@ -5097,6 +5097,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 688961008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &688961029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1009188367, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688961030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 700235894, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688961031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799060793, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688961032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 611028601519992343, guid: 67ac8e1e0ad82944dab26c9ad75c01f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 688961008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &741906790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7823,6 +7847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
         type: 3}
+      propertyPath: endUIPositions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 688961019}
@@ -7916,6 +7945,26 @@ PrefabInstance:
       propertyPath: threeStarGoal
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endUIPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 688961032}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endUIPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 688961031}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endUIPositions.Array.data[2]
+      value: 
+      objectReference: {fileID: 688961030}
+    - target: {fileID: 105620081567462703, guid: 210635aa1fd07924fa3fa9fb48fd2171,
+        type: 3}
+      propertyPath: endUIPositions.Array.data[3]
+      value: 
+      objectReference: {fileID: 688961029}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210635aa1fd07924fa3fa9fb48fd2171, type: 3}
 --- !u!4 &1336709510 stripped
