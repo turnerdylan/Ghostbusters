@@ -999,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 6022291206354944546, guid: 598be686bad32bb42a2943db0f91f142,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -59.303
+      value: -39.4
       objectReference: {fileID: 0}
     - target: {fileID: 6022291206354944546, guid: 598be686bad32bb42a2943db0f91f142,
         type: 3}
@@ -1065,6 +1065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TempBorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383811771782213266, guid: 598be686bad32bb42a2943db0f91f142,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 78.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 598be686bad32bb42a2943db0f91f142, type: 3}

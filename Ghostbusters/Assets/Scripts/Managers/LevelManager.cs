@@ -251,7 +251,7 @@ public class LevelManager : MonoBehaviour
 
     private void DisplayCharacterScores()
     {
-        for(int i=0; i < UIManager.Instance.UIElements.Count; i++)
+        for(int i=0; i < PlayerManager.Instance.GetPlayerArray().Count; i++)
         {
             UIManager.Instance.UIElements[i].transform.position = endUIPositions[i].transform.position;
             UIManager.Instance.UIElements[i].heldGhostsValue.text = PlayerManager.Instance.GetPlayerArray()[i].numberOfGhostsDeposited.ToString();
