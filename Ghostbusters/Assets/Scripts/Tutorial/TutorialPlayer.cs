@@ -137,7 +137,7 @@ public class TutorialPlayer : MonoBehaviour
     {
         if(canDive)
         {
-            AudioManager.Instance.Play("Dive");
+            if(Time.timeScale != 0.0f) AudioManager.Instance.Play("Dive");
             anim.SetTrigger("Dive");
             TriggerDisableMovement(0.5f);
             canDive = false;

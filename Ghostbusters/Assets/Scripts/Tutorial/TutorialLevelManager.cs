@@ -47,6 +47,7 @@ public class TutorialLevelManager : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private List<TextMeshProUGUI> pauseUIElements;
     public int pauseUIIndex = 0;
+    private Color32 orange = new Color32(255, 177, 16, 255);
 
     // [SerializeField] private GameObject endLevelUI;
     // [SerializeField] private List<TextMeshProUGUI> endLevelUIElements;
@@ -129,13 +130,13 @@ public class TutorialLevelManager : MonoBehaviour
         {
             text.color = Color.white;
         }
-        pauseUIElements[pauseUIIndex].color = Color.green;
+        pauseUIElements[pauseUIIndex].color = orange;
     }
 
     private void SetPauseUI(bool state)
     {
         pauseUI.SetActive(state);
-        pauseUIElements[pauseUIIndex].color = Color.green;
+        pauseUIElements[pauseUIIndex].color = orange;
     }
 
     public void SelectPauseUI()
@@ -190,7 +191,7 @@ public class TutorialLevelManager : MonoBehaviour
     //     }
         
     //     endLevelUI.SetActive(true);
-    //     endLevelUIElements[endLevelUIIndex].color = Color.green;
+    //     endLevelUIElements[endLevelUIIndex].color = orange;
 
     //     AudioManager.Instance.Stop(levelMusic);
 
@@ -214,7 +215,7 @@ public class TutorialLevelManager : MonoBehaviour
     //     {
     //         text.color = Color.white;
     //     }
-    //     endLevelUIElements[endLevelUIIndex].color = Color.green;
+    //     endLevelUIElements[endLevelUIIndex].color = orange;
     // }
 
     //janky but its cool cause it will all be replaced with an animation countdown

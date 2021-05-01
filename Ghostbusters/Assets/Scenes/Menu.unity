@@ -6467,7 +6467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToLerp: 0.5
   cameraState: 0
-  selectedColor: {r: 0.18600929, g: 0.7169812, b: 0.20370834, a: 1}
+  selectedColor: {r: 1, g: 0.69411767, b: 0.0627451, a: 1}
   cameraPositions:
   - {fileID: 49764210}
   - {fileID: 1399422405}

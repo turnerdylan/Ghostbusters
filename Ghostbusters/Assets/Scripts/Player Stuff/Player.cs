@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 
     public void DepositGhosts()
     {
-        if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius())
+        if(Vector3.Distance(transform.position, Van.Instance.transform.position) < Van.Instance.GetInteractionRadius() && Time.timeScale != 0.0f)
         {
             if(_numberOfHeldGhosts == 0)
             {
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 
     public void Dive()
     {
-        if(canDive)
+        if(canDive && Time.timeScale != 0.0f)
         {
             AudioManager.Instance.Play("Dive");
             anim.SetTrigger("Dive");
@@ -293,7 +293,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         GetComponent<SphereCollider>().isTrigger = true;
     }
-    void PlayRandomScare(String[] sounds) => AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+    void PlayRandomScare(String[] sounds)
+    {
+        if(Time.timeScale != 0.0f) AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+    }
     public void Scare(BUTTON_PRESS buttonDirection)
     {
         if (currentState != PLAYER_STATE.NORMAL) return;
