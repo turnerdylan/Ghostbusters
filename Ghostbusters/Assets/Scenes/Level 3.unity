@@ -2633,7 +2633,7 @@ PrefabInstance:
     - target: {fileID: 7783116298669152916, guid: 977d819a916b9a4428497408fdeefbfa,
         type: 3}
       propertyPath: chanceToSpawnGolden
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977d819a916b9a4428497408fdeefbfa, type: 3}

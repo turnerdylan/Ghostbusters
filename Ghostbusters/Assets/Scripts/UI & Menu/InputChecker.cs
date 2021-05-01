@@ -32,6 +32,7 @@ public class InputChecker : MonoBehaviour
         {
             // if (PlayerPrefs.GetInt("TutorialComplete") == 1)    SceneManager.LoadScene(2);
             // else                                                SceneManager.LoadScene(1);
+            //if(first time opening game)
             SceneManager.LoadScene(2);
         }
     }

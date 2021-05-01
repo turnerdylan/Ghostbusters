@@ -33,6 +33,7 @@ public class NavigationManager : MonoBehaviour
 
     public NavigationNode currentSelection;
     private CameraManager cameraManager;
+    private Color32 orange = new Color32(255, 177, 16, 255);
 
     private void Start()
     {
@@ -107,7 +108,7 @@ public class NavigationManager : MonoBehaviour
             else
             {
                 cameraManager.MakeAllTextWhite();
-                currentSelection.GetComponent<TextMeshPro>().color = Color.green;
+                currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
         }
     }
@@ -127,7 +128,7 @@ public class NavigationManager : MonoBehaviour
             else
             {
                 cameraManager.MakeAllTextWhite();
-                currentSelection.GetComponent<TextMeshPro>().color = Color.green;
+                currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
         }
     }
@@ -147,7 +148,7 @@ public class NavigationManager : MonoBehaviour
             else
             {
                 cameraManager.MakeAllTextWhite();
-                currentSelection.GetComponent<TextMeshPro>().color = Color.green;
+                currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
         }
     }
@@ -167,7 +168,7 @@ public class NavigationManager : MonoBehaviour
             else
             {
                 cameraManager.MakeAllTextWhite();
-                currentSelection.GetComponent<TextMeshPro>().color = Color.green;
+                currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
         }
     }

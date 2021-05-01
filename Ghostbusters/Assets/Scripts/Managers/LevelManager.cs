@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour
     public float levelMaxTime = 120;
     private float levelTimer;
     //countdown timer
+    private Color32 orange = new Color32(255, 177, 16, 255);
     [SerializeField] private float startCountdownTimer = 3;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private List<TextMeshProUGUI> pauseUIElements = null;
@@ -138,14 +139,14 @@ public class LevelManager : MonoBehaviour
         {
             text.color = Color.white;
         }
-        pauseUIElements[pauseUIIndex].color = Color.green;
+        pauseUIElements[pauseUIIndex].color = orange;
     }
 
     private void SetPauseUI(bool state)
     {
         GhostManager.Instance.SetGhostUI(!state);
         pauseUI.SetActive(state);
-        pauseUIElements[pauseUIIndex].color = Color.green;
+        pauseUIElements[pauseUIIndex].color = orange;
     }
 
     public void SelectPauseUI()
@@ -238,7 +239,7 @@ public class LevelManager : MonoBehaviour
         }
         
         endLevelUI.SetActive(true);
-        endLevelUIElements[endLevelUIIndex].color = Color.green;
+        endLevelUIElements[endLevelUIIndex].color = orange;
 
         DisplayCharacterScores();
 
@@ -273,7 +274,7 @@ public class LevelManager : MonoBehaviour
         {
             text.color = Color.white;
         }
-        endLevelUIElements[endLevelUIIndex].color = Color.green;
+        endLevelUIElements[endLevelUIIndex].color = orange;
     }
 
     //janky but its cool cause it will all be replaced with an animation countdown

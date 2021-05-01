@@ -30,7 +30,7 @@ public class DataSelectManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadPreferences();
+        //LoadPreferences();
         //ClearAllPreferences()
     }
     #endregion

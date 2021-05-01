@@ -8,6 +8,6 @@ public class WorldToScreen : MonoBehaviour
     void Update()
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        icon.transform.position = screenPos;
+        icon.transform.position = new Vector3(screenPos.x, Mathf.Clamp(screenPos.y, 0, Screen.height-115), screenPos.z);
     }
 }
