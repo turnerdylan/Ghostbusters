@@ -7,6 +7,16 @@ All the goings-ons for the wackiest CTD Capstone Game ever!
 
 - - -
 
+## 4/27/2021 - The Final Countdown!
+
+With the game almost complete the final touches are being implemented and perfected. A demo video of the game can be found [here](https://vimeo.com/543681587) which includes a cinematic intro, the tutorial and the first level of the game. 
+
+A build of the game is available on our [itch page](https://z-sheikh.itch.io/spooked)
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/LevelScreenShot.JPG" width="75%">
+
+- - -
+
 ## 4/122021 - Week 13 I think 
 ### Goals:
 - C - Ghost Updates, Nav Meshes and Making Things Work
