@@ -133,9 +133,4 @@ public class PlayerSelect : MonoBehaviour
     {
         mesh.material = playerImages[imageIndex];
     }
-
-    public void SetTexture(int index)
-    {
-        mesh.material = playerImages[index];
-    }
 }

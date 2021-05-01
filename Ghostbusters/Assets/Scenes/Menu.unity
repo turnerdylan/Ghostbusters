@@ -3800,6 +3800,11 @@ PrefabInstance:
       propertyPath: index
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8926469001739799493, guid: e8a5d2544f727c948bb0f3aa978885ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9101660137676088883, guid: e8a5d2544f727c948bb0f3aa978885ab,
         type: 3}
       propertyPath: m_Text
@@ -8453,7 +8458,7 @@ MonoBehaviour:
   - {fileID: 1016304695}
   - {fileID: 564327115}
   - {fileID: 1420579750}
-  furthestUnlockedLevel: 8
+  furthestUnlockedLevel: 2
   levelMusic: Easy Going
   camManager: {fileID: 1482788720}
 --- !u!4 &1774895466

@@ -30,8 +30,8 @@ public class DataSelectManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //LoadPreferences();
-        //ClearAllPreferences()
+        LoadPreferences();
+        //ClearAllPreferences();
     }
     #endregion
 
@@ -62,7 +62,7 @@ public class DataSelectManager : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            players[i].SetTexture(PlayerPrefs.GetInt("Player" + i));
+            //players[i].SetTexture(PlayerPrefs.GetInt("Player" + i));
             playersSelected[i] = true;
         }
 
@@ -123,7 +123,7 @@ public class DataSelectManager : MonoBehaviour
     {
         foreach (Pin pin in levelPins)
         {
-            pin.GetChild().SetActive(false);
+            pin.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
