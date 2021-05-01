@@ -17,7 +17,7 @@ A build of the game is available on our [itch page](https://z-sheikh.itch.io/spo
 
 - - -
 
-## 4/122021 - Week 13 I think 
+## 4/12/2021 - Week 13 I think 
 ### Goals:
 - C - Ghost Updates, Nav Meshes and Making Things Work
 
@@ -32,7 +32,9 @@ C - For the final stretch of our project we've been working a lot on knocking ou
 
 <img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_1.png" width="50%"><img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/new-tutorial_2.png" width="50%">
 
-D - This last week we spent the week just fixing a lot of the bugs and polishing most of our assets. I implemented a small save system that tracks your data and keep track of what levels you've unlocked, as well as your high scores per level. I also added and updated a lot more UI elements.
+D - One major implementation update was the save data system that we added this week. Now, players can boot up the game and unlock levels as they go, so long as they achieve at least 1 star on the level. It also now shows your high scores and # of stars per level after you have played them. 
+
+<img src="https://github.com/turnerdylan/Ghostbusters/blob/master/Ghostbusters/Documentation/Images/SaveData.JPG" width="75%">
 
 Z - We spent some time this week recording new player and ghost sounds that are both more consistent per character and much more fun. The other main task involved adding ground textures to each level. The spaces feel much more cohesive now, below are a couple of before and after images for comparison. 
 
