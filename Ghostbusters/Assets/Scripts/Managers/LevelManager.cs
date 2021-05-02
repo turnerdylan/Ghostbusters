@@ -200,7 +200,7 @@ public class LevelManager : MonoBehaviour
         {
             endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
             
-            if(SceneManager.GetActiveScene().buildIndex - 1 == DataSelectManager.Instance.furthestUnlockedLevel)
+            if(SceneManager.GetActiveScene().buildIndex - 1 == DataSelectManager.Instance.furthestUnlockedLevel && SceneManager.GetActiveScene().buildIndex != 9)
             {
                 DataSelectManager.Instance.IncrementLevel();
             }

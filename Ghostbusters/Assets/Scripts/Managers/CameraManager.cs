@@ -30,6 +30,7 @@ public class CameraManager : MonoBehaviour
     public int textItemIndex = 0; // 0 is players, 1 is map, 2 is exit, 3 is credits, 4 is settings
 
     public GameObject credits;
+    public GameObject playerWarning;
 
     // Start is called before the first frame update
     void Awake()
@@ -95,6 +96,7 @@ public class CameraManager : MonoBehaviour
                 {
                     StartCoroutine(LerpCameraPos(Camera.main.transform.position, cameraPositions[3].position, CAMERA_POSITION.NORMAL));
                     DataSelectManager.Instance.UpdatePlayerData();
+                    playerWarning.SetActive(false);
                 }
                 break;
             case CAMERA_POSITION.SETTINGS:
@@ -130,5 +132,9 @@ public class CameraManager : MonoBehaviour
         }
         cameraState = pos;
         Camera.main.transform.position = endValue;
+        if(pos == CAMERA_POSITION.PLAYERS && Gamepad.all.Count<3)
+        {
+            playerWarning.SetActive(true);
+        }
     }
 }

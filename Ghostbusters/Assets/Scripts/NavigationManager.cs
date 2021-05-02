@@ -95,7 +95,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoNorth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.northNav != null && NavigationManager.Instance.currentSelection.northNav.gameObject.activeSelf)
+        if (NavigationManager.Instance.currentSelection.northNav != null && NavigationManager.Instance.currentSelection.northNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
         {
             currentSelection = currentSelection.northNav;
             AudioManager.Instance.Play("Click");
@@ -115,7 +115,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoSouth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.southNav != null && NavigationManager.Instance.currentSelection.southNav.gameObject.activeSelf)
+        if (NavigationManager.Instance.currentSelection.southNav != null && NavigationManager.Instance.currentSelection.southNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
         {
             currentSelection = currentSelection.southNav;
             AudioManager.Instance.Play("Click");
@@ -135,7 +135,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoEast(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.eastNav != null && NavigationManager.Instance.currentSelection.eastNav.gameObject.activeSelf)
+        if (NavigationManager.Instance.currentSelection.eastNav != null && NavigationManager.Instance.currentSelection.eastNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
         {
             currentSelection = currentSelection.eastNav;
             AudioManager.Instance.Play("Click");
@@ -155,7 +155,7 @@ public class NavigationManager : MonoBehaviour
 
     public void GoWest(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.westNav != null && NavigationManager.Instance.currentSelection.westNav.gameObject.activeSelf)
+        if (NavigationManager.Instance.currentSelection.westNav != null && NavigationManager.Instance.currentSelection.westNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
         {
             currentSelection = currentSelection.westNav;
             AudioManager.Instance.Play("Click");

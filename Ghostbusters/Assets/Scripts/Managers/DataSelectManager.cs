@@ -60,11 +60,11 @@ public class DataSelectManager : MonoBehaviour
 
         PlayerAndLevelSetup();
 
-        for (int i = 0; i < Gamepad.all.Count; i++)
-        {
-            //players[i].SetTexture(PlayerPrefs.GetInt("Player" + i));
-            playersSelected[i] = true;
-        }
+        // for (int i = 0; i < Gamepad.all.Count; i++)
+        // {
+        //     //players[i].SetTexture(PlayerPrefs.GetInt("Player" + i));
+        //     playersSelected[i] = true;
+        // }
 
         ActivatePlayerPictures();
         PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
@@ -79,16 +79,16 @@ public class DataSelectManager : MonoBehaviour
         }
 
         //set level pin objects inactive
-        for (int i = 0; i < levelPins.Count; i++)
-        {
-            levelPins[i].gameObject.SetActive(false);
-        }
+        // for (int i = 0; i < levelPins.Count; i++)
+        // {
+        //     levelPins[i].gameObject.SetActive(false);
+        // }
 
         //set unlocked levels active
-        for (int i = 0; i < furthestUnlockedLevel; i++)
-        {
-            levelPins[i].gameObject.SetActive(true);
-        }
+        // for (int i = 0; i < furthestUnlockedLevel; i++)
+        // {
+        //     levelPins[i].gameObject.SetActive(true);
+        // }
     }
 
     private void Update()
@@ -133,7 +133,7 @@ public class DataSelectManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             playerIndexes.Add(players[i].imageIndex);
-            //PlayerPrefs.SetInt("Player" + i, playerIndexes[i]);
+            PlayerPrefs.SetInt("Player" + i, playerIndexes[i]);
         }
         //save these in player prefs
     }
@@ -188,10 +188,10 @@ public class DataSelectManager : MonoBehaviour
         }
 
         //load player pictures
-        /*for(int i=0; i< players.Count; i++)
+        for(int i=0; i< players.Count; i++)
         {
             players[i].imageIndex = PlayerPrefs.GetInt("Player" + i);
-        }*/
+        }
     }
 
     public void ClearAllPreferences()

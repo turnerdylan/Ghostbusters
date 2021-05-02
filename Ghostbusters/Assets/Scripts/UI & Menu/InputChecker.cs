@@ -10,6 +10,9 @@ public class InputChecker : MonoBehaviour
     public Transform cameraEnd;
     public float timeToLerp = 4;
     public string levelMusic;
+    public GameObject videoImage;
+    public UnityEngine.Video.VideoPlayer videoPlayer;
+    public GameObject logoUI, skipText;
     SpriteRenderer fadeOutSprite;
     Color targetColor = new Color(0, 0, 0, 255);
 
@@ -19,6 +22,7 @@ public class InputChecker : MonoBehaviour
         AudioManager.Instance.Play(levelMusic);
         cameraStart = Camera.main.transform;
         fadeOutSprite = Camera.main.GetComponentInChildren<SpriteRenderer>();
+        videoPlayer.loopPointReached += EndReached;
     }
 
     // Update is called once per frame
@@ -26,14 +30,28 @@ public class InputChecker : MonoBehaviour
     {
         if(Gamepad.all[0].buttonSouth.isPressed)
         {
-            StartCoroutine(LerpFunction(targetColor));
+            if(videoPlayer.isPlaying)
+            {
+                EndReached(videoPlayer);
+            }
+            else
+            {
+                StartCoroutine(LerpFunction(targetColor));
+            }
         }
         if (Vector3.Distance(Camera.main.transform.position, cameraEnd.position) < .5)
         {
             // if (PlayerPrefs.GetInt("TutorialComplete") == 1)    SceneManager.LoadScene(2);
             // else                                                SceneManager.LoadScene(1);
             //if(first time opening game)
-            SceneManager.LoadScene(2);
+            logoUI.SetActive(false);
+            AudioManager.Instance.Stop(levelMusic);
+            videoImage.SetActive(true);
+            videoPlayer.Play();
+        }
+        if(videoPlayer.frame == 60)
+        {
+            skipText.SetActive(true);
         }
     }
 
@@ -52,5 +70,10 @@ public class InputChecker : MonoBehaviour
             yield return null;
         }
         fadeOutSprite.color = endValue;
+    }
+
+    void EndReached(UnityEngine.Video.VideoPlayer videoPlayer)
+    {
+        SceneManager.LoadScene(2);
     }
 }
