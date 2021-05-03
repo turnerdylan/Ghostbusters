@@ -239,6 +239,11 @@ public class LevelManager : MonoBehaviour
         }
         
         endLevelUI.SetActive(true);
+        if(DataSelectManager.Instance.furthestUnlockedLevel <= SceneManager.GetActiveScene().buildIndex - 1)
+        {
+            endLevelUIIndex = 1;
+            endLevelUIElements[0].gameObject.SetActive(false);
+        }
         endLevelUIElements[endLevelUIIndex].color = orange;
 
         DisplayCharacterScores();
@@ -269,7 +274,8 @@ public class LevelManager : MonoBehaviour
         {
             endLevelUIIndex = endLevelUIElements.Count - 1;
         }
-
+        if(DataSelectManager.Instance.furthestUnlockedLevel <= SceneManager.GetActiveScene().buildIndex - 1 && endLevelUIIndex == 0)
+            endLevelUIIndex = 1;
         foreach (TextMeshProUGUI text in endLevelUIElements)
         {
             text.color = Color.white;

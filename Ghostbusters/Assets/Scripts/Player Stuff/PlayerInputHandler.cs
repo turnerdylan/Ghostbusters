@@ -97,22 +97,22 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UpScare(CallbackContext context)
     {
-        if(player != null && context.performed)
+        if(player != null && context.performed && Time.timeScale != 0)
             player.Scare(BUTTON_PRESS.Up);
     }
     public void DownScare(CallbackContext context)
     {
-        if(player != null && context.performed)
+        if(player != null && context.performed && Time.timeScale != 0)
             player.Scare(BUTTON_PRESS.Down);
     }
     public void LeftScare(CallbackContext context)
     {
-        if(player != null && context.performed)
+        if(player != null && context.performed && Time.timeScale != 0)
             player.Scare(BUTTON_PRESS.Left);
     }
     public void RightScare(CallbackContext context)
     {
-        if(player != null && context.performed)
+        if(player != null && context.performed && Time.timeScale != 0)
             player.Scare(BUTTON_PRESS.Right);
     }
 }

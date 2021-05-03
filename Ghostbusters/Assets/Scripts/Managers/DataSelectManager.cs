@@ -21,14 +21,13 @@ public class DataSelectManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (instance)
         {
             DestroyImmediate(gameObject);
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         LoadPreferences();
         //ClearAllPreferences();
@@ -95,7 +94,7 @@ public class DataSelectManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Menu") return;
 
-        ActivatePlayerPictures();
+        //ActivatePlayerPictures();
 
         if(camManager.cameraState == CAMERA_POSITION.MAP)
         {

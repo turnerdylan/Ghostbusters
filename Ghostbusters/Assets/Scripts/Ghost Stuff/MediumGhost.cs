@@ -44,6 +44,7 @@ public class MediumGhost : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 42)].name);
         switch(PlayerManager.Instance.GetPlayerArray().Count)
         {
             case 1:
@@ -119,6 +120,7 @@ public class MediumGhost : MonoBehaviour
     public void SplitApart()
     {
         AudioManager.Instance.Play("Pop");
+        AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 42)].name);
         Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach(Player player in players)
         {

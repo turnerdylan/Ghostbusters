@@ -73,7 +73,6 @@ public class NavigationManager : MonoBehaviour
                 if (Gamepad.all[i].dpad.right.wasPressedThisFrame || Gamepad.all[i].leftStick.right.wasPressedThisFrame)
                 {
                     GoEast(1);
-                    print("test");
                 }
                 else if (Gamepad.all[i].dpad.up.wasPressedThisFrame || Gamepad.all[i].leftStick.up.wasPressedThisFrame)
                 {

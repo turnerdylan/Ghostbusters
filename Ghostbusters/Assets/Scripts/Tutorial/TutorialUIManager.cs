@@ -25,7 +25,6 @@ public class TutorialUIManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 

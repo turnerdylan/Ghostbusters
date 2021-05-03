@@ -295,7 +295,7 @@ public class Player : MonoBehaviour
     }
     void PlayRandomScare(String[] sounds)
     {
-        if(Time.timeScale != 0.0f) AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+        AudioManager.Instance.Play(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
     }
     public void Scare(BUTTON_PRESS buttonDirection)
     {
