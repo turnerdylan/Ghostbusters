@@ -26,6 +26,7 @@ public class PunchAttack : MonoBehaviour
         {
             attacking = true;
             StartCoroutine(GetComponent<LegGhostMovement>().State_Attack());
+            AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 40)].name);
             anim.SetTrigger("Attack");
             hand.SetActive(true);
             StartCoroutine(EndAttack());

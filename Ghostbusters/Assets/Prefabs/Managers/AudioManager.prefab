@@ -278,18 +278,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Ghost22
-    clip: {fileID: 8300000, guid: 147d182d9759cb248946d57b75efc274, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ghost23
-    clip: {fileID: 8300000, guid: 14fd1e8fcb464d248a7c9f4887aa9a96, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Ghost24
     clip: {fileID: 8300000, guid: 26f53e8ad84efe044aa0de7d13065a3b, type: 3}
     volume: 0.3
@@ -976,6 +964,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FishOoo4
     clip: {fileID: 8300000, guid: a4b05b78bc898f5468bda6fe65a8ba56, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Timer Beep
+    clip: {fileID: 8300000, guid: 272fcc4b7529b7b40a0b0a2038bf5fe0, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0

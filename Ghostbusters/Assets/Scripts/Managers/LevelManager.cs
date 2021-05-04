@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
     private float levelTimer;
     //countdown timer
     private Color32 orange = new Color32(255, 177, 16, 255);
+    private bool thirtySecMark, tenSecMark = false;
     [SerializeField] private float startCountdownTimer = 3;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private List<TextMeshProUGUI> pauseUIElements = null;
@@ -69,6 +70,7 @@ public class LevelManager : MonoBehaviour
 
     public string levelMusic;
     public Slider levelTimerBar;
+    private bool beep;
 
 
     private void Start()
@@ -100,6 +102,23 @@ public class LevelManager : MonoBehaviour
             var ts = TimeSpan.FromSeconds(levelTimer);
             levelTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
 
+            if (levelTimer <= 30.0f && !thirtySecMark)
+            {
+                levelTimerText.GetComponentInParent<Animator>().SetTrigger("Shake");
+                thirtySecMark = true;
+                StartCoroutine(LerpPitch(1.0f, 1.122462f));
+            }
+            if (levelTimer <= 10.0f && !tenSecMark)
+            {
+                beep = true;
+                tenSecMark = true;
+                StartCoroutine(LerpPitch(1.122462f, 1.259921f));
+            }
+            if(beep)
+            {
+                AudioManager.Instance.Play("Timer Beep");
+                StartCoroutine(CountdownBeep());
+            }
             if (levelTimer <= 0) EndLevel();
         }
     }
@@ -163,13 +182,14 @@ public class LevelManager : MonoBehaviour
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Menu");
                 AudioManager.Instance.Stop(levelMusic);
-                Destroy(DataSelectManager.Instance.gameObject);
+                //Destroy(DataSelectManager.Instance.gameObject);
                 break;
         }
     }
 
     public void SelectEndUI()
     {
+        AudioManager.Instance.Stop(levelMusic);
         switch (endLevelUIIndex)
         {
             case 0:
@@ -181,7 +201,6 @@ public class LevelManager : MonoBehaviour
             case 2:
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Menu");
-                AudioManager.Instance.Stop(levelMusic);
                 Destroy(DataSelectManager.Instance.gameObject);
                 break;
         }
@@ -191,6 +210,9 @@ public class LevelManager : MonoBehaviour
     {
         currentState = LEVEL_STATE.ENDED;
         GhostManager.Instance.DestroyAllGhosts();
+        AudioManager.Instance.Find(levelMusic).source.pitch = 1.0f;
+        AudioManager.Instance.Stop(levelMusic);
+        AudioManager.Instance.Play(levelMusic);
         //add a delay here
         Time.timeScale = 0;
 
@@ -198,7 +220,7 @@ public class LevelManager : MonoBehaviour
 
         if (PlayerManager.Instance.totalScore >= oneStarGoal)
         {
-            endLevelText.text = "Level Passed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+            endLevelText.text = "Level Passed!" + "\n" + "You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
             
             if(SceneManager.GetActiveScene().buildIndex - 1 == DataSelectManager.Instance.furthestUnlockedLevel && SceneManager.GetActiveScene().buildIndex != 9)
             {
@@ -234,7 +256,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            endLevelText.text = "Level Failed! You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
+            endLevelText.text = "Level Failed!" + "\n" + "You caught " + PlayerManager.Instance.totalScore.ToString() + " ghosts!";
             stars.GetComponent<Image>().sprite = UIManager.Instance.stars[0];
         }
         
@@ -248,7 +270,6 @@ public class LevelManager : MonoBehaviour
 
         DisplayCharacterScores();
 
-        AudioManager.Instance.Stop(levelMusic);
 
         PlayerManager.Instance.SetAllPlayerControls(false);
         GhostManager.Instance.SetAllGhostControls(false);
@@ -302,5 +323,27 @@ public class LevelManager : MonoBehaviour
     public LEVEL_STATE GetLevelState()
     {
         return currentState;
+    }
+    IEnumerator LerpPitch(float startValue, float endValue)
+    {
+        float timeElapsed = 0;
+        float lerpDuration = 0.1f;
+
+        while (timeElapsed < lerpDuration)
+        {
+            AudioManager.Instance.Find(levelMusic).source.pitch = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+            timeElapsed += Time.unscaledDeltaTime;
+
+            yield return null;
+        }
+
+        AudioManager.Instance.Find(levelMusic).source.pitch = endValue;
+    }
+
+    IEnumerator CountdownBeep()
+    {
+        beep = false;
+        yield return new WaitForSeconds(1);
+        beep = true;
     }
 }

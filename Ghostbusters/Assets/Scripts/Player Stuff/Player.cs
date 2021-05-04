@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     public int numberOfGhostsDeposited = 0;
 
-    private int _numberOfHeldGhosts;
+    public int _numberOfHeldGhosts;
     private bool canDive = true;
     private bool backwardsControls = false;
     private PLAYER_STATE currentState = PLAYER_STATE.NORMAL;
@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
             if(_numberOfHeldGhosts == 0)
             {
                 AudioManager.Instance.Play("Van No Ghosts");
+                Van.Instance.anim.SetTrigger("Lights");
                 return;
             }
             score += _numberOfHeldGhosts;
@@ -132,7 +133,7 @@ public class Player : MonoBehaviour
 
     public void DropGhosts()
     {
-        InitiateDisableTrigger(2.0f);
+        InitiateDisableTrigger(1.25f);
 
         for (int i = 0; i < _numberOfHeldGhosts; i++)
         {
@@ -205,6 +206,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                rb.drag = 0;
                 gameObject.GetComponent<CapsuleCollider>().material = null;
                 rb.velocity = new Vector3(_moveDirection.x, rb.velocity.y, _moveDirection.y);
             }

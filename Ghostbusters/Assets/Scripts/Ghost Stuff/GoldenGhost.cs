@@ -43,7 +43,6 @@ public class GoldenGhost : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 42)].name);
         switch(PlayerManager.Instance.GetPlayerArray().Count)
         {
             case 1:
@@ -116,12 +115,12 @@ public class GoldenGhost : MonoBehaviour
 
     public void SplitApart()
     {
-        AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 42)].name);
+        AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 40)].name);
         AudioManager.Instance.Play("Pop");
         Instantiate(puffPrefab, transform.position, Quaternion.identity);
         foreach (Player player in players)
         {
-            player.InitiateDisableTrigger(1.5f);
+            player.InitiateDisableTrigger(1.0f);
         }
         for (int i = 0; i < _ghostsToSpawn; i++)
         {

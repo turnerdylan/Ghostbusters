@@ -190,6 +190,7 @@ public class DataSelectManager : MonoBehaviour
         for(int i=0; i< players.Count; i++)
         {
             players[i].imageIndex = PlayerPrefs.GetInt("Player" + i);
+            //playersSelected[players[i].imageIndex] = true;
         }
     }
 

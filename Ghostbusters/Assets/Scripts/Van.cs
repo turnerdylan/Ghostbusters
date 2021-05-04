@@ -29,11 +29,16 @@ public class Van : MonoBehaviour
 
     [SerializeField] private float _interactionRadius = 6f;
     public int numberOfStoredGhosts = 0;
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+    }
+    void Update()
+    {
+
     }
 
     public float GetInteractionRadius()

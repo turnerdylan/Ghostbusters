@@ -21,6 +21,7 @@ public class RangedAttack : MonoBehaviour
         if(_attackTimer < 0 && !attacking)
         {
             attacking = true;
+            AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 40)].name);
             LaunchProjectile();
         }
     }

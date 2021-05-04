@@ -95,7 +95,8 @@ public class TutorialPlayerManager : MonoBehaviour
         }
         if(totalScore == 18)
         {
-            TutorialManager.Instance.TriggerWait(0.35f);
+            TutorialManager.Instance.TriggerWait(0.0f);
+            TutorialChaosManager.Instance.smokeObject.SetActive(false);
         }
     }
 

@@ -27,6 +27,10 @@ public class PlayerSelect : MonoBehaviour
         cameraManager = FindObjectOfType<CameraManager>();
         mesh = GetComponent<MeshRenderer>();
         UpdateTextures();
+        // for(int i = 0; i<DataSelectManager.Instance.playersSelected.Length; i++)
+        // {
+        //     if(mesh.material == playerImages[i]) DataSelectManager.Instance.playersSelected[i] = true;
+        // }
     }
 
     public void OnRight(CallbackContext context)

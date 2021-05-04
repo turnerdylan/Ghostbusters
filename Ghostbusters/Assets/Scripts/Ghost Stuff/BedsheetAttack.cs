@@ -16,6 +16,7 @@ public class BedsheetAttack : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, PlayerManager.Instance.GetClosestPlayer(transform).position) < _attackRange)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 40)].name);
             anim.SetTrigger("Attack");
         }
     }

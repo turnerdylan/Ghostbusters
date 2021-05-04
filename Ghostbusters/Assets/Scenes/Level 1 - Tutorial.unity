@@ -5397,7 +5397,7 @@ MonoBehaviour:
   players: []
   playerSkins:
   - {fileID: 4394287103468410130, guid: 56f392df7cb446f44b38347ee2240bab, type: 3}
-  - {fileID: 321651709282777986, guid: 9371f20d9c1e286458dc2740387b4508, type: 3}
+  - {fileID: 9115988570680821484, guid: c258c293f3ea2f7468ca18fef1db9370, type: 3}
   - {fileID: 6625860796327999094, guid: fb040b284ba1ad2438a58c0c52f7cda1, type: 3}
   - {fileID: 2993130923306643632, guid: bc75f2b2b88c3e74480f2b8a495db69f, type: 3}
   playerSpawns:

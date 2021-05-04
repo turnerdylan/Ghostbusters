@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831120463373892946}
   - component: {fileID: 831120463373892945}
-  - component: {fileID: 831120463373892944}
+  - component: {fileID: 546896492}
   m_Layer: 11
   m_Name: Van Parent
   m_TagString: Untagged
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionRadius: 15
   numberOfStoredGhosts: 0
---- !u!95 &831120463373892944
+--- !u!95 &546896492
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

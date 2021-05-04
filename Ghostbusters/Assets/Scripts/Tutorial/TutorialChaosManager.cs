@@ -34,6 +34,7 @@ public class TutorialChaosManager : MonoBehaviour
     //backwards, invis, slippery, smoke, speed
     [SerializeField] List<Sprite> chaosSprites = new List<Sprite>();
     [SerializeField] GameObject chaosEventUI;
+    public GameObject smokeObject;
 
     public void PickChaosEvent(int eventKey, Vector3 pos)
     {
@@ -50,7 +51,7 @@ public class TutorialChaosManager : MonoBehaviour
         chaosEventUI.SetActive(true);
         chaosEventUI.GetComponent<Image>().sprite = chaosSprites[0];
         chaosEventUI.GetComponent<Animator>().SetTrigger("ChaosEvent");
-        Instantiate(smokeBomb, smokePosition, Quaternion.identity);
+        smokeObject = Instantiate(smokeBomb, smokePosition, Quaternion.identity);
         yield return new WaitForSeconds(chaosEventTime);
         chaosEventUI.GetComponent<Image>().sprite = null;
         chaosEventUI.SetActive(false);

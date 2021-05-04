@@ -10,6 +10,8 @@ public class Respawner : MonoBehaviour
     {
         if(other.GetComponent<Player>())
         {
+            other.GetComponent<Player>()._numberOfHeldGhosts = 0;
+            UIManager.Instance.UpdateHeldGhosts();
             other.gameObject.transform.position = respawnPoint.position;
         }
     }
