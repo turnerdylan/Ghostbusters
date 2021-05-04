@@ -67,6 +67,7 @@ public class DataSelectManager : MonoBehaviour
 
         ActivatePlayerPictures();
         PlayerPrefs.SetInt("FurthestLevel", furthestUnlockedLevel);
+        if(furthestUnlockedLevel < 2) furthestUnlockedLevel = 2;
     }
 
     private void PlayerAndLevelSetup()

@@ -74,6 +74,13 @@ public class InputChecker : MonoBehaviour
 
     void EndReached(UnityEngine.Video.VideoPlayer videoPlayer)
     {
-        SceneManager.LoadScene(2);
+        if (PlayerPrefs.GetInt("TutorialComplete") == 1)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

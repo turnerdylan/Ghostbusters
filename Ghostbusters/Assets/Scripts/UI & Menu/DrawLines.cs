@@ -18,7 +18,7 @@ public class DrawLines : MonoBehaviour
 
         lr.startWidth = .1f;
         lr.endWidth = .1f;
-
+        if(numPoints < 2) numPoints = 2;
         for (int i=0; i < numPoints; i++)
         {
             Draw(DataSelectManager.Instance.levelPins[i].transform.position, DataSelectManager.Instance.levelPins[i+1].transform.position, i);

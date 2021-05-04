@@ -874,97 +874,97 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FishAh1
     clip: {fileID: 8300000, guid: 63d38a32dc588d4458d44780fc04a50e, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishAh2
     clip: {fileID: 8300000, guid: 4baa9e512e748004c8f591efb9b001af, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishAh3
     clip: {fileID: 8300000, guid: 3fa94f108b4c3e44888e6835436a47ba, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishAh4
     clip: {fileID: 8300000, guid: 49c90ed0c616c554398763ab0a1fef76, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishBoo1
     clip: {fileID: 8300000, guid: 2e52552981a035140bb231c9586d5e08, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishBoo2
     clip: {fileID: 8300000, guid: d6dbf6d75b392064691835c10596b96a, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishBoo3
     clip: {fileID: 8300000, guid: 333f9b740123e2b46b316bbe52f5ae82, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishBoo4
     clip: {fileID: 8300000, guid: 26ad3ffe03408ca4c9bc6f0e2a14ced9, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishHey1
     clip: {fileID: 8300000, guid: 435368f4d8340114b9a7414534df38d6, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishHey2
     clip: {fileID: 8300000, guid: 4c85f36415ea8ee4892e2568f758257b, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishHey3
     clip: {fileID: 8300000, guid: 0c83f3bbd2a75f14daa87e339a4b5db3, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishHey4
     clip: {fileID: 8300000, guid: d3a2646140fcb3749b5069acf6cf3abe, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishOoo1
     clip: {fileID: 8300000, guid: c9c168f694696014ea3ad4d94c7b7320, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishOoo2
     clip: {fileID: 8300000, guid: 55dea9b42c8e75844b912f0a2000b8b5, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishOoo3
     clip: {fileID: 8300000, guid: 72a8e18839a5d624caa3151f283a9606, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FishOoo4
     clip: {fileID: 8300000, guid: a4b05b78bc898f5468bda6fe65a8ba56, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}

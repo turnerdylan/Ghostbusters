@@ -94,18 +94,22 @@ public class NavigationManager : MonoBehaviour
 
     public void GoNorth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.northNav != null && NavigationManager.Instance.currentSelection.northNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+        if (NavigationManager.Instance.currentSelection.northNav != null)
         {
-            currentSelection = currentSelection.northNav;
-            AudioManager.Instance.Play("Click");
-
             if (indicator == 0)
             {
-                DataSelectManager.Instance.SetAllPinTextInactive();
-                currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                if(NavigationManager.Instance.currentSelection.northNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+                {
+                    currentSelection = currentSelection.northNav;
+                    AudioManager.Instance.Play("Click");
+                    DataSelectManager.Instance.SetAllPinTextInactive();
+                    currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                }
             }
             else
             {
+                currentSelection = currentSelection.northNav;
+                AudioManager.Instance.Play("Click");
                 cameraManager.MakeAllTextWhite();
                 currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
@@ -114,18 +118,22 @@ public class NavigationManager : MonoBehaviour
 
     public void GoSouth(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.southNav != null && NavigationManager.Instance.currentSelection.southNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+        if (NavigationManager.Instance.currentSelection.southNav != null)
         {
-            currentSelection = currentSelection.southNav;
-            AudioManager.Instance.Play("Click");
-
             if (indicator == 0)
             {
-                DataSelectManager.Instance.SetAllPinTextInactive();
-                currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                if(NavigationManager.Instance.currentSelection.southNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+                {
+                    currentSelection = currentSelection.southNav;
+                    AudioManager.Instance.Play("Click");
+                    DataSelectManager.Instance.SetAllPinTextInactive();
+                    currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                }
             }
             else
             {
+                currentSelection = currentSelection.southNav;
+                AudioManager.Instance.Play("Click");
                 cameraManager.MakeAllTextWhite();
                 currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
@@ -134,18 +142,22 @@ public class NavigationManager : MonoBehaviour
 
     public void GoEast(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.eastNav != null && NavigationManager.Instance.currentSelection.eastNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+        if (NavigationManager.Instance.currentSelection.eastNav != null)
         {
-            currentSelection = currentSelection.eastNav;
-            AudioManager.Instance.Play("Click");
-
             if (indicator == 0)
             {
-                DataSelectManager.Instance.SetAllPinTextInactive();
-                currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                if(NavigationManager.Instance.currentSelection.eastNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+                {
+                    currentSelection = currentSelection.eastNav;
+                    AudioManager.Instance.Play("Click");
+                    DataSelectManager.Instance.SetAllPinTextInactive();
+                    currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                }
             }
             else
             {
+                currentSelection = currentSelection.eastNav;
+                AudioManager.Instance.Play("Click");
                 cameraManager.MakeAllTextWhite();
                 currentSelection.GetComponent<TextMeshPro>().color = orange;
             }
@@ -154,18 +166,22 @@ public class NavigationManager : MonoBehaviour
 
     public void GoWest(int indicator)
     {
-        if (NavigationManager.Instance.currentSelection.westNav != null && NavigationManager.Instance.currentSelection.westNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+        if (NavigationManager.Instance.currentSelection.westNav != null)
         {
-            currentSelection = currentSelection.westNav;
-            AudioManager.Instance.Play("Click");
-
             if (indicator == 0)
             {
-                DataSelectManager.Instance.SetAllPinTextInactive();
-                currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                if(NavigationManager.Instance.currentSelection.westNav.index < DataSelectManager.Instance.furthestUnlockedLevel)
+                {
+                    currentSelection = currentSelection.westNav;
+                    AudioManager.Instance.Play("Click");
+                    DataSelectManager.Instance.SetAllPinTextInactive();
+                    currentSelection.GetComponent<Pin>().GetChild().SetActive(true);
+                }
             }
             else
             {
+                currentSelection = currentSelection.westNav;
+                AudioManager.Instance.Play("Click");
                 cameraManager.MakeAllTextWhite();
                 currentSelection.GetComponent<TextMeshPro>().color = orange;
             }

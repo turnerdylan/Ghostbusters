@@ -26,9 +26,7 @@ public class CameraManager : MonoBehaviour
 
     public List<Transform> cameraPositions = new List<Transform>();
     public List<TextMeshPro> textItems = new List<TextMeshPro>();
-
     public int textItemIndex = 0; // 0 is players, 1 is map, 2 is exit, 3 is credits, 4 is settings
-
     public GameObject credits;
     public GameObject playerWarning;
 

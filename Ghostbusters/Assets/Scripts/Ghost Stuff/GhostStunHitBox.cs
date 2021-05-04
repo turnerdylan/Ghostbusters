@@ -8,6 +8,7 @@ public class GhostStunHitBox : MonoBehaviour
     {
         if(other.GetComponent<Player>())
         {
+            AudioManager.Instance.Play(AudioManager.Instance.sounds[UnityEngine.Random.Range(18, 40)].name);
             other.GetComponent<Player>().TriggerStun();
         }
     }

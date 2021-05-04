@@ -6704,7 +6704,6 @@ MonoBehaviour:
   - {fileID: 519767224}
   - {fileID: 724513591}
   - {fileID: 1428765597}
-  - {fileID: 1518826353}
   textItemIndex: 0
   credits: {fileID: 1771078787}
   playerWarning: {fileID: 844940424}
