@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
 
     public string levelMusic;
     public Slider levelTimerBar;
-    private bool beep;
+    private bool beep, canPress;
 
 
     private void Start()
@@ -189,26 +189,30 @@ public class LevelManager : MonoBehaviour
 
     public void SelectEndUI()
     {
-        AudioManager.Instance.Stop(levelMusic);
-        switch (endLevelUIIndex)
+        if(canPress)
         {
-            case 0:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                break;
-            case 1:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                break;
-            case 2:
-                Time.timeScale = 1;
-                SceneManager.LoadScene("Menu");
-                Destroy(DataSelectManager.Instance.gameObject);
-                break;
+            AudioManager.Instance.Stop(levelMusic);
+            switch (endLevelUIIndex)
+            {
+                case 0:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    break;
+                case 1:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    break;
+                case 2:
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("Menu");
+                    Destroy(DataSelectManager.Instance.gameObject);
+                    break;
+            }
         }
     }
 
     public void EndLevel()
     {
         currentState = LEVEL_STATE.ENDED;
+        InputDelay();
         GhostManager.Instance.DestroyAllGhosts();
         AudioManager.Instance.Find(levelMusic).source.pitch = 1.0f;
         AudioManager.Instance.Stop(levelMusic);
@@ -345,5 +349,11 @@ public class LevelManager : MonoBehaviour
         beep = false;
         yield return new WaitForSeconds(1);
         beep = true;
+    }
+
+    IEnumerator InputDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canPress = true;
     }
 }

@@ -29,7 +29,7 @@ public class TutorialVan : MonoBehaviour
 
     [SerializeField] private float _interactionRadius = 6f;
     public int numberOfStoredGhosts = 0;
-    Animator anim;
+    public Animator anim;
 
     private void Start()
     {

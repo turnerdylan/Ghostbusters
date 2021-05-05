@@ -111,6 +111,12 @@ public class TutorialPlayer : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, TutorialVan.Instance.transform.position) < TutorialVan.Instance.GetInteractionRadius())
         {
+            if(_numberOfHeldGhosts == 0)
+            {
+                AudioManager.Instance.Play("Van No Ghosts");
+                TutorialVan.Instance.anim.SetTrigger("Lights");
+                return;
+            }
             score += _numberOfHeldGhosts;
             TutorialVan.Instance.DepositGhosts(_numberOfHeldGhosts);
             _numberOfHeldGhosts = 0;
